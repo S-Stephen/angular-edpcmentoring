@@ -1,0 +1,7 @@
+{
+  "_comment": "overcome CORS issue (DEV): https://angular.io/guide/build#proxying-to-a-backend-server",
+  "/api": {
+    "target": "http://localhost:8000",
+    "secure": false
+  }
+}

@@ -1,0 +1,46 @@
+<h1 mat-dialog-title>Mentors seeking Mentees:</h1>
+<div mat-dialog-content>
+  <!-- NB mat-dialog-content will add a scrollbar -->
+
+  <div *ngIf="selected_for_invite then hasSelected else toChoose"></div>
+
+  <ng-template #hasSelected>
+
+    <table class="campl-table-bordered campl-table-striped campl-table campl-vertical-stacking-table">
+      <tbody>
+        <tr>
+          <td>{{selected_for_invite.user.name()}}</td>
+          <td>{{selected_for_invite.user.group_div()}}</td>
+          <td><span *ngFor='let line of selected_for_invite.mentee_requirements.split("\n")'>
+              {{line}}<br />
+            </span></td>
+        </tr>
+      </tbody>
+    </table>
+    <a [routerLink]="" (click)="selected_for_invite=undefined" class="campl-btn campl-primary-red">Choose again</a>
+    <a [routerLink]="" (click)="inviteMentor(selected_for_invite)" class="campl-btn campl-primary-cta">Send invite</a>
+  </ng-template>
+
+  <ng-template #toChoose>
+    <div *ngIf="(available_mentors$ | async)?.length > 0 then mentorsAvailable else noMentorsAvailable"></div>
+    <ng-template #mentorsAvailable>
+      <p>Please select from the list a Mentor to invite</p>
+
+      <table class="campl-table-bordered campl-table-striped campl-table campl-vertical-stacking-table">
+        <tbody>
+          <!-- TODO remove the pointer style to css-->
+          <tr *ngFor='let seeker of available_mentors$ | async ' (click)=selectForInvite(seeker) style="cursor:pointer">
+            <td>{{ seeker.user.name() }}</td>
+            <td>{{ seeker.user.group_div() }}</td>
+            <td><span *ngFor='let line of seeker.mentee_requirements.split("\n")'>
+                {{line}}<br />
+              </span></td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+    <ng-template #noMentorsAvailable>
+      <p>There are no Mentors currently available</p>
+    </ng-template>
+  </ng-template>
+</div>

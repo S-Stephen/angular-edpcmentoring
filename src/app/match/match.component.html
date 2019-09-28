@@ -1,0 +1,67 @@
+<div class="campl-row campl-content">
+  <div class="campl-wrap clearfix">
+    <div class="campl-content-container">
+      <h1>Match mentors with mentees</h1>
+
+      <div class="campl-column5 ng-binding">
+        <h2>Mentees searching</h2>
+        <table class="campl-table-bordered campl-table-striped campl-table campl-vertical-stacking-table">
+          <thead>
+            <tr>
+              <th><span class="campl-table-heading">Name</span>Name</th>
+              <th><span class="campl-table-heading">Division</span>Division</th>
+              <th><span class="campl-table-heading">Research group</span>Research group</th>
+              <th><span class="campl-table-heading">Mentors</span>Mentors</th>
+              <th><span class="campl-table-heading">Invites</span>Invites</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- TODO remove the pointer style to css-->
+            <tr *ngFor='let seeker of available_mentors$ | async ' (click)=matchMenteeWithMentor(seeker)
+              style="cursor:pointer">
+              <td>{{ seeker.user.name() }}</td>
+              <td>{{ seeker.user.divLetter() }}</td>
+              <td>{{ seeker.user.group() }}</td>
+              <td>{{ numMentors(seeker) }}</td>
+              <td>{{ invitesReceivedMentee(seeker) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <div class="campl-column2">&nbsp;</div>
+
+      <div class="campl-column5 ng-binding">
+        <h2>Mentors searching</h2>
+        <table class="campl-table-bordered campl-table-striped campl-table campl-vertical-stacking-table">
+          <thead>
+            <tr>
+              <th><span class="campl-table-heading">Name</span>Name</th>
+              <th><span class="campl-table-heading">Division</span>Division</th>
+              <th><span class="campl-table-heading">Research group</span>Research group</th>
+              <th><span class="campl-table-heading">Mentees</span>Mentees</th>
+              <th><span class="campl-table-heading">Invites</span>Invites</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- TODO remove the pointer style to css-->
+            <tr *ngFor='let seeker of available_mentees$ | async ' (click)=matchMentorWithMentee(seeker)
+              style="cursor:pointer">
+              <td>{{ seeker.user.name() }}</td>
+              <td>{{ seeker.user.divLetter() }}</td>
+              <td>{{ seeker.user.group() }}</td>
+              <td>{{ numMentees(seeker) }}</td>
+              <td>{{ invitesReceivedMentor(seeker) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="campl-column12">
+      <men-messages></men-messages>
+    </div>
+  </div>
+  <div>

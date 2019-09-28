@@ -1,0 +1,10 @@
+This user has pending invitations which need actioning
+
+<div *ngFor="let inv of available_seekers_invs">
+  <div [hidden]="passed.includes(inv.id)">
+    {{inv.description()}}<br />
+    <button class="campl-btn campl-primary-cta" (click)="actionInvite(inv)">Confirm</button>
+    <button class="campl-btn campl-primary-red" (click)="declineInvite(inv)">Decline</button>
+    <button class="campl-btn" (click)="passInvite(inv)">Skip</button>
+  </div>
+</div>

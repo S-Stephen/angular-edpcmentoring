@@ -1,0 +1,26 @@
+<!-- Based on the perms pf our user provide the correct links -->
+<!-- these links will be guarded by the backend! -->
+
+<!--
+  TODO search guard to display accessble routes
+  user.ismatchmaker
+  user.is_supervisor
+  user.cued_member (user.cued_member.user.get_full_name,  user.cued_member.crsid)
+
+-->
+
+<li><a href="/home">Home</a></li>
+<!-- if user.ismatchmaker -->
+<li><a href="/match">Match mentors and mentees</a></li>
+<!-- if user.is_superuser -->
+<li><a href="<!--{% url 'admin:index' %}-->">Admin interface</a></li>
+<!-- if user.cued_member -->
+<li><a href="#">
+    fullname (crsid)
+    <!--{{ user.cued_member.user.get_full_name }}
+            ({{ user.cued_member.crsid }})-->>
+  </a>
+  <ul class="campl-unstyled-list local-dropdown-menu">
+    <li><a href="<!-- url 'raven_logout' -->">Log out</a></li>
+  </ul>
+</li>
