@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { UserService } from "app/services/user.service";
+import { UserService } from "../services/user.service";
 import { Observable } from "rxjs";
-import { Currentuser } from "app/classes/currentuser";
-import { InvitationsService } from "app/services/invitations.service";
-import { Invitation } from "app/classes/invitation";
+import { Currentuser } from "../classes/currentuser";
+import { InvitationsService } from "../services/invitations.service";
+import { Invitation } from "../classes/invitation";
 import { filter, map, combineLatest } from "rxjs/operators";
 
 @Component({

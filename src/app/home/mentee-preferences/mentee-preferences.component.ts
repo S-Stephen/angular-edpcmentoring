@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { UserService } from "app/services/user.service";
-import { Currentuser } from "app/classes/currentuser";
+import { UserService } from "../../services/user.service";
+import { Currentuser } from "../../classes/currentuser";
 
 @Component({
   selector: "men-mentee-preferences",

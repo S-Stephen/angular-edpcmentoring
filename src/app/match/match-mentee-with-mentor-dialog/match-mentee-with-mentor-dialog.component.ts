@@ -7,9 +7,9 @@ import {
 import { Observable } from "rxjs";
 import { combineLatest, map } from "rxjs/operators";
 
-import { Seeker } from "app/classes/seeker";
-import { Invitation } from "app/classes/invitation";
-import { Relationship } from "app/classes/relationship";
+import { Seeker } from "../../classes/seeker";
+import { Invitation } from "../../classes/invitation";
+import { Relationship } from "../../classes/relationship";
 
 import { AvailableSeekersService } from "../../services/available-seekers.service";
 import { AvailableMentorsService } from "../../services/available-mentors.service";

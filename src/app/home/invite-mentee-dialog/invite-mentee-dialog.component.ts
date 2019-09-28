@@ -8,12 +8,12 @@ import {
 import { Seeker } from "../../classes/seeker";
 import { Member } from "../../classes/member";
 import { Relationship } from "../../classes/relationship";
-import { MenteesService } from "app/services/mentees.service";
-import { AvailableMenteesService } from "app/services/available-mentees.service";
+import { MenteesService } from "../../services/mentees.service";
+import { AvailableMenteesService } from "../../services/available-mentees.service";
 import { Observable } from "rxjs";
 import { combineLatest, map } from "rxjs/operators";
-import { InvitationsService } from "app/services/invitations.service";
-import { UserService } from "app/services/user.service";
+import { InvitationsService } from "../../services/invitations.service";
+import { UserService } from "../../services/user.service";
 
 @Component({
   selector: "men-invite-mentee-dialog",

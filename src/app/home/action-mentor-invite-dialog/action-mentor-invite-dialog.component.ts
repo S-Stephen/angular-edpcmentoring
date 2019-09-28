@@ -5,10 +5,10 @@ import {
   MAT_DIALOG_DATA
 } from "@angular/material/dialog";
 
-import { Invitation } from "app/classes/invitation";
-import { InvitationsService } from "app/services/invitations.service";
+import { Invitation } from "../../classes/invitation";
+import { InvitationsService } from "../../services/invitations.service";
 import { MenteesService } from "../../services/mentees.service";
-import { AvailableMenteesService } from "app/services/available-mentees.service";
+import { AvailableMenteesService } from "../../services/available-mentees.service";
 import { Observable } from "rxjs";
 
 @Component({

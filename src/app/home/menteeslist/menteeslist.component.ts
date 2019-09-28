@@ -8,13 +8,13 @@ import { MenteesService } from "../../services/mentees.service";
 import { MatDialog } from "@angular/material/dialog";
 import { DelMenteeDialogComponent } from "../del-mentee-dialog/del-mentee-dialog.component";
 import { Observable } from "rxjs";
-import { Currentuser } from "app/classes/currentuser";
-import { UserService } from "app/services/user.service";
+import { Currentuser } from "../../classes/currentuser";
+import { UserService } from "../../services/user.service";
 import { InviteMenteeDialogComponent } from "../invite-mentee-dialog/invite-mentee-dialog.component";
-import { InvitationsService } from "app/services/invitations.service";
+import { InvitationsService } from "../../services/invitations.service";
 import { combineLatest, map } from "rxjs/operators";
 import { ActionMentorInviteDialogComponent } from "../action-mentor-invite-dialog/action-mentor-invite-dialog.component";
-import { Invitation } from "app/classes/invitation";
+import { Invitation } from "../../classes/invitation";
 
 @Component({
   selector: "men-menteeslist",

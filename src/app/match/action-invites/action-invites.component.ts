@@ -3,7 +3,7 @@ import { Seeker } from "../../classes/seeker";
 import { AvailableSeekersService } from "../../services/available-seekers.service";
 import { InvitationsService } from "../../services/invitations.service";
 import { Observable } from "rxjs";
-import { Invitation } from "app/classes/invitation";
+import { Invitation } from "../../classes/invitation";
 
 @Component({
   selector: "men-action-invites",

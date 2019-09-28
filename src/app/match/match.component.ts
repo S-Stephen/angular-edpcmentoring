@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { MentorPreferencesComponent } from "app/home/mentor-preferences/mentor-preferences.component";
+import { MentorPreferencesComponent } from "../home/mentor-preferences/mentor-preferences.component";
 import { ShowOnDirtyErrorStateMatcher } from "@angular/material/core";
 import { filter } from "minimatch";
 import { Observable } from "rxjs";
@@ -8,9 +8,9 @@ import { MatDialog } from "@angular/material/dialog";
 import { AvailableMentorsService } from "../services/available-mentors.service";
 import { AvailableMenteesService } from "../services/available-mentees.service";
 import { AvailableSeekersService } from "../services/available-seekers.service";
-import { Seeker } from "app/classes/seeker";
-import { Invitation } from "app/classes/invitation";
-import { Relationship } from "app/classes/Relationship";
+import { Seeker } from "../classes/seeker";
+import { Invitation } from "../classes/invitation";
+import { Relationship } from "../classes/Relationship";
 
 import { MatchMentorWithMenteeDialogComponent } from "./match-mentor-with-mentee-dialog/match-mentor-with-mentee-dialog.component";
 import { MatchMenteeWithMentorDialogComponent } from "./match-mentee-with-mentor-dialog/match-mentee-with-mentor-dialog.component";
