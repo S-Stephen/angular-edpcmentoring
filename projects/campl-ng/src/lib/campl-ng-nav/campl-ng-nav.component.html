@@ -1,0 +1,27 @@
+<!-- Based on the perms pf our user provide the correct links -->
+<!-- these links will be guarded by the backend! -->
+
+<!--
+  TODO search guard to display accessble routes
+  user.ismatchmaker
+  user.is_supervisor
+  user.cued_member (user.cued_member.user.get_full_name,  user.cued_member.crsid)
+
+-->
+
+<div class="campl-wrap clearfix campl-local-navigation" id="local-nav">
+  <div class="campl-local-navigation-container">
+    <ul class="campl-unstyled-list">
+      <li #navMenuID *ngFor="let menu of (nav_menu$|async).subMenus">
+        <a *ngIf="menu.subItems.length==0; else submenu" href="{{menu.link}}">{{ menu.label }}</a>
+        <ng-template #submenu>
+          <a href="#" style="position: relative">{{ menu.label }}
+          </a>
+          <ul class="campl-unstyled-list local-dropdown-menu">
+            <li *ngFor="let subm of menu.subItems"><a href="{{subm.link}}">{{subm.label}}</a></li>
+          </ul>
+        </ng-template>
+      </li>
+    </ul>
+  </div>
+</div>

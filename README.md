@@ -1,8 +1,3 @@
-# angular-c9seux
-# EdpcmentoringNg8
- 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-c9seux)
-
 # EdpcmentoringNg8
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.2.

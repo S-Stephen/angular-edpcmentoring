@@ -12,7 +12,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist",
-            "index": "src/app/projectlight.html",
+            "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
@@ -21,6 +21,7 @@
               "src/favicon.ico",
               "src/projectlight/images/interface",
               "src/projectlight/javascripts/custom.js",
+              "src/projectlight/javascripts/custom_navonly.js",
               "src/projectlight/javascripts/libs/bootstrap-tabs.js",
               "src/projectlight/javascripts/libs/datepicker_highlighted_events.js",
               "src/projectlight/javascripts/libs/ios-orientationchange-fix.js",
@@ -133,6 +134,41 @@
               "e2e/tsconfig.e2e.json"
             ],
             "exclude": []
+          }
+        }
+      }
+    },
+    "campl-ng": {
+      "projectType": "library",
+      "root": "projects/campl-ng",
+      "sourceRoot": "projects/campl-ng/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/campl-ng/tsconfig.lib.json",
+            "project": "projects/campl-ng/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/campl-ng/src/test.ts",
+            "tsConfig": "projects/campl-ng/tsconfig.spec.json",
+            "karmaConfig": "projects/campl-ng/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/campl-ng/tsconfig.lib.json",
+              "projects/campl-ng/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

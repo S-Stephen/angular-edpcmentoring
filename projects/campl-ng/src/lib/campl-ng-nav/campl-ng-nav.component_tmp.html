@@ -1,0 +1,46 @@
+<!-- Based on the perms pf our user provide the correct links -->
+<!-- these links will be guarded by the backend! -->
+
+<!--
+  TODO search guard to display accessble routes
+  user.ismatchmaker
+  user.is_supervisor
+  user.cued_member (user.cued_member.user.get_full_name,  user.cued_member.crsid)
+
+-->
+
+<li *ngFor="let menu of (nav_menu$|async).subMenus">
+  <a *ngIf="menu.subItems.length==0; else submenu" href="{{menu.link}}">{{ menu.label }}</a>
+  <ng-template #submenu>
+    <a href="#" style="position: relative">{{ menu.label }}
+    </a>
+    <ul class="campl-unstyled-list local-dropdown-menu">
+      <li><a href="#">{{menu.label}}</a></li>
+    </ul>
+  </ng-template>
+</li>
+<!-- check custon.js should add the style and control to this in setupNavigation() -->
+<li>
+  <a href="#" style="position: relative;">
+    Alexandra Klein
+    (works?)</a>
+  <ul class="campl-unstyled-list">
+    <li><a href="/accounts/logout/">Log out</a></li>
+  </ul>
+</li>
+<li><a>{{(nav_menu$ |async).title}}</a></li>
+<li><a href="/home">Home</a></li>
+<!-- if user.ismatchmaker -->
+<li><a href="/match">Match mentors and mentees</a></li>
+<!-- if user.is_superuser -->
+<li><a href="<!--{% url 'admin:index' %}-->">Admin interface</a></li>
+<!-- if user.cued_member -->
+<li><a href="#">
+    fullname (crsid)
+    <!--{{ user.cued_member.user.get_full_name }}
+            ({{ user.cued_member.crsid }})-->>
+  </a>
+  <ul class="campl-unstyled-list local-dropdown-menu">
+    <li><a href="<!-- url 'raven_logout' -->">Log out</a></li>
+  </ul>
+</li>

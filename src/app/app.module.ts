@@ -3,13 +3,13 @@ import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
 
-import { ProjectlightNgComponent } from "./projectlight/projectlight-ng/projectlight-ng.component";
-import { ProjectlightNgContentComponent } from "./projectlight/projectlight-ng-content/projectlight-ng-content.component";
-import { ProjectlightNgHeaderComponent } from "./projectlight/projectlight-ng-header/projectlight-ng-header.component";
-import { ProjectlightNgFooterComponent } from "./projectlight/projectlight-ng-footer/projectlight-ng-footer.component";
-import { ProjectlightNgLocalfooterComponent } from "./projectlight/projectlight-ng-localfooter/projectlight-ng-localfooter.component";
-import { ProjectlightNgTitlenavComponent } from "./projectlight/projectlight-ng-titlenav/projectlight-ng-titlenav.component";
-import { ProjectlightNgNavComponent } from "./projectlight/projectlight-ng-nav/projectlight-ng-nav.component";
+//import { ProjectlightNgComponent } from "./projectlight/projectlight-ng/projectlight-ng.component";
+//import { ProjectlightNgContentComponent } from "./projectlight/projectlight-ng-content/projectlight-ng-content.component";
+//import { ProjectlightNgHeaderComponent } from "./projectlight/projectlight-ng-header/projectlight-ng-header.component";
+//import { ProjectlightNgFooterComponent } from "./projectlight/projectlight-ng-footer/projectlight-ng-footer.component";
+//import { ProjectlightNgLocalfooterComponent } from "./projectlight/projectlight-ng-localfooter/projectlight-ng-localfooter.component";
+//import { ProjectlightNgTitlenavComponent } from "./projectlight/projectlight-ng-titlenav/projectlight-ng-titlenav.component";
+//import { ProjectlightNgNavComponent } from "./projectlight/projectlight-ng-nav/projectlight-ng-nav.component";
 import { HomeComponent } from "./home/home.component";
 import { RoutingModule } from "./routes/routing.module";
 import { MatchComponent } from "./match/match.component";
@@ -37,6 +37,8 @@ import { MenteePreferencesComponent } from "./home/mentee-preferences/mentee-pre
 import { ActionMenteeInviteDialogComponent } from "./home/action-mentee-invite-dialog/action-mentee-invite-dialog.component";
 import { ActionMentorInviteDialogComponent } from "./home/action-mentor-invite-dialog/action-mentor-invite-dialog.component";
 
+//import { ProjectlightModule } from "./projectlight/projectlight.module";
+
 // below requires HTTP_INTERCEPTORS from @angular/common/http
 import { HttpErrorInterceptor } from "./http-error.interceptor";
 
@@ -44,18 +46,37 @@ import { MessageBufferService } from "./services/message-buffer.service";
 import { MessagesComponent } from "./messages/messages.component";
 import { MatchMentorWithMenteeDialogComponent } from "./match/match-mentor-with-mentee-dialog/match-mentor-with-mentee-dialog.component";
 import { MatchMenteeWithMentorDialogComponent } from "./match/match-mentee-with-mentor-dialog/match-mentee-with-mentor-dialog.component";
-import { ActionInvitesComponent } from './match/action-invites/action-invites.component';
+import { ActionInvitesComponent } from "./match/action-invites/action-invites.component";
+
+// why does import { CamplNgModule } from 'campl-ng'
+// not work after ng build campl-ng has copied the
+// files into dist?
+// Todo: replace these with correct includes
+import { CamplNgModule } from "../../projects/campl-ng/src/lib/campl-ng.module";
+//import { NavMenu } from "../../projects/campl-ng/src/lib/models/nav-menu";
+/**
+ * config object to setup the menus we would like to see
+ */
+/* const navMenu: NavMenu = {
+  title: "Navigation Menu",
+  subMenus: [
+    { label: "Home", link: "/home", subItems: [] },
+    {
+      label: "Match mentors and mentees",
+      link: "/match",
+      subItems: []
+    },
+    {
+      label: "Admin interface",
+      link: "/admin",
+      subItems: []
+    }
+  ]
+}; */
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProjectlightNgComponent,
-    ProjectlightNgContentComponent,
-    ProjectlightNgHeaderComponent,
-    ProjectlightNgFooterComponent,
-    ProjectlightNgLocalfooterComponent,
-    ProjectlightNgTitlenavComponent,
-    ProjectlightNgNavComponent,
     HomeComponent,
     MatchComponent,
     MentorslistComponent,
@@ -85,7 +106,20 @@ import { ActionInvitesComponent } from './match/action-invites/action-invites.co
     MatDialogModule,
     MatTooltipModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    //ProjectlightModule,
+    CamplNgModule.setConfig({
+      page_title: "EDPC Mentoring",
+      local_footer_col1: [
+        {
+          label: "About the Scheme",
+          link: "https://edpc.eng.cam.ac.uk/mentoring"
+        }
+      ],
+      local_footer_col2: [
+        { label: "About the EDPC", link: "https://edpc.eng.cam.ac.uk/aboutus" }
+      ]
+    })
   ],
   providers: [
     MessageBufferService,
@@ -95,7 +129,8 @@ import { ActionInvitesComponent } from './match/action-invites/action-invites.co
       multi: true
     }
   ],
-  bootstrap: [ProjectlightNgComponent],
+  bootstrap: [AppComponent],
+  //bootstrap: [ProjectlightNgComponent],
   entryComponents: [
     DelMentorDialogComponent,
     DelMenteeDialogComponent,

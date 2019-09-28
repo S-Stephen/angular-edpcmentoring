@@ -2,16 +2,41 @@
 <html lang="en">
 
 <head>
-  <title>EDPC Mentoring</title>
+  <title>EDPC Mentoring Scheme</title>
   <base href="/">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <projectlight-ng-metatags></projectlight-ng-metatags>
-  <projectlight-ng-extrahead></projectlight-ng-extrahead>
+  <script type="text/javascript" src="//use.typekit.com/hyb5bko.js"></script>
+  <script type="text/javascript">
+    try {
+      Typekit.load();
+    } catch (e) {}
+
+  </script>
+  <script type="text/javascript">
+    document.documentElement.className += " js";
+
+  </script>
+
+
 
 </head>
 
 <body>
-  <projectlight-ng></projectlight-ng>
+
+  <app-root></app-root>
+
+  <!-- placing in angular.json 'scripts' not working YET! -->
+  <script type="text/javascript" src="/projectlight/javascripts/libs/ios-orientationchange-fix.js"></script>
+  <script type="text/javascript" src="/projectlight/javascripts/libs/jquery-min.js"></script>
+  <script type="text/javascript" src="/projectlight/javascripts/libs/modernizr.js"></script>
+  <!-- We had to remove this, as we have dynamic navigation and the IIFE is not idempotent-->
+  <script type="text/javascript" src="/projectlight/javascripts/custom.js"></script>
+
 </body>
 
 </html>

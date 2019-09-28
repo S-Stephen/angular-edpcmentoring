@@ -18,6 +18,14 @@
       "es2016",
       "dom"
     ],
-    "module": "esnext"
+    "module": "esnext",
+    "paths": {
+      "campl-ng": [
+        "dist/campl-ng"
+      ],
+      "campl-ng/*": [
+        "dist/campl-ng/*"
+      ]
+    }
   }
 }

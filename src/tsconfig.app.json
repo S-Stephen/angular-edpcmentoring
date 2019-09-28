@@ -8,5 +8,13 @@
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
-  ]
+  ],
+  "paths": {
+    "campl-ng": [
+      "../../dist/campl-ng"
+    ],
+    "campl-ng/*": [
+      "../../dist/campl-ng/lib/*"
+    ]
+  }
 }
