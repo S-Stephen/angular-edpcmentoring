@@ -42,6 +42,13 @@ import { ActionMentorInviteDialogComponent } from "./home/action-mentor-invite-d
 // below requires HTTP_INTERCEPTORS from @angular/common/http
 import { HttpErrorInterceptor } from "./http-error.interceptor";
 
+// reference: https://dev.to/sanidz/angular-http-mock-interceptor-for-mocked-backend-1h5g
+// TODO chain mock-request interceptor onto http-error interceptor!
+import { HttpMockRequestInterceptor } from "./http-mock-request-interceptor"; 
+import { environment } from '../environments/environment';
+export const isMock = environment.mock;
+
+
 import { MessageBufferService } from "./services/message-buffer.service";
 import { MessagesComponent } from "./messages/messages.component";
 import { MatchMentorWithMenteeDialogComponent } from "./match/match-mentor-with-mentee-dialog/match-mentor-with-mentee-dialog.component";
@@ -125,7 +132,7 @@ import { CamplNgModule } from "../../projects/campl-ng/src/lib/campl-ng.module";
     MessageBufferService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HttpErrorInterceptor,
+      useClass: isMock ? HttpMockRequestInterceptor : HttpErrorInterceptor,
       multi: true
     }
   ],
