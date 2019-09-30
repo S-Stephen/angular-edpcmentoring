@@ -40,7 +40,7 @@ export class AppComponent {
   ngOnInit() {
     // create and subscribe to the user service - (move from the home app)
     //this.userService.response$.subscribe(user => (this.currentUser = user));
-    this.runJquery();
+    this.runJquery1();
     this.userService.fetchCurrent();
     // TODO place this in its own service
     this.nav_menu$ = this.userService.response$.pipe(
@@ -84,6 +84,160 @@ export class AppComponent {
     );
   }
 
+  runJquery1(){
+
+
+    $(document).ready(function(){
+      $("h1").click(function(){
+        alert("jquery ran")
+      });
+        
+      if (!projectlight) {
+        var projectlight = {};
+      }
+  /*
+    projectlight.setGlobalNavigationColumnHeight = function(){
+      //for each section, get children, measure height of each, set height of each child
+      $(".campl-global-navigation-outer").each(function(){
+        var $childrenOfList = $(this).find(".campl-global-navigation-container");
+        var maxColumnHeight = Math.max($childrenOfList.eq(0).height(), $childrenOfList.eq(1).height(), $childrenOfList.eq(2).height());
+        
+        //why is the col height 0 here?
+        // console.log(maxColumnHeight)
+        //hardcoded to 300 for time being
+        $childrenOfList.css({'min-height':300} )
+      })
+    }
+
+    projectlight.removeGlobalNavigationColumnHeight = function(){
+      $('.campl-global-navigation-container').removeAttr("style");
+    }
+
+    projectlight.setSectionListChildrenColumnHeight = function(){
+      //for each section list, get section-list-children, measure height of each, set height of each child
+      $(".campl-section-list-row").each(function(){
+        var $childrenOfList = $(this).find(".campl-section-list-children");
+        var maxColumnHeight = Math.max($childrenOfList.eq(0).height(), $childrenOfList.eq(1).height(), $childrenOfList.eq(2).height());
+        $childrenOfList.css({'min-height':maxColumnHeight} )
+      })
+    }
+
+    projectlight.removeSectionListChildrenColumnHeight = function(){
+      $('.campl-section-list-children').removeAttr("style");
+    }
+
+    projectlight.setNavigationColumnHeight = function(){
+      //reset all values to begin with to ensure layout is changing on ipad orientation change
+      $('.campl-global-navigation li a').removeAttr("style");
+
+      var maxColumnHeight = Math.max($('.campl-global-navigation li a').eq(0).height(), $('.campl-global-navigation li a').eq(1).height(), $('.campl-global-navigation li a').eq(2).height());
+      $('.campl-global-navigation li a').css({'min-height':maxColumnHeight} )
+    };
+
+    //force main content column min-height to the same height as the navigation column	
+    projectlight.setContentColumnHeight = function(){
+      
+      //reset before adding further height
+      $('.campl-tertiary-navigation, .campl-secondary-content, .campl-main-content').removeAttr("style");
+
+      var secondaryContentRecessedHeight = 0;
+
+      if($('.campl-secondary-content').hasClass("campl-recessed-secondary-content")) {
+        secondaryContentRecessedHeight = ($('.campl-secondary-content').parent().width() / 100) * 36.6;
+      }
+
+      var maxColumnHeight = Math.max($('.campl-secondary-content').height() - secondaryContentRecessedHeight, $('.campl-tertiary-navigation').height(), $(".campl-main-content").height());
+
+      if($('.campl-tertiary-navigation').length > 0){
+        $('.campl-tertiary-navigation, .campl-secondary-content, .campl-main-content').css({'min-height':maxColumnHeight+50} )
+        //uneven height distribution on nav and sec columns
+      }else{
+        $('.campl-tertiary-navigation, .campl-secondary-content, .campl-main-content').css({'min-height':maxColumnHeight} )
+        $('.campl-secondary-content').css({'min-height':maxColumnHeight +50} 	)
+      }
+
+
+      if($('.campl-secondary-content').hasClass("campl-recessed-secondary-content")){
+        $('.campl-secondary-content').css({'min-height':maxColumnHeight + secondaryContentRecessedHeight } 	)
+      }
+      
+      
+      $('.campl-secondary-content').show();
+    };
+
+    projectlight.removeNavigationColumnHeight = function(){
+      //had to remove style attribute, as setting height back to auto would not work
+      $('.campl-global-navigation li a').removeAttr("style");
+    };
+
+    projectlight.removeContentColumnHeight = function(){
+      //had to remove style attribute, as setting height back to auto would not work
+      $('.campl-tertiary-navigation, .campl-secondary-content, .campl-main-content').removeAttr("style");
+      $('.campl-secondary-content, .campl-main-content').show();
+    };
+
+    projectlight.setFooterColumnsHeight = function(){
+      var highestglobalFooter = Math.max(projectlight.$globalFooterColumns.eq(0).height(), projectlight.$globalFooterColumns.eq(1).height(),projectlight.$globalFooterColumns.eq(2).height(),projectlight.$globalFooterColumns.eq(3).height())
+      var highestLocalFooter = Math.max(projectlight.$localFooterColumns.eq(0).height(), projectlight.$localFooterColumns.eq(1).height(),projectlight.$localFooterColumns.eq(2).height(),projectlight.$localFooterColumns.eq(3).height())
+      
+      projectlight.$localFooterColumns.height(highestLocalFooter);
+      projectlight.$globalFooterColumns.height(highestglobalFooter);
+    };
+
+    projectlight.removeFooterColumnsHeight = function(){
+      projectlight.$localFooter.height("auto");
+      projectlight.$localFooterColumns.height("auto");
+      projectlight.$globalFooterColumns.height("auto");
+    };*/			
+      $("body").append("<p style='color:red;z-index:100;position:absolute;top:5px;left:5px' id='pagewidth'></p>")
+      
+      //caching variables to refer to DOM elements in code
+      projectlight.$window = $(window);
+      projectlight.$wrap = $(".campl-wrap");
+      projectlight.$rows = $(".campl-row");
+
+      //header items
+      projectlight.$globalHdrCtrl = $("#global-header-controls");
+      projectlight.$siteSearchBtn = $("#site-search-btn");
+      projectlight.$quicklinks = $(".campl-quicklinks");
+
+      //navigation items
+      projectlight.$globalNavOuter = $(".campl-global-navigation-outer");
+      projectlight.$globalNavLI = $(".campl-global-navigation li");
+      
+      //instantiate footer columns on page load
+      projectlight.$localFooter = $('.campl-local-footer');
+      projectlight.$globalFooter = $('.campl-global-footer');
+
+      projectlight.$localFooterColumns = projectlight.$localFooter.find('.campl-column3');
+      projectlight.$globalFooterColumns = projectlight.$globalFooter.find('.campl-column3');
+
+        //set namespaced variable to determine layout of menu
+        //using modernizr to detect if media query is valid and has been triggered
+        /*if(Modernizr.mq('only screen and (max-width: 767px)')){
+          projectlight.mobileLayout  = true;
+          
+          //call function to remove uniform column height in footers for mobile layout
+          projectlight.removeGlobalNavigationColumnHeight();
+          projectlight.removeNavigationColumnHeight();
+          projectlight.removeSectionListChildrenColumnHeight();
+          projectlight.removeContentColumnHeight();
+          projectlight.removeFooterColumnsHeight();
+        
+        }else{
+          projectlight.mobileLayout  = false;	
+          
+          //call function to create uniform column height in footers for desktop/tablet users
+          projectlight.setGlobalNavigationColumnHeight();
+          projectlight.setNavigationColumnHeight();
+          projectlight.setSectionListChildrenColumnHeight();
+          projectlight.setContentColumnHeight();
+          projectlight.setFooterColumnsHeight();
+        }*/
+        
+    });
+  }
+
   runJquery(){
 
     $(document).ready(function(){
@@ -92,11 +246,12 @@ export class AppComponent {
       });
         
       if (!projectlight) {
-        var projectlight: any = {};
+        var projectlight = {};
       }
-
+    });
+/*
       //set up initial page variables - cached Jquery variables
-      projectlight.init = function(){
+      //projectlight.init = function(){
         
         //temporary debugging element to allow developer to see exact screen width during development
         $("body").append("<p style='color:red;z-index:100;position:absolute;top:5px;left:5px' id='pagewidth'></p>")
@@ -260,7 +415,7 @@ export class AppComponent {
         })
         
         //Show page elements which have been hidden to handle FOUC
-        projectlight.$globalHdrCtrl.show();
+        //projectlight.$globalHdrCtrl.show();
 
         //fake last psuedo class to help layout in IE8. This removes the double borders from nested LI
         //which was visually confusing
@@ -268,7 +423,7 @@ export class AppComponent {
           $(this).find("li").last().addClass("campl-last")
         })
         
-      }
+      //}
 
     //});
 
