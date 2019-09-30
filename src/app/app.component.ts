@@ -11,6 +11,10 @@ import { NavMenuItem } from "../../projects/campl-ng/src/lib/models/nav-menu-ite
 
 // used to build the navigation observable - debugging
 import { of } from "rxjs";
+import * as $ from 'jquery';
+//(or)
+//declare var $: any;
+
 
 @Component({
   selector: "app-root",
@@ -34,7 +38,11 @@ export class AppComponent {
   ngOnInit() {
     // create and subscribe to the user service - (move from the home app)
     //this.userService.response$.subscribe(user => (this.currentUser = user));
-
+$(document).ready(function(){
+        $("h1").click(function(){
+          alert("jquery ran")
+        });
+    });
     this.userService.fetchCurrent();
     // TODO place this in its own service
     this.nav_menu$ = this.userService.response$.pipe(

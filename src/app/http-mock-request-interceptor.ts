@@ -5,7 +5,7 @@ import * as user from './mock/user.json';
 
 const urls = [
     {
-        url: 'https://angul/api/current/',
+        url: '/api/current/',
         json: user
     }
 ];
