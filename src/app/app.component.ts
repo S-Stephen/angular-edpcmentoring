@@ -91,7 +91,15 @@ export class AppComponent {
           alert("jquery ran")
         });
       
-    
+
+    });
+    (function($) {
+
+//create singleton to namespace js
+if (!projectlight) {
+  var projectlight = {};
+}
+
 /*
 
     projectlight.setGlobalNavigationColumnHeight = function(){
@@ -1075,9 +1083,10 @@ export class AppComponent {
 
       
     })
-    */
+    
+
+})(jQuery);
 
 
-    });
   }
 }
