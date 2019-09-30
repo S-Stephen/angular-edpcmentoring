@@ -93,13 +93,14 @@ export class AppComponent {
       
 
     });
+
     /*
     (function($) {
 
-//create singleton to namespace js
-if (!projectlight) {
-  var projectlight = {};
-}
+    //create singleton to namespace js
+    if (!projectlight) {
+      var projectlight = {};
+    }
 
 
 
@@ -196,9 +197,6 @@ if (!projectlight) {
       projectlight.$localFooterColumns.height("auto");
       projectlight.$globalFooterColumns.height("auto");
     };			
-
-
-
 
     projectlight.initTables = function(){
       // FULLY EXPANDED RESPONSIVE TABLE SOLUTION 
@@ -1085,10 +1083,14 @@ if (!projectlight) {
 
       
     })
-*/  
 
-})(jQuery);
+    })(jQuery);
 
-*
+   */
+
+
+    //$(function() {
+    //  alert("hello world")  
+    //})
   }
 }

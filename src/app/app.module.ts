@@ -3,14 +3,6 @@ import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
 
-//import { ProjectlightNgComponent } from "./projectlight/projectlight-ng/projectlight-ng.component";
-//import { ProjectlightNgContentComponent } from "./projectlight/projectlight-ng-content/projectlight-ng-content.component";
-//import { ProjectlightNgHeaderComponent } from "./projectlight/projectlight-ng-header/projectlight-ng-header.component";
-//import { ProjectlightNgFooterComponent } from "./projectlight/projectlight-ng-footer/projectlight-ng-footer.component";
-//import { ProjectlightNgLocalfooterComponent } from "./projectlight/projectlight-ng-localfooter/projectlight-ng-localfooter.component";
-//import { ProjectlightNgTitlenavComponent } from "./projectlight/projectlight-ng-titlenav/projectlight-ng-titlenav.component";
-//import { ProjectlightNgNavComponent } from "./projectlight/projectlight-ng-nav/projectlight-ng-nav.component";
-import { HomeComponent } from "./home/home.component";
 import { RoutingModule } from "./routes/routing.module";
 // HttpClientXsrfModule -> https://stackoverflow.com/questions/18156452/django-csrf-token-angularjs
 import {
