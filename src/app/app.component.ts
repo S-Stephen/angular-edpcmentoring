@@ -214,25 +214,25 @@ export class AppComponent {
 
         //set namespaced variable to determine layout of menu
         //using modernizr to detect if media query is valid and has been triggered
-        /*if(Modernizr.mq('only screen and (max-width: 767px)')){
+        if(Modernizr.mq('only screen and (max-width: 767px)')){
           projectlight.mobileLayout  = true;
           
           //call function to remove uniform column height in footers for mobile layout
-          projectlight.removeGlobalNavigationColumnHeight();
-          projectlight.removeNavigationColumnHeight();
-          projectlight.removeSectionListChildrenColumnHeight();
-          projectlight.removeContentColumnHeight();
-          projectlight.removeFooterColumnsHeight();
+        //  projectlight.removeGlobalNavigationColumnHeight();
+        //  projectlight.removeNavigationColumnHeight();
+        //  projectlight.removeSectionListChildrenColumnHeight();
+        //  projectlight.removeContentColumnHeight();
+        //  projectlight.removeFooterColumnsHeight();
         
         }else{
           projectlight.mobileLayout  = false;	
           
           //call function to create uniform column height in footers for desktop/tablet users
-          projectlight.setGlobalNavigationColumnHeight();
-          projectlight.setNavigationColumnHeight();
-          projectlight.setSectionListChildrenColumnHeight();
-          projectlight.setContentColumnHeight();
-          projectlight.setFooterColumnsHeight();
+          //projectlight.setGlobalNavigationColumnHeight();
+          //projectlight.setNavigationColumnHeight();
+          //projectlight.setSectionListChildrenColumnHeight();
+          //projectlight.setContentColumnHeight();
+          //projectlight.setFooterColumnsHeight();
         }*/
         
     });
