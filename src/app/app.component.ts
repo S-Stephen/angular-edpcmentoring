@@ -235,7 +235,7 @@ export class AppComponent {
           //projectlight.setContentColumnHeight();
           //projectlight.setFooterColumnsHeight();
         }*/
-        //console.log(Modernizr.mq('only screen'));
+        console.log(Modernizr.mq('only screen'));
         
     });
   }
