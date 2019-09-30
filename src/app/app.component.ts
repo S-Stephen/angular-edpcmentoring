@@ -234,7 +234,7 @@ export class AppComponent {
           //projectlight.setSectionListChildrenColumnHeight();
           //projectlight.setContentColumnHeight();
           //projectlight.setFooterColumnsHeight();
-        }*/
+        }
         
     });
   }
