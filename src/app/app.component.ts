@@ -95,7 +95,7 @@ export class AppComponent {
       if (!projectlight) {
         var projectlight = {};
       }
-  /*
+    /*
     projectlight.setGlobalNavigationColumnHeight = function(){
       //for each section, get children, measure height of each, set height of each child
       $(".campl-global-navigation-outer").each(function(){
@@ -189,6 +189,7 @@ export class AppComponent {
       projectlight.$localFooterColumns.height("auto");
       projectlight.$globalFooterColumns.height("auto");
     };*/			
+
       $("body").append("<p style='color:red;z-index:100;position:absolute;top:5px;left:5px' id='pagewidth'></p>")
       
       //caching variables to refer to DOM elements in code
@@ -214,7 +215,7 @@ export class AppComponent {
 
         //set namespaced variable to determine layout of menu
         //using modernizr to detect if media query is valid and has been triggered
-        /if(Modernizr.mq('only screen and (max-width: 767px)')){
+        if(Modernizr.mq('only screen and (max-width: 767px)')){
           projectlight.mobileLayout  = true;
           
           //call function to remove uniform column height in footers for mobile layout
@@ -233,7 +234,7 @@ export class AppComponent {
           //projectlight.setSectionListChildrenColumnHeight();
           //projectlight.setContentColumnHeight();
           //projectlight.setFooterColumnsHeight();
-        }
+        }*/
         
     });
   }
