@@ -12,30 +12,17 @@ import { AppComponent } from "./app.component";
 //import { ProjectlightNgNavComponent } from "./projectlight/projectlight-ng-nav/projectlight-ng-nav.component";
 import { HomeComponent } from "./home/home.component";
 import { RoutingModule } from "./routes/routing.module";
-import { MatchComponent } from "./match/match.component";
-
 // HttpClientXsrfModule -> https://stackoverflow.com/questions/18156452/django-csrf-token-angularjs
 import {
   HttpClientModule,
   HttpClientXsrfModule,
   HTTP_INTERCEPTORS
 } from "@angular/common/http";
-import { MentorslistComponent } from "./home/mentorslist/mentorslist.component";
-import { MenteeslistComponent } from "./home/menteeslist/menteeslist.component";
-
-import { DelMentorDialogComponent } from "./home/del-mentor-dialog/del-mentor-dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatButtonModule } from "@angular/material/button";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { DelMenteeDialogComponent } from "./home/del-mentee-dialog/del-mentee-dialog.component";
-import { InviteMentorDialogComponent } from "./home/invite-mentor-dialog/invite-mentor-dialog.component";
-import { InviteMenteeDialogComponent } from "./home/invite-mentee-dialog/invite-mentee-dialog.component";
 import { ContenteditableDirective } from "./components/directives/contenteditable.directive";
-import { MentorPreferencesComponent } from "./home/mentor-preferences/mentor-preferences.component";
-import { MenteePreferencesComponent } from "./home/mentee-preferences/mentee-preferences.component";
-import { ActionMenteeInviteDialogComponent } from "./home/action-mentee-invite-dialog/action-mentee-invite-dialog.component";
-import { ActionMentorInviteDialogComponent } from "./home/action-mentor-invite-dialog/action-mentor-invite-dialog.component";
 
 //import { ProjectlightModule } from "./projectlight/projectlight.module";
 
@@ -51,10 +38,6 @@ export const isMock = environment.mock;
 
 import { MessageBufferService } from "./services/message-buffer.service";
 import { MessagesComponent } from "./messages/messages.component";
-import { MatchMentorWithMenteeDialogComponent } from "./match/match-mentor-with-mentee-dialog/match-mentor-with-mentee-dialog.component";
-import { MatchMenteeWithMentorDialogComponent } from "./match/match-mentee-with-mentor-dialog/match-mentee-with-mentor-dialog.component";
-import { ActionInvitesComponent } from "./match/action-invites/action-invites.component";
-
 // why does import { CamplNgModule } from 'campl-ng'
 // not work after ng build campl-ng has copied the
 // files into dist?
@@ -84,23 +67,8 @@ import { CamplNgModule } from "../../projects/campl-ng/src/lib/campl-ng.module";
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    MatchComponent,
-    MentorslistComponent,
-    MenteeslistComponent,
-    DelMentorDialogComponent,
-    DelMenteeDialogComponent,
-    InviteMentorDialogComponent,
-    InviteMenteeDialogComponent,
     ContenteditableDirective,
-    MentorPreferencesComponent,
-    MenteePreferencesComponent,
-    ActionMenteeInviteDialogComponent,
-    ActionMentorInviteDialogComponent,
     MessagesComponent,
-    MatchMentorWithMenteeDialogComponent,
-    MatchMenteeWithMentorDialogComponent,
-    ActionInvitesComponent
   ],
   imports: [
     BrowserModule,
@@ -139,14 +107,6 @@ import { CamplNgModule } from "../../projects/campl-ng/src/lib/campl-ng.module";
   bootstrap: [AppComponent],
   //bootstrap: [ProjectlightNgComponent],
   entryComponents: [
-    DelMentorDialogComponent,
-    DelMenteeDialogComponent,
-    InviteMentorDialogComponent,
-    InviteMenteeDialogComponent,
-    ActionMentorInviteDialogComponent,
-    ActionMenteeInviteDialogComponent,
-    MatchMentorWithMenteeDialogComponent,
-    MatchMenteeWithMentorDialogComponent
   ]
 })
 export class AppModule {}

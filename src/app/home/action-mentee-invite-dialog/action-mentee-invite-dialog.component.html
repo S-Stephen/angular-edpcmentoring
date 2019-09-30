@@ -1,9 +1,0 @@
-<h1 mat-dialog-title>Your invites: {{ ( data.invites$ | async )?.length }}</h1>
-<div mat-dialog-content>
-
-  <div *ngFor="let inv of data.invites$ | async">
-    {{ inv.created_on }} {{ inv.mentor.name() }} <a [routerLink]="" (click)="acceptInvite($event, inv)"
-      class="campl-btn campl-primary-cta">Accept</a>/<a [routerLink]="" (click)="declineInvite($event, inv)"
-      class="campl-btn campl-primary-red">Decline</a>
-  </div>
-</div>
