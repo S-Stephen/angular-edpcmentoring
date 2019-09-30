@@ -100,7 +100,7 @@ if (!projectlight) {
   var projectlight = {};
 }
 
-/*
+
 
     projectlight.setGlobalNavigationColumnHeight = function(){
       //for each section, get children, measure height of each, set height of each child
@@ -283,8 +283,9 @@ if (!projectlight) {
       
     }	
 
-    /**  LOCAL NAVIGATION CONTROLS updated code taken from sony.com 
+    //  LOCAL NAVIGATION CONTROLS updated code taken from sony.com 
     //this controls both the dropdowns and graphical style of the desktop navigation and the sliding panels of the mobile navigation
+    
     projectlight.localNav=(function(){
       var $openMenu,$navigation,$navContainer,$topUL,$topListItems,$allListItems,$links,$secondLevelListitems,$allMenuLists,n,$allNavLinks,menuPosition=0,m;
       return{
@@ -906,7 +907,7 @@ if (!projectlight) {
         })
       }
     }
-
+/*
     //DOM ready 
     $(function() {
 
@@ -1083,7 +1084,7 @@ if (!projectlight) {
 
       
     })
-    
+*/  
 
 })(jQuery);
 
