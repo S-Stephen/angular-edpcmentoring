@@ -16,7 +16,7 @@ import $ from 'jquery';
 //(or)
 //https://github.com/angular/angular-cli/wiki/stories-third-party-lib
 //declare var $: any;
-import * as Modernizr from 'modernizr';
+import Modernizr from 'modernizr';
 
 @Component({
   selector: "app-root",
@@ -40,7 +40,7 @@ export class AppComponent {
   ngOnInit() {
     // create and subscribe to the user service - (move from the home app)
     //this.userService.response$.subscribe(user => (this.currentUser = user));
-    this.runJquery();
+    //this.runJquery();
     this.userService.fetchCurrent();
     // TODO place this in its own service
     this.nav_menu$ = this.userService.response$.pipe(
