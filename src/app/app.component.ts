@@ -11,9 +11,10 @@ import { NavMenuItem } from "../../projects/campl-ng/src/lib/models/nav-menu-ite
 
 // used to build the navigation observable - debugging
 import { of } from "rxjs";
-import * as $ from 'jquery';
+//import * as $ from 'jquery';
 //(or)
-//declare var $: any;
+//https://github.com/angular/angular-cli/wiki/stories-third-party-lib
+declare var $: any;
 
 
 @Component({
