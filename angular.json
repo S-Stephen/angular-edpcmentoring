@@ -36,7 +36,7 @@
               "src/projectlight/stylesheets/full-stylesheet.css",
               "src/projectlight/stylesheets/styleguide.css"
             ],
-            "scripts":["jquery.min.js","assets/javascripts/libs/modernizr.js"]
+            "scripts":["./node_modules/jquery/dist/jquery.min.js","src/assets/javascripts/libs/modernizr.js"]
           },
           "configurations": {
             "production": {
