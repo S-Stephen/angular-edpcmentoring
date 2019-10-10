@@ -91,10 +91,10 @@ import { CamplNgModule } from "../../projects/campl-ng/src/lib/campl-ng.module";
         {link:"http://www.cam.ac.uk/current-students", label: "For current students"},
         {link:"http://www.alumni.cam.ac.uk", label:"For alumni"},
         {link:"http://www.cam.ac.uk/for-business",label:"For business"},
-        {link:"http://www.cam.ac.uk/colleges-and-departments",label:"Colleges &amp; departments"},
-        {link:"http://www.lib.cam.ac.uk/libraries/",label:"Libraries &amp; facilities"},
-        {link:"http://www.cam.ac.uk/museums-and-collections",label:"Museums &amp; collections"},
-        {link:"http://www.cam.ac.uk/email-and-phone-search",label:"Email &amp; phone search"}
+        {link:"http://www.cam.ac.uk/colleges-and-departments",label:"Colleges & departments"},
+        {link:"http://www.lib.cam.ac.uk/libraries/",label:"Libraries & facilities"},
+        {link:"http://www.cam.ac.uk/museums-and-collections",label:"Museums & collections"},
+        {link:"http://www.cam.ac.uk/email-and-phone-search",label:"Email & phone search"}
       ]
     })
   ],
