@@ -24,7 +24,8 @@ export class CamplService {
       "local_footer_col1",
       "local_footer_col2",
       "local_footer_col3",
-      "local_footer_col4"
+      "local_footer_col4",
+      "quicklinks"
     ].forEach(key => {
       if (!this.config[key]) this.config[key] = [];
     });

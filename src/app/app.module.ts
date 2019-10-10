@@ -23,7 +23,7 @@ import { HttpErrorInterceptor } from "./http-error.interceptor";
 
 // reference: https://dev.to/sanidz/angular-http-mock-interceptor-for-mocked-backend-1h5g
 // TODO chain mock-request interceptor onto http-error interceptor!
-import { HttpMockRequestInterceptor } from "./http-mock-request-interceptor"; 
+import { HttpMockRequestInterceptor } from "./http-mock-request-interceptor";
 import { environment } from '../environments/environment';
 export const isMock = environment.mock;
 
@@ -85,6 +85,16 @@ import { CamplNgModule } from "../../projects/campl-ng/src/lib/campl-ng.module";
       ],
       local_footer_col2: [
         { label: "About the EDPC", link: "https://edpc.eng.cam.ac.uk/aboutus" }
+      ],
+      quicklinks: [
+        {link:"http://www.cam.ac.uk/for-staff", label: "For staff"},
+        {link:"http://www.cam.ac.uk/current-students", label: "For current students"},
+        {link:"http://www.alumni.cam.ac.uk", label:"For alumni"},
+        {link:"http://www.cam.ac.uk/for-business",label:"For business"},
+        {link:"http://www.cam.ac.uk/colleges-and-departments",label:"Colleges &amp; departments"},
+        {link:"http://www.lib.cam.ac.uk/libraries/",label:"Libraries &amp; facilities"},
+        {link:"http://www.cam.ac.uk/museums-and-collections",label:"Museums &amp; collections"},
+        {link:"http://www.cam.ac.uk/email-and-phone-search",label:"Email &amp; phone search"}
       ]
     })
   ],

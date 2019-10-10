@@ -116,6 +116,10 @@ Also required is to replace the index.html file with something like the followin
       ],
       local_footer_col2: [
         { label: "About the EDPC", link: "https://edpc.eng.cam.ac.uk/aboutus" }
+      ],
+      quicklinks: [
+          { label: "my label 1", link: "http://my link 1" },
+          { label: "my label 2", link: "http://my link 2" }
       ]
     })
     ,...

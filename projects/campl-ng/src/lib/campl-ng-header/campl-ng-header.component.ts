@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { CamplService } from "../services/campl.service";
 
 @Component({
   selector: "campl-ng-header",
@@ -6,7 +7,13 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./campl-ng-header.component.css"]
 })
 export class CamplNgHeaderComponent implements OnInit {
-  constructor() {}
+  constructor(public campl_config: CamplService) {}
 
-  ngOnInit() {}
+  public config: any;
+  // TODO change these to Menu objects (link and label)
+  public quicklinks: any;
+
+  ngOnInit() {
+    this.config = this.campl_config.getConfig();
+    this.quicklinks = this.config.quicklinks;}
 }

@@ -2300,7 +2300,7 @@ table th{border-bottom:#e4e4e4 1px solid}
 
 /* 10.0 FOUC ----------------------------------------------------------------------------------------------*/
 
-.js #global-header-controls{display:none}
+/*.js #global-header-controls{display:none}*/
 .js .campl-carousel li{display:none}
 .js .campl-secondary-content{display:none}
 
