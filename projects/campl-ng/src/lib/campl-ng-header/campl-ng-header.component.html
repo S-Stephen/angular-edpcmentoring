@@ -20,9 +20,11 @@
     </div>
 
     <div class="campl-column2">
-      <div class="campl-quicklinks">
+      <div class="campl-quicklinks" (click)="open_quicklinks=!open_quicklinks" [ngClass]="{'campl-quicklinks-open':open_quicklinks}">
       <a href="#" class="campl-open-quicklinks clearfix"><span class="campl-quicklinks-txt">Quick links</span><span class="campl-icon-dropdown ir"></span></a>
-      TODO: populate our quicklinks and all the actions! in an angular way!
+      <ul class="campl-unstyled-list campl-quicklinks-list campl-global-navigation-container column12 clearfix">
+        <li *ngFor="let link of quicklinks; let isLast = last" [class.last]="isLast"><a href="{{link.link}}">{{link.label}}</a></li>
+      </ul>
       </div>
     </div>
 

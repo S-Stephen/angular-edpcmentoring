@@ -12,6 +12,7 @@ export class CamplNgHeaderComponent implements OnInit {
   public config: any;
   // TODO change these to Menu objects (link and label)
   public quicklinks: any;
+  public open_quicklinks: boolean = false;
 
   ngOnInit() {
     this.config = this.campl_config.getConfig();
