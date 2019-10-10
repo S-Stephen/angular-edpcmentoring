@@ -1,12 +1,24 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { NavMenuServiceService } from './nav-menu-service.service';
+import { NavMenuService } from "./nav-menu.service";
+import { NavMenuConfigService } from "./nav-menu-config.service";
 
-describe('NavMenuServiceService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+describe("NavMenuService", () => {
+  beforeEach(() => {
+    let navMenuConfig: any = {};
+    TestBed.configureTestingModule({
+      providers: [
+        NavMenuService,
+        {
+          provide: NavMenuConfigService,
+          useValue: navMenuConfig
+        }
+      ]
+    });
+  });
 
-  it('should be created', () => {
-    const service: NavMenuServiceService = TestBed.get(NavMenuServiceService);
+  it("should be created", () => {
+    const service: NavMenuService = TestBed.get(NavMenuService);
     expect(service).toBeTruthy();
   });
 });

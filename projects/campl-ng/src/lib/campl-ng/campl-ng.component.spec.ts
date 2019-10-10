@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { CamplNgComponent } from "./campl-ng.component";
+import { CamplNgTitlenavComponent } from "../campl-ng-titlenav/campl-ng-titlenav.component";
+import { of } from "rxjs/internal/observable/of";
+import { NavMenu } from "../models/nav-menu";
+import { Observable } from "rxjs";
 
 // Router outlet must be included in the parent app
 @Component({
@@ -19,7 +23,18 @@ class MockCamplNgHeaderComponent {}
   selector: "campl-ng-titlenav",
   template: ""
 })
-class MockCamplNgTitlenavComponent {}
+class MockCamplNgTitlenavComponent {
+  @Input()
+  nav_menu$: Observable<NavMenu>;
+  @Input()
+  nav_menu: NavMenu;
+}
+
+@Component({
+  selector: "campl-ng-messages",
+  template: ""
+})
+class MockCamplNgMessagesComponent {}
 
 @Component({
   selector: "campl-ng-localfooter",
@@ -45,7 +60,8 @@ describe("CamplNgComponent", () => {
         MockCamplNgFooterComponent,
         MockCamplNgLocalfooterComponent,
         MockCamplNgTitlenavComponent,
-        MockCamplNgHeaderComponent
+        MockCamplNgHeaderComponent,
+        MockCamplNgMessagesComponent
       ]
     }).compileComponents();
   }));
@@ -53,6 +69,9 @@ describe("CamplNgComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CamplNgComponent);
     component = fixture.componentInstance;
+    // this needs to be set so the template can pass it 'down'
+    let navm = {} as NavMenu;
+    component.nav_menu$ = of(navm);
     fixture.detectChanges();
   });
 

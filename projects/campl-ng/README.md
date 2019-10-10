@@ -139,3 +139,19 @@ Generate an observable which will generate the content and pass these to the roo
 TODO produce a schematic (https://angular.io/guide/schematics-for-libraries) to action the above (next time we use this library?)
 
 The above should then be replaced with ng add command - hopefully
+
+##### Configuration required in your app.module.ts file:
+
+```
+  @NgModule({
+    ...
+    providers: [
+      ...
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: HttpErrorInterceptor,
+        multi: true
+      }
+    ]
+  })
+```

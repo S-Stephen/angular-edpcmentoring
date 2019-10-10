@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, ViewEncapsulation } from "@angular/core";
 import { NavMenu } from "../models/nav-menu";
 import { Observable } from "rxjs/Observable";
 
@@ -8,7 +8,13 @@ import { Observable } from "rxjs/Observable";
 @Component({
   selector: "campl-ng",
   templateUrl: "./campl-ng.component.html",
-  styleUrls: ["./campl-ng.component.css"]
+  //styles: ["h1 { background-color: red }"]
+  //styleUrls: ["./campl-ng.component.css"],
+  styleUrls: [
+    "./full-stylesheet-base64.css",
+    "./campl-ng.component-custom.css"
+  ],
+  encapsulation: ViewEncapsulation.None // required to provide style to others
 })
 export class CamplNgComponent implements OnInit {
   // TODO given this input can we generate a service that we can inject
