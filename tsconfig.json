@@ -26,6 +26,9 @@
       "campl-ng/*": [
         "dist/campl-ng/*"
       ]
-    }
+    },
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   }
 }
