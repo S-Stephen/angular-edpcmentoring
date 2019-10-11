@@ -28,6 +28,7 @@ import { NavMenu } from "./models/nav-menu";
 import { BrowserModule } from "@angular/platform-browser";
 import { TopListHoverDirective } from "./components/top-list-hover.directive";
 import { CamplNgMessagesComponent } from "./campl-ng-messages/campl-ng-messages.component";
+import { CamplNgQuicklinksComponent } from './campl-ng-quicklinks/campl-ng-quicklinks.component';
 
 // Service to load the jQuery IIFE
 //import { DynamicScriptLoaderService } from "./services/dynamic-script-loader.service";
@@ -43,7 +44,8 @@ import { CamplNgMessagesComponent } from "./campl-ng-messages/campl-ng-messages.
     CamplNgNavComponent,
     CamplNgTitlenavComponent,
     TopListHoverDirective,
-    CamplNgMessagesComponent
+    CamplNgMessagesComponent,
+    CamplNgQuicklinksComponent
   ],
   // todo: these should be peer dependancies?
   imports: [RouterModule, BrowserModule],
