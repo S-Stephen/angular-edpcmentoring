@@ -1,7 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 
+import { By } from "@angular/platform-browser";
 import { CamplNgQuicklinksComponent } from './campl-ng-quicklinks.component';
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, DebugElement } from '@angular/core';
 
 import { CamplService } from '../services/campl.service'
 
@@ -20,7 +21,10 @@ class TestQuicklinks{}
 class MockCamplService {
     private config: any;
     public getConfig(): any {
-        return this.config={};
+        return this.config=[
+        {'link':'testlink1',label:'label 1'},
+        {'link':'testlink2',label:'label 2'},
+        {'link':'testlink3',label:'label 3'}];
     }
 }
 
@@ -28,6 +32,7 @@ class MockCamplService {
 fdescribe('CamplNgQuicklinksComponent', () => {
   let component: CamplNgQuicklinksComponent;
   let fixture: ComponentFixture<CamplNgQuicklinksComponent>;
+  let linkToggle:  DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -40,6 +45,9 @@ fdescribe('CamplNgQuicklinksComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CamplNgQuicklinksComponent);
     component = fixture.componentInstance;
+    linkToggle = fixture.debugElement.query(
+      By.css(".campl-quicklinks")
+    );
     fixture.detectChanges();
   });
 
@@ -47,9 +55,14 @@ fdescribe('CamplNgQuicklinksComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  xit('should toggle menu on click', () => {
+  it('should toggle list on click', //fakeAsync(
+  () => {
+    let quicklinks_list_select = By.css(".campl-quicklinks-list");
       // test open close
+    // hidden at the start
+    expect(fixture.debugElement.query(quicklinks_list_select)).toBeNull(); //
   })
+  //)
 
   xit('should close menu when click elsewhere on page', () => {
       // test open, click elsewhere close

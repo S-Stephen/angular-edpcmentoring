@@ -31,6 +31,8 @@ export class CamplNgQuicklinksComponent implements OnInit {
   }
 
   toggleList(){
+      // this will add/remove campl-quicklinks-open class
+      // another method would be to use with ng-template, but this may require css changes??
       this.open_quicklinks= !this.open_quicklinks;
   }
 }
