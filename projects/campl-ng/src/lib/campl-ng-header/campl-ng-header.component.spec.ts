@@ -8,6 +8,8 @@ import { CamplService } from "../services/campl.service";
 
 import { Injectable } from "@angular/core";
 
+import { RouterTestingModule } from "@angular/router/testing"; //spy
+
 @Injectable()
 class MockCamplService {
   private config: any;
@@ -26,6 +28,7 @@ describe("CamplNgHeaderComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [CamplNgHeaderComponent, CamplNgQuicklinksComponent],
       providers: [{ provide: CamplService, useClass: MockCamplService }]
     }).compileComponents();
@@ -41,7 +44,7 @@ describe("CamplNgHeaderComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  xit("should display the menu when click on menu icon (#open-menu)", ()=>{});
+  xit("should display the menu when click on menu icon (#open-menu)", () => {});
 
-  xit("should close the menu when open and click 'Home'", ()=>{});
+  xit("should close the menu when open and click 'Home'", () => {});
 });
