@@ -1,7 +1,7 @@
 <div class="campl-row campl-global-header">
   <div class="campl-wrap clearfix">
     <div class="campl-header-container campl-column8" id="global-header-controls">
-      <a [routerLink]="" class="campl-open-menu ir" id="open-menu" (click)="toggleBodyNavOn()">View menu</a>
+      <a [routerLink]="" class="campl-open-menu ir" id="open-menu" (click)="toggleBodyNav()">View menu</a>
       <a href="http://www.cam.ac.uk" class="campl-main-logo">
         <img alt="University of Cambridge"
           src="data:image/png;base64, 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" />
@@ -40,7 +40,7 @@
         </div>
     </div>
 </div>
-<div class=" campl-row campl-global-header campl-search-drawer">
+<div class=" campl-row campl-global-header campl-search-drawer" [ngClass]="{'campl-search-open':search_open}">
             <div class="campl-wrap clearfix">
               <form class="campl-site-search-form" id="site-search-container" action="">
                 <div class="campl-search-form-wrapper clearfix">
@@ -55,7 +55,7 @@
 
           <div class="campl-wrap clearfix">
             <div class="campl-column12 campl-home-link-container">
-              <a [routerLink]="" (click)="toggleBodyNavOn()">Home</a>
+              <a [routerLink]="" (click)="toggleBodyNav()">Home</a>
             </div>
           </div>
           <div class="campl-wrap clearfix">
@@ -205,9 +205,5 @@
               </div>
             </div>
 
-            <ul class="campl-unstyled-list campl-quicklinks-list campl-global-navigation-container ">
-              <li *ngFor="let link of quicklinks; let isLast = last" [class.last]="isLast"><a
-                  href="{{link.link}}">{{link.label}}</a></li>
-            </ul>
           </div>
         </div>
