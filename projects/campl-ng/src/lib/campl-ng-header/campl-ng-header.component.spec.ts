@@ -40,4 +40,8 @@ describe("CamplNgHeaderComponent", () => {
   it("should be created", () => {
     expect(component).toBeTruthy();
   });
+
+  xit("should display the menu when click on menu icon (#open-menu)", ()=>{});
+
+  xit("should close the menu when open and click 'Home'", ()=>{});
 });
