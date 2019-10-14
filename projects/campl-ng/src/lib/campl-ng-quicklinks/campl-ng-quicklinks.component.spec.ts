@@ -1,75 +1,136 @@
-import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+  fakeAsync,
+  tick
+} from "@angular/core/testing";
 
 import { By } from "@angular/platform-browser";
-import { CamplNgQuicklinksComponent } from './campl-ng-quicklinks.component';
-import { Component, Injectable, DebugElement } from '@angular/core';
+import { CamplNgQuicklinksComponent } from "./campl-ng-quicklinks.component";
+import { Component, Injectable, DebugElement } from "@angular/core";
 
-import { CamplService } from '../services/campl.service'
+import { CamplService } from "../services/campl.service";
 
 // Create a parent component, to hold quicklinks in
 @Component({
-    selector: 'test-ql',
-    template:`
+  selector: "test-ql",
+  template: `
     <div>
-        <div>Some div to click on</div>
-        <campl-ng-quicklinks></campl-ng-quicklinks>
-    </div>`
+      <div class="testele" (click)="someCode()">Some div to click on</div>
+      <campl-ng-quicklinks></campl-ng-quicklinks>
+    </div>
+  `
 })
-class TestQuicklinks{}
+class TestQuicklinks {
+  someCode() {
+    console.log("clicked container element");
+  }
+}
 
 @Injectable()
 class MockCamplService {
-    private config: any;
-    public getConfig(): any {
-        return this.config=[
-        {'link':'testlink1',label:'label 1'},
-        {'link':'testlink2',label:'label 2'},
-        {'link':'testlink3',label:'label 3'}];
-    }
+  private config: any;
+  public getConfig(): any {
+    return (this.config = [
+      { link: "testlink1", label: "label 1" },
+      { link: "testlink2", label: "label 2" },
+      { link: "testlink3", label: "label 3" }
+    ]);
+  }
 }
 
-
-fdescribe('CamplNgQuicklinksComponent', () => {
+describe("CamplNgQuicklinksComponent", () => {
   let component: CamplNgQuicklinksComponent;
   let fixture: ComponentFixture<CamplNgQuicklinksComponent>;
-  let linkToggle:  DebugElement;
+  let fixture_outer: ComponentFixture<TestQuicklinks>;
+  let linkToggle: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestQuicklinks, CamplNgQuicklinksComponent ],
-      providers: [ {provide: CamplService, useClass: MockCamplService} ]
-    })
-    .compileComponents();
+      declarations: [TestQuicklinks, CamplNgQuicklinksComponent],
+      providers: [{ provide: CamplService, useClass: MockCamplService }]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CamplNgQuicklinksComponent);
+    fixture_outer = TestBed.createComponent(TestQuicklinks);
     component = fixture.componentInstance;
-    linkToggle = fixture.debugElement.query(
-      By.css(".campl-quicklinks")
-    );
+    linkToggle = fixture.debugElement.query(By.css(".campl-quicklinks"));
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 
-  it('should toggle list on click', //fakeAsync(
-  () => {
+  it("should toggle list on click", fakeAsync(() => {
     let quicklinks_list_select = By.css(".campl-quicklinks-list");
-      // test open close
+    // test close-open-close
     // hidden at the start
-    expect(fixture.debugElement.query(quicklinks_list_select)).toBeNull(); //
-  })
-  //)
 
-  xit('should close menu when click elsewhere on page', () => {
-      // test open, click elsewhere close
-  })
+    // expect(fixture.debugElement.query(quicklinks_list_select)).toBeNull();
+    // https://stackoverflow.com/questions/41811609/test-freezes-when-expectresult-tobenull-fails-test-angular-2-jasmine
+    var result = fixture.debugElement.query(quicklinks_list_select);
+    expect(result === null).toBeTruthy();
 
-  xit('should follow menu link on click', () => {
-      // test open close
-  })
+    // after clicking the menu it should be available
+    linkToggle.triggerEventHandler("click", { button: 0 });
+    tick();
+    fixture.detectChanges();
 
+    expect(fixture.debugElement.query(quicklinks_list_select)).not.toBeNull();
+
+    // after clicking the open menu it should be removed
+    linkToggle.triggerEventHandler("click", { button: 0 });
+    tick();
+    fixture.detectChanges();
+
+    // list no longer presented
+    var result = fixture.debugElement.query(quicklinks_list_select);
+    expect(result === null).toBeTruthy();
+
+    // open again an we will test that the list closes if a user clicks elsewhere on the page:
+  }));
+
+  xit("should close menu when click elsewhere on page", fakeAsync(() => {
+    // test open, click elsewhere close
+    // fime/complete - @Hostlistener not capturing of eelement click
+
+    let quicklinks_list_select = By.css(".campl-quicklinks-list");
+    let outer_element = By.css(".testele");
+    // test close-open-close(by external element)
+    // hidden at the start
+
+    // expect(fixture.debugElement.query(quicklinks_list_select)).toBeNull();
+    // https://stackoverflow.com/questions/41811609/test-freezes-when-expectresult-tobenull-fails-test-angular-2-jasmine
+    var result = fixture.debugElement.query(quicklinks_list_select);
+    expect(result === null).toBeTruthy();
+
+    // after clicking the menu it should be available
+    linkToggle.triggerEventHandler("click", { button: 0 });
+    tick();
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.query(quicklinks_list_select)).not.toBeNull();
+
+    expect(fixture_outer.debugElement.query(outer_element)).not.toBeNull();
+
+    //const event = new Event("click", { bubbles: true });
+    // This doesn't seemed to trigger or bubble up to the document and
+    // therefore not captured by the @HostListener on the test element
+    fixture_outer.debugElement
+      .query(outer_element)
+      .triggerEventHandler("click", { bubbles: true });
+    tick();
+    fixture.detectChanges();
+
+    var result = fixture.debugElement.query(quicklinks_list_select);
+    expect(result === null).toBeTruthy();
+  }));
+
+  xit("should follow menu link on click", () => {
+    // test open close
+  });
 });
