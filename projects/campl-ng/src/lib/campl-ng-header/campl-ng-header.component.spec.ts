@@ -1,4 +1,10 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+  tick,
+  fakeAsync
+} from "@angular/core/testing";
 
 import { CamplNgHeaderComponent } from "./campl-ng-header.component";
 
@@ -9,6 +15,8 @@ import { CamplService } from "../services/campl.service";
 import { Injectable } from "@angular/core";
 
 import { RouterTestingModule } from "@angular/router/testing"; //spy
+
+import { By } from "@angular/platform-browser";
 
 @Injectable()
 class MockCamplService {
@@ -44,7 +52,38 @@ describe("CamplNgHeaderComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  xit("should display the menu when click on menu icon (#open-menu)", () => {});
+  it("should display the menu when click on menu icon (#open-menu) close on click 'Home'", fakeAsync(() => {
+    let menu_select = By.css("#open-menu");
+    let global_nav_select = By.css(".campl-global-navigation");
+    let home_link_select = By.css(".campl-home-link-container a");
 
-  xit("should close the menu when open and click 'Home'", () => {});
+    expect(fixture.debugElement.query(menu_select)).toBeTruthy();
+
+    // https://stackoverflow.com/questions/41811609/test-freezes-when-expectresult-tobenull-fails-test-angular-2-jasmine
+    // menu currently not shown
+    var result = fixture.debugElement.query(global_nav_select);
+    expect(result === null).toBeTruthy();
+
+    // click on link see menu
+    fixture.debugElement
+      .query(menu_select)
+      .triggerEventHandler("click", { button: 0 });
+    tick();
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.query(global_nav_select)).not.toBeNull();
+
+    // click 'Home' and we should close
+
+    expect(fixture.debugElement.query(home_link_select)).toBeTruthy();
+    fixture.debugElement
+      .query(home_link_select)
+      .triggerEventHandler("click", { button: 0 });
+    tick();
+    fixture.detectChanges();
+
+    //back to menu currently not shown
+    var result = fixture.debugElement.query(global_nav_select);
+    expect(result === null).toBeTruthy();
+  }));
 });
