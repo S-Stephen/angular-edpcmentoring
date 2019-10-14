@@ -137,6 +137,6 @@ describe("CamplNgQuicklinksComponent", () => {
   }));
 
   xit("should follow menu link on click", () => {
-    // test open close
+    // TODO test user can navigate to external links open close
   });
 });
