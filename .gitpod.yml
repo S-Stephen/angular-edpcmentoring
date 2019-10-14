@@ -1,3 +1,3 @@
 tasks:
   - init: npm install
-    command: npm install -g @angular/cli
+    command: "npm install -g @angular/cli && export CHROME_BIN=/usr/bin/chromium-browser"

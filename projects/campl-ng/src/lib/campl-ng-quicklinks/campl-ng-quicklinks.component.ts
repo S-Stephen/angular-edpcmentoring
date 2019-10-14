@@ -27,6 +27,10 @@ export class CamplNgQuicklinksComponent implements OnInit {
   onClick(event) {
    if (!this._eref.nativeElement.contains(event.target) && this.open_quicklinks) // or some similar check
       this.open_quicklinks = false;
-     //alert("close the menu - angular style!!")
+   //   alert("close the menu - angular style!!")
+  }
+
+  toggleList(){
+      this.open_quicklinks= !this.open_quicklinks;
   }
 }
