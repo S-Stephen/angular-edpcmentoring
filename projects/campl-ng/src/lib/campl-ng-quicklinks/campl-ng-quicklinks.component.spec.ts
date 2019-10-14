@@ -17,7 +17,7 @@ import { CamplService } from "../services/campl.service";
   selector: "test-ql",
   template: `
     <div>
-      <div class="testele" (click)="someCode()">Some div to click on</div>
+      <div class="testele">Some div to click on</div>
       <campl-ng-quicklinks></campl-ng-quicklinks>
     </div>
   `
@@ -94,7 +94,7 @@ describe("CamplNgQuicklinksComponent", () => {
     // open again an we will test that the list closes if a user clicks elsewhere on the page:
   }));
 
-  xit("should close menu when click elsewhere on page", fakeAsync(() => {
+  it("should close menu when click elsewhere on page", fakeAsync(() => {
     // test open, click elsewhere close
     // fime/complete - @Hostlistener not capturing of eelement click
 
@@ -115,14 +115,20 @@ describe("CamplNgQuicklinksComponent", () => {
 
     expect(fixture.debugElement.query(quicklinks_list_select)).not.toBeNull();
 
+    // the outer element is visible:
     expect(fixture_outer.debugElement.query(outer_element)).not.toBeNull();
 
     //const event = new Event("click", { bubbles: true });
     // This doesn't seemed to trigger or bubble up to the document and
     // therefore not captured by the @HostListener on the test element
-    fixture_outer.debugElement
-      .query(outer_element)
-      .triggerEventHandler("click", { bubbles: true });
+    //fixture_outer.debugElement
+    //  .query(outer_element)
+    //  .triggerEventHandler("click", { bubbles: true });
+
+    // https://stackoverflow.com/questions/49878559/how-to-test-document-clicks-in-unit-tests-in-angular
+    // NB we should refactor without the outer Component now!!
+    document.dispatchEvent(new MouseEvent("click"));
+
     tick();
     fixture.detectChanges();
 
