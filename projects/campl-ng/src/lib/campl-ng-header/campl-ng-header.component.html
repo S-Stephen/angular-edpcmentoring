@@ -8,14 +8,8 @@
       </a>
 
       <ul class="campl-unstyled-list campl-horizontal-navigation campl-global-navigation clearfix">
-        <li>
-          <a href="#study-with-us">Study at Cambridge</a>
-        </li>
-        <li>
-          <a href="#about-the-university">About the University</a>
-        </li>
-        <li>
-          <a href="http://www.cam.ac.uk/research" class="campl-no-drawer">Research at Cambridge</a>
+        <li *ngFor="let menu of global_nav">
+          <a href="{{ (menu.anchor)? '#'+menu.anchor : menu.link  }}">{{menu.label}}</a>
         </li>
       </ul>
     </div>
@@ -67,7 +61,29 @@
   </div>
   <div class="campl-wrap clearfix">
     <div class="campl-column12 campl-global-navigation-mobile-list campl-global-navigation-list">
-      <div class="campl-global-navigation-outer clearfix" id="study-with-us">
+
+      <div *ngFor="let menu of global_nav" class="campl-global-navigation-outer clearfix" id="{{menu.anchor}}">
+        <ul class="campl-unstyled-list campl-global-navigation-header-container ">
+          <li><a href="{{menu.link}}">{{menu.label}}</a></li>
+          <!--study at Cambridge-->
+        </ul>
+        <div class="campl-column4">
+          <ul *ngFor="let list of menu.sub"
+            class="campl-global-navigation-container campl-unstyled-list campl-global-navigation-secondary-with-children">
+            <li>
+              <a href="{{list.link}}">{{list.label}}</a>
+              <!--undergraduate-->
+              <ul class="campl-global-navigation-tertiary campl-unstyled-list">
+                <li *ngFor="let sublist of list.sub">
+                  <a href="{{sublist.link}}">{{sublist.label}}</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- TODO work in progress configure global nav working on campl-navigation a click -->
+      </div>
+      <div class=" campl-global-navigation-outer clearfix" id="study-with-us">
         <ul class="campl-unstyled-list campl-global-navigation-header-container ">
           <li><a href="http://www.cam.ac.uk/study-at-cambridge">Study at Cambridge</a></li>
         </ul>

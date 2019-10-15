@@ -128,6 +128,8 @@
 		//		e.preventDefault();
 		//	})
 
+		// This doesn't seem to exists in eth live sites and is not visible in the templates
+		// query Project light on usage
 		$(".campl-close-menu").bind('click', function (e) {
 			//close main navigation drawer
 			$(e.target).parent().removeClass("campl-drawer-open");

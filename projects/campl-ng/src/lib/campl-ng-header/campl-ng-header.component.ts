@@ -12,6 +12,7 @@ export class CamplNgHeaderComponent implements OnInit, OnDestroy {
   search_open: boolean = false;
   public config: any;
   public quicklinks: any;
+  public global_nav: any;
 
   // there is opportunity here to create a new class/interface with this field as reflection and the injection of the MenuService
   //  BUT we would have to manage the search boxes as a seperate component! - trouble the responsive box appears in a differrent
@@ -29,6 +30,7 @@ export class CamplNgHeaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.config = this.campl_config.getConfig();
     this.quicklinks = this.config.quicklinks;
+    this.global_nav = this.config.global_nav;
     this.primary_comp.id$.subscribe(id => {
       if (id == this.myidsearch && !this.search_open) this.search_open = true;
       else this.search_open = false;
