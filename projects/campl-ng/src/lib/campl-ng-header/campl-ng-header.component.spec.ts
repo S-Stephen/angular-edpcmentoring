@@ -86,4 +86,40 @@ describe("CamplNgHeaderComponent", () => {
     var result = fixture.debugElement.query(global_nav_select);
     expect(result === null).toBeTruthy();
   }));
+
+  fit("should display the search form when click on search button #site-search-btn close on click 'Home'", fakeAsync(() => {
+    let menu_select = By.css("#open-menu");
+    let search_form_select = By.css("#site-search-container");
+    let site_search_btn_select = By.css("#site-search-btn");
+
+    expect(fixture.debugElement.query(menu_select)).toBeTruthy();
+    expect(fixture.debugElement.query(site_search_btn_select)).toBeTruthy();
+
+    // https://stackoverflow.com/questions/41811609/test-freezes-when-expectresult-tobenull-fails-test-angular-2-jasmine
+    // current search_form not shown
+    var result = fixture.debugElement.query(search_form_select);
+    expect(result === null).toBeTruthy();
+
+    // click on link see menu
+    fixture.debugElement
+      .query(site_search_btn_select)
+      .triggerEventHandler("click", { button: 0 });
+    tick();
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.query(search_form_select)).not.toBeNull();
+
+    // click 'Home' and we should close
+
+    expect(fixture.debugElement.query(menu_select)).toBeTruthy();
+    fixture.debugElement
+      .query(menu_select)
+      .triggerEventHandler("click", { button: 0 });
+    tick();
+    fixture.detectChanges();
+
+    //back to menu currently not shown
+    var result = fixture.debugElement.query(search_form_select);
+    expect(result === null).toBeTruthy();
+  }));
 });
