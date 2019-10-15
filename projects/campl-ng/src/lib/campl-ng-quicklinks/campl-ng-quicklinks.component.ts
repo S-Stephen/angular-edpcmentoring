@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef, HostListener } from "@angular/core";
 import { CamplService } from "../services/campl.service";
+import { CamplNgPrimaryMenuStateService } from '../services/campl-ng-primary-menu-state.service';
 
 @Component({
   selector: "campl-ng-quicklinks",
@@ -14,13 +15,16 @@ export class CamplNgQuicklinksComponent implements OnInit {
   public config: any;
   // TODO change these to Menu objects (link and label)
   public quicklinks: any;
-  public open_quicklinks: boolean = false;
+  public open_quicklinks: boolean = false; // used to toggle template
+  // there is opportunity here to create a new class/interface with this field as reflection and the injection of the MenuService
+  public myid: string = "CamplNgQuicklinksComponent";
 
-  constructor(public campl_config: CamplService, private _eref: ElementRef) {}
+  constructor(public primary_comp: CamplNgPrimaryMenuStateService, public campl_config: CamplService, private _eref: ElementRef) {}
 
   ngOnInit() {
     this.config = this.campl_config.getConfig();
     this.quicklinks = this.config.quicklinks;
+    this.primary_comp.id$.subscribe(id => {if (id == this.myid){this.open_quicklinks=true}else{this.open_quicklinks=false}})
   }
 
   //https://stackoverflow.com/questions/40107008/detect-click-outside-angular-component
@@ -32,13 +36,23 @@ export class CamplNgQuicklinksComponent implements OnInit {
     ) {
       // or some similar check
       this.open_quicklinks = false;
-      console.log("closed our list");
+      // We may have clicked on a different component, we do not wish to close that component
+      //this.primary_comp.sendId("NOTSET"); // a reserved component name! if creating interface we must check for this!
+      console.log("closed our list - only our list");
     }
   }
 
   toggleList() {
     // this will add/remove campl-quicklinks-open class
     // another method would be to use with ng-template, but this may require css changes??
-    this.open_quicklinks = !this.open_quicklinks;
+    if (!this.open_quicklinks){
+        console.log("opened our list");
+        this.primary_comp.sendId(this.myid);
+    }else{
+        this.primary_comp.sendId("NOTSET");
+        console.log("closed our list from toggle");
+    }
+
+    //this.open_quicklinks = !this.open_quicklinks;
   }
 }

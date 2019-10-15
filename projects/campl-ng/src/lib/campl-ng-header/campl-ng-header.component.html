@@ -26,30 +26,32 @@
 
     <div class="campl-column2">
 
-      <div class="campl-site-search" id="site-search-btn">
+      <div class="campl-site-search" id="site-search-btn" (click)="toggleSearch()">
         <a href="#" class="campl-icon-search-btn ir" id="open-search">Search</a>
         <label for="header-search" class="hidden">Search site</label>
-        <div class="campl-search-input">
+        <div class="campl-search-input" >
           <form action="http://search.cam.ac.uk/web" method="get">
             <input id="header-search" type="text" name="query" value="" placeholder="Search" />
 
-            <input type="image" class="campl-search-submit " src="/projectlight/images/interface/btn-search-header.png""/>
+            <input type="image" class="campl-search-submit " src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAC1ElEQVRIx92VS08TURiG55/IBlgQWgQH2pleaWcKKpBA5LKQlkCIsfUSKLBBG5FaLEujoECkBgwGknLtjQKFX8ZTx1ShFy5hNr6b9vvmnPc55zvfzBEkSXK5XK06CFvMBX46Ojoe6yBsMRdAETzSQdhi/h8AnE4nwUMdhC3m+gMcDgdBe0Wpqup2u10ut6IobW1t7dcTtphfAfB4PIqq9Pf3BQL+169e+ryDJMHcDQCjrq6u6MfI/l785DiTO8lk0vvLS4te7yC7uS7AZrOxa89FkcGdNlj6tnCay64sL/r9z4aHh+ajkexhcmd7y+fz8hJ5KgoTzEsDEB0Wejt9mjsMhabr6uqqq2tqa2ura2p83qfp1P7q92W2zdncEsDy6YFfG2vrazFRFCVJ1ia0OluBzcyEjrLJ0dERFnE1wGq1EqgXxfZ7e58kE7vh2Xd8sAoD+CPJ8sjw0MlxemoqyHy1vBiMeVlAT0934mBnfn7ObrezocIjq80WCDznzCeCY8y9FoD57osCwDuyvrYaj2/2dHfD0PIkKcvCl0+p5O7AQF8hX1LY5gEWi6UYgEwm04uA/yyX/br4ubOz0/5bjAyF3hxmEjSr2WQGVhmAeVkAi21qapqLzJ6dZre2NqLRyIfw+9jqyvFRKpXc245vBsfHQLLXKwCyLGs1uSSSPKqvr6fitFMmfcDCeQPC4ZkfsRVCWmByMn/O2uVVzkGocGWSZwTtD0ZVFRpfFB/cq6pi4T/XY/CSiZ3JiSCFZrvFJn+uzMp3snbaZrPZaDQaDAZRbMadPw7HX8ZEcJykdv43BhSGXtK/DMpFO1Du0gBWR+C8oZhC3TQGm+DzJ8uW4jGYC7QjgeOG0uYbDEZZklTF3dBwv9iEDOa3BBTU2NjI8dBLJRdxBwCtGuUe3QGgMjsPaGlpIbDrIGwxF5qb861t00HYYq4/gAtLPwDmgvYl0UmYnwNgz3wMRX3iTAAAAABJRU5ErkJggg=="/>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- responsive search box: campl-search-drawer actioned by toggleSearch()-->
 <div class=" campl-row campl-global-header campl-search-drawer" [ngClass]="{'campl-search-open':search_open}">
             <div class="campl-wrap clearfix">
               <form class="campl-site-search-form" id="site-search-container" action="">
                 <div class="campl-search-form-wrapper clearfix">
                   <input type="text" class="text" placeholder="Search" />
-                  <input type="image" class="campl-search-submit" src="/projectlight/images/interface/btn-search.png" />
+                  <input type="image" class="campl-search-submit" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAABYAAAAgCAMAAAAhSXi5AAADAFBMVEUsLCyzsq6wr6svLy9FRUSIh4U3NzdVVVREREOxsKyop6NoaGZ/fnyLi4iHhoOrqqZtbWuamZZNTUySkY51dXKKiYYuLi6ioZ2Ojoujop+CgX9ycW9YWFeenppSUlGpqaWlpKCmpaKAgH0yMjIxMTFUU1JXV1VCQkF4eHWFhIIqKiorKyssLCwtLS0uLi4vLy8wMDAxMTEyMjIzMzM0NDQ1NTU2NjY3Nzc4ODg5OTk6Ojo7Ozs8PDw9PT0+Pj4/Pz9AQEBBQUFCQkJDQ0NERERFRUVGRkZHR0dISEhJSUlKSkpLS0tMTExNTU1OTk5PT09QUFBRUVFSUlJTU1NUVFRVVVVWVlZXV1dYWFhZWVlaWlpbW1tcXFxdXV1eXl5fX19gYGBhYWFiYmJjY2NkZGRlZWVmZmZnZ2doaGhpaWlqampra2tsbGxtbW1ubm5vb29wcHBxcXFycnJzc3N0dHR1dXV2dnZ3d3d4eHh5eXl6enp7e3t8fHx9fX1+fn5/f3+AgICBgYGCgoKDg4OEhISFhYWGhoaHh4eIiIiJiYmKioqLi4uMjIyNjY2Ojo6Pj4+QkJCRkZGSkpKTk5OUlJSVlZWWlpaXl5eYmJiZmZmampqbm5ucnJydnZ2enp6fn5+goKChoaGioqKjo6OkpKSlpaWmpqanp6eoqKipqamqqqqrq6usrKytra2urq6vr6+wsLCxsbGysrKzs7O0tLS1tbW2tra3t7e4uLi5ubm6urq7u7u8vLy9vb2+vr6/v7/AwMDBwcHCwsLDw8PExMTFxcXGxsbHx8fIyMjJycnKysrLy8vMzMzNzc3Ozs7Pz8/Q0NDR0dHS0tLT09PU1NTV1dXW1tbX19fY2NjZ2dna2trb29vc3Nzd3d3e3t7f39/g4ODh4eHi4uLj4+Pk5OTl5eXm5ubn5+fo6Ojp6enq6urr6+vs7Ozt7e3u7u7v7+/w8PDx8fHy8vLz8/P09PT19fX29vb39/f4+Pj5+fn6+vr7+/v8/Pz9/f3+/v7///9bfL1KAAAAgUlEQVQoz2PQwQoYhrKwkASXLI85ujA3owIPKxMXB6owB6eooY4OC78gqrA0E1g/N6M6irCmJJglx6iKIizCCVYtwMiCajYjqxHQbHk0s4HqFJV4ORmZ2NHdLcwvLsXLyKSGxZf6rIxMMlg8r8+HMAc5TIDiGtiCSo9dfzhEMdHCAJ1JcP6BXiwNAAAAAElFTkSuQmCC" />
                 </div>
               </form>
             </div>
         </div>
+<!--responsive search box-->
 
         <div class="campl-row campl-global-navigation-drawer">
 

@@ -67,7 +67,7 @@ projectlight.init = function(){
 	//projectlight.$globalNavOuter.append('<a href="#" class="campl-close-menu" >Close</a>')
 
 	//cache variables for DOM elements
-	projectlight.$searchDrawer = $('.campl-search-drawer')
+	projectlight.$searchDrawer = $('.campl-search-drawer') // thi sbox is the responsive search box - shown in mobile devices
 	projectlight.$navigationDrawer = $('.campl-global-navigation-drawer')
 
 	//INSTANTIATE QUICKLINKS DROP DOWN MENU

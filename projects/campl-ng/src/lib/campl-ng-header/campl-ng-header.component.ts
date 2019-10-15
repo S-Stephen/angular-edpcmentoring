@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy, Renderer2 } from "@angular/core";
+import { CamplNgPrimaryMenuStateService } from '../services/campl-ng-primary-menu-state.service';
 
 @Component({
   selector: "campl-ng-header",
@@ -8,9 +9,31 @@ import { Component, OnInit, OnDestroy, Renderer2 } from "@angular/core";
 export class CamplNgHeaderComponent implements OnInit, OnDestroy {
   menu_open: boolean = false;
   search_open: boolean = false;
-  constructor(private renderer: Renderer2) {}
+  // there is opportunity here to create a new class/interface with this field as reflection and the injection of the MenuService
+  //  BUT we would have to manage the search boxes as a seperate component! - trouble the responsive box appears in a differrent
+  //  componant as the regular box - communication required?
+  // Todo refactor into multiple components Header => [ menu, quicklinks, search, ?globalnav? ]
+  public myidsearch: string = "CamplNgHeaderComponentSearch";
+  public myidnav: string = "CamplNgHeaderComponentNav";
 
-  ngOnInit() {}
+  constructor(public primary_comp: CamplNgPrimaryMenuStateService, private renderer: Renderer2) {}
+
+  ngOnInit() {
+    this.primary_comp.id$.subscribe(id => {
+        if (id == this.myidsearch && !this.search_open)
+            this.search_open=true
+        else
+            this.search_open=false
+
+        if (id == this.myidnav && !this.menu_open){
+            this.menu_open = true
+            this.openBodyNav()
+        }else if(this.menu_open){
+            this.menu_open = false
+            this.closeBodyNav()
+        }
+    })
+  }
 
   ngOnDestroy() {
     if (this.menu_open) {
@@ -18,36 +41,22 @@ export class CamplNgHeaderComponent implements OnInit, OnDestroy {
     }
   }
 
+  closeBodyNav() {
+    this.renderer.removeClass(document.body, "campl-navigation-open");
+  }
+
+  openBodyNav(){
+    this.renderer.addClass(document.body, "campl-navigation-open");
+  }
+
   toggleBodyNav() {
-    // When actioned will add/remove the css class campl-navigation-open to the body element
-    // https://stackoverflow.com/questions/43542373/angular2-add-class-to-body-tag
-    this.menu_open = !this.menu_open;
-    if (this.menu_open) {
-      this.renderer.addClass(document.body, "campl-navigation-open");
-    } else {
-      this.renderer.removeClass(document.body, "campl-navigation-open");
-    }
+    let id: string = (!this.menu_open)? this.myidnav : "NOTSET";
+    this.primary_comp.sendId(id);
   }
 
   toggleSearch() {
-    this.search_open = !this.search_open;
-    if (this.search_open && this.menu_open) {
-      this.toggleBodyNav();
-    }
+      console.log("toggle search")
+    let id: string = (!this.search_open)? this.myidsearch : "NOTSET";
+    this.primary_comp.sendId(id);
   }
-  /* work in progress - how do we close the search menu and other menus!
-   Idea -> global variable/service for active menu?
-  //https://stackoverflow.com/questions/40107008/detect-click-outside-angular-component
-  @HostListener("document:click", ["$event"])
-  onClick(event) {
-    if (
-      !this._eref.nativeElement.contains(event.target) &&
-      this.open_quicklinks
-    ) {
-      // or some similar check
-      this.open_quicklinks = false;
-      console.log("closed our list");
-    }
-  }
-  */
 }
