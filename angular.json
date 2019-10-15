@@ -29,11 +29,9 @@
               "src/projectlight/javascripts/libs/zebra_datepicker.js"
             ],
             "styles": [
-              "src/styles.css",
-              "src/projectlight/stylesheets/custom.css",
-              "src/projectlight/stylesheets/styleguide.css"
+              "src/styles.css"
             ],
-            "scripts":["src/assets/javascripts/libs/modernizr.js"]
+            "scripts": ["src/assets/javascripts/libs/modernizr.js"]
           },
           "configurations": {
             "production": {
