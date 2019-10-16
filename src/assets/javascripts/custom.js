@@ -67,12 +67,12 @@
 		//projectlight.$globalNavOuter.append('<a href="#" class="campl-close-menu" >Close</a>')
 
 		//cache variables for DOM elements
-		projectlight.$searchDrawer = $('.campl-search-drawer') // thi sbox is the responsive search box - shown in mobile devices
-		projectlight.$navigationDrawer = $('.campl-global-navigation-drawer')
+		//projectlight.$searchDrawer = $('.campl-search-drawer') // thi sbox is the responsive search box - shown in mobile devices
+		//projectlight.$navigationDrawer = $('.campl-global-navigation-drawer')
 
 		//INSTANTIATE QUICKLINKS DROP DOWN MENU
 		// header quicklinks
-		projectlight.$quicklinks.find('ul').hide();
+		//projectlight.$quicklinks.find('ul').hide();
 
 		//get campl-quicklinks-list from page and clone into new container underneath the button inside quicklinks container
 		//$('.campl-quicklinks-list').clone().appendTo(projectlight.$quicklinks).addClass("column12 clearfix");
@@ -107,11 +107,11 @@
 
 		//ensure drop down closes if you click outside of it. Binding click event to entire page
 		// we may have replaced this with the document:click in the header -> just for quicklinks though!
-		$('html').bind('click', function (e) {
-			if (!$(e.target).hasClass("campl-open-quicklinks") && !$(e.target).hasClass("campl-icon-dropdown") && !$(e.target).hasClass("campl-quicklinks-txt")) {
-				projectlight.$quicklinks.removeClass("campl-quicklinks-open");
-			}
-		})
+		//$('html').bind('click', function (e) {
+		//	if (!$(e.target).hasClass("campl-open-quicklinks") && !$(e.target).hasClass("campl-icon-dropdown") && !$(e.target).hasClass("campl-quicklinks-txt")) {
+		//		projectlight.$quicklinks.removeClass("campl-quicklinks-open");
+		//	}
+		//})
 
 		//Bound click event to global nav button for mobile users to allow them to open the navigation in side drawer
 		//$("#open-menu").bind('click', function(e){
@@ -130,47 +130,47 @@
 
 		// This exists in the desktop view!!
 		// query Project light on usage
-		$(".campl-close-menu").bind('click', function (e) {
-			//close main navigation drawer
-			$(e.target).parent().removeClass("campl-drawer-open");
-			//remove selected class from nav item clicked
-			$(".campl-global-navigation li").removeClass("campl-selected")
-			e.preventDefault();
+		//$(".campl-close-menu").bind('click', function (e) {
+		//	//close main navigation drawer
+		//	$(e.target).parent().removeClass("campl-drawer-open");
+		//	//remove selected class from nav item clicked
+		//	$(".campl-global-navigation li").removeClass("campl-selected")
+		//	e.preventDefault();
 
-		})
+		//})
 
 
 		//bound click event to primary navigation items for desktop view to allow users to browse the navigation in a megadropdown
 		//the campl-no-drawer items are links that click straight through to a page instead of opening a mega dropdown
-		$(".campl-global-navigation a").not(".campl-no-drawer").bind('click', function (e) {
-			var linkClicked = $(e.target);
-			linkClicked.parent().addClass("campl-selected");
-			var $drawer = $(linkClicked.attr('href'));
+		//$(".campl-global-navigation a").not(".campl-no-drawer").bind('click', function (e) {
+		//	var linkClicked = $(e.target);
+		//	linkClicked.parent().addClass("campl-selected");
+		//	var $drawer = $(linkClicked.attr('href'));
 
-			//shut other open panels search and quicklinks
-			projectlight.$searchDrawer.removeClass("campl-search-open");
-			projectlight.$quicklinks.removeClass("campl-quicklinks-open");
+		//shut other open panels search and quicklinks
+		//	projectlight.$searchDrawer.removeClass("campl-search-open");
+		//	projectlight.$quicklinks.removeClass("campl-quicklinks-open");
 
-			//if the navigation is open, and the drawer showing is the same as the link clicked then close drawer and close navigation container
-			if ($drawer.hasClass("campl-drawer-open")) {
-				projectlight.$globalNavLI.removeClass("campl-selected");
-				projectlight.$navigationDrawer.removeClass("campl-navigation-open");
-				projectlight.$globalNavOuter.removeClass("campl-drawer-open");
-			} else {
-				//else show close existing drawer and show new drawer, keep open navigation container
+		//if the navigation is open, and the drawer showing is the same as the link clicked then close drawer and close navigation container
+		//	if ($drawer.hasClass("campl-drawer-open")) {
+		//		projectlight.$globalNavLI.removeClass("campl-selected");
+		//		projectlight.$navigationDrawer.removeClass("campl-navigation-open");
+		//		projectlight.$globalNavOuter.removeClass("campl-drawer-open");
+		//	} else {
+		//else show close existing drawer and show new drawer, keep open navigation container
 
-				//close any other drawers that are open
-				projectlight.$globalNavOuter.not($drawer).removeClass("campl-drawer-open");
-				//deselect any previously clicked links
-				projectlight.$globalNavLI.not(linkClicked.parent()).removeClass("campl-selected");
+		//close any other drawers that are open
+		//		projectlight.$globalNavOuter.not($drawer).removeClass("campl-drawer-open");
+		//		//deselect any previously clicked links
+		//		projectlight.$globalNavLI.not(linkClicked.parent()).removeClass("campl-selected");
 
-				//toggle the open drawer class
-				projectlight.$navigationDrawer.addClass("campl-navigation-open");
-				$drawer.toggleClass("campl-drawer-open");
-			}
+		//		//toggle the open drawer class
+		//		projectlight.$navigationDrawer.addClass("campl-navigation-open");
+		//		$drawer.toggleClass("campl-drawer-open");
+		//	}
 
-			e.preventDefault();
-		})
+		//	e.preventDefault();
+		//})
 
 		//Show page elements which have been hidden to handle FOUC
 		//projectlight.$globalHdrCtrl.show();
