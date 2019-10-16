@@ -128,7 +128,7 @@
 		//		e.preventDefault();
 		//	})
 
-		// This doesn't seem to exists in eth live sites and is not visible in the templates
+		// This exists in the desktop view!!
 		// query Project light on usage
 		$(".campl-close-menu").bind('click', function (e) {
 			//close main navigation drawer

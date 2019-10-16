@@ -10,16 +10,19 @@ import { CamplNgPrimaryMenuStateService } from "../services/campl-ng-primary-men
 export class CamplNgHeaderComponent implements OnInit, OnDestroy {
   menu_open: boolean = false;
   search_open: boolean = false;
+  mega_menu_open: boolean = false; //this is the desktop mega_menu
+  mega_menu_target: string = ""; //allows us to place ngClass on targets
   public config: any;
-  public quicklinks: any;
-  public global_nav: any;
+  public quicklinks: any; // contains the list of quicklinks
+  public global_nav: any; // contains the global nav links
 
   // there is opportunity here to create a new class/interface with this field as reflection and the injection of the MenuService
-  //  BUT we would have to manage the search boxes as a seperate component! - trouble the responsive box appears in a differrent
-  //  componant as the regular box - communication required?
+  //  BUT we would have to manage the search boxes as a separate component! - trouble is the responsive box appears in a different
+  //  component as the regular box - communication required?
   // Todo refactor into multiple components Header => [ menu, quicklinks, search, ?globalnav? ]
   public myidsearch: string = "CamplNgHeaderComponentSearch";
   public myidnav: string = "CamplNgHeaderComponentNav";
+  public myidmega: string = "CamplNgHeaderComponentMega";
 
   constructor(
     public primary_comp: CamplNgPrimaryMenuStateService,
@@ -41,6 +44,12 @@ export class CamplNgHeaderComponent implements OnInit, OnDestroy {
       } else if (this.menu_open) {
         this.menu_open = false;
         this.closeBodyNav();
+      }
+
+      if (id == this.myidmega) this.mega_menu_open = true;
+      else {
+        this.mega_menu_open = false;
+        this.mega_menu_target = "";
       }
     });
   }
@@ -65,8 +74,23 @@ export class CamplNgHeaderComponent implements OnInit, OnDestroy {
   }
 
   toggleSearch() {
-    console.log("toggle search");
     let id: string = !this.search_open ? this.myidsearch : "NOTSET";
     this.primary_comp.sendId(id);
+  }
+
+  toggleMegaMenu(target) {
+    // there is a single .campl-global-navigation-drawer
+    // multiple target #target elements
+    let id: string =
+      this.mega_menu_open && this.mega_menu_target == target
+        ? "NOTSET"
+        : this.myidmega;
+    this.mega_menu_target = target;
+    this.primary_comp.sendId(id);
+
+    console.log("toggle mega menu: " + target + " id: " + id);
+  }
+  isMe(ele) {
+    return ele == this.mega_menu_target;
   }
 }

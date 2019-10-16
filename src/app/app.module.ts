@@ -190,74 +190,81 @@ import { CamplNgModule } from "../../projects/campl-ng/src/lib/campl-ng.module";
           link: "http://www.cam.ac.uk/about-the-university",
           anchor: "abouttheuniversity",
           sub: [
-            [
-              //arrays of arrays to be split campl-column4
-              // each array is a column
-              {
-                label: "How the University and Colleges work",
-                link:
-                  "http://www.cam.ac.uk/about-the-university/how-the-university-and-colleges-work"
-              },
-              {
-                label: "History",
-                link: "http://www.cam.ac.uk/about-the-university/history"
-              },
-              {
-                label: "Visiting the University",
-                link:
-                  "http://www.cam.ac.uk/about-the-university/visiting-the-university"
-              },
-              {
-                label: "Term dates and calendars",
-                link:
-                  "http://www.cam.ac.uk/about-the-university/term-dates-and-calendars"
-              },
-              {
-                label: "Map",
-                link: "http://map.cam.ac.uk"
-              }
-            ],
-            [
-              {
-                label: "For media",
-                link: "http://www.communications.cam.ac.uk/"
-              },
-              {
-                label: "Video and audio",
-                link: "http://www.cam.ac.uk/video-and-audio"
-              },
-              {
-                label: "Find an expert",
-                link: "http://webservices.admin.cam.ac.uk/fae/"
-              },
-              {
-                label: "Publications",
-                link: "http://www.cam.ac.uk/about-the-university/publications"
-              },
-              {
-                label: "Global Cambridge",
-                link: "http://www.cam.ac.uk/global-cambridge"
-              }
-            ],
-            [
-              { link: "http://www.cam.ac.uk/news", label: "News" },
-              {
-                link: "http://www.admin.cam.ac.uk/whatson/",
-                label: "Events"
-              },
-              {
-                link: "http://www.cam.ac.uk/public-engagement",
-                label: "Public engagement"
-              },
-              {
-                link: "http://www.jobs.cam.ac.uk",
-                label: "Jobs"
-              },
-              {
-                link: "https://philanthropy.cam.ac.uk",
-                label: "Give to Cambridge"
-              }
-            ]
+            {
+              sub: [
+                //arrays of arrays to be split campl-column4
+                // each array is a column
+                {
+                  label: "How the University and Colleges work",
+                  link:
+                    "http://www.cam.ac.uk/about-the-university/how-the-university-and-colleges-work",
+                  sub: []
+                },
+                {
+                  label: "History",
+                  link: "http://www.cam.ac.uk/about-the-university/history"
+                },
+                {
+                  label: "Visiting the University",
+                  link:
+                    "http://www.cam.ac.uk/about-the-university/visiting-the-university"
+                },
+                {
+                  label: "Term dates and calendars",
+                  link:
+                    "http://www.cam.ac.uk/about-the-university/term-dates-and-calendars"
+                },
+                {
+                  label: "Map",
+                  link: "http://map.cam.ac.uk"
+                }
+              ]
+            },
+            {
+              sub: [
+                {
+                  label: "For media",
+                  link: "http://www.communications.cam.ac.uk/"
+                },
+                {
+                  label: "Video and audio",
+                  link: "http://www.cam.ac.uk/video-and-audio"
+                },
+                {
+                  label: "Find an expert",
+                  link: "http://webservices.admin.cam.ac.uk/fae/"
+                },
+                {
+                  label: "Publications",
+                  link: "http://www.cam.ac.uk/about-the-university/publications"
+                },
+                {
+                  label: "Global Cambridge",
+                  link: "http://www.cam.ac.uk/global-cambridge"
+                }
+              ]
+            },
+            {
+              sub: [
+                { link: "http://www.cam.ac.uk/news", label: "News" },
+                {
+                  link: "http://www.admin.cam.ac.uk/whatson/",
+                  label: "Events"
+                },
+                {
+                  link: "http://www.cam.ac.uk/public-engagement",
+                  label: "Public engagement"
+                },
+                {
+                  link: "http://www.jobs.cam.ac.uk",
+                  label: "Jobs"
+                },
+                {
+                  link: "https://philanthropy.cam.ac.uk",
+                  label: "Give to Cambridge"
+                }
+              ]
+            }
           ]
         },
         {
