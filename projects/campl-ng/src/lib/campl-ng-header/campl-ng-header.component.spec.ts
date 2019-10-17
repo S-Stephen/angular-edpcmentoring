@@ -320,7 +320,7 @@ describe("CamplNgHeaderComponent", () => {
     expect(result === null).toBeTruthy();
   }));
 
-  fit("should display the mega menu when we click on one of its links", fakeAsync(() => {
+  it("should display the mega menu when we click on one of its links", fakeAsync(() => {
     let study_link_select = By.css("#menu_studyatcambridge");
     let about_link_select = By.css("#menu_abouttheuniversity");
 
