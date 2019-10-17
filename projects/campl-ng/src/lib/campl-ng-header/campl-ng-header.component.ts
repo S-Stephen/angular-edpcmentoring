@@ -12,7 +12,7 @@ export class CamplNgHeaderComponent implements OnInit, OnDestroy {
   search_open: boolean = false;
   mega_menu_open: boolean = false; //this is the desktop mega_menu
   mega_menu_target: string = ""; //allows us to place ngClass on targets
-  menu: any; // stores the selected menu
+  global_menus: any; //stores the menus to be displayed // mobile or otherwise
   public config: any;
   public quicklinks: any; // contains the list of quicklinks
   public global_nav: any; // contains the global nav links
@@ -35,6 +35,7 @@ export class CamplNgHeaderComponent implements OnInit, OnDestroy {
     this.config = this.campl_config.getConfig();
     this.quicklinks = this.config.quicklinks;
     this.global_nav = this.config.global_nav;
+
     this.primary_comp.id$.subscribe(id => {
       if (id == this.myidsearch && !this.search_open) this.search_open = true;
       else this.search_open = false;
@@ -43,6 +44,7 @@ export class CamplNgHeaderComponent implements OnInit, OnDestroy {
         this.menu_open = true;
         this.openBodyNav();
       } else if (this.menu_open) {
+        this.global_menus = this.config["global_nav"];
         this.menu_open = false;
         this.closeBodyNav();
       }
@@ -88,10 +90,10 @@ export class CamplNgHeaderComponent implements OnInit, OnDestroy {
         : this.myidmega;
     this.mega_menu_target = target;
     // the config object expects and element global_nav (an array of menus)
-    this.menu = this.config["global_nav"].reduce(function(out, menu) {
-      if (menu.anchor == target) out = menu;
+    this.global_menus = this.config["global_nav"].reduce(function(out, menu) {
+      if (menu.anchor == target) out.push(menu);
       return out;
-    }, {});
+    }, []);
     this.primary_comp.sendId(id);
   }
   isMe(ele) {
