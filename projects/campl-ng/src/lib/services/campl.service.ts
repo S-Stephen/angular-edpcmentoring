@@ -10,7 +10,7 @@ export class CamplService {
   constructor(@Inject(CamplConfigService) private iconfig) {
     this.config = iconfig;
 
-    // some brief tests here to check what has been sent
+    // some brief tests here to fill gaps with items which have not been sent
     // TODO2 place these checking into a config class / object
     // TODO1 implement below by looping though an array of expected attributes
     //       (these attributes do not have default values)
@@ -25,7 +25,8 @@ export class CamplService {
       "local_footer_col2",
       "local_footer_col3",
       "local_footer_col4",
-      "quicklinks"
+      "quicklinks",
+      "global_nav"
     ].forEach(key => {
       if (!this.config[key]) this.config[key] = [];
     });
