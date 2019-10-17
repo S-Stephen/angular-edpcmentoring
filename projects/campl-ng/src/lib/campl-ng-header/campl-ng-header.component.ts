@@ -12,6 +12,7 @@ export class CamplNgHeaderComponent implements OnInit, OnDestroy {
   search_open: boolean = false;
   mega_menu_open: boolean = false; //this is the desktop mega_menu
   mega_menu_target: string = ""; //allows us to place ngClass on targets
+  menu: any; // stores the selected menu
   public config: any;
   public quicklinks: any; // contains the list of quicklinks
   public global_nav: any; // contains the global nav links
@@ -86,9 +87,12 @@ export class CamplNgHeaderComponent implements OnInit, OnDestroy {
         ? "NOTSET"
         : this.myidmega;
     this.mega_menu_target = target;
+    // the config object expects and element global_nav (an array of menus)
+    this.menu = this.config["global_nav"].reduce(function(out, menu) {
+      if (menu.anchor == target) out = menu;
+      return out;
+    }, {});
     this.primary_comp.sendId(id);
-
-    console.log("toggle mega menu: " + target + " id: " + id);
   }
   isMe(ele) {
     return ele == this.mega_menu_target;

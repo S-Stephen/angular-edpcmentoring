@@ -249,7 +249,7 @@ describe("CamplNgHeaderComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  fit("should display the menu when click on menu icon (#open-menu) close on click 'Home'", fakeAsync(() => {
+  it("should display the menu when click on menu icon (#open-menu) close on click 'Home'", fakeAsync(() => {
     let menu_select = By.css("#open-menu");
     let global_nav_select = By.css(".campl-global-navigation-mobile-list");
     let home_link_select = By.css(".campl-home-link-container a");
@@ -320,7 +320,47 @@ describe("CamplNgHeaderComponent", () => {
     expect(result === null).toBeTruthy();
   }));
 
-  it("should display the mega menu when we click on one of its links", fakeAsync(() => {
+  fit("should display the mega menu when we click on one of its links", fakeAsync(() => {
+    let study_link_select = By.css("#menu_studyatcambridge");
+    let about_link_select = By.css("#menu_abouttheuniversity");
+
+    let study_menu = By.css("#studyatcambridge");
+    let about_menu = By.css("#abouttheuniversity");
+
+    expect(fixture.debugElement.query(study_link_select)).toBeTruthy();
+    expect(fixture.debugElement.query(about_link_select)).toBeTruthy();
+
+    // https://stackoverflow.com/questions/41811609/test-freezes-when-expectresult-tobenull-fails-test-angular-2-jasmine
+    // current search_form not shown
+    var result = fixture.debugElement.query(study_menu);
+    expect(result === null).toBeTruthy();
+    var result = fixture.debugElement.query(about_menu);
+    expect(result === null).toBeTruthy();
+
+    // click on study_link_menu menu shows the study_menu ()about menu still hidden)
+    fixture.debugElement
+      .query(study_link_select)
+      .triggerEventHandler("click", { button: 0 });
+    tick();
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.query(study_menu)).toBeTruthy();
+    var result = fixture.debugElement.query(about_menu);
+    expect(result === null).toBeTruthy();
+
+    // with the study menu open, click on the about menu link it will switche the active menus
+
+    // click on study_link_menu menu shows the study_menu ()about menu still hidden)
+    fixture.debugElement
+      .query(about_link_select)
+      .triggerEventHandler("click", { button: 0 });
+    tick();
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.query(about_menu)).toBeTruthy();
+    var result = fixture.debugElement.query(study_menu);
+    expect(result === null).toBeTruthy();
+
     //describe("Mega megu navigation", () => {
     //  it("navigates to other menu choice on click on menu", fakeAsync(() => {}));
     //});

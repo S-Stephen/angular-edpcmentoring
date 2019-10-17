@@ -9,7 +9,7 @@
 
       <ul class="campl-horizontal-navigation campl-global-navigation campl-unstyled-list  clearfix">
         <li *ngFor="let menu of global_nav" [ngClass]="{'campl-selected':(menu.anchor==mega_menu_target) }">
-          <a [routerLink]="" (click)="toggleMegaMenu( menu.anchor )">{{menu.label}}</a>
+          <a [routerLink]="" (click)="toggleMegaMenu( menu.anchor )" id="menu_{{menu.anchor}}">{{menu.label}}</a>
         </li>
       </ul>
     </div>
@@ -51,7 +51,8 @@
 <!--responsive search box-->
 
 <!-- the content of the global menu -->
-<!-- THe first tier of this 'mega' menu is used to populate the open-menu section -->
+<!-- The first tier of this 'mega' menu is used to populate the open-menu section -->
+<!-- This section of the DOM is also used for the mobile menu list!! -->
 <div *ngIf="mega_menu_open || menu_open" class="campl-row campl-global-navigation-drawer campl-navigation-open">
 
   <div class="campl-wrap clearfix">
@@ -61,8 +62,8 @@
   </div>
   <div class="campl-wrap clearfix">
     <div class="campl-column12 campl-global-navigation-mobile-list campl-global-navigation-list">
-
-      <div *ngFor="let menu of global_nav" class="campl-global-navigation-outer clearfix"
+      <!-- the menu variable is controlled by the component-->
+      <div class="campl-global-navigation-outer clearfix"
         [ngClass]="{ 'campl-drawer-open' : (menu.anchor==mega_menu_target) }" id="{{menu.anchor}}">
         <ul class="campl-unstyled-list campl-global-navigation-header-container ">
           <li><a href="{{menu.link}}">{{menu.label}}</a></li>
