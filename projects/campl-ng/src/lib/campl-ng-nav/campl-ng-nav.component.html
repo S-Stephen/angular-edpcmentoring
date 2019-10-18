@@ -12,12 +12,17 @@
 <div class="campl-wrap clearfix campl-local-navigation" id="local-nav">
   <div class="campl-local-navigation-container">
     <ul class="campl-unstyled-list">
-      <li #navMenuID *ngFor="let menu of (nav_menu$|async).subMenus">
+      <li #navMenuID *ngFor="let menu of (nav_menu$|async).subMenus" [ngClass]="{'campl-sub':menu.subItems.length>0}">
         <a *ngIf="menu.subItems.length==0; else submenu" href="{{menu.link}}">{{ menu.label }}</a>
         <ng-template #submenu>
           <a href="#" style="position: relative">{{ menu.label }}
           </a>
           <ul class="campl-unstyled-list local-dropdown-menu">
+            <!-- .campl-top items label link to 'Back to section home' -->
+            <!-- other label link to  $(this).parent().children(".campl-title").children("a").html() -->
+            <!--To do change text here when not campl-top to include section name-->
+            <li class="campl-back-link"><a href="#"><span class="campl-back-btn campl-menu-indicator"></span>Back to
+                section home</a></li>
             <li *ngFor="let subm of menu.subItems"><a href="{{subm.link}}">{{subm.label}}</a></li>
           </ul>
         </ng-template>
