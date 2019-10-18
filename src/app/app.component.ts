@@ -31,6 +31,8 @@ export class AppComponent {
   title = "app";
   //nav_menu = { subMenus: [], title: "Test first menu" };
   nav_menu$: Observable<NavMenu>;
+  headings$: Observable<any[]>;
+  content$: Observable<any[]>;
 
   // We could have the applicaton return the list of navigation menus - but this would break seperation of concerns!
   //currentUser$: Observable<Currentuser>; // from this we will generate a NavMenus Observable
@@ -86,6 +88,16 @@ export class AppComponent {
         return nm;
       })
     );
-  }
 
+    // set content of the table
+    //
+    //
+    this.headings$ = of([
+      [{ value: "heading1" }, { value: "heading2" }, { value: "heading3" }]
+    ]);
+    this.content$ = of([
+      [{ value: "row1 col1" }, { value: "row1 col2" }, { value: "row1 col3" }],
+      [{ value: "row2 col1" }, { value: "row2 col2" }, { value: "row2 col3" }]
+    ]);
+  }
 }

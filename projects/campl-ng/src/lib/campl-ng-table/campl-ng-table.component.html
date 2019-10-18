@@ -1,0 +1,22 @@
+<table class="campl-table-bordered campl-table campl-table-striped campl-vertical-stacking-table ">
+  <thead *ngIf=" headings$ | async as headings">
+    <!-- at the moment we can not handle table with multiple heading rows -->
+    <!-- todo so we need to resolve how to set their campl-table-heading value-->
+    <tr>
+      <th *ngFor="let heading of headings[0]" [attr.colspan]="(heading.colspan)? heading.colspan: 1"
+        [attr.rowspan]="(heading.colspan)? heading.colspan: 1">
+        {{heading.value}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of data$ | async">
+      <td *ngFor="let cell of row; let idx = index">{{cell.value}}<span
+          class='campl-table-heading'>{{(headings$ | async)[0][idx]['value']}}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- This provides the ability to hide a table -->
+<!--
+  <div class='campl-open-responsive-table'><a href='#' class='campl-open-responsive-table-link'>Click to open table " +
+      $table.find("caption").text() + "</a>" + summary + "</div-->
