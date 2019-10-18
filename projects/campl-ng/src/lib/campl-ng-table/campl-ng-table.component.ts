@@ -15,6 +15,8 @@ export class CamplNgTableComponent implements OnInit {
   // TODO interface for table cells / rows
   @Input() data$: Observable<any[]>; // actually an array of arrays
   @Input() headings$: Observable<any[]>; // actually an array of arrays - multiple rows envisaged!
+  heading_rows: any[];
+  content_rows: any[];
 
   // There are two interfaces to accomodate;
   // campl-vertical-stacking-table
@@ -22,7 +24,14 @@ export class CamplNgTableComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.headings$.subscribe(headings => {
+      this.heading_rows = headings;
+    });
+    this.data$.subscribe(contents => {
+      this.content_rows = contents;
+    });
+  }
 }
 // There are lots of 'features still to implement.
 // table data with HTML markup

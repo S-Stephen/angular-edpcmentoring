@@ -2,35 +2,8 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { CamplNgTableComponent } from "./campl-ng-table.component";
 
-import { Observable } from "rxjs/Observable";
 import { of } from "rxjs";
-import { Component } from "@angular/core";
 import { By } from "@angular/platform-browser";
-
-@Component({
-  selector: `host-component`,
-  template: `
-    <campl-ng-table
-      [data$]="testcontent$"
-      [headings$]="testheadings$"
-    ></campl-ng-table>
-  `
-})
-class TestCamplNgTableComponent {
-  testheadings$: Observable<any>;
-  testcontent$: Observable<any>;
-
-  constructor() {
-    this.testheadings$ = of([
-      [{ value: "heading1" }, { value: "heading2" }, { value: "heading3" }]
-    ]);
-    this.testcontent$ = of([
-      [{ value: "row1 col1" }, { value: "row1 col2" }, { value: "row1 col3" }],
-      [{ value: "row2 col1" }, { value: "row2 col2" }, { value: "row2 col3" }]
-    ]);
-  }
-  ngOnInit() {}
-}
 
 describe("CamplNgTableComponent", () => {
   let component: CamplNgTableComponent;
@@ -38,28 +11,54 @@ describe("CamplNgTableComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CamplNgTableComponent, TestCamplNgTableComponent]
+      declarations: [CamplNgTableComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CamplNgTableComponent);
     component = fixture.componentInstance;
+    // pass our inputs
+    component.headings$ = of([
+      [{ value: "heading1" }, { value: "heading2" }, { value: "heading3" }]
+    ]);
+    component.data$ = of([
+      [
+        [
+          { value: "row1 col1" },
+          { value: "row1 col2" },
+          { value: "row1 col3" }
+        ],
+        [{ value: "row2 col1" }, { value: "row2 col2" }, { value: "row2 col3" }]
+      ]
+    ]);
     fixture.detectChanges();
   });
 
-  fit("should create", () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 
   fit("should display headings and content correctly", () => {
+    // test first heading and first data
     // inner text of first heading should be "heading1"
+    let heading1 = By.css("thead th");
+    expect(
+      fixture.debugElement.query(heading1).nativeElement.textContent.trim()
+    ).toBe("heading1");
 
-    let headings = By.css("thead");
-    let ele = fixture.debugElement.query(headings);
-    console.log(ele);
-    expect(fixture.debugElement.query(headings)).toBeTruthy();
+    let td1 = By.css("tbody td");
+    // Nb this element also includes a span for the stacked table headings
+    // we therefore search for index of our string (textContent includes children)
+    expect(
+      fixture.debugElement
+        .query(td1)
+        .nativeElement.textContent.trim()
+        .indexOf("row1 col1") !== -1
+    ).toBe(true);
   });
 
-  fit("should stack when reduced", () => {});
+  xit("should stack when reduced", () => {
+    //TODO how do we test CSS is operating - should we in unit test?
+  });
 });

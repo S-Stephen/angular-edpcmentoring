@@ -346,36 +346,36 @@
 
 		})
 
-		/* VERTICAL STACKING TABLE */
-		var $verticalTable = $(".campl-vertical-stacking-table");
+		// /* VERTICAL STACKING TABLE */
+		// var $verticalTable = $(".campl-vertical-stacking-table");
 
-		//cycle through every vertical table on the page and insert table headers into table cells for mobile layout
-		$verticalTable.each(function (i) {
-			//for vertical stacking tables need to read the text value of each TH in turn and assign to the headers array
-			var $tableHeaders = $(this).find('thead').find("th");
+		// //cycle through every vertical table on the page and insert table headers into table cells for mobile layout
+		// $verticalTable.each(function (i) {
+		// 	//for vertical stacking tables need to read the text value of each TH in turn and assign to the headers array
+		// 	var $tableHeaders = $(this).find('thead').find("th");
 
-			var headerTextArray = [];
-			//insert th value into every data set row in order
-			//each loop to push into data array
-			$tableHeaders.each(function (i) {
-				headerTextArray.push($(this).text());
-			});
+		// 	var headerTextArray = [];
+		// 	//insert th value into every data set row in order
+		// 	//each loop to push into data array
+		// 	$tableHeaders.each(function (i) {
+		// 		headerTextArray.push($(this).text());
+		// 	});
 
-			//for every row, insert into td append before text in td insert span to handle styling of header and data
-			var $verticalTableRows = $(this).find("tr");
+		// 	//for every row, insert into td append before text in td insert span to handle styling of header and data
+		// 	var $verticalTableRows = $(this).find("tr");
 
-			$verticalTableRows.each(function (i) {
-				//need to find all children of the table rows, (and not just table data cells)
-				var $tableCells = $(this).children();
-				$tableCells.each(function (i) {
-					if (headerTextArray[i]) {
-						$(this).prepend("<span class='campl-table-heading'>" + headerTextArray[i] + "</span>")
-					}
-				})
+		// 	$verticalTableRows.each(function (i) {
+		// 		//need to find all children of the table rows, (and not just table data cells)
+		// 		var $tableCells = $(this).children();
+		// 		$tableCells.each(function (i) {
+		// 			if (headerTextArray[i]) {
+		// 				$(this).prepend("<span class='campl-table-heading'>" + headerTextArray[i] + "</span>")
+		// 			}
+		// 		})
 
-			})
+		// 	})
 
-		})
+		// })
 
 	}
 
@@ -1037,7 +1037,7 @@
 	$(function () {
 
 		//instantiate all the DOM elements which require javascript rendering
-		projectlight.init();
+		projectlight.init(); // ?almost? complete -> need to implement modernizer styles 
 		projectlight.initTables();
 		projectlight.localNav.init();
 		projectlight.markExternalLinks();

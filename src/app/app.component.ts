@@ -96,8 +96,14 @@ export class AppComponent {
       [{ value: "heading1" }, { value: "heading2" }, { value: "heading3" }]
     ]);
     this.content$ = of([
-      [{ value: "row1 col1" }, { value: "row1 col2" }, { value: "row1 col3" }],
-      [{ value: "row2 col1" }, { value: "row2 col2" }, { value: "row2 col3" }]
+      [
+        [
+          { value: "row1 col1" },
+          { value: "row1 col2" },
+          { value: "row1 col3" }
+        ],
+        [{ value: "row2 col1" }, { value: "row2 col2" }, { value: "row2 col3" }]
+      ]
     ]);
   }
 }

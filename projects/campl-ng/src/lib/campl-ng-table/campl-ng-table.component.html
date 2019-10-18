@@ -1,20 +1,23 @@
 <table class="campl-table-bordered campl-table campl-table-striped campl-vertical-stacking-table ">
-  <thead *ngIf=" headings$ | async as headings">
+  <thead *ngIf=" heading_rows ">
     <!-- at the moment we can not handle table with multiple heading rows -->
     <!-- todo so we need to resolve how to set their campl-table-heading value-->
     <tr>
-      <th *ngFor="let heading of headings[0]" [attr.colspan]="(heading.colspan)? heading.colspan: 1"
+      <th *ngFor="let heading of heading_rows[0]" [attr.colspan]="(heading.colspan)? heading.colspan: 1"
         [attr.rowspan]="(heading.colspan)? heading.colspan: 1">
         {{heading.value}}</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let row of data$ | async">
+  <tbody *ngIf="content_rows; else nocontent">
+    <tr *ngFor="let row of content_rows[0]">
       <td *ngFor="let cell of row; let idx = index">{{cell.value}}<span
           class='campl-table-heading'>{{(headings$ | async)[0][idx]['value']}}</span>
       </td>
     </tr>
   </tbody>
+  <ng-template #nocontent>
+    {{ (no_data_message)? no_data_message :  "No data supplied" }}
+  </ng-template>
 </table>
 <!-- This provides the ability to hide a table -->
 <!--
