@@ -386,7 +386,7 @@
 			m;
 		return {
 			init: function (u) {
-				$navigation = $(".campl-local-navigation");
+				//$navigation = $(".campl-local-navigation");
 
 				//only run if there is navigation available in the page
 				if ($navigation.length > 0) {
@@ -483,7 +483,6 @@
 
 					$childUl.prepend('<li class="campl-back-link"><a href="#"><span class="campl-back-btn campl-menu-indicator"></span>' + $(this).parent().children(".campl-title").children("a").html() + '</a></li>');
 				}
-
 			})
 
 

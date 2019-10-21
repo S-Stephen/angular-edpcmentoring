@@ -9,10 +9,11 @@
 
 -->
 
-<div class="campl-wrap clearfix campl-local-navigation" id="local-nav">
+<div class="clearfix campl-local-navigation" id="local-nav" camplNgWrap>
   <div class="campl-local-navigation-container">
     <ul class="campl-unstyled-list">
-      <li #navMenuID *ngFor="let menu of (nav_menu$|async).subMenus" [ngClass]="{'campl-sub':menu.subItems.length>0}">
+      <li #navMenuID *ngFor="let menu of (nav_menu$|async).subMenus" [ngClass]="{'campl-sub':menu.subItems.length>0}"
+        camplTopListHover>
         <a *ngIf="menu.subItems.length==0; else submenu" href="{{menu.link}}">{{ menu.label }}</a>
         <ng-template #submenu>
           <a href="#" style="position: relative">{{ menu.label }}
