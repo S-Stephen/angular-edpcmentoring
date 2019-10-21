@@ -56,9 +56,10 @@
 		}
 
 		//if media queries are not supported set a fixed width container to prevent fluid layout breaking in IE and other browsers which do no support MQ
-		if (!Modernizr.mq('only all')) {
-			projectlight.$wrap.addClass("campl-fixed-container");
-		}
+		//Solved with campl-ng-wrap directive directive
+		//if (!Modernizr.mq('only all')) {
+		//	projectlight.$wrap.addClass("campl-fixed-container");
+		//}
 
 		//dynamically append Global navigation controls for javascript
 		//projectlight.$globalHdrCtrl.prepend('<a href="" class="campl-open-menu ir" id="open-menu">View menu</a>');

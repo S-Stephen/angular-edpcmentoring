@@ -10,6 +10,11 @@
 -->
 
 <div class="clearfix campl-local-navigation" id="local-nav" camplNgWrap>
+  <!-- in the process of writing camplNgLocalNavigation; but maybe not required -->
+  <!-- todo replace ngIf with a directive to test capabilities? -->
+  <p *ngIf="capabilities['supported']" class="campl-closed campl-menu-btn" id="menu-btn" (click)="clickMenu()"><a
+      href="#"><span>Menu</span> <span class="campl-menu-btn-arrow"></span></a>
+  </p>
   <div class="campl-local-navigation-container">
     <ul class="campl-unstyled-list">
       <li #navMenuID *ngFor="let menu of (nav_menu$|async).subMenus" [ngClass]="{'campl-sub':menu.subItems.length>0}"

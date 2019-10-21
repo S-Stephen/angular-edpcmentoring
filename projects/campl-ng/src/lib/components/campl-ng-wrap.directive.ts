@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer2, OnInit } from "@angular/core";
+import { Directive, ElementRef, Renderer2 } from "@angular/core";
 
 import { CamplNgCapabilitiesService } from "../services/campl-ng-capabilities.service";
 /**
