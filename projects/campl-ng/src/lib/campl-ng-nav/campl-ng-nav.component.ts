@@ -35,7 +35,7 @@ export class CamplNgNavComponent implements OnInit {
     this.nav_menu$.subscribe(nm => (this.nav_menu = nm));
   }
 
-  clickMenu() {
+  clickMenuBtn() {
     alert(" TODO: action the custom.js ");
 
     // gain control:

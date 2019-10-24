@@ -72,7 +72,27 @@ export class AppComponent {
         let mAdmin: NavMenuItem = {
           label: "Admin",
           link: "/admin",
-          subItems: []
+          subItems: [
+            {
+              label: "admin1",
+              link: "/admin1",
+              subItems: [
+                { label: "admin1a", link: "/admin1a", subItems: [] },
+                { label: "admin1b", link: "/admin1b", subItems: [] },
+                //{
+                //  label: "admin1c",
+                //  link: "/admin1c",
+                //  subItems: [
+                //    { label: "admin1c1", link: "/admin1c1", subItems: [] },
+                //    { label: "admin1c2", link: "/admin1c2", subItems: [] }
+                // ]
+                //},
+                { label: "admin1d", link: "/admin1d", subItems: [] }
+              ]
+            },
+            { label: "admin2", link: "/admin2", subItems: [] },
+            { label: "admin3", link: "/admin3", subItems: [] }
+          ]
         };
         let mLogout: NavMenuItem = {
           label: user.last_name + " (" + user.username + ")",

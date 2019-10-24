@@ -159,3 +159,71 @@ The above should then be replaced with ng add command - hopefully
     ]
   })
 ```
+
+##### Constraints
+
+At the moment local navigaton menus only allow for tree two tiers deep eg;
+
+```
+
+    this.nav_menu$ = this.userService.response$.pipe(
+      map(user => {
+        /*let nm: NavMenu = {
+          title: "Navigation Menu goes here",
+          subMenu: []
+        };
+        return nm;*/
+        //return { title: "some title", subMenu: [] };
+
+        //user.first_name = "modified";
+        let mHome: NavMenuItem = {
+          label: "Home",
+          link: "/home/",
+          subItems: []
+        };
+        let mMatch: NavMenuItem = {
+          label: "Match mentor and mentees",
+          link: "/match/",
+          subItems: []
+        };
+        let mAdmin: NavMenuItem = {
+          label: "Admin",
+          link: "/admin",
+          subItems: [
+            {
+              label: "admin1",
+              link: "/admin1",
+              subItems: [
+                { label: "admin1a", link: "/admin1a", subItems: [] },
+                { label: "admin1b", link: "/admin1b", subItems: [] },
+                //Not available:-
+                //{
+                //  label: "admin1c",
+                //  link: "/admin1c",
+                //  subItems: [
+                //    { label: "admin1c1", link: "/admin1c1", subItems: [] },
+                //    { label: "admin1c2", link: "/admin1c2", subItems: [] }
+                //  ]
+                //},
+                { label: "admin1d", link: "/admin1d", subItems: [] }
+              ]
+            },
+            { label: "admin2", link: "/admin2", subItems: [] },
+            { label: "admin3", link: "/admin3", subItems: [] }
+          ]
+        };
+        let mLogout: NavMenuItem = {
+          label: user.last_name + " (" + user.username + ")",
+          link: "",
+          subItems: [
+            { label: "Log out", link: "/accounts/logout/", subItems: [] }
+          ]
+        };
+        let nm: NavMenu = {
+          title: "Navigation Menu",
+          subMenus: [mHome, mMatch, mAdmin, mLogout]
+        };
+        return nm;
+      })
+    );
+```

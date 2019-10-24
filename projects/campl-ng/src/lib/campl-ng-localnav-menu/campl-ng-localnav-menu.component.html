@@ -1,0 +1,17 @@
+<!-- input menu -->
+<a href="#" style="position: relative" class="campl-sub">{{ menu.label }}
+</a>
+<ul class="campl-unstyled-list local-dropdown-menu">
+  <!--all menu lists-->
+  <!-- .campl-top items label link to 'Back to section home' -->
+  <!-- other label link to  $(this).parent().children(".campl-title").children("a").html() -->
+  <!--To do change text here when not campl-top to include section name-->
+  <li class="campl-back-link"><a href="#"><span class="campl-back-btn campl-menu-indicator"></span>Back</a></li>
+  <li *ngFor="let subm of menu.subItems" [ngClass]="{'campl-sub':(subm.subItems && subm.subItems.length>0)}"
+    camplTopListHover>
+    <a *ngIf="subm.subItems.length==0" href=" {{subm.link}}">{{subm.label}}</a>
+    <!--include another teir-->
+    <campl-ng-localnav-menu *ngIf="subm.subItems.length>0" [menu]="subm"></campl-ng-localnav-menu>
+  </li>
+
+</ul>

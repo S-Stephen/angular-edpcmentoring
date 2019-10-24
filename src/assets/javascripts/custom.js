@@ -387,7 +387,7 @@
 			m;
 		return {
 			init: function (u) {
-				//$navigation = $(".campl-local-navigation");
+				$navigation = $(".campl-local-navigation");
 
 				//only run if there is navigation available in the page
 				if ($navigation.length > 0) {
@@ -451,7 +451,7 @@
 			$dropdownListItems = $topListItems.find("li");
 			$allNavLinks = $allMenuLists.find("a");
 
-			$currentPageListitem = $navigation.find(".campl-current-page");
+			$currentPageListitem = $navigation.find(".campl-current-page"); // not sure what this doesn;t seem to be being used
 			currentSectionNo = 0;
 
 			m = $topUL.height();

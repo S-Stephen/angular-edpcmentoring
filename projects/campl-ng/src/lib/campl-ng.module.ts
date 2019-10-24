@@ -30,7 +30,8 @@ import { TopListHoverDirective } from "./components/top-list-hover.directive";
 import { CamplNgMessagesComponent } from "./campl-ng-messages/campl-ng-messages.component";
 import { CamplNgQuicklinksComponent } from "./campl-ng-quicklinks/campl-ng-quicklinks.component";
 import { CamplNgTableComponent } from "./campl-ng-table/campl-ng-table.component";
-import { CamplNgWrapDirective } from './components/campl-ng-wrap.directive';
+import { CamplNgWrapDirective } from "./components/campl-ng-wrap.directive";
+import { CamplNgLocalnavMenuComponent } from "./campl-ng-localnav-menu/campl-ng-localnav-menu.component";
 
 // Service to load the jQuery IIFE
 //import { DynamicScriptLoaderService } from "./services/dynamic-script-loader.service";
@@ -49,7 +50,8 @@ import { CamplNgWrapDirective } from './components/campl-ng-wrap.directive';
     CamplNgMessagesComponent,
     CamplNgQuicklinksComponent,
     CamplNgTableComponent,
-    CamplNgWrapDirective
+    CamplNgWrapDirective,
+    CamplNgLocalnavMenuComponent
   ],
   // todo: these should be peer dependancies?
   imports: [RouterModule, BrowserModule],

@@ -1,0 +1,67 @@
+<!-- Based on the perms pf our user provide the correct links -->
+<!-- these links will be guarded by the backend! -->
+
+<!--
+  TODO search guard to display accessble routes
+  user.ismatchmaker
+  user.is_supervisor
+  user.cued_member (user.cued_member.user.get_full_name,  user.cued_member.crsid)
+
+-->
+
+<div class="clearfix campl-local-navigation" id="local-nav" camplNgWrap>
+  <!-- in the process of writing camplNgLocalNavigation; but maybe not required -->
+  <!-- todo replace ngIf with a directive to test capabilities? -->
+  <p *ngIf="capabilities['supported']" class="campl-closed campl-menu-btn" id="menu-btn" (click)="clickMenuBtn()"><a
+      href="#"><span>Menu</span> <span class="campl-menu-btn-arrow"></span></a>
+  </p>
+  <div class="campl-local-navigation-container">
+    <ul class="campl-unstyled-list">
+      <!-- top UL-->
+      <li #navMenuID *ngFor="let menu of (nav_menu$|async).subMenus" [ngClass]="{'campl-sub':menu.subItems.length>0}"
+        camplTopListHover>
+        <!--top list items-->
+        <a *ngIf="menu.subItems.length==0; else submenu" href="{{menu.link}}">{{ menu.label }}</a>
+        <!-- at the moment we only manage two tiers for menus-->
+        <ng-template #submenu>
+          <a href="#" style="position: relative">{{ menu.label }}
+          </a>
+          <ul class="campl-unstyled-list local-dropdown-menu">
+            <!--all menu lists-->
+            <!-- .campl-top items label link to 'Back to section home' -->
+            <!-- other label link to  $(this).parent().children(".campl-title").children("a").html() -->
+            <!--To do change text here when not campl-top to include section name-->
+            <li class="campl-back-link"><a href="#"><span class="campl-back-btn campl-menu-indicator"></span>Back to
+                section home</a></li>
+            <li *ngFor="let subm of menu.subItems" [ngClass]="{'campl-sub':(subm.subItems && subm.subItems.length>0)}">
+              <a *ngIf="subm.subItems.length==0; else submenu1" href="{{subm.link}}">{{subm.label}}</a></li>
+
+            <ng-template #submenu1>
+              <a href="#" style="position: relative">{{ menu.label }}</a>
+              <ul class="campl-unstyled-list local-dropdown-menu">
+                <!--all menu lists-->
+                <!-- .campl-top items label link to 'Back to section home' -->
+                <!-- other label link to  $(this).parent().children(".campl-title").children("a").html() -->
+                <!--To do change text here when not campl-top to include section name-->
+                <li class="campl-back-link"><a href="#"><span class="campl-back-btn campl-menu-indicator"></span>Back to
+                    section home</a></li>
+                <!--<a *ngIf="!subm.subItems || subm.subItems.length==0; else submenu2"
+                  href="{{subm1.link}}">{{subm.label}}</a>-->
+                <!--then possibly recurse again!-->
+                <li *ngFor="let subm1 of subm.subItems">
+                  <a href="{{subm1.link}}">{{subm1.label}}</a>
+                </li>
+                <!--<li *ngFor="let subm1 of subm.subItems" [ngClass]="{'campl-sub':(subm1.subItems && subm1.subItems.length>0)}">-->
+                <!--<a *ngIf="subm.subItems && subm.subItems.length==0; else submenu2" href="{{subm1.link}}">{{subm.label}}</a></li>-->
+                <!--second level list items-->
+                <!--drop down list items-->
+              </ul>
+            </ng-template>
+            <!--second level list items-->
+            <!--drop down list items-->
+          </ul>
+        </ng-template>
+      </li>
+    </ul>
+  </div>
+</div>
