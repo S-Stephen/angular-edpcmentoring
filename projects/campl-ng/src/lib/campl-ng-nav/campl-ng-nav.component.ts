@@ -36,6 +36,8 @@ export class CamplNgNavComponent implements OnInit {
   }
 
   clickMenuBtn() {
+    // clicking this will toggle the displayMenu
+
     alert(" TODO: action the custom.js ");
 
     // gain control:
@@ -47,7 +49,14 @@ export class CamplNgNavComponent implements OnInit {
 							//close main nav drawer or search panel if open
 							$("body").removeClass("campl-navigation-open");
 							projectlight.$searchDrawer.removeClass("campl-search-open");
-
+              */
+    var target = event.target || event.srcElement || event.currentTarget;
+    //if (target.hasClass("campl-closed"))
+    // if the parent has class campl-closed
+    // displayMenu("show")
+    // else
+    // displayMenu('Hide')
+    /** 
 							if ($linkClicked.parent().hasClass("campl-closed")) {
 								displayMenu("show")
 							} else {
