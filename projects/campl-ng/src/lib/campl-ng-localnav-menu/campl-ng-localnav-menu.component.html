@@ -6,8 +6,10 @@
   <!-- .campl-top items label link to 'Back to section home' -->
   <!-- other label link to  $(this).parent().children(".campl-title").children("a").html() -->
   <!--To do change text here when not campl-top to include section name-->
+  <li class="campl-title"><a href="' {{menu.link}} '">{{ menu.label }}</a></li>
   <li class="campl-back-link"><a href="#"><span class="campl-back-btn campl-menu-indicator"></span>Back</a></li>
-  <li *ngFor="let subm of menu.subItems" [ngClass]="{'campl-sub':(subm.subItems && subm.subItems.length>0)}"
+  <li *ngFor="let subm of menu.subItems"
+    [ngClass]="{'campl-sub':(subm.subItems && subm.subItems.length>0 && capabilities['mobile_layout'])}"
     camplTopListHover>
     <a *ngIf="subm.subItems.length==0" href=" {{subm.link}}">{{subm.label}}</a>
     <!--include another teir-->

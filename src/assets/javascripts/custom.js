@@ -451,7 +451,7 @@
 			$dropdownListItems = $topListItems.find("li");
 			$allNavLinks = $allMenuLists.find("a");
 
-			$currentPageListitem = $navigation.find(".campl-current-page"); // not sure what this doesn;t seem to be being used
+			$currentPageListitem = $navigation.find(".campl-current-page"); // not sure what this is doesn't seem to be being used
 			currentSectionNo = 0;
 
 			m = $topUL.height();
@@ -461,13 +461,14 @@
 
 			//this needs to be added to browsers with media queries only to prevent IE7 adding gap above items with children in desktop layout
 			//for all the list items that have children append forward indicator arrow
-			if (Modernizr.mq('only all')) {
-				$('.campl-sub').children("a").css({
-					"position": "relative"
-				}).append("<span class='campl-menu-indicator campl-fwd-btn'></span>")
-			}
+			// This will place a forward button on the mobile style menu
+			//if (Modernizr.mq('only all')) {
+			//	$('.campl-sub').children("a").css({
+			//		"position": "relative"
+			//	}).append("<span class='campl-menu-indicator campl-fwd-btn'></span>")
+			//}
 			//dynamically mark top level list items
-			$topListItems.addClass("campl-top")
+			//$topListItems.addClass("campl-top")
 
 
 			//for each list item with a class of sub, clone the link and prepend it to the top of the nested UL beneath
@@ -475,24 +476,32 @@
 
 			//for each UL walk up the DOM to find the title of the UL in the section above, prepend this link as the back button to the section before for
 			//the mobile navigation
-			$navigation.find(".campl-sub").each(function () {
-				var $childUl = $(this).children("ul");
-				$childUl.prepend('<li class="campl-title"><a href="' + $(this).children("a").attr('href') + '">' + $(this).children("a").text() + '</a></li>');
-				if ($(this).hasClass('campl-top')) {
-					$childUl.prepend('<li class="campl-back-link"><a href="#"><span class="campl-back-btn campl-menu-indicator"></span>Back to section home</a></li>');
-				} else {
+			//$navigation.find(".campl-sub").each(function () {
+			//	var $childUl = $(this).children("ul");
+			//	// hopefully added
+			//	$childUl.prepend('<li class="campl-title"><a href="' + $(this).children("a").attr('href') + '">' + $(this).children("a").text() + '</a></li>');
 
-					$childUl.prepend('<li class="campl-back-link"><a href="#"><span class="campl-back-btn campl-menu-indicator"></span>' + $(this).parent().children(".campl-title").children("a").html() + '</a></li>');
-				}
-			})
+			//	// added as back only (no reference to previous tier name atm)
+			//	if ($(this).hasClass('campl-top')) {
+			//		$childUl.prepend('<li class="campl-back-link"><a href="#"><span class="campl-back-btn campl-menu-indicator"></span>Back to section home</a></li>');
+			//	} else {//
+
+			//		$childUl.prepend('<li class="campl-back-link"><a href="#"><span class="campl-back-btn campl-menu-indicator"></span>' + $(this).parent().children(".campl-title").children("a").html() + '</a></li>');
+			//	}
+			//})
 
 
 			//reset menu structure after title links have been appended to ensure they are always created for full mobile structure
 			//desktop menu only needs to go one level deep
 			$allListItems.removeClass("campl-sub");
+			// this.modernizr["mobile_layout"] === projectlight.mobileLayout
+			// allListItems are all the items included in the top ul and below
+			// I'm not sure what this does -> okay add them to the mobile ul->lis but what is hapeeing in th eothe rcase?
 			if (projectlight.mobileLayout) {
 				$allListItems.has('ul').addClass("campl-sub");
 			} else {
+				// HELP?! list items 
+				// did some other items get added after allListItems?
 				$allListItems.not($allListItems.find("li")).has('ul').addClass("campl-sub");
 			}
 
@@ -506,17 +515,18 @@
 
 			//hover classes not required for mobile and tablet layouts
 			//hover event should only trigger from top level items not children of top level
-			$topListItems.hover(
-				function () {
-					if (!projectlight.mobileLayout) {
-						$(this).addClass("campl-hover")
-					}
-				},
-				function () {
-					if (!projectlight.mobileLayout) {
-						$(this).removeClass("campl-hover")
-					}
-				});
+			// camplTopListHover
+			//$topListItems.hover(
+			//	function () {
+			//		if (!projectlight.mobileLayout) {
+			//			$(this).addClass("campl-hover")
+			//		}
+			//	},
+			//	function () {
+			//		if (!projectlight.mobileLayout) {
+			//			$(this).removeClass("campl-hover")
+			//		}
+			//	});
 
 
 			//Bound click event for all links inside the local navigation.
