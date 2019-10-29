@@ -49,17 +49,17 @@ export class CamplNgTitlenavComponent implements OnInit {
   }
 
   ngAfterViewChecked() {
-    if (this.currentMenu !== this.childMenu.nav_menu) {
-      //The issue here is that the IIFE is not idempotent and
-      //there appears to be a grandual render of the menu resulting in multiple calls
-      // after our child gets rendered we re-run the project light IIFE
-      // TODO This may better be provided as a service if other projectlight
-      // elements are dynamically created
-      //this.currentMenu = this.childMenu.nav_menu;
-      var head = document.getElementsByTagName("head")[0];
-      var script = document.createElement("script");
-      script.src = "/projectlight/javascripts/custom_navonly.js";
-      head.appendChild(script);
-    }
+    //    if (this.currentMenu !== this.childMenu.nav_menu) {
+    //The issue here is that the IIFE is not idempotent and
+    //there appears to be a grandual render of the menu resulting in multiple calls
+    // after our child gets rendered we re-run the project light IIFE
+    // TODO This may better be provided as a service if other projectlight
+    // elements are dynamically created
+    //this.currentMenu = this.childMenu.nav_menu;
+    //      var head = document.getElementsByTagName("head")[0];
+    //     var script = document.createElement("script");
+    //      script.src = "/projectlight/javascripts/custom_navonly.js";
+    //      head.appendChild(script);
+    //    }
   }
 }

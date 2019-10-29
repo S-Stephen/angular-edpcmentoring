@@ -4,6 +4,7 @@ import { Observable } from "rxjs/Observable";
 // might be better to replace testing Capabilities with directives that do so?
 import { CamplNgCapabilitiesService } from "../services/campl-ng-capabilities.service";
 import { CamplNgPrimaryMenuStateService } from "../services/campl-ng-primary-menu-state.service";
+import { CamplNgLocalmenuService } from "../services/campl-ng-localmenu.service";
 //import { NavMenuService } from "../services/nav-menu.service";
 //import { NavMenu } from "../models/nav-menu";
 
@@ -20,28 +21,73 @@ export class CamplNgNavComponent implements OnInit {
   nav_menu$: Observable<NavMenu>;
   capabilities: any;
   myid = "CamplNgNavComponent";
+  public open_localnav: boolean = false; // used to manage control
+  public left_pos: number = -9999;
+  public menu_width: number = 480;
+  public list_style: any = {};
+  public local_nav_con_pos: number;
+
+  window_width: number;
 
   public nav_menu: NavMenu;
   constructor(
     public primary_comp: CamplNgPrimaryMenuStateService,
-    public browser_capabilities: CamplNgCapabilitiesService
+    public browser_capabilities: CamplNgCapabilitiesService,
+    public local_nav: CamplNgLocalmenuService
   ) {
     browser_capabilities.modernizrSource.subscribe(capabilities => {
       this.capabilities = capabilities;
+    });
+    local_nav.localNavSource.subscribe(pos => {
+      this.local_nav_con_pos = pos;
+      console.log("moving the container to:" + this.local_nav_con_pos);
     });
   }
 
   ngOnInit() {
     this.nav_menu$.subscribe(nm => (this.nav_menu = nm));
-  }
+    this.primary_comp.id$.subscribe(id => {
+      if (id == this.myid) {
+        this.open_localnav = true;
+        this.left_pos = 0;
+      } else {
+        this.open_localnav = false;
+        this.left_pos = -9999;
+      }
+    });
 
+    this.window_width = window.innerWidth;
+  }
+  /*
+  onParentPos(position) {
+    alert("move the parent menu: " + position);
+    this.list_style = { "left.px": position };
+  }
+*/
   clickMenuBtn() {
     // clicking this will toggle the displayMenu
 
-    alert(" TODO: action the custom.js ");
+    // toggle control
 
-    // gain control:
-    this.primary_comp.sendId(this.myid);
+    console.log("argh");
+    let controlto = "";
+    if (this.open_localnav) {
+      if (this.capabilities["mobile_layout"]) {
+        this.menu_width = 0;
+        this.local_nav.updatePosition(-9999);
+      }
+      controlto = "__NONE__";
+    } else {
+      // set the menu width based on capabilities
+      console.log("argh");
+      if (this.capabilities["mobile_layout"]) {
+        this.list_style = { "width.px": this.window_width };
+        this.local_nav.updatePosition(0);
+      }
+      controlto = this.myid;
+    }
+
+    this.primary_comp.sendId(controlto);
     /** 				
 						$openMenu.click(function () { 
 							var $linkClicked = $(this);

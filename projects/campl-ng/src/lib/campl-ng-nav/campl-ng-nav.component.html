@@ -15,14 +15,14 @@
   <p *ngIf="capabilities['supported']" class="campl-closed campl-menu-btn" id="menu-btn" (click)="clickMenuBtn()"><a
       href="#"><span>Menu</span> <span class="campl-menu-btn-arrow"></span></a>
   </p>
-  <div class="campl-local-navigation-container">
-    <ul class="campl-unstyled-list">
+  <div class="campl-local-navigation-container" [ngStyle]="{'left.px': local_nav_con_pos}">
+    <ul class="campl-unstyled-list" [ngStyle]="list_style">
       <!-- top UL-->
       <li #navMenuID *ngFor="let menu of (nav_menu$|async).subMenus" [ngClass]="{'campl-sub':menu.subItems.length>0}"
         camplTopListHover class="campl-top">
         <a *ngIf="menu.subItems.length==0" href="{{menu.link}}" style="position: relative">{{ menu.label }}</a>
-        <span *ngIf="capabilities['supported']" class='campl-menu-indicator campl-fwd-btn'></span>
-        <campl-ng-localnav-menu *ngIf="menu.subItems.length>0" [menu]="menu"></campl-ng-localnav-menu>
+        <campl-ng-localnav-menu *ngIf="menu.subItems.length>0" [menu]="menu">
+        </campl-ng-localnav-menu>
       </li>
     </ul>
   </div>

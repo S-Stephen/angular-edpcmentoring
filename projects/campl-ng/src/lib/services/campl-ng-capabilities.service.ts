@@ -33,6 +33,7 @@ export class CamplNgCapabilitiesService {
     ) {
       this.modernizr["non_mobile_thin_layout"] = true;
     }
+    this.modernizr["window_width"] = window.innerWidth;
     console.log("emit our capabilities");
     this.modernizrSource.next(this.modernizr);
   }

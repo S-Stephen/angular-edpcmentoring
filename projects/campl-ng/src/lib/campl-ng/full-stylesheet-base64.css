@@ -2297,7 +2297,8 @@ body {
 	margin: 0
 }
 
-.js .campl-local-navigation li.campl-sub>campl-ng-localnav-menu>a {
+/* do not display if in mobile view! */
+.js .campl-local-navigation li.campl-sub>campl-ng-localnav-menu>a:not(.touch) {
 	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAHCAYAAAAF1R1/AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gQdDCA3lzCGtAAAAC1JREFUGNNj+P//fwMDCQCvemINI0odIUUkuRyXYlK9j1UTWYaga6bIEHJdAgASVi1anPfrlwAAAABJRU5ErkJggg==);
 	background-repeat: no-repeat;
 	background-position: 100% 50%;

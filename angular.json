@@ -21,7 +21,6 @@
               "src/favicon.ico",
               "src/projectlight/images/interface",
               "src/projectlight/javascripts/custom.js",
-              "src/projectlight/javascripts/custom_navonly.js",
               "src/projectlight/javascripts/libs/bootstrap-tabs.js",
               "src/projectlight/javascripts/libs/datepicker_highlighted_events.js",
               "src/projectlight/javascripts/libs/ios-orientationchange-fix.js",

@@ -162,7 +162,7 @@ The above should then be replaced with ng add command - hopefully
 
 ##### Constraints
 
-At the moment local navigaton menus only allow for tree two tiers deep eg;
+At the moment local navigation menus only allow for tree two tiers deep eg;
 
 ```
 
@@ -227,3 +227,7 @@ At the moment local navigaton menus only allow for tree two tiers deep eg;
       })
     );
 ```
+
+##### In progress
+
+Animation for local nav menus -> angular animation to replace jquery ones
