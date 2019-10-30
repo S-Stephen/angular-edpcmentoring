@@ -16,7 +16,7 @@ import { ReplaySubject } from "rxjs";
 
 @Component({
   template:
-    '<ul><li class="someclass" camplTopListHover>My test div wit hwrap</li></ul>'
+    '<ul><li class="someclass" camplTopListHover>My test div with wrap</li></ul>'
 })
 class TestTopListHoverDirectiveComponent {}
 
