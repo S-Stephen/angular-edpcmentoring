@@ -4,7 +4,8 @@ import { CamplNgComponent } from "./campl-ng.component";
 import { CamplNgTitlenavComponent } from "../campl-ng-titlenav/campl-ng-titlenav.component";
 import { of } from "rxjs/internal/observable/of";
 import { NavMenu } from "../models/nav-menu";
-import { Observable } from "rxjs";
+import { Observable, ReplaySubject } from "rxjs";
+import { CamplNgCapabilitiesService } from "../services/campl-ng-capabilities.service";
 
 // Router outlet must be included in the parent app
 @Component({
@@ -51,8 +52,14 @@ class MockCamplNgFooterComponent {}
 describe("CamplNgComponent", () => {
   let component: CamplNgComponent;
   let fixture: ComponentFixture<CamplNgComponent>;
+  let fakeCapabilities;
+  let capSubject = new ReplaySubject(1);
 
   beforeEach(async(() => {
+    fakeCapabilities = {
+      modernizrSource: capSubject.asObservable(),
+      queryClient: Function
+    };
     TestBed.configureTestingModule({
       declarations: [
         MockRouterOutletComponent,
@@ -62,11 +69,15 @@ describe("CamplNgComponent", () => {
         MockCamplNgTitlenavComponent,
         MockCamplNgHeaderComponent,
         MockCamplNgMessagesComponent
+      ],
+      providers: [
+        { provide: CamplNgCapabilitiesService, useValue: fakeCapabilities }
       ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
+    capSubject.next({ supported: true });
     fixture = TestBed.createComponent(CamplNgComponent);
     component = fixture.componentInstance;
     // this needs to be set so the template can pass it 'down'
