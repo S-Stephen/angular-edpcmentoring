@@ -41,10 +41,11 @@ export class CamplNgHeaderComponent implements OnInit, OnDestroy {
       else this.search_open = false;
 
       if (id == this.myidnav && !this.menu_open) {
+        this.global_menus = this.config["global_nav"]; // FIXME sets our global menus for the first time
         this.menu_open = true;
         this.openBodyNav();
       } else if (this.menu_open) {
-        this.global_menus = this.config["global_nav"];
+        this.global_menus = this.config["global_nav"]; // FIXME sets our global menus for the first time
         this.menu_open = false;
         this.closeBodyNav();
       }
