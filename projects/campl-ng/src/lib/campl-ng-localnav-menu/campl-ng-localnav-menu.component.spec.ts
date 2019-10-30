@@ -1,25 +1,42 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CamplNgLocalnavMenuComponent } from './campl-ng-localnav-menu.component';
+import { CamplNgLocalnavMenuComponent } from "./campl-ng-localnav-menu.component";
+import { CamplNgCapabilitiesService } from "../services/campl-ng-capabilities.service";
+import { ReplaySubject } from "rxjs";
+import { Component, DebugElement } from "@angular/core";
+import { By } from "@angular/platform-browser";
 
-describe('CamplNgLocalnavMenuComponent', () => {
-  let component: CamplNgLocalnavMenuComponent;
-  let fixture: ComponentFixture<CamplNgLocalnavMenuComponent>;
+@Component({
+  template: "<campl-ng-localnav-menu></campl-ng-localnav-menu>"
+})
+class TestContainerComponent {}
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CamplNgLocalnavMenuComponent ]
-    })
-    .compileComponents();
-  }));
+describe("CamplNgLocalnavMenuComponent", () => {
+  let component: TestContainerComponent;
+  let fixture: ComponentFixture<TestContainerComponent>;
+  let mymenu: DebugElement;
+  let fakeCapabilities;
+  let capSubject = new ReplaySubject(1);
+
+  beforeEach(async(() => {}));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CamplNgLocalnavMenuComponent);
+    fakeCapabilities = {
+      modernizrSource: capSubject.asObservable()
+    };
+    TestBed.configureTestingModule({
+      declarations: [CamplNgLocalnavMenuComponent, TestContainerComponent],
+      providers: [
+        { provide: CamplNgCapabilitiesService, useValue: fakeCapabilities }
+      ]
+    });
+    fixture = TestBed.createComponent(TestContainerComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    mymenu = fixture.debugElement.query(By.css("campl-ng-localnav-menu"));
   });
 
-  it('should create', () => {
+  it("should create", () => {
+    capSubject.next({ supported: true });
     expect(component).toBeTruthy();
   });
 });
