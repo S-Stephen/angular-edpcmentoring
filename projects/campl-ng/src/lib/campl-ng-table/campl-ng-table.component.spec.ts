@@ -39,7 +39,7 @@ describe("CamplNgTableComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  fit("should display headings and content correctly", () => {
+  it("should display headings and content correctly", () => {
     // test first heading and first data
     // inner text of first heading should be "heading1"
     let heading1 = By.css("thead th");
