@@ -16,6 +16,8 @@ export class TopListHoverDirective {
       this.capabilities = capabilities;
     });
   }
+
+  // Todo: replace rending with beter angularsied idiom eg ngClass=campl-hover <some variable>
   @HostListener("mouseover") onHover() {
     if (!this.capabilities["mobile_layout"]) {
       this.renderer.addClass(this.el.nativeElement, "campl-hover");
