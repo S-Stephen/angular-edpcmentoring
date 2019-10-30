@@ -34,7 +34,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         }
         // send our error message to the message service
         // to display / hide somewhere on the page/
-        console.log("intercepted http response");
         this.messageService.sendMessage(errorMessage);
         //window.alert(errorMessage);
         return throwError(errorMessage);

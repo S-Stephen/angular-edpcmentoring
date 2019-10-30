@@ -44,7 +44,6 @@ export class CamplNgTitlenavComponent implements OnInit {
 
   ngOnInit() {
     this.config = this.campl_config.getConfig();
-    //console.log("campl_service: " + JSON.stringify(this.campl_config));
     //this.nav_menu$.subscribe(vals => alert("values received: " + vals));
   }
 

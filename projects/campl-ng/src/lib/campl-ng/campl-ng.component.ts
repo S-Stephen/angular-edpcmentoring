@@ -35,7 +35,6 @@ export class CamplNgComponent implements OnInit {
     this.nav_menu$.subscribe(menu => {
       this.nav_menu = menu;
     });
-    console.log("call our capabilities service");
     // setup info about our browser
     this.browser_capabilities.queryClient();
   }

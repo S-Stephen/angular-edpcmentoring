@@ -30,9 +30,7 @@ export class CamplNgMessagesComponent implements OnInit {
 
   ngOnInit() {
     this.messageBufferService.message$.subscribe(msg => {
-      console.log("subscription handling messages: " + msg);
       this.message_log.push(msg);
-      console.log(this.message_log.length);
       this.ref.detectChanges(); // [1]
     });
   }

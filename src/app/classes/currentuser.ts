@@ -21,7 +21,6 @@ export class Currentuser {
 
   constructor(obj?: any) {
     Object.assign(this, obj);
-    //console.log(obj);
     if (obj.cued_member) this.cued_member = new Cuedmember(obj.cued_member);
     this.mentee_invitations = [];
     for (let i of obj.mentee_invitations) {

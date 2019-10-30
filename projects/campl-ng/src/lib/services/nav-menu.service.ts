@@ -11,7 +11,6 @@ export class NavMenuService {
 
   constructor(@Inject(NavMenuConfigService) private inmenu) {
     this.menu = inmenu;
-    console.log("NavMenuServiceService we have menus: " + this.menu);
   }
   public getMenus(): NavMenu {
     return this.menu;

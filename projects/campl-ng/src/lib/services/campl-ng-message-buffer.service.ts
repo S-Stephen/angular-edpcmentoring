@@ -9,7 +9,6 @@ import { Subject } from "rxjs";
 export class CamplNgMessageBufferService {
   message$ = new Subject<string>();
   sendMessage(message: string) {
-    console.log("message buffer incoming!");
     this.message$.next(message);
   }
   constructor() {}

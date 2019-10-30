@@ -40,7 +40,6 @@ export class CamplNgNavComponent implements OnInit {
     });
     local_nav.localNavSource.subscribe(pos => {
       this.local_nav_con_pos = pos;
-      console.log("moving the container to:" + this.local_nav_con_pos);
     });
   }
 
@@ -69,7 +68,6 @@ export class CamplNgNavComponent implements OnInit {
 
     // toggle control
 
-    console.log("argh");
     let controlto = "";
     if (this.open_localnav) {
       if (this.capabilities["mobile_layout"]) {
@@ -79,7 +77,6 @@ export class CamplNgNavComponent implements OnInit {
       controlto = "__NONE__";
     } else {
       // set the menu width based on capabilities
-      console.log("argh");
       if (this.capabilities["mobile_layout"]) {
         this.list_style = { "width.px": this.window_width };
         this.local_nav.updatePosition(0);

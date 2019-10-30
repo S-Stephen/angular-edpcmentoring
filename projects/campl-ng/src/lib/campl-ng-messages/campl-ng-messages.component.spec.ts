@@ -49,10 +49,6 @@ describe("CamplNgMessagesComponent", () => {
     component.toggleMessages(); // should now be set to true
     fixture.detectChanges(); // this can timeout if no changes occur?
 
-    // one way of triggering event
-    // this should not be visible!!
-    console.log("in the test");
-
     // The panel is displayed
     expect(fixture.debugElement.query(panel_select)).not.toBeNull(); //
 

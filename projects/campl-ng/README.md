@@ -237,3 +237,5 @@ Animation for local nav menus -> angular animation to replace jquery ones
 CSS modifications:
 
 modify top-list-hover to set a variable that triggers class inclusion - rather than manipulating the DOM directly
+
+Add animations when sliding submenus into focus

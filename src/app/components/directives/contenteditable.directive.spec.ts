@@ -14,7 +14,6 @@ class TestContentEditable {
   defaultcontent: string = "test content";
   newcontent: string = "";
   updateContent(newcontent: string) {
-    console.log("new value set");
     this.newcontent = newcontent;
   }
 }

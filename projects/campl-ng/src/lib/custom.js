@@ -1,7 +1,5 @@
 ﻿export function project_light_cued() {
 
-	console.log(JSON.stringify(config));
-
 	//create singleton to namespace js
 	if (!projectlight) {
 		var projectlight = {
@@ -12,7 +10,6 @@
 	if (config) {
 		projectlight.config = config;
 	} else {
-		console.log("no config set")
 		projectlight.config.init = true;
 		projectlight.config.initTables = true;
 		projectlight.config.initNav = true;
@@ -203,7 +200,6 @@
 			var maxColumnHeight = Math.max($childrenOfList.eq(0).height(), $childrenOfList.eq(1).height(), $childrenOfList.eq(2).height());
 
 			//why is the col height 0 here?
-			// console.log(maxColumnHeight)
 			//hardcoded to 300 for time being
 			$childrenOfList.css({
 				'min-height': 300
@@ -399,10 +395,8 @@
 		return {
 			init: function (u) {
 				$navigation = $(".campl-local-navigation");
-				console.log("DEBUG is local navigation found in this page?")
 				//only run if there is navigation available in the page
 				if ($navigation.length > 0) {
-					console.log("yes we have found local navigation")
 					//need to remove btn from IE7 and IE8 - feature detection for media queries
 					if (Modernizr.mq('only all')) {
 						$navigation.prepend('<p class="campl-closed campl-menu-btn" id="menu-btn"><a href="#"><span>Menu</span> <span class="campl-menu-btn-arrow"></span></a></p>')
@@ -453,13 +447,10 @@
 
 		function setupNavigation() {
 
-			console.log("DEBUG search for navigation menus");
 
-			$navContainer = $navigation.children(".campl-local-navigation-container"),
-				$topUL = $navContainer.children("ul");
-			console.log("DEBUG found topUl of navigation container: " + $topUL.length)
+			$navContainer = $navigation.children(".campl-local-navigation-container");
+			$topUL = $navContainer.children("ul");
 			$topListItems = $topUL.children("li");
-			console.log("DEBUG found children of navigation container: " + $topListItems.length)
 			$allListItems = $topUL.find("li");
 
 			$secondLevelListitems = $topListItems.children("li");
@@ -1053,7 +1044,6 @@
 
 	//DOM ready
 	$(function () {
-		console.log("DOM ready running project light")
 		//instantiate all the DOM elements which require javascript rendering
 		if (projectlight.config.init) projectlight.init();
 		if (projectlight.config.initTables) projectlight.initTables();
