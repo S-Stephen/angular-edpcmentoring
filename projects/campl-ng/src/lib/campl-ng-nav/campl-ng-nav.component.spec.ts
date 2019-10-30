@@ -16,7 +16,7 @@ class MocklocalNavComponent {
   @Input() menu: any;
 }
 
-fdescribe("CamplNgNavComponent", () => {
+describe("CamplNgNavComponent", () => {
   let component: CamplNgNavComponent;
   let fixture: ComponentFixture<CamplNgNavComponent>;
   let fakeCapabilities;
