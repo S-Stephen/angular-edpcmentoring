@@ -31,20 +31,20 @@ describe("CamplNgWrapDirective", () => {
     component = fixture.componentInstance;
     mydiv = fixture.debugElement.query(By.css("div"));
   });
-  fit("unsupporting browsers should have campl-fixed-container class", () => {
+  it("unsupporting browsers should have campl-fixed-container class", () => {
     capSubject.next({ supported: false });
     expect(
       mydiv.nativeElement.classList.contains("campl-fixed-container")
     ).toBeTruthy();
   });
-  fit("supporting browsers should NOT have campl-fixed-container class", () => {
+  it("supporting browsers should NOT have campl-fixed-container class", () => {
     capSubject.next({ supported: true });
     expect(
       mydiv.nativeElement.classList.contains("campl-fixed-container")
     ).not.toBeTruthy();
   });
 
-  fit("supporting and unsupporting browsers should have campl-wrap class", () => {
+  it("supporting and unsupporting browsers should have campl-wrap class", () => {
     capSubject.next({ supported: false });
     expect(mydiv.nativeElement.classList.contains("campl-wrap")).toBeTruthy();
     capSubject.next({ supported: true });
