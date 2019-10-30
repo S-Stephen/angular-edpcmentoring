@@ -16,10 +16,6 @@ import { CamplNgLocalmenuService } from "../services/campl-ng-localmenu.service"
 export class CamplNgLocalnavMenuComponent implements OnInit {
   @Input("menu")
   menu: any;
-  @Input("level")
-  level: number;
-  @Output("parent_pos")
-  parent_pos = new EventEmitter<number>();
   active: boolean = false;
   capabilities: any;
   //active: boolean = false;

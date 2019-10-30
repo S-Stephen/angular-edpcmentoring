@@ -231,3 +231,9 @@ At the moment local navigation menus only allow for tree two tiers deep eg;
 ##### In progress
 
 Animation for local nav menus -> angular animation to replace jquery ones
+
+##### To do
+
+CSS modifications:
+
+modify top-list-hover to set a variable that triggers class inclusion - rather than manipulating the DOM directly

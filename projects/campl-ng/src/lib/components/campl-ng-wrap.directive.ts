@@ -23,14 +23,17 @@ export class CamplNgWrapDirective {
   ) {
     browser_capabilities.modernizrSource.subscribe(capabilities => {
       if (capabilities["supported"]) {
-        renderer.removeClass(
+        this.renderer.removeClass(
           hostElement.nativeElement,
           "campl-fixed-container"
         );
       } else {
-        renderer.addClass(hostElement.nativeElement, "campl-fixed-container");
+        this.renderer.addClass(
+          hostElement.nativeElement,
+          "campl-fixed-container"
+        );
       }
     });
-    renderer.addClass(hostElement.nativeElement, "campl-wrap");
+    this.renderer.addClass(hostElement.nativeElement, "campl-wrap");
   }
 }
