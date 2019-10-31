@@ -3,18 +3,16 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "baseUrl": "",
-    "types": []
+    "types": [],
+    "paths": {
+      "campl-ng": [
+        "../dist/campl-ng",
+        "../dist/campl-ng/*"
+      ]
+    }
   },
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
-  ],
-  "paths": {
-    "campl-ng": [
-      "../../dist/campl-ng"
-    ],
-    "campl-ng/*": [
-      "../../dist/campl-ng/lib/*"
-    ]
-  }
+  ]
 }

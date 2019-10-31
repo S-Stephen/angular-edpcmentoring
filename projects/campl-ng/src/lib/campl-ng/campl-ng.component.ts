@@ -6,6 +6,8 @@ import { CamplNgCapabilitiesService } from "../services/campl-ng-capabilities.se
 // this has been included via a script tag
 // declare var project_light_cued: any;
 
+// include the style as part of the library:
+// https://stackoverflow.com/questions/51065359/include-assets-in-your-angular-6-library
 @Component({
   selector: "campl-ng",
   templateUrl: "./campl-ng.component.html",

@@ -17,6 +17,7 @@ export class CamplNgTableComponent implements OnInit {
   @Input() headings$: Observable<any[]>; // actually an array of arrays - multiple rows envisaged!
   heading_rows: any[];
   content_rows: any[];
+  no_data_message: string;
 
   // There are two interfaces to accomodate;
   // campl-vertical-stacking-table

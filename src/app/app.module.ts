@@ -33,7 +33,8 @@ import { MessagesComponent } from "./messages/messages.component";
 // not work after ng build campl-ng has copied the
 // files into dist?
 // Todo: replace these with correct includes
-import { CamplNgModule } from "../../projects/campl-ng/src/lib/campl-ng.module";
+import { CamplNgModule } from "campl-ng";
+//import { CamplNgModule } from "../../projects/campl-ng/src/lib/campl-ng.module";
 //import { NavMenu } from "../../projects/campl-ng/src/lib/models/nav-menu";
 /**
  * config object to setup the menus we would like to see

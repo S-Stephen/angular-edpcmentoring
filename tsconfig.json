@@ -4,7 +4,7 @@
     "downlevelIteration": true,
     "importHelpers": true,
     "outDir": "./dist/out-tsc",
-    "baseUrl": "src",
+    "baseUrl": "./",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -19,14 +19,6 @@
       "dom"
     ],
     "module": "esnext",
-    "paths": {
-      "campl-ng": [
-        "dist/campl-ng"
-      ],
-      "campl-ng/*": [
-        "dist/campl-ng/*"
-      ]
-    },
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
