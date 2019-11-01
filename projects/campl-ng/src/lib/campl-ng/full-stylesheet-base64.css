@@ -943,7 +943,7 @@ a:active {
 }
 
 a.campl-external {
-	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAQ0lEQVQY02P4//8/AzpmKDr/HwXjUATDEEVoutAVMMAV/fr1CwWjacBUBOOjmIqsCI2NXRFOKwkpAvsWI0zQfAtSBACaydINibcT9QAAAABJRU5ErkJggg==") no-repeat 100% 4px;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAQ0lEQVQY02P4//8/AzpmKDr/HwXjUATDEEVoutAVMMAV/fr1CwWjacBUBOOjmIqsCI2NXRFOKwkpAvsWI0zQfAtSBACaydINibcT9QAAAABJRU5ErkJggg==) no-repeat 100% 4px;
 	padding-right: 15px;
 }
 
@@ -1358,7 +1358,8 @@ input[type="checkbox"]:focus {
 /* radio buttons and checkboxes */
 input[type="radio"],
 input[type="checkbox"] {
-	margin: 3px 0;/line-height: normal;
+	margin: 3px 0;
+	line-height: normal;
 	cursor: pointer;
 	box-sizing: border-box;
 	padding: 0;
