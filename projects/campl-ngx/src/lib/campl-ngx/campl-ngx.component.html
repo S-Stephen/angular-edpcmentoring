@@ -1,0 +1,19 @@
+<campl-ngx-header></campl-ngx-header>
+<campl-ngx-titlenav [nav_menu$]="nav_menu$" [nav_menu]="nav_menu"></campl-ngx-titlenav>
+<div class="campl-row campl-content">
+  <div class="clearfix" camplNgWrap>
+    <div class="campl-content-container">
+      <div class="campl-column12">
+        <campl-ngx-messages></campl-ngx-messages>
+      </div>
+      <!-- application's content -->
+      <!--passed-->
+      <!-- capabilities {{ capabilities | json }} -->
+      <ng-content></ng-content>
+      <!--routed-->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<campl-ngx-localfooter></campl-ngx-localfooter>
+<campl-ngx-footer></campl-ngx-footer>

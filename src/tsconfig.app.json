@@ -5,9 +5,9 @@
     "baseUrl": "",
     "types": [],
     "paths": {
-      "campl-ng": [
-        "../dist/campl-ng",
-        "../dist/campl-ng/*"
+      "campl-ngx": [
+        "../dist/campl-ngx",
+        "../dist/campl-ngx/*"
       ]
     }
   },

@@ -1,78 +1,28 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-
-import { AppComponent } from "./app.component";
-
-import { RoutingModule } from "./routes/routing.module";
-// HttpClientXsrfModule -> https://stackoverflow.com/questions/18156452/django-csrf-token-angularjs
 import {
-  HttpClientModule,
-  HttpClientXsrfModule,
-  HTTP_INTERCEPTORS
-} from "@angular/common/http";
-import { MatDialogModule } from "@angular/material/dialog";
-import { MatTooltipModule } from "@angular/material/tooltip";
-import { MatButtonModule } from "@angular/material/button";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { ContenteditableDirective } from "./components/directives/contenteditable.directive";
+  async,
+  ComponentFixture,
+  TestBed,
+  tick,
+  fakeAsync
+} from "@angular/core/testing";
 
-//import { ProjectlightModule } from "./projectlight/projectlight.module";
+import { CamplNgHeaderComponent } from "./campl-ngx-header.component";
 
-// below requires HTTP_INTERCEPTORS from @angular/common/http
-import { HttpErrorInterceptor } from "./http-error.interceptor";
+import { CamplNgQuicklinksComponent } from "../campl-ngx-quicklinks/campl-ngx-quicklinks.component";
 
-// reference: https://dev.to/sanidz/angular-http-mock-interceptor-for-mocked-backend-1h5g
-// TODO chain mock-request interceptor onto http-error interceptor!
-import { HttpMockRequestInterceptor } from "./http-mock-request-interceptor";
-import { environment } from "../environments/environment";
-export const isMock = environment.mock;
+import { CamplService } from "../services/campl.service";
 
-import { MessageBufferService } from "./services/message-buffer.service";
-import { MessagesComponent } from "./messages/messages.component";
-// why does import { CamplNgModule } from 'campl-ngx'
-// not work after ng build campl-ngx has copied the
-// files into dist?
-// Todo: replace these with correct includes
-import { CamplNgModule } from "campl-ngx";
-//import { CamplNgModule } from "../../projects/campl-ngx/src/lib/campl-ngx.module";
-//import { NavMenu } from "../../projects/campl-ngx/src/lib/models/nav-menu";
-/**
- * config object to setup the menus we would like to see
- */
-/* const navMenu: NavMenu = {
-  title: "Navigation Menu",
-  subMenus: [
-    { label: "Home", link: "/home", subItems: [] },
-    {
-      label: "Match mentors and mentees",
-      link: "/match",
-      subItems: []
-    },
-    {
-      label: "Admin interface",
-      link: "/admin",
-      subItems: []
-    }
-  ]
-}; */
+import { Injectable } from "@angular/core";
 
-@NgModule({
-  declarations: [AppComponent, ContenteditableDirective, MessagesComponent],
-  imports: [
-    BrowserModule,
-    RoutingModule,
-    HttpClientModule,
-    HttpClientXsrfModule.withOptions({
-      cookieName: "csrftoken",
-      headerName: "X-CSRFToken"
-    }),
-    MatDialogModule,
-    MatTooltipModule,
-    MatButtonModule,
-    BrowserAnimationsModule,
-    //ProjectlightModule,
-    // perhaps slurp this from a site.config file or elsewhere?
-    CamplNgModule.setConfig({
+import { RouterTestingModule } from "@angular/router/testing"; //spy
+
+import { By } from "@angular/platform-browser";
+
+@Injectable()
+class MockCamplService {
+  private config: any;
+  public getConfig(): any {
+    return (this.config = {
       page_title: "EDPC Mentoring",
       local_footer_col1: [
         {
@@ -273,18 +223,146 @@ import { CamplNgModule } from "campl-ngx";
           link: "http://www.cam.ac.uk/research"
         }
       ]
-    })
-  ],
-  providers: [
-    MessageBufferService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: isMock ? HttpMockRequestInterceptor : HttpErrorInterceptor,
-      multi: true
-    }
-  ],
-  bootstrap: [AppComponent],
-  //bootstrap: [ProjectlightNgComponent],
-  entryComponents: []
-})
-export class AppModule {}
+    });
+  }
+}
+
+describe("CamplNgHeaderComponent", () => {
+  let component: CamplNgHeaderComponent;
+  let fixture: ComponentFixture<CamplNgHeaderComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
+      declarations: [CamplNgHeaderComponent, CamplNgQuicklinksComponent],
+      providers: [{ provide: CamplService, useClass: MockCamplService }]
+    }).compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CamplNgHeaderComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it("should be created", () => {
+    expect(component).toBeTruthy();
+  });
+
+  it("should display the menu when click on menu icon (#open-menu) close on click 'Home'", fakeAsync(() => {
+    let menu_select = By.css("#open-menu");
+    let global_nav_select = By.css(".campl-global-navigation-mobile-list");
+    let home_link_select = By.css(".campl-home-link-container a");
+
+    expect(fixture.debugElement.query(menu_select)).toBeTruthy();
+
+    // https://stackoverflow.com/questions/41811609/test-freezes-when-expectresult-tobenull-fails-test-angular-2-jasmine
+    // menu currently not shown
+    var result = fixture.debugElement.query(global_nav_select);
+    expect(result === null).toBeTruthy();
+
+    // click on link see menu
+    fixture.debugElement
+      .query(menu_select)
+      .triggerEventHandler("click", { button: 0 });
+    tick();
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.query(global_nav_select)).not.toBeNull();
+
+    // click 'Home' and we should close
+
+    expect(fixture.debugElement.query(home_link_select)).toBeTruthy();
+    fixture.debugElement
+      .query(home_link_select)
+      .triggerEventHandler("click", { button: 0 });
+    tick();
+    fixture.detectChanges();
+
+    //back to menu currently not shown
+    var result = fixture.debugElement.query(global_nav_select);
+    expect(result === null).toBeTruthy();
+  }));
+
+  it("should display the search form when click on search button #site-search-btn close on click 'Home'", fakeAsync(() => {
+    let menu_select = By.css("#open-menu");
+    let search_form_select = By.css("#site-search-container");
+    let site_search_btn_select = By.css("#site-search-btn");
+
+    expect(fixture.debugElement.query(menu_select)).toBeTruthy();
+    expect(fixture.debugElement.query(site_search_btn_select)).toBeTruthy();
+
+    // https://stackoverflow.com/questions/41811609/test-freezes-when-expectresult-tobenull-fails-test-angular-2-jasmine
+    // current search_form not shown
+    var result = fixture.debugElement.query(search_form_select);
+    expect(result === null).toBeTruthy();
+
+    // click on link see menu
+    fixture.debugElement
+      .query(site_search_btn_select)
+      .triggerEventHandler("click", { button: 0 });
+    tick();
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.query(search_form_select)).not.toBeNull();
+
+    // click 'Home' and we should close
+
+    expect(fixture.debugElement.query(menu_select)).toBeTruthy();
+    fixture.debugElement
+      .query(menu_select)
+      .triggerEventHandler("click", { button: 0 });
+    tick();
+    fixture.detectChanges();
+
+    //back to menu currently not shown
+    var result = fixture.debugElement.query(search_form_select);
+    expect(result === null).toBeTruthy();
+  }));
+
+  it("should display the mega menu when we click on one of its links", fakeAsync(() => {
+    let study_link_select = By.css("#menu_studyatcambridge");
+    let about_link_select = By.css("#menu_abouttheuniversity");
+
+    let study_menu = By.css("#studyatcambridge");
+    let about_menu = By.css("#abouttheuniversity");
+
+    expect(fixture.debugElement.query(study_link_select)).toBeTruthy();
+    expect(fixture.debugElement.query(about_link_select)).toBeTruthy();
+
+    // https://stackoverflow.com/questions/41811609/test-freezes-when-expectresult-tobenull-fails-test-angular-2-jasmine
+    // current search_form not shown
+    var result = fixture.debugElement.query(study_menu);
+    expect(result === null).toBeTruthy();
+    var result = fixture.debugElement.query(about_menu);
+    expect(result === null).toBeTruthy();
+
+    // click on study_link_menu menu shows the study_menu ()about menu still hidden)
+    fixture.debugElement
+      .query(study_link_select)
+      .triggerEventHandler("click", { button: 0 });
+    tick();
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.query(study_menu)).toBeTruthy();
+    var result = fixture.debugElement.query(about_menu);
+    expect(result === null).toBeTruthy();
+
+    // with the study menu open, click on the about menu link it will switche the active menus
+
+    // click on study_link_menu menu shows the study_menu ()about menu still hidden)
+    fixture.debugElement
+      .query(about_link_select)
+      .triggerEventHandler("click", { button: 0 });
+    tick();
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.query(about_menu)).toBeTruthy();
+    var result = fixture.debugElement.query(study_menu);
+    expect(result === null).toBeTruthy();
+
+    //describe("Mega megu navigation", () => {
+    //  it("navigates to other menu choice on click on menu", fakeAsync(() => {}));
+    //});
+  }));
+});

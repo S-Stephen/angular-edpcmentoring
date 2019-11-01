@@ -132,33 +132,33 @@
         }
       }
     },
-    "campl-ng": {
+    "campl-ngx": {
       "projectType": "library",
-      "root": "projects/campl-ng",
-      "sourceRoot": "projects/campl-ng/src",
+      "root": "projects/campl-ngx",
+      "sourceRoot": "projects/campl-ngx/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/campl-ng/tsconfig.lib.json",
-            "project": "projects/campl-ng/ng-package.json"
+            "tsConfig": "projects/campl-ngx/tsconfig.lib.json",
+            "project": "projects/campl-ngx/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/campl-ng/src/test.ts",
-            "tsConfig": "projects/campl-ng/tsconfig.spec.json",
-            "karmaConfig": "projects/campl-ng/karma.conf.js"
+            "main": "projects/campl-ngx/src/test.ts",
+            "tsConfig": "projects/campl-ngx/tsconfig.spec.json",
+            "karmaConfig": "projects/campl-ngx/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/campl-ng/tsconfig.lib.json",
-              "projects/campl-ng/tsconfig.spec.json"
+              "projects/campl-ngx/tsconfig.lib.json",
+              "projects/campl-ngx/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
