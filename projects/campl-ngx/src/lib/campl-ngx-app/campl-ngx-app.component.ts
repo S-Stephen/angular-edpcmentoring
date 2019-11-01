@@ -9,13 +9,13 @@ import { CamplNgCapabilitiesService } from "../services/campl-ngx-capabilities.s
 // include the style as part of the library:
 // https://stackoverflow.com/questions/51065359/include-assets-in-your-angular-6-library
 @Component({
-  selector: "campl-ngx",
-  templateUrl: "./campl-ngx.component.html",
+  selector: "campl-ngx-app",
+  templateUrl: "./campl-ngx-app.component.html",
   //styles: ["h1 { background-color: red }"]
-  //styleUrls: ["./campl-ngx.component.css"],
+  //styleUrls: ["./campl-ngx-app.component.css"],
   styleUrls: [
     "./full-stylesheet-base64.css",
-    "./campl-ngx.component-custom.css"
+    "./campl-ngx-app.component-custom.css"
   ],
   encapsulation: ViewEncapsulation.None // required to provide style to others
 })

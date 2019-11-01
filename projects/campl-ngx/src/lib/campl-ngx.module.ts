@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { LibCamplNgComponent } from "./campl-ngx.component";
-import { CamplNgComponent } from "./campl-ngx/campl-ngx.component";
+import { CamplNgComponent } from "./campl-ngx-app/campl-ngx-app.component";
 import { CamplNgHeaderComponent } from "./campl-ngx-header/campl-ngx-header.component";
 import { CamplNgLocalfooterComponent } from "./campl-ngx-localfooter/campl-ngx-localfooter.component";
 import { CamplNgContentComponent } from "./campl-ngx-content/campl-ngx-content.component";

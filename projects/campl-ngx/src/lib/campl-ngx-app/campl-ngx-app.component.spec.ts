@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { Component, Input } from "@angular/core";
-import { CamplNgComponent } from "./campl-ngx.component";
+import { CamplNgComponent } from "./campl-ngx-app.component";
 import { CamplNgTitlenavComponent } from "../campl-ngx-titlenav/campl-ngx-titlenav.component";
 import { of } from "rxjs/internal/observable/of";
 import { NavMenu } from "../models/nav-menu";
