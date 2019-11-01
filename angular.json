@@ -77,23 +77,11 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
-              "src/styles.css",
-              "src/projectlight/stylesheets/custom.css",
-              "src/projectlight/stylesheets/full-stylesheet.css",
-              "src/projectlight/stylesheets/styleguide.css"
+              "src/styles.css"
             ],
             "assets": [
               "src/assets",
-              "src/favicon.ico",
-              "src/projectlight/images/interface",
-              "src/projectlight/javascripts/custom.js",
-              "src/projectlight/javascripts/libs/bootstrap-tabs.js",
-              "src/projectlight/javascripts/libs/datepicker_highlighted_events.js",
-              "src/projectlight/javascripts/libs/ios-orientationchange-fix.js",
-              "src/projectlight/javascripts/libs/jquery-min.js",
-              "src/projectlight/javascripts/libs/modernizr.js",
-              "src/projectlight/javascripts/libs/responsive-tooltip.js",
-              "src/projectlight/javascripts/libs/zebra_datepicker.js"
+              "src/favicon.ico"
             ]
           }
         },
