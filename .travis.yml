@@ -20,4 +20,6 @@ install:
   - npm install
 
 script:
-  - npm run test -- --tsConfig=src/tsconfig.app.json --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  - npm run build campl-ngx
+  - npm run test campl-ngx
+#  - npm run test -- --tsConfig=src/tsconfig.app.json --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
