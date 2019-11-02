@@ -19,6 +19,7 @@ cache:
 
 install:
   - npm install
+  - ln -s /var/lib/dbus/machine-id /etc/machine-id
 
 script:
   - npm run build campl-ngx
