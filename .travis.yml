@@ -20,4 +20,4 @@ install:
   - npm install
 
 script:
-  - npm run test -- --tsConfig=tsconfig.json --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  - npm run test -- --tsConfig=src/tsconfig.app.json --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
