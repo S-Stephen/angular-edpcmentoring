@@ -28,12 +28,15 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome','ChromeHeadless','ChromeHeadlessNoSandbox'],
+    browsers: ['ChromeHeadlessNoSandbox'],
     singleRun: false,
     customLaunchers: {
       ChromeHeadlessNoSandbox: { // used in travis-ci
-        base: 'ChromeHeadless',
-        flags: ['--no-sandbox']
+        base: 'Chrome',
+        flags: ['--no-sandbox',
+                '--headless',
+                '--disable-gpu',
+                '--remote-debugging-port=9222']
       }
     }
   });
