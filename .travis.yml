@@ -26,5 +26,5 @@ install:
 
 script:
   - npm run build campl-ngx
-  - ng run test campl-ngx --watch=false --browsers=ChromeHeadless
+  - npm run test -- campl-ngx --watch=false --browsers=ChromeHeadless
 #  - npm run test -- --tsConfig=src/tsconfig.app.json --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
