@@ -10,6 +10,7 @@ import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.
   templateUrl: "./campl-ngx-app.component.html",
   styleUrls: [
     // The slightly modified full css include base64 images and a couple minor hierarchical changes
+    // The original can be found in campl-ngx-app.component-full.css
     "./full-stylesheet-base64.css",
     "./campl-ngx-app.component-custom.css"
   ],
