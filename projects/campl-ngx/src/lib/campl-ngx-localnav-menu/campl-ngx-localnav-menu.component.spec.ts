@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CamplNgLocalnavMenuComponent } from "./campl-ngx-localnav-menu.component";
-import { CamplNgCapabilitiesService } from "../services/campl-ngx-capabilities.service";
+import { CamplNgxLocalnavMenuComponent } from "./campl-ngx-localnav-menu.component";
+import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.service";
 import { ReplaySubject } from "rxjs";
 import { Component, DebugElement } from "@angular/core";
 import { By } from "@angular/platform-browser";
@@ -11,7 +11,7 @@ import { By } from "@angular/platform-browser";
 })
 class TestContainerComponent {}
 
-describe("CamplNgLocalnavMenuComponent", () => {
+describe("CamplNgxLocalnavMenuComponent", () => {
   let component: TestContainerComponent;
   let fixture: ComponentFixture<TestContainerComponent>;
   let mymenu: DebugElement;
@@ -25,9 +25,9 @@ describe("CamplNgLocalnavMenuComponent", () => {
       modernizrSource: capSubject.asObservable()
     };
     TestBed.configureTestingModule({
-      declarations: [CamplNgLocalnavMenuComponent, TestContainerComponent],
+      declarations: [CamplNgxLocalnavMenuComponent, TestContainerComponent],
       providers: [
-        { provide: CamplNgCapabilitiesService, useValue: fakeCapabilities }
+        { provide: CamplNgxCapabilitiesService, useValue: fakeCapabilities }
       ]
     });
     fixture = TestBed.createComponent(TestContainerComponent);

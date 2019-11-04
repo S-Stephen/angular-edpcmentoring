@@ -1,5 +1,5 @@
 import { Directive, ElementRef, HostListener, Renderer2 } from "@angular/core";
-import { CamplNgCapabilitiesService } from "../services/campl-ngx-capabilities.service";
+import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.service";
 
 @Directive({
   selector: "[camplTopListHover]"
@@ -9,7 +9,7 @@ export class TopListHoverDirective {
   constructor(
     private renderer: Renderer2,
     private el: ElementRef,
-    public browser_capabilities: CamplNgCapabilitiesService
+    public browser_capabilities: CamplNgxCapabilitiesService
   ) {
     el.nativeElement.style.backgroundColor = "yellow";
     browser_capabilities.modernizrSource.subscribe(capabilities => {

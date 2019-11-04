@@ -1,4 +1,4 @@
-# CamplNg
+# CamplNgx
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.4.
 
@@ -106,7 +106,7 @@ Also required is to replace the index.html file with something like the followin
 
 @NgModule({
   imports: [
-    CamplNgModule.setConfig({
+    CamplNgxModule.setConfig({
       page_title: "EDPC Mentoring",
       local_footer_col1: [
         {

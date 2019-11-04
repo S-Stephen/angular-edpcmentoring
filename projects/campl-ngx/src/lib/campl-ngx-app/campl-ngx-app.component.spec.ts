@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { Component, Input } from "@angular/core";
-import { CamplNgComponent } from "./campl-ngx-app.component";
-import { CamplNgTitlenavComponent } from "../campl-ngx-titlenav/campl-ngx-titlenav.component";
+import { CamplNgxComponent } from "./campl-ngx-app.component";
+import { CamplNgxTitlenavComponent } from "../campl-ngx-titlenav/campl-ngx-titlenav.component";
 import { of } from "rxjs/internal/observable/of";
 import { NavMenu } from "../models/nav-menu";
 import { Observable, ReplaySubject } from "rxjs";
-import { CamplNgCapabilitiesService } from "../services/campl-ngx-capabilities.service";
+import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.service";
 
 // Router outlet must be included in the parent app
 @Component({
@@ -18,13 +18,13 @@ class MockRouterOutletComponent {}
   selector: "campl-ngx-header",
   template: ""
 })
-class MockCamplNgHeaderComponent {}
+class MockCamplNgxHeaderComponent {}
 
 @Component({
   selector: "campl-ngx-titlenav",
   template: ""
 })
-class MockCamplNgTitlenavComponent {
+class MockCamplNgxTitlenavComponent {
   @Input()
   nav_menu$: Observable<NavMenu>;
   @Input()
@@ -35,23 +35,23 @@ class MockCamplNgTitlenavComponent {
   selector: "campl-ngx-messages",
   template: ""
 })
-class MockCamplNgMessagesComponent {}
+class MockCamplNgxMessagesComponent {}
 
 @Component({
   selector: "campl-ngx-localfooter",
   template: ""
 })
-class MockCamplNgLocalfooterComponent {}
+class MockCamplNgxLocalfooterComponent {}
 
 @Component({
   selector: "campl-ngx-footer",
   template: ""
 })
-class MockCamplNgFooterComponent {}
+class MockCamplNgxFooterComponent {}
 
-describe("CamplNgComponent", () => {
-  let component: CamplNgComponent;
-  let fixture: ComponentFixture<CamplNgComponent>;
+describe("CamplNgxComponent", () => {
+  let component: CamplNgxComponent;
+  let fixture: ComponentFixture<CamplNgxComponent>;
   let fakeCapabilities;
   let capSubject = new ReplaySubject(1);
 
@@ -63,22 +63,22 @@ describe("CamplNgComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         MockRouterOutletComponent,
-        CamplNgComponent,
-        MockCamplNgFooterComponent,
-        MockCamplNgLocalfooterComponent,
-        MockCamplNgTitlenavComponent,
-        MockCamplNgHeaderComponent,
-        MockCamplNgMessagesComponent
+        CamplNgxComponent,
+        MockCamplNgxFooterComponent,
+        MockCamplNgxLocalfooterComponent,
+        MockCamplNgxTitlenavComponent,
+        MockCamplNgxHeaderComponent,
+        MockCamplNgxMessagesComponent
       ],
       providers: [
-        { provide: CamplNgCapabilitiesService, useValue: fakeCapabilities }
+        { provide: CamplNgxCapabilitiesService, useValue: fakeCapabilities }
       ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     capSubject.next({ supported: true });
-    fixture = TestBed.createComponent(CamplNgComponent);
+    fixture = TestBed.createComponent(CamplNgxComponent);
     component = fixture.componentInstance;
     // this needs to be set so the template can pass it 'down'
     let navm = {} as NavMenu;

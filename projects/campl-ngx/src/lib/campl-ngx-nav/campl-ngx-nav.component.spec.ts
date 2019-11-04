@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CamplNgNavComponent } from "./campl-ngx-nav.component";
-import { CamplNgLocalnavMenuComponent } from "../campl-ngx-localnav-menu/campl-ngx-localnav-menu.component";
+import { CamplNgxNavComponent } from "./campl-ngx-nav.component";
+import { CamplNgxLocalnavMenuComponent } from "../campl-ngx-localnav-menu/campl-ngx-localnav-menu.component";
 
 import { of, ReplaySubject } from "rxjs";
 import { NavMenu } from "../models/nav-menu";
-import { CamplNgCapabilitiesService } from "../services/campl-ngx-capabilities.service";
+import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.service";
 import { Component, Input } from "@angular/core";
 
 @Component({
@@ -16,9 +16,9 @@ class MocklocalNavComponent {
   @Input() menu: any;
 }
 
-describe("CamplNgNavComponent", () => {
-  let component: CamplNgNavComponent;
-  let fixture: ComponentFixture<CamplNgNavComponent>;
+describe("CamplNgxNavComponent", () => {
+  let component: CamplNgxNavComponent;
+  let fixture: ComponentFixture<CamplNgxNavComponent>;
   let fakeCapabilities;
   let capSubject = new ReplaySubject(1);
 
@@ -29,13 +29,13 @@ describe("CamplNgNavComponent", () => {
       modernizrSource: capSubject.asObservable()
     };
     TestBed.configureTestingModule({
-      declarations: [CamplNgNavComponent, MocklocalNavComponent],
+      declarations: [CamplNgxNavComponent, MocklocalNavComponent],
       providers: [
-        { provide: CamplNgCapabilitiesService, useValue: fakeCapabilities }
+        { provide: CamplNgxCapabilitiesService, useValue: fakeCapabilities }
       ]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CamplNgNavComponent);
+    fixture = TestBed.createComponent(CamplNgxNavComponent);
     component = fixture.componentInstance;
 
     capSubject.next({ supported: true });

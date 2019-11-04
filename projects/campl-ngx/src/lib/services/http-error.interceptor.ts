@@ -13,11 +13,11 @@ import {
 import { Observable, throwError } from "rxjs";
 import { retry, catchError } from "rxjs/operators";
 
-import { CamplNgMessageBufferService } from "./campl-ngx-message-buffer.service";
+import { CamplNgxMessageBufferService } from "./campl-ngx-message-buffer.service";
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
-  constructor(public messageService: CamplNgMessageBufferService) {}
+  constructor(public messageService: CamplNgxMessageBufferService) {}
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler

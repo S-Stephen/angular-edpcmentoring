@@ -5,7 +5,7 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./campl-ngx-footer.component.html",
   styleUrls: ["./campl-ngx-footer.component.css"]
 })
-export class CamplNgFooterComponent implements OnInit {
+export class CamplNgxFooterComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}

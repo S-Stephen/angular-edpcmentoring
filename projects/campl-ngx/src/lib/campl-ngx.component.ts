@@ -9,7 +9,7 @@ import { Component, OnInit } from "@angular/core";
   `,
   styles: []
 })
-export class LibCamplNgComponent implements OnInit {
+export class LibCamplNgxComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}

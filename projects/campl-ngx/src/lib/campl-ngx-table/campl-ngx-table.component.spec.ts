@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CamplNgTableComponent } from "./campl-ngx-table.component";
+import { CamplNgxTableComponent } from "./campl-ngx-table.component";
 
 import { of } from "rxjs";
 import { By } from "@angular/platform-browser";
 
-describe("CamplNgTableComponent", () => {
-  let component: CamplNgTableComponent;
-  let fixture: ComponentFixture<CamplNgTableComponent>;
+describe("CamplNgxTableComponent", () => {
+  let component: CamplNgxTableComponent;
+  let fixture: ComponentFixture<CamplNgxTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CamplNgTableComponent]
+      declarations: [CamplNgxTableComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CamplNgTableComponent);
+    fixture = TestBed.createComponent(CamplNgxTableComponent);
     component = fixture.componentInstance;
     // pass our inputs
     component.headings$ = of([

@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CamplNgFooterComponent } from "./campl-ngx-footer.component";
+import { CamplNgxFooterComponent } from "./campl-ngx-footer.component";
 
-describe("CamplNgFooterComponent", () => {
-  let component: CamplNgFooterComponent;
-  let fixture: ComponentFixture<CamplNgFooterComponent>;
+describe("CamplNgxFooterComponent", () => {
+  let component: CamplNgxFooterComponent;
+  let fixture: ComponentFixture<CamplNgxFooterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CamplNgFooterComponent]
+      declarations: [CamplNgxFooterComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CamplNgFooterComponent);
+    fixture = TestBed.createComponent(CamplNgxFooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Renderer2 } from "@angular/core";
 
-import { CamplNgCapabilitiesService } from "../services/campl-ngx-capabilities.service";
+import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.service";
 /**
  * This directive is intended to replace:
  * 
@@ -13,13 +13,13 @@ import { CamplNgCapabilitiesService } from "../services/campl-ngx-capabilities.s
  */
 
 @Directive({
-  selector: "[camplNgWrap]"
+  selector: "[CamplNgxWrap]"
 })
-export class CamplNgWrapDirective {
+export class CamplNgxWrapDirective {
   constructor(
     private renderer: Renderer2,
     hostElement: ElementRef,
-    public browser_capabilities: CamplNgCapabilitiesService
+    public browser_capabilities: CamplNgxCapabilitiesService
   ) {
     browser_capabilities.modernizrSource.subscribe(capabilities => {
       if (capabilities["supported"]) {

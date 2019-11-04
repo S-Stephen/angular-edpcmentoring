@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewEncapsulation } from "@angular/core";
 import { NavMenu } from "../models/nav-menu";
 import { Observable } from "rxjs/Observable";
-import { CamplNgCapabilitiesService } from "../services/campl-ngx-capabilities.service";
+import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.service";
 
 // this has been included via a script tag
 // declare var project_light_cued: any;
@@ -19,7 +19,7 @@ import { CamplNgCapabilitiesService } from "../services/campl-ngx-capabilities.s
   ],
   encapsulation: ViewEncapsulation.None // required to provide style to others
 })
-export class CamplNgComponent implements OnInit {
+export class CamplNgxComponent implements OnInit {
   // TODO given this input can we generate a service that we can inject
   // into child components (rather than a chain of @Input s)
   @Input()
@@ -27,7 +27,7 @@ export class CamplNgComponent implements OnInit {
   nav_menu: NavMenu;
   capabilities: any = {};
 
-  constructor(public browser_capabilities: CamplNgCapabilitiesService) {
+  constructor(public browser_capabilities: CamplNgxCapabilitiesService) {
     browser_capabilities.modernizrSource.subscribe(capabilities => {
       this.capabilities = capabilities;
     });

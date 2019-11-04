@@ -11,7 +11,7 @@ import {
 import { CamplService } from "../services/campl.service";
 import { NavMenu } from "../models/nav-menu";
 import { Observable } from "rxjs/Observable";
-import { CamplNgNavComponent } from "../campl-ngx-nav/campl-ngx-nav.component";
+import { CamplNgxNavComponent } from "../campl-ngx-nav/campl-ngx-nav.component";
 
 // Service to load the jQuery IIFE
 //import { DynamicScriptLoaderService } from "../services/dynamic-script-loader.service";
@@ -23,7 +23,7 @@ import { CamplNgNavComponent } from "../campl-ngx-nav/campl-ngx-nav.component";
   templateUrl: "./campl-ngx-titlenav.component.html",
   styleUrls: ["./campl-ngx-titlenav.component.css"]
 })
-export class CamplNgTitlenavComponent implements OnInit {
+export class CamplNgxTitlenavComponent implements OnInit {
   @Input()
   nav_menu$: Observable<NavMenu>;
   @Input()
@@ -33,8 +33,8 @@ export class CamplNgTitlenavComponent implements OnInit {
   private currentMenu: NavMenu = { title: "blank", subMenus: [] };
 
   // Query for a VIEW child of type `ChildViewComponent`
-  @ViewChild(CamplNgNavComponent, { static: false })
-  childMenu: CamplNgNavComponent;
+  @ViewChild(CamplNgxNavComponent, { static: false })
+  childMenu: CamplNgxNavComponent;
   //@ViewChildren("navMenuID") things: QueryList<any>;
 
   public config: any;

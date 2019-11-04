@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { CamplNgMessageBufferService } from "../services/campl-ngx-message-buffer.service";
+import { CamplNgxMessageBufferService } from "../services/campl-ngx-message-buffer.service";
 
 import { ChangeDetectorRef } from "@angular/core"; // [1]
 //constructor(private ref: ChangeDetectorRef){}
@@ -9,14 +9,14 @@ import { ChangeDetectorRef } from "@angular/core"; // [1]
   templateUrl: "./campl-ngx-messages.component.html",
   styleUrls: ["./campl-ngx-messages.component.css"]
 })
-export class CamplNgMessagesComponent implements OnInit {
+export class CamplNgxMessagesComponent implements OnInit {
   //message$: Subject<string> = this.messageBufferService.message$;
 
   public message_log: string[];
   public show_messages: boolean;
 
   constructor(
-    private messageBufferService: CamplNgMessageBufferService,
+    private messageBufferService: CamplNgxMessageBufferService,
     private ref: ChangeDetectorRef
   ) {
     this.message_log = [];

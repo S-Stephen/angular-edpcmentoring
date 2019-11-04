@@ -6,9 +6,9 @@ import {
   fakeAsync
 } from "@angular/core/testing";
 
-import { CamplNgHeaderComponent } from "./campl-ngx-header.component";
+import { CamplNgxHeaderComponent } from "./campl-ngx-header.component";
 
-import { CamplNgQuicklinksComponent } from "../campl-ngx-quicklinks/campl-ngx-quicklinks.component";
+import { CamplNgxQuicklinksComponent } from "../campl-ngx-quicklinks/campl-ngx-quicklinks.component";
 
 import { CamplService } from "../services/campl.service";
 
@@ -227,20 +227,20 @@ class MockCamplService {
   }
 }
 
-describe("CamplNgHeaderComponent", () => {
-  let component: CamplNgHeaderComponent;
-  let fixture: ComponentFixture<CamplNgHeaderComponent>;
+describe("CamplNgxHeaderComponent", () => {
+  let component: CamplNgxHeaderComponent;
+  let fixture: ComponentFixture<CamplNgxHeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [CamplNgHeaderComponent, CamplNgQuicklinksComponent],
+      declarations: [CamplNgxHeaderComponent, CamplNgxQuicklinksComponent],
       providers: [{ provide: CamplService, useClass: MockCamplService }]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CamplNgHeaderComponent);
+    fixture = TestBed.createComponent(CamplNgxHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

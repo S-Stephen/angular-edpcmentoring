@@ -6,7 +6,7 @@ import { CamplService } from "../services/campl.service";
   templateUrl: "./campl-ngx-localfooter.component.html",
   styleUrls: ["./campl-ngx-localfooter.component.css"]
 })
-export class CamplNgLocalfooterComponent implements OnInit {
+export class CamplNgxLocalfooterComponent implements OnInit {
   public config: any;
   // TODO change these to Menu objects (link and label)
   public col1: any;

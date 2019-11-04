@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { CamplNgCapabilitiesService } from "../services/campl-ngx-capabilities.service";
-import { CamplNgPrimaryMenuStateService } from "../services/campl-ngx-primary-menu-state.service";
-import { CamplNgLocalmenuService } from "../services/campl-ngx-localmenu.service";
+import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.service";
+import { CamplNgxPrimaryMenuStateService } from "../services/campl-ngx-primary-menu-state.service";
+import { CamplNgxLocalmenuService } from "../services/campl-ngx-localmenu.service";
 
 /**
  * At the moment we only manage menus two teirs deep
@@ -13,7 +13,7 @@ import { CamplNgLocalmenuService } from "../services/campl-ngx-localmenu.service
   templateUrl: "./campl-ngx-localnav-menu.component.html",
   styleUrls: ["./campl-ngx-localnav-menu.component.css"]
 })
-export class CamplNgLocalnavMenuComponent implements OnInit {
+export class CamplNgxLocalnavMenuComponent implements OnInit {
   @Input("menu")
   menu: any;
   active: boolean = false;
@@ -26,9 +26,9 @@ export class CamplNgLocalnavMenuComponent implements OnInit {
   window_width: number;
 
   constructor(
-    public primary_comp: CamplNgPrimaryMenuStateService,
-    public browser_capabilities: CamplNgCapabilitiesService,
-    public local_nav: CamplNgLocalmenuService
+    public primary_comp: CamplNgxPrimaryMenuStateService,
+    public browser_capabilities: CamplNgxCapabilitiesService,
+    public local_nav: CamplNgxLocalmenuService
   ) {
     browser_capabilities.modernizrSource.subscribe(capabilities => {
       this.capabilities = capabilities;

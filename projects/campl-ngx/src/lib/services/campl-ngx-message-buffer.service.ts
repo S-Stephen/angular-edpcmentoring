@@ -6,7 +6,7 @@ import { Subject } from "rxjs";
 @Injectable({
   providedIn: "root"
 })
-export class CamplNgMessageBufferService {
+export class CamplNgxMessageBufferService {
   message$ = new Subject<string>();
   sendMessage(message: string) {
     this.message$.next(message);

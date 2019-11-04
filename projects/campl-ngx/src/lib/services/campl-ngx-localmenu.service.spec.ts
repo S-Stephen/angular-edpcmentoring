@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CamplNgLocalmenuService } from './campl-ngx-localmenu.service';
+import { CamplNgxLocalmenuService } from './campl-ngx-localmenu.service';
 
-describe('CamplNgLocalmenuService', () => {
+describe('CamplNgxLocalmenuService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: CamplNgLocalmenuService = TestBed.get(CamplNgLocalmenuService);
+    const service: CamplNgxLocalmenuService = TestBed.get(CamplNgxLocalmenuService);
     expect(service).toBeTruthy();
   });
 });

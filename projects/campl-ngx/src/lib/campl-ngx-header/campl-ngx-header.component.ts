@@ -1,13 +1,13 @@
 import { Component, OnInit, OnDestroy, Renderer2 } from "@angular/core";
 import { CamplService } from "../services/campl.service";
-import { CamplNgPrimaryMenuStateService } from "../services/campl-ngx-primary-menu-state.service";
+import { CamplNgxPrimaryMenuStateService } from "../services/campl-ngx-primary-menu-state.service";
 
 @Component({
   selector: "campl-ngx-header",
   templateUrl: "./campl-ngx-header.component.html",
   styleUrls: ["./campl-ngx-header.component.css"]
 })
-export class CamplNgHeaderComponent implements OnInit, OnDestroy {
+export class CamplNgxHeaderComponent implements OnInit, OnDestroy {
   menu_open: boolean = false;
   search_open: boolean = false;
   mega_menu_open: boolean = false; //this is the desktop mega_menu
@@ -21,12 +21,12 @@ export class CamplNgHeaderComponent implements OnInit, OnDestroy {
   //  BUT we would have to manage the search boxes as a separate component! - trouble is the responsive box appears in a different
   //  component as the regular box - communication required?
   // Todo refactor into multiple components Header => [ menu, quicklinks, search, ?globalnav? ]
-  public myidsearch: string = "CamplNgHeaderComponentSearch";
-  public myidnav: string = "CamplNgHeaderComponentNav";
-  public myidmega: string = "CamplNgHeaderComponentMega";
+  public myidsearch: string = "CamplNgxHeaderComponentSearch";
+  public myidnav: string = "CamplNgxHeaderComponentNav";
+  public myidmega: string = "CamplNgxHeaderComponentMega";
 
   constructor(
-    public primary_comp: CamplNgPrimaryMenuStateService,
+    public primary_comp: CamplNgxPrimaryMenuStateService,
     public campl_config: CamplService,
     private renderer: Renderer2
   ) {}

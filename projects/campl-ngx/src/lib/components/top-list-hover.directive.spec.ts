@@ -11,7 +11,7 @@ import { TopListHoverDirective } from "./top-list-hover.directive";
 import { TestBed, ComponentFixture } from "@angular/core/testing";
 import { Component, DebugElement } from "@angular/core";
 import { By } from "@angular/platform-browser";
-import { CamplNgCapabilitiesService } from "../services/campl-ngx-capabilities.service";
+import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.service";
 import { ReplaySubject } from "rxjs";
 
 @Component({
@@ -20,7 +20,7 @@ import { ReplaySubject } from "rxjs";
 })
 class TestTopListHoverDirectiveComponent {}
 
-describe("CamplNgWrapDirective", () => {
+describe("CamplNgxWrapDirective", () => {
   let component: TestTopListHoverDirectiveComponent;
   let fixture: ComponentFixture<TestTopListHoverDirectiveComponent>;
   let myli: DebugElement;
@@ -34,7 +34,7 @@ describe("CamplNgWrapDirective", () => {
     TestBed.configureTestingModule({
       declarations: [TopListHoverDirective, TestTopListHoverDirectiveComponent],
       providers: [
-        { provide: CamplNgCapabilitiesService, useValue: fakeCapabilities }
+        { provide: CamplNgxCapabilitiesService, useValue: fakeCapabilities }
       ]
     });
     fixture = TestBed.createComponent(TestTopListHoverDirectiveComponent);

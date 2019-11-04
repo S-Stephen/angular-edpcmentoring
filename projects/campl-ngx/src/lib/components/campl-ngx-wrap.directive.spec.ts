@@ -1,18 +1,18 @@
-import { CamplNgWrapDirective } from "./campl-ngx-wrap.directive";
+import { CamplNgxWrapDirective } from "./campl-ngx-wrap.directive";
 import { TestBed, ComponentFixture } from "@angular/core/testing";
 import { Component, DebugElement } from "@angular/core";
 import { By } from "@angular/platform-browser";
-import { CamplNgCapabilitiesService } from "../services/campl-ngx-capabilities.service";
+import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.service";
 import { ReplaySubject } from "rxjs";
 
 @Component({
-  template: '<div class="someclass" camplNgWrap>My test div wit hwrap</div>'
+  template: '<div class="someclass" CamplNgxWrap>My test div wit hwrap</div>'
 })
-class TestCamplNgWrapDirectiveComponent {}
+class TestCamplNgxWrapDirectiveComponent {}
 
-describe("CamplNgWrapDirective", () => {
-  let component: TestCamplNgWrapDirectiveComponent;
-  let fixture: ComponentFixture<TestCamplNgWrapDirectiveComponent>;
+describe("CamplNgxWrapDirective", () => {
+  let component: TestCamplNgxWrapDirectiveComponent;
+  let fixture: ComponentFixture<TestCamplNgxWrapDirectiveComponent>;
   let mydiv: DebugElement;
   let fakeCapabilities;
   let capSubject = new ReplaySubject(1);
@@ -22,12 +22,12 @@ describe("CamplNgWrapDirective", () => {
       modernizrSource: capSubject.asObservable()
     };
     TestBed.configureTestingModule({
-      declarations: [CamplNgWrapDirective, TestCamplNgWrapDirectiveComponent],
+      declarations: [CamplNgxWrapDirective, TestCamplNgxWrapDirectiveComponent],
       providers: [
-        { provide: CamplNgCapabilitiesService, useValue: fakeCapabilities }
+        { provide: CamplNgxCapabilitiesService, useValue: fakeCapabilities }
       ]
     });
-    fixture = TestBed.createComponent(TestCamplNgWrapDirectiveComponent);
+    fixture = TestBed.createComponent(TestCamplNgxWrapDirectiveComponent);
     component = fixture.componentInstance;
     mydiv = fixture.debugElement.query(By.css("div"));
   });

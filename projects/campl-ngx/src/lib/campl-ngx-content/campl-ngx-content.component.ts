@@ -5,7 +5,7 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./campl-ngx-content.component.html",
   styleUrls: ["./campl-ngx-content.component.css"]
 })
-export class CamplNgContentComponent implements OnInit {
+export class CamplNgxContentComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}

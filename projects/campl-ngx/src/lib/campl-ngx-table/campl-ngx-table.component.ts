@@ -10,7 +10,7 @@ import { Observable } from "rxjs/Observable";
   templateUrl: "./campl-ngx-table.component.html",
   styleUrls: ["./campl-ngx-table.component.css"]
 })
-export class CamplNgTableComponent implements OnInit {
+export class CamplNgxTableComponent implements OnInit {
   // TODO how do we check that this array has consistant
   // TODO interface for table cells / rows
   @Input() data$: Observable<any[]>; // actually an array of arrays

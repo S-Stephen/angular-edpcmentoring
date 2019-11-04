@@ -6,26 +6,26 @@ import {
   tick
 } from "@angular/core/testing";
 
-import { CamplNgMessagesComponent } from "./campl-ngx-messages.component";
+import { CamplNgxMessagesComponent } from "./campl-ngx-messages.component";
 
 import { By } from "@angular/platform-browser";
 import { DebugElement } from "@angular/core";
 
 import { RouterTestingModule } from "@angular/router/testing"; //spy
 
-describe("CamplNgMessagesComponent", () => {
-  let component: CamplNgMessagesComponent;
-  let fixture: ComponentFixture<CamplNgMessagesComponent>;
+describe("CamplNgxMessagesComponent", () => {
+  let component: CamplNgxMessagesComponent;
+  let fixture: ComponentFixture<CamplNgxMessagesComponent>;
   let notification_panel: DebugElement;
   let close_button: DebugElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [CamplNgMessagesComponent]
+      declarations: [CamplNgxMessagesComponent]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CamplNgMessagesComponent);
+    fixture = TestBed.createComponent(CamplNgxMessagesComponent);
     notification_panel = fixture.debugElement.query(
       By.css(".campl-notifications-panel")
     );

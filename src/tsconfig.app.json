@@ -6,8 +6,12 @@
     "types": [],
     "paths": {
       "campl-ngx": [
+        "./dist/campl-ngx",
+        "./dist/campl-ngx/*",
         "../dist/campl-ngx",
-        "../dist/campl-ngx/*"
+        "../dist/campl-ngx/*",
+        "../../dist/campl-ngx",
+        "../../dist/campl-ngx/*"
       ]
     }
   },

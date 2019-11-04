@@ -1,0 +1,37 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [{
+      "type": "browser-preview",
+      "request": "launch",
+      "name": "Browser Preview: Launch",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome against localhost",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      // rather than this run debug tab and place breakpoints in source (via chrome)
+      "name": "ng test (version8)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:9876/debug.html",
+      "webRoot": "${workspaceFolder}/edpcmentoring-ng8",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:\\*": "${webRoot}\\*",
+        "\\.\\*": "${webRoot}\\*",
+        "\\src\\*": "${webRoot}\\*",
+        "\\*": "*",
+        "\\.\\~\\*": "${webRoot}\\node_modules\\*"
+      }
+    }
+  ]
+}

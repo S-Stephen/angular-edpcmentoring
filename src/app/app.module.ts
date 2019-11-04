@@ -29,12 +29,12 @@ export const isMock = environment.mock;
 
 import { MessageBufferService } from "./services/message-buffer.service";
 import { MessagesComponent } from "./messages/messages.component";
-// why does import { CamplNgModule } from 'campl-ngx'
+// why does import { CamplNgxModule } from 'campl-ngx'
 // not work after ng build campl-ngx has copied the
 // files into dist?
 // Todo: replace these with correct includes
-import { CamplNgModule } from "campl-ngx";
-//import { CamplNgModule } from "../../projects/campl-ngx/src/lib/campl-ngx.module";
+import { CamplNgxModule } from "campl-ngx";
+//import { CamplNgxModule } from "../../projects/campl-ngx/src/lib/campl-ngx.module";
 //import { NavMenu } from "../../projects/campl-ngx/src/lib/models/nav-menu";
 /**
  * config object to setup the menus we would like to see
@@ -72,7 +72,7 @@ import { CamplNgModule } from "campl-ngx";
     BrowserAnimationsModule,
     //ProjectlightModule,
     // perhaps slurp this from a site.config file or elsewhere?
-    CamplNgModule.setConfig({
+    CamplNgxModule.setConfig({
       page_title: "EDPC Mentoring",
       local_footer_col1: [
         {

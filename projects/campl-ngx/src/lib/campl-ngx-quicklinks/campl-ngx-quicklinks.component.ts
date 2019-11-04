@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, HostListener } from "@angular/core";
 import { CamplService } from "../services/campl.service";
-import { CamplNgPrimaryMenuStateService } from "../services/campl-ngx-primary-menu-state.service";
+import { CamplNgxPrimaryMenuStateService } from "../services/campl-ngx-primary-menu-state.service";
 
 @Component({
   selector: "campl-ngx-quicklinks",
@@ -11,16 +11,16 @@ import { CamplNgPrimaryMenuStateService } from "../services/campl-ngx-primary-me
   //  "(document:click)": "onClick($event)"
   //}
 })
-export class CamplNgQuicklinksComponent implements OnInit {
+export class CamplNgxQuicklinksComponent implements OnInit {
   public config: any;
   // TODO change these to Menu objects (link and label)
   public quicklinks: any;
   public open_quicklinks: boolean = false; // used to toggle template
   // there is opportunity here to create a new class/interface with this field as reflection and the injection of the MenuService
-  public myid: string = "CamplNgQuicklinksComponent";
+  public myid: string = "CamplNgxQuicklinksComponent";
 
   constructor(
-    public primary_comp: CamplNgPrimaryMenuStateService,
+    public primary_comp: CamplNgxPrimaryMenuStateService,
     public campl_config: CamplService,
     private _eref: ElementRef
   ) {}

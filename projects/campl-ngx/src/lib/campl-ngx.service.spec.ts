@@ -1,12 +1,12 @@
 import { TestBed } from "@angular/core/testing";
 
-import { CamplNgService } from "./campl-ngx.service";
+import { CamplNgxService } from "./campl-ngx.service";
 
-describe("CamplNgService", () => {
+describe("CamplNgxService", () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it("should be created", () => {
-    const service: CamplNgService = TestBed.get(CamplNgService);
+    const service: CamplNgxService = TestBed.get(CamplNgxService);
     expect(service).toBeTruthy();
   });
 });

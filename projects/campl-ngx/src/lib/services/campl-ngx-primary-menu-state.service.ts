@@ -5,7 +5,7 @@ import { Subject } from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class CamplNgPrimaryMenuStateService {
+export class CamplNgxPrimaryMenuStateService {
   /**
   All this service will do is publish the id of the primary control component eg menu
   A subscriber will listen to this service

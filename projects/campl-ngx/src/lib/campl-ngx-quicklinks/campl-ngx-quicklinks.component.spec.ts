@@ -7,7 +7,7 @@ import {
 } from "@angular/core/testing";
 
 import { By } from "@angular/platform-browser";
-import { CamplNgQuicklinksComponent } from "./campl-ngx-quicklinks.component";
+import { CamplNgxQuicklinksComponent } from "./campl-ngx-quicklinks.component";
 import { Component, Injectable, DebugElement } from "@angular/core";
 
 import { CamplService } from "../services/campl.service";
@@ -40,21 +40,21 @@ class MockCamplService {
   }
 }
 
-describe("CamplNgQuicklinksComponent", () => {
-  let component: CamplNgQuicklinksComponent;
-  let fixture: ComponentFixture<CamplNgQuicklinksComponent>;
+describe("CamplNgxQuicklinksComponent", () => {
+  let component: CamplNgxQuicklinksComponent;
+  let fixture: ComponentFixture<CamplNgxQuicklinksComponent>;
   let fixture_outer: ComponentFixture<TestQuicklinks>;
   let linkToggle: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TestQuicklinks, CamplNgQuicklinksComponent],
+      declarations: [TestQuicklinks, CamplNgxQuicklinksComponent],
       providers: [{ provide: CamplService, useClass: MockCamplService }]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CamplNgQuicklinksComponent);
+    fixture = TestBed.createComponent(CamplNgxQuicklinksComponent);
     fixture_outer = TestBed.createComponent(TestQuicklinks);
     component = fixture.componentInstance;
     linkToggle = fixture.debugElement.query(By.css(".campl-quicklinks"));

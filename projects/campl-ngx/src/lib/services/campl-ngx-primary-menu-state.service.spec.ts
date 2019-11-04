@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CamplNgPrimaryMenuStateService } from './campl-ngx-primary-menu-state.service';
+import { CamplNgxPrimaryMenuStateService } from './campl-ngx-primary-menu-state.service';
 
-describe('CamplNgPrimaryMenuStateService', () => {
+describe('CamplNgxPrimaryMenuStateService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: CamplNgPrimaryMenuStateService = TestBed.get(CamplNgPrimaryMenuStateService);
+    const service: CamplNgxPrimaryMenuStateService = TestBed.get(CamplNgxPrimaryMenuStateService);
     expect(service).toBeTruthy();
   });
 });

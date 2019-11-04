@@ -11,7 +11,7 @@ declare var Modernizr: any;
 @Injectable({
   providedIn: "root"
 })
-export class CamplNgCapabilitiesService {
+export class CamplNgxCapabilitiesService {
   modernizr: any = {};
   constructor() {}
 

@@ -1,5 +1,5 @@
 <div class="campl-row campl-global-header">
-  <div class="clearfix" camplNgWrap>
+  <div class="clearfix" CamplNgxWrap>
     <div class="campl-header-container campl-column8" id="global-header-controls">
       <a [routerLink]="" class="campl-open-menu ir" id="open-menu" (click)="toggleBodyNav()">View menu</a>
       <a href="http://www.cam.ac.uk" class="campl-main-logo">
@@ -38,7 +38,7 @@
 <!-- responsive search box: campl-search-drawer actioned by toggleSearch()-->
 
 <div *ngIf='search_open' class=" campl-row campl-global-header campl-search-drawer campl-search-open">
-  <div class="clearfix" camplNgWrap>
+  <div class="clearfix" CamplNgxWrap>
     <form class="campl-site-search-form" id="site-search-container" action="">
       <div class="campl-search-form-wrapper clearfix">
         <input type="text" class="text" placeholder="Search" />
@@ -55,12 +55,12 @@
 <!-- This section of the DOM is also used for the mobile menu list!! -->
 <div *ngIf="mega_menu_open || menu_open" class="campl-row campl-global-navigation-drawer campl-navigation-open">
 
-  <div class="clearfix" camplNgWrap>
+  <div class="clearfix" CamplNgxWrap>
     <div class="campl-column12 campl-home-link-container">
       <a [routerLink]="" (click)="toggleBodyNav()">Home</a>
     </div>
   </div>
-  <div class="clearfix" camplNgWrap>
+  <div class="clearfix" CamplNgxWrap>
     <div class="campl-column12 campl-global-navigation-mobile-list campl-global-navigation-list">
 
       <div *ngFor="let menu of global_menus" class="campl-global-navigation-outer clearfix"

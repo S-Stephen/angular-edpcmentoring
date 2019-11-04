@@ -2,9 +2,9 @@ import { Component, OnInit, Inject, Input } from "@angular/core";
 import { NavMenu } from "../models/nav-menu";
 import { Observable } from "rxjs/Observable";
 // might be better to replace testing Capabilities with directives that do so?
-import { CamplNgCapabilitiesService } from "../services/campl-ngx-capabilities.service";
-import { CamplNgPrimaryMenuStateService } from "../services/campl-ngx-primary-menu-state.service";
-import { CamplNgLocalmenuService } from "../services/campl-ngx-localmenu.service";
+import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.service";
+import { CamplNgxPrimaryMenuStateService } from "../services/campl-ngx-primary-menu-state.service";
+import { CamplNgxLocalmenuService } from "../services/campl-ngx-localmenu.service";
 //import { NavMenuService } from "../services/nav-menu.service";
 //import { NavMenu } from "../models/nav-menu";
 
@@ -16,11 +16,11 @@ import { CamplNgLocalmenuService } from "../services/campl-ngx-localmenu.service
   templateUrl: "./campl-ngx-nav.component.html",
   styleUrls: ["./campl-ngx-nav.component.css"]
 })
-export class CamplNgNavComponent implements OnInit {
+export class CamplNgxNavComponent implements OnInit {
   @Input()
   nav_menu$: Observable<NavMenu>;
   capabilities: any;
-  myid = "CamplNgNavComponent";
+  myid = "CamplNgxNavComponent";
   public open_localnav: boolean = false; // used to manage control
   public left_pos: number = -9999;
   public menu_width: number = 480;
@@ -31,9 +31,9 @@ export class CamplNgNavComponent implements OnInit {
 
   public nav_menu: NavMenu;
   constructor(
-    public primary_comp: CamplNgPrimaryMenuStateService,
-    public browser_capabilities: CamplNgCapabilitiesService,
-    public local_nav: CamplNgLocalmenuService
+    public primary_comp: CamplNgxPrimaryMenuStateService,
+    public browser_capabilities: CamplNgxCapabilitiesService,
+    public local_nav: CamplNgxLocalmenuService
   ) {
     browser_capabilities.modernizrSource.subscribe(capabilities => {
       this.capabilities = capabilities;

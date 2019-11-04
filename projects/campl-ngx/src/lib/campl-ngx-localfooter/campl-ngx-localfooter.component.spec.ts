@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CamplNgLocalfooterComponent } from "./campl-ngx-localfooter.component";
+import { CamplNgxLocalfooterComponent } from "./campl-ngx-localfooter.component";
 import { CamplService } from "../services/campl.service";
 
 // on init the component will look for and utilise the injected service: campl-service
@@ -17,19 +17,19 @@ class MockCampl {
   }
 }
 
-describe("CamplNgLocalfooterComponent", () => {
-  let component: CamplNgLocalfooterComponent;
-  let fixture: ComponentFixture<CamplNgLocalfooterComponent>;
+describe("CamplNgxLocalfooterComponent", () => {
+  let component: CamplNgxLocalfooterComponent;
+  let fixture: ComponentFixture<CamplNgxLocalfooterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CamplNgLocalfooterComponent],
+      declarations: [CamplNgxLocalfooterComponent],
       providers: [{ provide: CamplService, useClass: MockCampl }]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CamplNgLocalfooterComponent);
+    fixture = TestBed.createComponent(CamplNgxLocalfooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

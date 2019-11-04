@@ -10,7 +10,7 @@ import { ReplaySubject } from "rxjs";
 @Injectable({
   providedIn: "root"
 })
-export class CamplNgLocalmenuService {
+export class CamplNgxLocalmenuService {
   constructor() {
     this.localNavSource.next(this.current_pos);
   }

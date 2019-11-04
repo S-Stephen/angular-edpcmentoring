@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { LibCamplNgComponent } from "./campl-ngx.component";
+import { LibCamplNgxComponent } from "./campl-ngx.component";
 
 describe("CamplComponent", () => {
-  let component: LibCamplNgComponent;
-  let fixture: ComponentFixture<LibCamplNgComponent>;
+  let component: LibCamplNgxComponent;
+  let fixture: ComponentFixture<LibCamplNgxComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LibCamplNgComponent]
+      declarations: [LibCamplNgxComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LibCamplNgComponent);
+    fixture = TestBed.createComponent(LibCamplNgxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
