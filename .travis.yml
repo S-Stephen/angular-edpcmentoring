@@ -5,26 +5,13 @@ language: node_js
 node_js:
   - "12"
 
-#addons:
-#  chrome: stable
-#Hopefully belwo now managed by puppeteer
-# from https://medium.com/faun/configuring-travis-ci-for-angular-application-34afee1715f
-#apt:
-#  sources:
-#    - google-chrome
-#  packages:
-#    - google-chrome-stable
-
 cache:
   directories:
     - ./node_modules
 
 install:
   - npm install
-#  - npm i -D karma-chrome-launcher puppeteer
-#  - ln -s /var/lib/dbus/machine-id /etc/machine-id
 
 script:
   - npm run build campl-ngx
   - npm run test -- campl-ngx --no-progress  --watch=false --browsers=ChromeHeadless
-#  - npm run test -- --tsConfig=src/tsconfig.app.json --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
