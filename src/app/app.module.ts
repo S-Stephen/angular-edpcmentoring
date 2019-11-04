@@ -4,7 +4,7 @@ import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
 
 import { RoutingModule } from "./routes/routing.module";
-// HttpClientXsrfModule -> https://stackoverflow.com/questions/18156452/django-csrf-token-angularjs
+
 import {
   HttpClientModule,
   HttpClientXsrfModule,
@@ -15,8 +15,6 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatButtonModule } from "@angular/material/button";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ContenteditableDirective } from "./components/directives/contenteditable.directive";
-
-//import { ProjectlightModule } from "./projectlight/projectlight.module";
 
 // below requires HTTP_INTERCEPTORS from @angular/common/http
 import { HttpErrorInterceptor } from "./http-error.interceptor";
