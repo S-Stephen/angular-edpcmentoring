@@ -5,14 +5,15 @@ language: node_js
 node_js:
   - "12"
 
-addons:
-  #  chrome: stable
-  # from https://medium.com/faun/configuring-travis-ci-for-angular-application-34afee1715f
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+#addons:
+#  chrome: stable
+#Hopefully belwo now managed by puppeteer
+# from https://medium.com/faun/configuring-travis-ci-for-angular-application-34afee1715f
+#apt:
+#  sources:
+#    - google-chrome
+#  packages:
+#    - google-chrome-stable
 
 cache:
   directories:
