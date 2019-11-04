@@ -3,9 +3,6 @@
 
 // custom launcher: https://medium.com/faun/configuring-travis-ci-for-angular-application-34afee1715f
 
-const puppeteer = require('puppeteer');
-process.env.CHROME_BIN = puppeteer.executablePath();
-
 module.exports = function (config) {
   config.set({
     basePath: '',
@@ -31,14 +28,12 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadlessNoSandbox'],
+    browsers: ['Chrome', 'ChromeHeadless', 'ChromeHeadlessNoSandbox'],
     singleRun: false,
     customLaunchers: {
       ChromeHeadlessNoSandbox: { // used in travis-ci
-        base: 'Chrome',
+        base: 'ChromeHeadless',
         flags: ['--no-sandbox',
-          '--headless',
-          '--disable-gpu',
           '--remote-debugging-port=9222'
         ]
       }
