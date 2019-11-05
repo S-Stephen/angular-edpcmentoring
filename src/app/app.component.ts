@@ -6,8 +6,9 @@ import { Observable } from "rxjs/Observable";
 import { map } from "rxjs/operators";
 
 // fix this (ie the import of the development library)
-import { NavMenu } from "../../projects/campl-ngx/src/lib/models/nav-menu";
-import { NavMenuItem } from "../../projects/campl-ngx/src/lib/models/nav-menu-item";
+import { NavMenu, NavMenuItem } from "campl-ngx";
+//import { NavMenu } from "../../projects/campl-ngx/src/lib/models/nav-menu";
+//import { NavMenuItem } from "../../projects/campl-ngx/src/lib/models/nav-menu-item";
 
 // used to build the navigation observable - debugging
 import { of } from "rxjs";
