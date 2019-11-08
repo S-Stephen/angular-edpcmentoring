@@ -24,7 +24,7 @@ before_deploy:
 deploy:
   provider: release
   api_key: c7f0de16228970b8dd61321c4359c2cb1e50cdec
-  file: projects/campl-ngx/*.tar.gz
+  file: projects/campl-ngx/*.tgz
   skip_cleanup: true
   draft: true
   #c7f0de16228970b8dd61321c4359c2cb1e50cdec
