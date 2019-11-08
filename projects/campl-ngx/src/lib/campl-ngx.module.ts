@@ -71,6 +71,13 @@ import { CamplNgxLocalnavMenuComponent } from "./campl-ngx-localnav-menu/campl-n
 export class CamplNgxModule {
   // TODO lookup ModuleWithProviders
   static setConfig(camplConfig: any): ModuleWithProviders {
+    //TODO
+    // if camplConfig not set
+    // search for a config json file in a standard location perhaps app root
+    // else
+    // set to some default
+    // camplConfig = camplConfigDefaults();
+
     // This will pass config settings to our campl template
     // These are passed via an InjectionToken which will not
     // provide the ability to send dynamic values
