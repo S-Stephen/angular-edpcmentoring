@@ -8,6 +8,7 @@ Run `ng generate component component-name --project campl-ngx` to generate a new
 
 Run `ng build campl-ngx` to build the project. The build artifacts will be stored in the `dist/` directory.
 Change working directory to the `dist/campl-ngx` directory and run `npm run build` (this transpiles our ts files, and copies other files into location)
+Back in teh applicaton root (cd ../../) schematics .\dist\campl-ngx\schematics\collection.json:ng-add --debug=false
 
 // about schematics: https://medium.com/@tomastrajan/total-guide-to-custom-angular-schematics-5c50cf90cdb4
 // another neat reference: https://brianflove.com/2018/12/15/ng-add-schematic/
