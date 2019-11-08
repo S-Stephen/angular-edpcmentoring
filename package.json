@@ -6,6 +6,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-campl-ngx": "ng build campl-ngx && npm run copy-campl-ngx-assets",
+    "copy-campl-ngx-assets": "cpx -v ./projects/campl-ngx/src/assets/** ./dist/campl-ngx/assets",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -35,6 +37,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.3",
     "@angular-devkit/build-ng-packagr": "~0.803.3",
+    "@angular-devkit/schematics-cli": "^0.803.17",
     "@angular/cli": "^8.3.3",
     "@angular/compiler-cli": "^8.2.5",
     "@angular/language-service": "^8.2.5",

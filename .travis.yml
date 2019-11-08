@@ -13,5 +13,6 @@ install:
   - npm install
 
 script:
-  - npm run build campl-ngx
+  - npm run build-campl-ngx
   - npm run test -- campl-ngx --no-progress  --watch=false --browsers=ChromeHeadless
+#  - cd dist; npm dist
