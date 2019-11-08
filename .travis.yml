@@ -27,4 +27,4 @@ deploy:
   file: projects/campl-ngx/*.tgz
   skip_cleanup: true
   on:
-    all_branch: true
+    all_branches: true
