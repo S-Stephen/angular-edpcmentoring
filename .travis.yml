@@ -15,6 +15,7 @@ install:
 
 script:
   - npm run build-campl-ngx
+  - cp -R ./projects/campl-ngx/src/assets ./dist/campl-ngx/
   - ls -lR ./projects/campl-ngx
   - ls -lR ./dist/campl-ngx
   - npm run test -- campl-ngx --no-progress  --watch=false --browsers=ChromeHeadless
