@@ -17,6 +17,7 @@ script:
   - npm run build-campl-ngx
   - ls -lR ./projects/campl-ngx
   - npm run test -- campl-ngx --no-progress  --watch=false --browsers=ChromeHeadless
+  - ls -lR ./projects/campl-ngx
   # build the schematic
   - cd projects/campl-ngx
   - npm install
