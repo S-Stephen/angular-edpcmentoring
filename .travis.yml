@@ -25,8 +25,7 @@ deploy:
   provider: releases
   api_key: ${MACHINE_API}
   file_glob: true
-  file:
-    - "projects/campl-ngx/*.tgz"
+  file: "projects/campl-ngx/*.tgz"
   skip_cleanup: true
   on:
     all_branches: true
