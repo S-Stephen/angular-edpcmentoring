@@ -22,7 +22,7 @@ script:
 #  - cd dist; npm dist
 
 before_deploy:
-  - cd dist/campl-ngx
+  - cd /dist/campl-ngx
   - npm pack
 
 deploy:
