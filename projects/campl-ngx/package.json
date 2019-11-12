@@ -12,8 +12,7 @@
     "@angular/common": "^8.2.4",
     "@angular/core": "^8.2.4",
     "rxjs": "^6.5.3",
-    "rxjs-compat": "^6.5.3",
-    "modernizr": "^3.8.0"
+    "rxjs-compat": "^6.5.3"
   },
   "schematics": "./schematics/collection.json",
   "devDependencies": {
