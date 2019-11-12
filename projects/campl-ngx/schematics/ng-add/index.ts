@@ -88,6 +88,16 @@ function addPackageJsonDependencies(): Rule {
         version:
           "https://github.com/S-Stephen/angular-edpcmentoring/releases/download/v0.0.1-alpha-1/campl-ngx-0.0.1.tgz",
         name: "campl-ngx"
+      },
+      {
+        type: NodeDependencyType.Default,
+        version: "^6.5.3",
+        name: "rxjs"
+      },
+      {
+        type: NodeDependencyType.Default,
+        version: "^6.5.3",
+        name: "rxjs-compat"
       }
     ];
 
@@ -136,6 +146,13 @@ function configureAppModule(_options: any): Rule {
       "./src/app/app.module.ts",
       "CamplNgxModule.setConfig(" + config + ")",
       "campl-ngx"
+    );
+
+    addModuleImportToModule(
+      tree,
+      "./src/app/app.module.ts",
+      "RoutingModule",
+      "./routes/routing.module"
     );
 
     // however let's try to move some of our assets (namely javascripts/libs/modernizr.js into assets/javascripts/libs/modernizr.js) and add an entry in the angular,json file
