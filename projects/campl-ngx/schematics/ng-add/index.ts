@@ -47,7 +47,7 @@ function createRouterModule(): Rule {
       host,
       "./src/app/app.module.ts",
       "RoutingModule",
-      "./routes/routing.module"
+      "./src/app/routes/routing.module.ts"
     );
 
     context.logger.log("info", `✅️ Added RouterModule`);
