@@ -31,9 +31,27 @@ export function ngAdd(options: any): Rule {
     options && options.skipPackageJson
       ? noop()
       : installPackageJsonDependencies(),
+    options && options.skipConfig ? noop() : createRouterModule(),
     options && options.skipConfig ? noop() : configureAppModule(options),
     options && options.skipConfig ? noop() : addModernizrFile(options)
   ]);
+}
+
+function createRouterModule(): Rule {
+  return (host: Tree, context: SchematicContext) => {
+    // we need to create the ./routes/routing.module file
+    host.create("./routes/routing.module", routerModuleFile());
+
+    // and add this to the AppModule
+    addModuleImportToModule(
+      host,
+      "./src/app/app.module.ts",
+      "RoutingModule",
+      "./routes/routing.module"
+    );
+
+    context.logger.log("info", `✅️ Added RouterModule`);
+  };
 }
 
 function addModernizrFile(options: any): Rule {
@@ -185,6 +203,30 @@ function configureAppModule(_options: any): Rule {
   };
 }
 
+function routerModuleFile(): string {
+  // TODO cat the routes/routing.module.ts file
+  // TODO why can we not translate with a blank template?
+  // apply template and move/
+  return `
+  import { NgModule } from "@angular/core";
+  import { RouterModule, Routes } from "@angular/router";
+  //import { HomeComponent } from "../home/home.component";
+  //import { MatchComponent } from "../match/match.component";
+  
+  const routes: Routes = [
+  //  { path: "home", component: HomeComponent },
+  //  { path: "match", component: MatchComponent }
+  ];
+  
+  @NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+  })
+  export class RoutingModule {}
+  
+  `;
+}
+
 function camplConfigDefaults(): string {
   /**
    * returns an example config file used to setup the initial pojectlight content etc
@@ -308,8 +350,6 @@ function camplConfigDefaults(): string {
         sub: [
           {
             sub: [
-              //arrays of arrays to be split campl-column4
-              // each array is a column
               {
                 label: "How the University and Colleges work",
                 link:

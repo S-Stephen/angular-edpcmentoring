@@ -6,7 +6,7 @@ This is an Angular (8) library which can be used to produce a UI based around th
 
 Within the root directory of your Angular application:
 
-(if you have not created one already:)
+(if you have not created one already)
 
 ```
 ng new my-new-app
@@ -23,7 +23,11 @@ npm install schematics-utilities@^2.0.0
 ng add campl-ngx
 ```
 
-Then include the site template, for example wrap your UI with <campl-ngx-app></campl-ngx-app>
+Include the site template, for example wrap your UI (eg content of app.component.html) with
+
+```
+<campl-ngx-app></campl-ngx-app>
+```
 
 Then start the server:
 
