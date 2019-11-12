@@ -40,14 +40,14 @@ export function ngAdd(options: any): Rule {
 function createRouterModule(): Rule {
   return (host: Tree, context: SchematicContext) => {
     // we need to create the ./routes/routing.module file
-    host.create("./src/app/routes/routing.module", routerModuleFile());
+    host.create("./src/app/routes/routing.module.ts", routerModuleFile());
 
     // and add this to the AppModule
     addModuleImportToModule(
       host,
       "./src/app/app.module.ts",
       "RoutingModule",
-      "./routes/routing.module.ts"
+      "./routes/routing.module"
     );
 
     context.logger.log("info", `✅️ Added RouterModule`);
