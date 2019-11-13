@@ -19,7 +19,8 @@ import {
   buildDefaultPath,
   NodeDependencyType,
   NodeDependency,
-  addPackageJsonDependency
+  addPackageJsonDependency,
+  appendHtmlElementToHead
   /*parseName*/
   // addSymbolToNgModuleMetadata no available - not exported
 } from "schematics-utilities";
@@ -34,8 +35,49 @@ export function ngAdd(options: any): Rule {
     options && options.skipConfig ? noop() : createRouterModule(),
     options && options.skipConfig ? noop() : configureAppModule(options),
     options && options.skipConfig ? noop() : addModernizrFile(options),
-    options && options.skipConfig ? noop() : addIosOrientationFixFile(options)
+    options && options.skipConfig ? noop() : addIosOrientationFixFile(options),
+    options && options.skipConfig ? noop() : insertTypeKitScript()
   ]);
+}
+
+function insertTypeKitScript(): Rule {
+  // This needs inserting into the head of our document
+
+  //Test that a src/index.html file exists
+  //and assume this is used to load the boilerplate
+
+  //TODO check angular.json to make sure 'index' value in build has not been modified
+  //eg by https://stackoverflow.com/questions/50113794/angular-how-to-dynamically-change-the-content-in-the-index-html-file-when-runn/57274333#57274333
+
+  return (host: Tree, context: SchematicContext) => {
+    let indexfile = "src/index.html";
+
+    const foundIndexFile = host.read(indexfile);
+    if (foundIndexFile) {
+      appendHtmlElementToHead(host, "./src/index.html", typeKitInclude());
+      context.logger.log("info", `✅️ Added typeKit`);
+    } else {
+      context.logger.log(
+        "error",
+        `🚫 - typeKit not added UI might not be rendering correctly!`
+      );
+    }
+  };
+}
+
+function typeKitInclude() {
+  // returns the HTML element to include for typeKit
+  return `
+  <script type="text/javascript" src="//use.typekit.com/hyb5bko.js"></script>
+  <script type="text/javascript">
+    try {
+      Typekit.load();
+    } catch (e) {}
+  </script>
+  <script type="text/javascript">
+    document.documentElement.className += " js";
+  </script>
+  `;
 }
 
 function createRouterModule(): Rule {
