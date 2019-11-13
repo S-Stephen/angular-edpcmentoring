@@ -72,6 +72,26 @@ export class AppComponent {
 }
 ```
 
+Add the following into the head of your **src/app/index.html** file:
+
+```
+  <head>
+  ...
+  <script type="text/javascript" src="//use.typekit.com/hyb5bko.js"></script>
+  <script type="text/javascript">
+    try {
+      Typekit.load();
+    } catch (e) {}
+
+  </script>
+  <script type="text/javascript">
+    document.documentElement.className += " js";
+
+  </script>
+
+  </head>
+```
+
 Then start the server:
 
 ```
