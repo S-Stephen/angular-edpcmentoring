@@ -33,7 +33,8 @@ export function ngAdd(options: any): Rule {
       : installPackageJsonDependencies(),
     options && options.skipConfig ? noop() : createRouterModule(),
     options && options.skipConfig ? noop() : configureAppModule(options),
-    options && options.skipConfig ? noop() : addModernizrFile(options)
+    options && options.skipConfig ? noop() : addModernizrFile(options),
+    options && options.skipConfig ? noop() : addIosOrientationFixFile(options)
   ]);
 }
 
@@ -98,6 +99,47 @@ function addModernizrFile(options: any): Rule {
   };
 }
 
+function addIosOrientationFixFile(options: any): Rule {
+  return (host: Tree, context: SchematicContext) => {
+    const name = "iosOrientationFix";
+    const path =
+      "node_modules/campl-ngx/assets/javascripts/libs/ios-orientation-fix.js";
+
+    try {
+      const angularJsonFile = host.read("angular.json");
+
+      if (angularJsonFile) {
+        const angularJsonFileObject = JSON.parse(
+          angularJsonFile.toString("utf-8")
+        );
+        const project = options.project
+          ? options.project
+          : Object.keys(angularJsonFileObject["projects"])[0];
+        const projectObject = angularJsonFileObject.projects[project];
+        const scripts = projectObject.architect.build.options.scripts;
+
+        scripts.push({
+          input: path
+        });
+        host.overwrite(
+          "angular.json",
+          JSON.stringify(angularJsonFileObject, null, 2)
+        );
+      }
+    } catch (e) {
+      context.logger.log(
+        "error",
+        `🚫 Failed to add the modernizr file "${name}" to scripts ${e}`
+      );
+
+      throw new SchematicsException(`Unable to add ${name} to scripts:`);
+    }
+
+    context.logger.log("info", `✅️ Added "${name}" to scripts`);
+
+    return host;
+  };
+}
 function addPackageJsonDependencies(): Rule {
   return (host: Tree, context: SchematicContext) => {
     const dependencies: NodeDependency[] = [
