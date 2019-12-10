@@ -63,7 +63,8 @@ import { CamplNgxModule } from "campl-ngx";
     MatDialogModule,
     MatTooltipModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CamplNgxModule.setConfig(environment.config)
     //ProjectlightModule,
     // perhaps slurp this from a site.config file or elsewhere?
   ],
