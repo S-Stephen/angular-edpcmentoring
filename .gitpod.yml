@@ -1,3 +1,13 @@
 tasks:
   - init: npm install
     command: "npm install -g @angular/cli && export CHROME_BIN=/usr/bin/chromium-browser"
+    command: "ng build"
+    command: "ng build campl-ngx"
+    command: "cd ./projects/campl-ngx/"
+    command: "npm install"
+    command: "npm run build"
+    command: "cd ../../dist/campl-ngx/"
+    command: "npm pack"
+    command: "cd ../../"
+    command: "npm install ./dist/campl-ngx/campl-ngx*.tgz"
+    command: "ng add campl-ngx"
