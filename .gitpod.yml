@@ -1,6 +1,8 @@
 tasks:
   - init: npm install
     command: "npm install -g @angular/cli && export CHROME_BIN=/usr/bin/chromium-browser"
+    # maybe required for schematics - though perhaps should be dev dependancy?
+    command: "npm install"
     command: "ng build"
     command: "ng build campl-ngx"
     command: "cd ./projects/campl-ngx/"
@@ -11,3 +13,9 @@ tasks:
     command: "cd ../../"
     command: "npm install ./dist/campl-ngx/campl-ngx*.tgz"
     command: "ng add campl-ngx"
+    command: "ng serve"
+    # missing schematics
+    # command: "npm install"
+ports:
+  - port: 4200
+    onOpen: open-preview
