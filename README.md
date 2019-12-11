@@ -1,16 +1,43 @@
-# EdpcmentoringNg8
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.2.
+# Projectlight-ngx
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/S-Stephen/angular-edpcmentoring)
 
+This project contains the source for campl-ngx an angular library providing components to build a University of Cambridge Projectlight style web application. Please see the [angular.json](./angular.json) file for a list of projects included in this repository.
+
+The quickest way to view an example of a site is to open the repository in gitpod following the link above. Doing so will build and install the angular library into the boilerplate app run the **add** schematic and start a test server which can be previewed online.
+
+Hopefully apparent from [angular.json](./angular.json) a summary of some of the directories:
+
+- **/src** - a prototype/example application utilising the campl-ng library
+- **/project/campl-ngx** - The campl-ngx library itself
+- **/e2e** - protractor test to be written against our prototype application
+
 ## Development server
 
+If you are not loading from gitpod then to get the prototype application running:
+
+```
+ng build
+ng build campl-ngx
+cd .\projects\campl-ngx\
+npm install
+npm run build
+cd ..\..\dist\campl-ngx\
+npm pack
+cd ..\..\
+npm install .\dist\campl-ngx\campl-ngx*.tgz
+ng add campl-ngx
+```
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+The campl-ngx library has now been installed into our application, so any modificatin to the library require a rebuild and re-installation to see their effects
 
 ## Debug whilst development:
 
 Take a look at: https://medium.com/@MarkPieszak/debugging-angular-cli-inside-vscode-with-browser-preview-8dcc4b18ed64
+
+# The usual advice whilst developing the prototype application:
 
 ## Code scaffolding
 
@@ -32,3 +59,5 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.2.
