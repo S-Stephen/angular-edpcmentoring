@@ -1,6 +1,6 @@
 {
-  "name": "edpcmentoring-ng8",
-  "version": "0.0.0",
+  "name": "projectlight-ngx",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
