@@ -1,3 +1,21 @@
 tasks:
   - init: npm install
-    command: npm install -g @angular/cli
+    command:
+      "npm install -g @angular/cli && export CHROME_BIN=/usr/bin/chromium-browser \
+      npm install; \
+      ng build; \
+      ng build campl-ngx; \
+      cd ./projects/campl-ngx/; \
+      npm install; \
+      npm run build; \
+      cd ../../dist/campl-ngx/; \
+      npm pack; \
+      cd ../../; \
+      npm install ./dist/campl-ngx/campl-ngx*.tgz; \
+      ng add campl-ngx; \
+      ng serve"
+    # missing schematics
+    # command: "npm install"
+ports:
+  - port: 4200
+    onOpen: open-preview

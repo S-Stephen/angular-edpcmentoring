@@ -20,7 +20,6 @@ export class MessagesComponent implements OnInit {
 
   toggleMessages() {
     this.show_messages = !this.show_messages;
-    console.log("messages toggled");
   }
 
   ngOnInit() {

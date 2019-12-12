@@ -1,0 +1,22 @@
+{
+  "name": "campl-ngx",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "tsc -p tsconfig.schematics.json",
+    "copy:schemas": "cpx -v schematics/*/schema.json ../../dist/campl-ngx/ ",
+    "copy:files": "cpx  -v schematics/*/files/** ../../dist/campl-ngx/ ",
+    "copy:collection": "cpx -v schematics/collection.json ../../dist/campl-ngx/schematics/",
+    "postbuild": "npm run copy:schemas && npm run copy:files && npm run copy:collection"
+  },
+  "peerDependencies": {
+    "@angular/common": "^8.2.4",
+    "@angular/core": "^8.2.4",
+    "rxjs": "^6.5.3",
+    "rxjs-compat": "^6.5.3"
+  },
+  "schematics": "./schematics/collection.json",
+  "devDependencies": {
+    "cpx": "^1.5.0",
+    "schematics-utilities": "^2.0.0"
+  }
+}

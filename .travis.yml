@@ -1,0 +1,39 @@
+#dist: trusty
+#sudo: false
+
+language: node_js
+node_js:
+  - "12"
+
+cache:
+  directories:
+    - ./node_modules
+
+install:
+  - npm install
+  - npm install -g cpx
+
+script:
+  - npm run build-campl-ngx
+  # TODO why does cpx in teh above not do this?
+  - cp -R ./projects/campl-ngx/src/assets ./dist/campl-ngx/
+  - npm run test -- campl-ngx --no-progress  --watch=false --browsers=ChromeHeadless
+  # build the schematic
+  - cd projects/campl-ngx
+  - npm install
+  - npm run build
+#  - cd dist; npm dist
+
+before_deploy:
+  - cd ../../dist/campl-ngx
+  - npm pack
+
+deploy:
+  provider: releases
+  api_key: ${MACHINE_API}
+  file_glob: true
+  file: "campl-ngx*.tgz"
+  skip_cleanup: true
+  on:
+    all_branches: true
+    tags: true

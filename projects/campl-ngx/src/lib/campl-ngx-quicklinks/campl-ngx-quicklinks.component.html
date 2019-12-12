@@ -1,0 +1,9 @@
+<div class="campl-quicklinks" (click)="toggleList()" [ngClass]="{'campl-quicklinks-open':open_quicklinks}">
+  <a href="#" class="campl-open-quicklinks clearfix"><span class="campl-quicklinks-txt">Quick links</span><span
+      class="campl-icon-dropdown ir"></span></a>
+  <ul *ngIf="open_quicklinks"
+    class="campl-unstyled-list campl-quicklinks-list campl-global-navigation-container column12 clearfix">
+    <li *ngFor="let link of quicklinks; let isLast = last" [class.last]="isLast"><a
+        href="{{link.link}}">{{link.label}}</a></li>
+  </ul>
+</div>

@@ -1,0 +1,29 @@
+<!-- Based on the perms pf our user provide the correct links -->
+<!-- these links will be guarded by the backend! -->
+
+<!--
+  TODO search guard to display accessble routes
+  user.ismatchmaker
+  user.is_supervisor
+  user.cued_member (user.cued_member.user.get_full_name,  user.cued_member.crsid)
+
+-->
+
+<div class="clearfix campl-local-navigation" id="local-nav" CamplNgxWrap>
+  <!-- in the process of writing CamplNgxLocalNavigation; but maybe not required -->
+  <!-- todo replace ngIf with a directive to test capabilities? -->
+  <p *ngIf="capabilities['supported']" class="campl-closed campl-menu-btn" id="menu-btn" (click)="clickMenuBtn()"><a
+      href="#"><span>Menu</span> <span class="campl-menu-btn-arrow"></span></a>
+  </p>
+  <div class="campl-local-navigation-container" [ngStyle]="{'left.px': local_nav_con_pos}">
+    <ul class="campl-unstyled-list" [ngStyle]="list_style">
+      <!-- top UL-->
+      <li #navMenuID *ngFor="let menu of (nav_menu$|async).subMenus" [ngClass]="{'campl-sub':menu.subItems.length>0}"
+        camplTopListHover class="campl-top">
+        <a *ngIf="menu.subItems.length==0" href="{{menu.link}}" style="position: relative">{{ menu.label }}</a>
+        <campl-ngx-localnav-menu *ngIf="menu.subItems.length>0" [menu]="menu">
+        </campl-ngx-localnav-menu>
+      </li>
+    </ul>
+  </div>
+</div>

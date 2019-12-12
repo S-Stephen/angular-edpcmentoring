@@ -11,7 +11,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/myapp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
@@ -21,22 +21,14 @@
               "src/favicon.ico",
               "src/projectlight/images/interface",
               "src/projectlight/javascripts/custom.js",
-              "src/projectlight/javascripts/custom_navonly.js",
               "src/projectlight/javascripts/libs/bootstrap-tabs.js",
               "src/projectlight/javascripts/libs/datepicker_highlighted_events.js",
               "src/projectlight/javascripts/libs/ios-orientationchange-fix.js",
-              "src/projectlight/javascripts/libs/jquery-min.js",
-              "src/projectlight/javascripts/libs/modernizr.js",
               "src/projectlight/javascripts/libs/responsive-tooltip.js",
               "src/projectlight/javascripts/libs/zebra_datepicker.js"
             ],
-            "styles": [
-              "src/styles.css",
-              "src/projectlight/stylesheets/custom.css",
-              "src/projectlight/stylesheets/full-stylesheet.css",
-              "src/projectlight/stylesheets/styleguide.css"
-            ],
-            "scripts":["./node_modules/jquery/dist/jquery.min.js","src/assets/javascripts/libs/modernizr.js"]
+            "styles": ["src/styles.css"],
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -49,10 +41,12 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "fileReplacements": [{
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.prod.ts"
-              }]
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             }
           }
         },
@@ -82,34 +76,14 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
-            "styles": [
-              "src/styles.css",
-              "src/projectlight/stylesheets/custom.css",
-              "src/projectlight/stylesheets/full-stylesheet.css",
-              "src/projectlight/stylesheets/styleguide.css"
-            ],
-            "assets": [
-              "src/assets",
-              "src/favicon.ico",
-              "src/projectlight/images/interface",
-              "src/projectlight/javascripts/custom.js",
-              "src/projectlight/javascripts/libs/bootstrap-tabs.js",
-              "src/projectlight/javascripts/libs/datepicker_highlighted_events.js",
-              "src/projectlight/javascripts/libs/ios-orientationchange-fix.js",
-              "src/projectlight/javascripts/libs/jquery-min.js",
-              "src/projectlight/javascripts/libs/modernizr.js",
-              "src/projectlight/javascripts/libs/responsive-tooltip.js",
-              "src/projectlight/javascripts/libs/zebra_datepicker.js"
-            ]
+            "styles": ["src/styles.css"],
+            "assets": ["src/assets", "src/favicon.ico"]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
-            ],
+            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
             "exclude": []
           }
         }
@@ -130,45 +104,41 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "e2e/tsconfig.e2e.json"
-            ],
+            "tsConfig": ["e2e/tsconfig.e2e.json"],
             "exclude": []
           }
         }
       }
     },
-    "campl-ng": {
+    "campl-ngx": {
       "projectType": "library",
-      "root": "projects/campl-ng",
-      "sourceRoot": "projects/campl-ng/src",
+      "root": "projects/campl-ngx",
+      "sourceRoot": "projects/campl-ngx/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/campl-ng/tsconfig.lib.json",
-            "project": "projects/campl-ng/ng-package.json"
+            "tsConfig": "projects/campl-ngx/tsconfig.lib.json",
+            "project": "projects/campl-ngx/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/campl-ng/src/test.ts",
-            "tsConfig": "projects/campl-ng/tsconfig.spec.json",
-            "karmaConfig": "projects/campl-ng/karma.conf.js"
+            "main": "projects/campl-ngx/src/test.ts",
+            "tsConfig": "projects/campl-ngx/tsconfig.spec.json",
+            "karmaConfig": "projects/campl-ngx/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/campl-ng/tsconfig.lib.json",
-              "projects/campl-ng/tsconfig.spec.json"
+              "projects/campl-ngx/tsconfig.lib.json",
+              "projects/campl-ngx/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }

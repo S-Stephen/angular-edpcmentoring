@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ng-add": {
+      "description": "Add campl-ngx to the application.",
+      "factory": "./ng-add/index#ngAdd"
+    }
+  }
+}
