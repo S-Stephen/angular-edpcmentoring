@@ -1,7 +1,7 @@
 tasks:
   - init: npm install
-    command:
-      "npm install -g @angular/cli && export CHROME_BIN=/usr/bin/chromium-browser \
+    command: "echo N | npm install -g @angular/cli; \
+      export CHROME_BIN=/usr/bin/chromium-browser \
       npm install; \
       ng build; \
       ng build campl-ngx; \
