@@ -2,11 +2,11 @@
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/S-Stephen/angular-edpcmentoring)
 
-This project contains the source for campl-ngx an angular library providing components to build a University of Cambridge Projectlight style web application. Please see the [angular.json](./angular.json) file for a list of projects included in this repository.
+This project contains the source for campl-ngx an angular library providing components to build a University of Cambridge Projectlight style web application. Please see the [angular.json](./angular.json) file for a list of projects included in this repository. The root directory containing the source of an angular application is to be used to vie wdevelopment of the library as well as a place to run e2e tests with the components.
 
-The quickest way to view an example of a site is to open the repository in gitpod following the link above. Doing so will build and install the angular library into the boilerplate app run the **add** schematic and start a test server which can be previewed online.
+The quickest way to view an example of a site is to open the repository in gitpod following the link above. Doing so will build and install the angular library into the boilerplate app, run the **add** schematic and start the development webserver which can be previewed online.
 
-Hopefully apparent from [angular.json](./angular.json) a summary of some of the directories:
+Hopefully apparent from [angular.json](./angular.json) here is a summary of some of the directories:
 
 - **/src** - a prototype/example application utilising the campl-ng library
 - **/project/campl-ngx** - The campl-ngx library itself
@@ -29,9 +29,9 @@ npm install .\dist\campl-ngx\campl-ngx*.tgz
 ng add campl-ngx
 ```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for the dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-The campl-ngx library has now been installed into our application, so any modificatin to the library require a rebuild and re-installation to see their effects
+In actioning the above the campl-ngx library has now been installed into our application, so any modification to the library will require a rebuild and re-installation to see their effects
 
 ## Debug whilst development:
 
