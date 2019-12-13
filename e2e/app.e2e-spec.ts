@@ -1,6 +1,6 @@
 import { EdpcmentoringNg8Page } from './app.po';
 
-describe('edpcmentoring-ng8 App', () => {
+describe('projectlight-ngx App', () => {
   let page: EdpcmentoringNg8Page;
 
   beforeEach(() => {
