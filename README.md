@@ -35,7 +35,28 @@ In actioning the above the campl-ngx library has now been installed into our app
 
 ## Debug whilst development:
 
-Take a look at: https://medium.com/@MarkPieszak/debugging-angular-cli-inside-vscode-with-browser-preview-8dcc4b18ed64
+To view the changes produced by editing the campl-ngx library, we need to build the library:
+
+If you have installed the library via the **npm install \*.tgz** command we need to uninstall:
+
+In our repository root:
+
+```
+npm uninstall campl-ngx
+```
+
+Because the application was bundling assets from the node_modules/campl-ngx directory you will need to edit angular.json file and modify entries in the scripts array (eg those refering to modernizr) to reference
+
+./projects/campl-ng/src/assets/javascripts/libs/...
+
+Then to build the library (which will now be found via the tsconfig.app.json config)
+
+```
+cd projects/campl-ngx
+npm run build
+```
+
+To attach and run a debugger take a look at: https://medium.com/@MarkPieszak/debugging-angular-cli-inside-vscode-with-browser-preview-8dcc4b18ed64
 
 # The usual advice whilst developing the prototype application:
 
