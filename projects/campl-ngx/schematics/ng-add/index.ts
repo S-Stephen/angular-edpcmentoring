@@ -82,9 +82,12 @@ function typeKitInclude() {
 
 function createRouterModule(): Rule {
   return (host: Tree, context: SchematicContext) => {
-    // we need to create the ./routes/routing.module file
-    host.create("./src/app/routes/routing.module.ts", routerModuleFile());
-
+    // Only if it doesn't already exist
+    let routeFile = "./src/app/routes/routing.module.ts";
+    if (!host.exists(routeFile)) {
+      // we need to create the ./routes/routing.module file
+      host.create(routeFile, routerModuleFile());
+    }
     // and add this to the AppModule
     addModuleImportToModule(
       host,
