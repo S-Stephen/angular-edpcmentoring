@@ -17,7 +17,7 @@ Hopefully apparent from [angular.json](./angular.json) here is a summary of some
 If you are not loading from gitpod then to get the prototype application running:
 
 ```
-ng build
+npm install
 ng build campl-ngx
 cd .\projects\campl-ngx\
 npm install
