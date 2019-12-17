@@ -29,6 +29,8 @@ npm install .\dist\campl-ngx\campl-ngx*.tgz
 ng add campl-ngx
 ```
 
+**NB.** In [src/app/app.module.ts](./src/app/app.module.ts) remove the second entry for **CamplNgxModule.setConfig** so that config is taken from the [./src/environments/environment.common.ts](./src/environments/environment.common.ts) file
+
 Run `ng serve` for the dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 In actioning the above the campl-ngx library has now been installed into our application, so any modification to the library will require a rebuild and re-installation to see their effects

@@ -321,15 +321,19 @@ function camplConfigDefaults(): string {
    */
 
   return `{
-    page_title: "EDPC Mentoring",
+    page_title: "Your title here",
     local_footer_col1: [
       {
-        label: "About the Scheme",
-        link: "https://edpc.eng.cam.ac.uk/mentoring"
+        label: "Local footer 1",
+        link: "https://somelink"
+      },
+      {
+        label: "Local footer 1a",
+        link: "https://somelink1a"
       }
     ],
     local_footer_col2: [
-      { label: "About the EDPC", link: "https://edpc.eng.cam.ac.uk/aboutus" }
+      { label: "local footer2", link: "https://edpc.eng.cam.ac.uk/aboutus" }
     ],
     quicklinks: [
       { link: "http://www.cam.ac.uk/for-staff", label: "For staff" },

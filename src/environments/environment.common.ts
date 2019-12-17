@@ -7,14 +7,18 @@ let site_config = {
   page_title: "Test app",
   local_footer_col1: [
     {
-      label: "About the Scheme",
-      link: "https://edpc.eng.cam.ac.uk/mentoring"
+      label: "Link local list 1 item 1",
+      link: "https://basdlink1"
+    },
+    {
+      label: "Link local list 1 item 2",
+      link: "https://badlink"
     }
   ],
   local_footer_col2: [
     {
-      label: "About the EDPC",
-      link: "https://edpc.eng.cam.ac.uk/aboutus"
+      label: "Link local list 2 item 1",
+      link: "https://somebadlink"
     }
   ],
   local_footer_col3: [{}],
