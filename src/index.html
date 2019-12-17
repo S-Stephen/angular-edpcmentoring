@@ -1,43 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Test Projectlight-ngx application</title>
+    <base href="/" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
-<head>
-  <title>EDPC Mentoring Scheme test</title>
-  <base href="/">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <body>
+    <app-root></app-root>
 
-  <script type="text/javascript" src="//use.typekit.com/hyb5bko.js"></script>
-  <script type="text/javascript">
-    try {
-      Typekit.load();
-    } catch (e) {}
-
-  </script>
-  <script type="text/javascript">
-    document.documentElement.className += " js";
-
-  </script>
-
-
-
-</head>
-
-<body>
-
-  <app-root></app-root>
-
-  <!-- placing in angular.json 'scripts' not working YET! -->
-  <script type="text/javascript" src="/assets/projectlight/javascripts/libs/ios-orientationchange-fix.js"></script>
-  <!--<script type="application/json" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>-->
-  <!--<script type="text/javascript" src="/assets/projectlight/javascripts/libs/modernizr.js"></script>-->
-  <!-- We had to remove this, as we have dynamic navigation and the IIFE is not idempotent-->
-  <script type="application/json" src="cdn.rawgit.com/S-Stephen/angular-edpcmentoring/master/src/projectlight/javascripts/custom.js"></script>
-  <!--<script type="application/json" src="/assets/projectlight/javascripts/custom.js"></script>-->
-
-</body>
-
+    <!-- placing in angular.json 'scripts' not working YET! -->
+    <script
+      type="text/javascript"
+      src="/assets/projectlight/javascripts/libs/ios-orientationchange-fix.js"
+    ></script>
+    <!--<script type="application/json" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>-->
+    <!--<script type="text/javascript" src="/assets/projectlight/javascripts/libs/modernizr.js"></script>-->
+    <!-- We had to remove this, as we have dynamic navigation and the IIFE is not idempotent-->
+    <script
+      type="application/json"
+      src="cdn.rawgit.com/S-Stephen/angular-edpcmentoring/master/src/projectlight/javascripts/custom.js"
+    ></script>
+    <!--<script type="application/json" src="/assets/projectlight/javascripts/custom.js"></script>-->
+  </body>
 </html>

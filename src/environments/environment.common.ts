@@ -4,23 +4,29 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 let site_config = {
-  page_title: "EDPC Mentoring",
+  page_title: "Test app",
   local_footer_col1: [
     {
-      label: "About the Scheme",
-      link: "https://edpc.eng.cam.ac.uk/mentoring"
+      label: "Link local list 1 item 1",
+      link: "https://basdlink1"
+    },
+    {
+      label: "Link local list 1 item 2",
+      link: "https://badlink"
     }
   ],
   local_footer_col2: [
     {
-      label: "About the EDPC",
-      link: "https://edpc.eng.cam.ac.uk/aboutus"
+      label: "Link local list 2 item 1",
+      link: "https://somebadlink"
     }
   ],
+  local_footer_col3: [{}],
+  local_footer_col4: [{}],
   quicklinks: [
     {
       link: "http://www.cam.ac.uk/for-staff",
-      label: "For staff"
+      label: "For staff "
     },
     {
       link: "http://www.cam.ac.uk/current-students",

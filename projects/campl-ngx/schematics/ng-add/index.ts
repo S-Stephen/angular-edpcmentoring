@@ -82,9 +82,12 @@ function typeKitInclude() {
 
 function createRouterModule(): Rule {
   return (host: Tree, context: SchematicContext) => {
-    // we need to create the ./routes/routing.module file
-    host.create("./src/app/routes/routing.module.ts", routerModuleFile());
-
+    // Only if it doesn't already exist
+    let routeFile = "./src/app/routes/routing.module.ts";
+    if (!host.exists(routeFile)) {
+      // we need to create the ./routes/routing.module file
+      host.create(routeFile, routerModuleFile());
+    }
     // and add this to the AppModule
     addModuleImportToModule(
       host,
@@ -318,15 +321,19 @@ function camplConfigDefaults(): string {
    */
 
   return `{
-    page_title: "EDPC Mentoring",
+    page_title: "Your title here",
     local_footer_col1: [
       {
-        label: "About the Scheme",
-        link: "https://edpc.eng.cam.ac.uk/mentoring"
+        label: "Local footer 1",
+        link: "https://somelink"
+      },
+      {
+        label: "Local footer 1a",
+        link: "https://somelink1a"
       }
     ],
     local_footer_col2: [
-      { label: "About the EDPC", link: "https://edpc.eng.cam.ac.uk/aboutus" }
+      { label: "local footer2", link: "https://edpc.eng.cam.ac.uk/aboutus" }
     ],
     quicklinks: [
       { link: "http://www.cam.ac.uk/for-staff", label: "For staff" },

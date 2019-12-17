@@ -1,8 +1,8 @@
-# Projectlight-ngx
+# Projectlight-ngx _**(Under development)**_
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/S-Stephen/angular-edpcmentoring)
 
-This project contains the source for campl-ngx an angular library providing components to build a University of Cambridge Projectlight style web application. Please see the [angular.json](./angular.json) file for a list of projects included in this repository. The root directory containing the source of an angular application is to be used to vie wdevelopment of the library as well as a place to run e2e tests with the components.
+This project contains the source for campl-ngx an angular library providing components to build a University of Cambridge Projectlight style web application. Please see the [angular.json](./angular.json) file for a list of projects included in this repository. The root directory containing the source of an angular application is to be used to view development of the library as well as a place to run e2e tests with the components.
 
 The quickest way to view an example of a site is to open the repository in gitpod following the link above. Doing so will build and install the angular library into the boilerplate app, run the **add** schematic and start the development webserver which can be previewed online.
 
@@ -17,7 +17,7 @@ Hopefully apparent from [angular.json](./angular.json) here is a summary of some
 If you are not loading from gitpod then to get the prototype application running:
 
 ```
-ng build
+npm install
 ng build campl-ngx
 cd .\projects\campl-ngx\
 npm install
@@ -29,13 +29,36 @@ npm install .\dist\campl-ngx\campl-ngx*.tgz
 ng add campl-ngx
 ```
 
+**NB.** In [src/app/app.module.ts](./src/app/app.module.ts) remove the second entry for **CamplNgxModule.setConfig** so that config is taken from the [./src/environments/environment.common.ts](./src/environments/environment.common.ts) file
+
 Run `ng serve` for the dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 In actioning the above the campl-ngx library has now been installed into our application, so any modification to the library will require a rebuild and re-installation to see their effects
 
 ## Debug whilst development:
 
-Take a look at: https://medium.com/@MarkPieszak/debugging-angular-cli-inside-vscode-with-browser-preview-8dcc4b18ed64
+To view the changes produced by editing the campl-ngx library, we need to build the library:
+
+If you have installed the library via the **npm install \*.tgz** command we need to uninstall:
+
+In our repository root:
+
+```
+npm uninstall campl-ngx
+```
+
+Because the application was bundling assets from the node_modules/campl-ngx directory you will need to edit angular.json file and modify entries in the scripts array (eg those refering to modernizr) to reference
+
+./projects/campl-ng/src/assets/javascripts/libs/...
+
+Then to build the library (which will now be found via the tsconfig.app.json config)
+
+```
+cd projects/campl-ngx
+npm run build
+```
+
+To attach and run a debugger take a look at: https://medium.com/@MarkPieszak/debugging-angular-cli-inside-vscode-with-browser-preview-8dcc4b18ed64
 
 # The usual advice whilst developing the prototype application:
 
