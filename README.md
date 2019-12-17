@@ -2,7 +2,7 @@
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/S-Stephen/angular-edpcmentoring)
 
-This project contains the source for campl-ngx an angular library providing components to build a University of Cambridge Projectlight style web application. Please see the [angular.json](./angular.json) file for a list of projects included in this repository. The root directory containing the source of an angular application is to be used to vie wdevelopment of the library as well as a place to run e2e tests with the components.
+This project contains the source for campl-ngx an angular library providing components to build a University of Cambridge Projectlight style web application. Please see the [angular.json](./angular.json) file for a list of projects included in this repository. The root directory containing the source of an angular application is to be used to view development of the library as well as a place to run e2e tests with the components.
 
 The quickest way to view an example of a site is to open the repository in gitpod following the link above. Doing so will build and install the angular library into the boilerplate app, run the **add** schematic and start the development webserver which can be previewed online.
 
