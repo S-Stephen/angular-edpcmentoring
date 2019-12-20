@@ -4,7 +4,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.schematics.json",
     "copy:schemas": "cpx -v schematics/*/schema.json ../../dist/campl-ngx/ ",
-    "copy:files": "cpx  -v schematics/../src/assets/** ../../dist/campl-ngx/assets/ ",
+    "copy:files": "cpx  -v 'src/assets/javascripts/libs/*' ../../dist/campl-ngx/assets/javascripts/libs ",
     "copy:collection": "cpx -v schematics/collection.json ../../dist/campl-ngx/schematics/",
     "postbuild": "npm run copy:schemas && npm run copy:files && npm run copy:collection"
   },
