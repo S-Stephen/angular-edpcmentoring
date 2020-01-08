@@ -1,6 +1,6 @@
 tasks:
   - init: npm install
-    command: "echo N | npm install -g @angular/cli; \
+    command: "yes N | npm install -g @angular/cli; \
       export CHROME_BIN=/usr/bin/chromium-browser \
       npm install; \
       ng build; \
