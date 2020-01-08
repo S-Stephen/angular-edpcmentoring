@@ -6,7 +6,7 @@ tasks:
       ng build; \
       ng build campl-ngx; \
       cd ./projects/campl-ngx/; \
-      npm install; \
+      yes N | npm install; \
       npm run build; \
       cd ../../dist/campl-ngx/; \
       npm pack; \
