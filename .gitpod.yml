@@ -1,5 +1,5 @@
 tasks:
-  - init: npm install
+  - init: yes N | npm install
     command: "yes N | npm install -g @angular/cli; \
       export CHROME_BIN=/usr/bin/chromium-browser \
       yes N | npm install; \
