@@ -87,7 +87,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Releasing
 
-Update version in [campl-ngx packages.json](./projects/src/packages.json)
+Update version in [campl-ngx packages.json](./projects/campl-ngx/src/packages.json)
 
 Then (after a merge into master) create a new release / tag in GitHub the same as the campl-ngx library release number.
 
