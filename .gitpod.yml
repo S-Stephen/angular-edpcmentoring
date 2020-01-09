@@ -1,12 +1,12 @@
 tasks:
-  - init: npm install
-    command: "echo N | npm install -g @angular/cli; \
+  - init: yes N | npm install
+    command: "yes N | npm install -g @angular/cli; \
       export CHROME_BIN=/usr/bin/chromium-browser \
-      npm install; \
+      yes N | npm install; \
       ng build; \
       ng build campl-ngx; \
       cd ./projects/campl-ngx/; \
-      npm install; \
+      yes N | npm install; \
       npm run build; \
       cd ../../dist/campl-ngx/; \
       npm pack; \

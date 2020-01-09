@@ -104,4 +104,32 @@ An example site should be available at localhost:4200
 
 Replace the argument to CamplNgxModule.setConfig() in **src/app/app.module.ts** with a function call that returns the correct config object.
 
+### Components available
+
+*Roughly associated to atomic design:*
+
+#### Templates
+
+_campl-ngx-app_  a template with header and footer, and university of Cambridge links
+
+#### Organisms
+
+_campl-ngx-footer_
+_campl-ngx-header_
+_campl-ngx-localfooter_
+_campl-ngx-titlenav_
+
+#### Molecules
+
+_campl-ngx-localnav-menu_
+_campl-ngx-nav_
+_campl-ngx-quicklinks_
+
+
+#### Atoms
+
+_campl-ngx-messages_
+_campl-ngx-table_
+
+
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.4.
