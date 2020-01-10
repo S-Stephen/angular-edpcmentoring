@@ -1,5 +1,5 @@
 <div class="campl-quicklinks" (click)="toggleList()" [ngClass]="{'campl-quicklinks-open':open_quicklinks}">
-  <a href="#" class="campl-open-quicklinks clearfix"><span class="campl-quicklinks-txt">Quick links</span><span
+  <a [routerLink]="" class="campl-open-quicklinks clearfix"><span class="campl-quicklinks-txt">Quick links</span><span
       class="campl-icon-dropdown ir"></span></a>
   <ul *ngIf="open_quicklinks"
     class="campl-unstyled-list campl-quicklinks-list campl-global-navigation-container column12 clearfix">

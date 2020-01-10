@@ -29,6 +29,7 @@ import { MessageBufferService } from "./services/message-buffer.service";
 import { MessagesComponent } from "./messages/messages.component";
 
 import { CamplNgxModule } from "campl-ngx";
+import { HomeComponent } from './home/home.component';
 
 /**
  * config object to setup the menus we would like to see
@@ -51,7 +52,7 @@ import { CamplNgxModule } from "campl-ngx";
 }; */
 
 @NgModule({
-  declarations: [AppComponent, ContenteditableDirective, MessagesComponent],
+  declarations: [AppComponent, ContenteditableDirective, MessagesComponent, HomeComponent],
   imports: [
     BrowserModule,
     RoutingModule,
