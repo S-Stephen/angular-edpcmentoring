@@ -49,11 +49,12 @@ npm uninstall campl-ngx
 
 Because the application was bundling assets from the node_modules/campl-ngx directory you will need to edit angular.json file and modify entries in the scripts array (eg those refering to modernizr) to reference
 
-./projects/campl-ng/src/assets/javascripts/libs/...
+./projects/campl-ngx/src/assets/javascripts/libs/...
 
 Then to build the library (which will now be found via the tsconfig.app.json config)
 
 ```
+ng build campl-ngx
 cd projects/campl-ngx
 npm run build
 ```
