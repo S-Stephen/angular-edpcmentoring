@@ -8,9 +8,31 @@ import {
 
 import { By } from "@angular/platform-browser";
 import { CamplNgxQuicklinksComponent } from "./campl-ngx-quicklinks.component";
-import { Component, Injectable, DebugElement } from "@angular/core";
+import {
+  Component,
+  Injectable,
+  DebugElement,
+  Directive,
+  Input,
+  HostListener
+} from "@angular/core";
 
 import { CamplService } from "../services/campl.service";
+
+// See https://angular.io/guide/testing#components-with-routerlink
+// to prevent our tests failing 'routerLink' attribute unknown
+@Directive({
+  selector: "[routerLink]"
+})
+export class RouterLinkDirectiveStub {
+  @Input("routerLink") linkParams: any;
+  navigatedTo: any = null;
+
+  @HostListener("click")
+  onClick() {
+    this.navigatedTo = this.linkParams;
+  }
+}
 
 // Create a parent component, to hold quicklinks in
 @Component({
@@ -48,7 +70,11 @@ describe("CamplNgxQuicklinksComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TestQuicklinks, CamplNgxQuicklinksComponent],
+      declarations: [
+        TestQuicklinks,
+        CamplNgxQuicklinksComponent,
+        RouterLinkDirectiveStub
+      ],
       providers: [{ provide: CamplService, useClass: MockCamplService }]
     }).compileComponents();
   }));
