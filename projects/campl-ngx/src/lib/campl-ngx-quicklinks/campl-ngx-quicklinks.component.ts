@@ -1,28 +1,6 @@
-import {
-  Component,
-  OnInit,
-  ElementRef,
-  HostListener,
-  Directive,
-  Input
-} from "@angular/core";
+import { Component, OnInit, ElementRef, HostListener } from "@angular/core";
 import { CamplService } from "../services/campl.service";
 import { CamplNgxPrimaryMenuStateService } from "../services/campl-ngx-primary-menu-state.service";
-
-// See https://angular.io/guide/testing#components-with-routerlink
-// to prevent our tests failing 'routerLink' attribute unknown
-@Directive({
-  selector: "[routerLink]"
-})
-export class RouterLinkDirectiveStub {
-  @Input("routerLink") linkParams: any;
-  navigatedTo: any = null;
-
-  @HostListener("click")
-  onClick() {
-    this.navigatedTo = this.linkParams;
-  }
-}
 
 @Component({
   selector: "campl-ngx-quicklinks",
