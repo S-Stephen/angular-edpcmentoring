@@ -15,6 +15,36 @@ Back in teh applicaton root (cd ../../) schematics .\dist\campl-ngx\schematics\c
 // how to copy a file using schematics: https://nitayneeman.com/posts/making-an-addable-angular-package-using-schematics/
 // we may need to link the schematic to the library: https://angular.io/guide/schematics-for-libraries
 
+## Developing the Library
+
+Various layouts using this library can be viewed and configured using the parent repository. To acheive this without having to go throught the pack and install steps seen in the gitpod file:
+
+Add the following to the tsconfig.json file (found in the root of the application's directory):
+```
+"compilerOptions": {
+  ...
+  "paths": {
+      "campl-ngx": [
+        "dist/campl-ngx"
+      ]
+    },
+  }
+...
+}
+```
+
+Then whilst editing the library build with the watch option:
+```
+ng build campl-ngx --watch
+```
+
+And to view the utilization via the parent app:
+```
+ng serve 
+```
+
+**N.B.** Following changes to the library - which should now be automatically rebuilt, you may need to run **ng serve** to restart the development server.
+
 ## Publishing
 
 After building your library with `ng build campl-ngx`, go to the dist folder `cd dist/campl-ngx` and run `npm publish`.

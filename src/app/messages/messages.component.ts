@@ -15,7 +15,8 @@ export class MessagesComponent implements OnInit {
 
   constructor(private messageBufferService: MessageBufferService) {
     this.message_log = [];
-    this.show_messages = false;
+    this.show_messages = true;
+    this.message_log.push("first message")
   }
 
   toggleMessages() {

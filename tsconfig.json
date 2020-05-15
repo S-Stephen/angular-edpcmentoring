@@ -1,6 +1,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    // use me if developing the library in-situ
+    "paths": {
+      "campl-ngx": [
+        "dist/campl-ngx"
+      ]
+    },
     "downlevelIteration": true,
     "importHelpers": true,
     "outDir": "./dist/out-tsc",

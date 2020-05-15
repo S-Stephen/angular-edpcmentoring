@@ -1,6 +1,6 @@
 {
   "name": "projectlight-ngx",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -26,6 +26,7 @@
     "@angular/platform-browser-dynamic": "8.2.8",
     "@angular/router": "8.2.8",
     "@types/modernizr": "*",
+    "campl-ngx": "file:dist/campl-ngx/campl-ngx-0.0.1.tgz",
     "core-js": "2.6.9",
     "jquery": "^3.4.1",
     "rxjs": "6.5.3",
