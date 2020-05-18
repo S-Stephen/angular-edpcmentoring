@@ -61,6 +61,12 @@ npm run build
 
 To attach and run a debugger take a look at: https://medium.com/@MarkPieszak/debugging-angular-cli-inside-vscode-with-browser-preview-8dcc4b18ed64
 
+## Run test in Development:
+
+See .travis.yml You must set the **CHROME_BIN** environment variable for karma to find the browser.
+
+CHROME_BIN=/usr/bin/chromium-browser  npm run test -- campl-ngx --no-progress  --watch=false^
+
 # The usual advice whilst developing the prototype application:
 
 ## Code scaffolding
