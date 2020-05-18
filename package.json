@@ -27,7 +27,6 @@
     "@angular/router": "8.2.8",
     "@types/modernizr": "*",
     "core-js": "2.6.9",
-    "jquery": "^3.5.1",
     "rxjs": "6.5.3",
     "rxjs-compat": "6.5.3",
     "schematics-utilities": "^2.0.0",
