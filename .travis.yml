@@ -47,9 +47,10 @@ script:
   - npm run e2e -- --protractorConfig=./protractor-ci.conf.js
 #  - cd dist; npm dist
 
-before_deploy:
-  - cd ../../dist/campl-ngx
-  - npm pack
+# we have already packed the library
+#before_deploy:
+  # - cd ../../dist/campl-ngx
+  #- npm pack
 
 deploy:
   provider: releases
