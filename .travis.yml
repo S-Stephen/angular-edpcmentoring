@@ -1,8 +1,17 @@
-#dist: trusty
+dist: trusty
 sudo: false
 
 addons:
   chrome: stable
+# failed to install via apt: 
+# ( https://angular.io/guide/testing )
+#dist: trusy
+#addons:
+#  apt:
+#    sources:
+#      - google-chrome
+#    packages:
+#      - google-chrome-stable
 
 language: node_js
 node_js:

@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Subject } from "rxjs";
-import { MessageBufferService } from "../services/message-buffer.service";
+import { CamplNgxMessageBufferService } from 'campl-ngx';
 
 @Component({
   selector: "men-messages",
@@ -10,22 +9,14 @@ import { MessageBufferService } from "../services/message-buffer.service";
 export class MessagesComponent implements OnInit {
   //message$: Subject<string> = this.messageBufferService.message$;
 
-  public message_log: string[];
-  public show_messages: boolean;
-
-  constructor(private messageBufferService: MessageBufferService) {
-    this.message_log = [];
-    this.show_messages = true;
-    this.message_log.push("first message")
+  constructor(private messageService: CamplNgxMessageBufferService) {
+    
   }
-
-  toggleMessages() {
-    this.show_messages = !this.show_messages;
-  }
-
+  
   ngOnInit() {
-    this.messageBufferService.message$.subscribe(msg =>
-      this.message_log.push(msg)
-    );
+  }
+
+  clickalert(){
+    this.messageService.sendMessage("Alert pressed"+(new Date()))
   }
 }

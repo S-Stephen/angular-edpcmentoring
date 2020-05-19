@@ -67,6 +67,31 @@ See .travis.yml You must set the **CHROME_BIN** environment variable for karma t
 
 CHROME_BIN=/usr/bin/chromium-browser  npm run test -- campl-ngx --no-progress  --watch=false^
 
+## Runing the e2e tests in Development
+
+Running the tests require that the library has been imported into the main Test Application, and the add schematic run (ie the library is configured). These tests require chrome to be installed (see travis.yml)
+
+To run the tests in headless cf travis:
+
+```
+npm run e2e -- --protractorConfig=./protractor-ci.conf.js
+```
+
+And to watch the browser interaction:
+
+``` 
+npm run e2e --
+```
+
+The tests require that webdriver is updated, and to do this requires a network connection.  If you find yourself without a network connection and you are happy that the version of webdriver installed in the node_modules/protractor/... directory is recent enough you can skip this by providing the ** --webdriverUpdate=false** option to either of the commands above:
+
+ie:
+
+``` 
+npm run e2e -- --protractorConfig=./protractor-ci.conf.js --webdriverUpdate=false
+npm run e2e -- --webdriverUpdate=false
+```
+
 # The usual advice whilst developing the prototype application:
 
 ## Code scaffolding
