@@ -104,6 +104,26 @@ An example site should be available at localhost:4200
 
 Replace the argument to CamplNgxModule.setConfig() in **src/app/app.module.ts** with a function call that returns the correct config object.
 
+### Sending messages to the screen via the campl-ngx-messages component
+
+**campl-ngx** exports a service (**CamplNgxMessageBuffer**) include and inject this into your coponent:
+
+```
+import { CamplNgxMessageBufferService } from 'campl-ngx';
+
+export class YourComponent {
+..
+  construnctor(..
+                  private messageService: CamplNgxMessageBufferService) {
+                  }
+
+
+  clickalert(){
+      this.messageService.sendMessage("Alert pressed"+(new Date()))
+  }
+}
+```
+
 ### Components available
 
 *Roughly associated to atomic design:*
