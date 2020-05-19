@@ -22,6 +22,17 @@ script:
   - cd projects/campl-ngx
   - npm install
   - npm run build
+  # Use the schematic in the parent App
+  # This will test the add schematic
+  - cd ../../dist/campl-ngx
+  - npm pack
+  # setup our app
+  - cd ../../
+  - npm install `ls -t *tgz | head -1`
+  - npm add campl-ngx
+  - webdriver-manager update
+  # run the e2e tests
+  - npm run e2e -- --protractorConfig=./protractor-ci.conf.js
 #  - cd dist; npm dist
 
 before_deploy:

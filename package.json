@@ -57,9 +57,9 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^5.4.0",
-    "protractor": "^6.0.0",
+    "protractor": "^7.0.0",
     "puppeteer": "^2.0.0",
-    "ts-node": "~3.0.4",
+    "ts-node": "^3.3.0",
     "tsickle": "^0.37.0",
     "tslint": "^5.20.1",
     "typescript": "~3.5.3"

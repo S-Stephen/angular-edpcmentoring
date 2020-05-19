@@ -7,8 +7,8 @@ describe('projectlight-ngx App', () => {
     page = new EdpcmentoringNg8Page();
   });
 
-  it('should display welcome message', () => {
+  it('should display page title', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!!');
+    expect(page.getPageTitleText()).toEqual('Test app');
   });
 });
