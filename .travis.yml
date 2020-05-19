@@ -1,5 +1,16 @@
-#dist: trusty
-#sudo: false
+sudo: false
+
+addons:
+  chrome: stable
+# failed to install via apt: 
+# ( https://angular.io/guide/testing )
+#dist: trusy
+#addons:
+#  apt:
+#    sources:
+#      - google-chrome
+#    packages:
+#      - google-chrome-stable
 
 language: node_js
 node_js:
@@ -22,6 +33,18 @@ script:
   - cd projects/campl-ngx
   - npm install
   - npm run build
+  # Use the schematic in the parent App
+  # This will test the add schematic
+  - cd ../../dist/campl-ngx
+  - npm pack
+  # setup our app
+  - cd ../../
+  - ls ./dist/campl-ngx
+  - npm install $(ls -t ./dist/campl-ngx/campl-ngx*.tgz | head -1)
+  - npm add campl-ngx
+  - webdriver-manager update
+  # run the e2e tests
+  - npm run e2e -- --protractorConfig=./protractor-ci.conf.js
 #  - cd dist; npm dist
 
 before_deploy:

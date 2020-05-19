@@ -8,3 +8,4 @@ export * from "./lib/campl-ngx.module";
 export * from "./lib/models/nav-menu";
 export * from "./lib/models/nav-menu-item";
 export * from "./lib/services/campl.service";
+export * from "./lib/services/campl-ngx-message-buffer.service";

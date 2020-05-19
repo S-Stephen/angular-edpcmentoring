@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+
+import { CamplNgxMessageBufferService } from "campl-ngx";
+
 @Component({
   selector: 'men-home',
   templateUrl: './home.component.html',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public messageService: CamplNgxMessageBufferService) { }
 
   ngOnInit() {
   }
 
+  clickbutton(){
+    this.messageService.sendMessage("A new message "+(new Date()))
+  }
 }

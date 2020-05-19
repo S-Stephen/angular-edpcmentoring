@@ -1,18 +1,6 @@
-<div *ngIf="message_log.length > 0 then highlightMessages"></div>
-<ng-template #highlightMessages>
-  <div class="campl-alert-panel clearfix">
-    <div (click)="toggleMessages()" class="campl-column" style="align:left  clearfix">
-      <p class="campl-notifications-icon campl-alert-icon">
-        Errors!
-      </p>
-    </div>
-  </div>
-  <div *ngIf="show_messages then showMessages"></div>
-  <ng-template #showMessages>
-    <div class="campl-notifications-panel campl-alert-panel campl-notifications-container clearfix">
-      <div class="campl-column12" style="align:left  clearfix">
-        <div *ngFor="let msg of message_log">{{msg}}</div>
-      </div>
-    </div>
-  </ng-template>
-</ng-template>
+
+
+
+<button id="raisealert" (click)="clickalert()">Raise alert</button>
+
+<campl-ngx-messages></campl-ngx-messages>

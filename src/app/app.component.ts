@@ -12,6 +12,7 @@ import { NavMenu, NavMenuItem } from "campl-ngx";
 
 // used to build the navigation observable - debugging
 import { of } from "rxjs";
+import { MessageBufferService } from './services/message-buffer.service';
 // example of jquery import: https://stackblitz.com/edit/angular-wrap-jquery
 //import $ from 'jquery';
 //(or)
@@ -48,6 +49,7 @@ export class AppComponent {
     // create and subscribe to the user service - (move from the home app)
     //this.userService.response$.subscribe(user => (this.currentUser = user));
     //this.runJquery(); added to provide debugging but we shouldn't manipulate the DOM!
+
     this.userService.fetchCurrent();
     // TODO place this in its own service
     this.nav_menu$ = this.userService.response$.pipe(
@@ -66,9 +68,9 @@ export class AppComponent {
           subItems: []
         };
         let mMatch: NavMenuItem = {
-          label: "Match mentor and mentees",
-          link: "/match/",
-          subItems: []
+          label: "Test",
+          link: "/test/",
+          subItems: [{ label: "messages", link: "/test/messages", subItems: [] }]
         };
         let mAdmin: NavMenuItem = {
           label: "Admin",
