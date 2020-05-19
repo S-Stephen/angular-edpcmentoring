@@ -28,7 +28,8 @@ script:
   - npm pack
   # setup our app
   - cd ../../
-  - npm install `ls -t *tgz | head -1`
+  - ls ./dist/campl-ngx
+  - npm install $(ls -t ./dist/campl-ngx/campl-ngx*.tgz | head -1)
   - npm add campl-ngx
   - webdriver-manager update
   # run the e2e tests
