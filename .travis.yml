@@ -48,9 +48,9 @@ script:
 #  - cd dist; npm dist
 
 # we have already packed the library
-#before_deploy:
-  # - cd ../../dist/campl-ngx
-  #- npm pack
+before_deploy:
+  - cd ./dist/campl-ngx
+  - npm pack
 
 deploy:
   provider: releases
