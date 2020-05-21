@@ -30,8 +30,8 @@ describe("CamplNgxMessagesComponent", () => {
       By.css(".campl-notifications-panel")
     );
     component = fixture.componentInstance;
-    component.message_log = ["Test Message 1"];
-    component.show_messages = false;
+    component.message_log = [{value:"Test Message 1",type:'alert'}];
+    component.show = {'alert':false};
     fixture.detectChanges();
   });
 
@@ -46,7 +46,7 @@ describe("CamplNgxMessagesComponent", () => {
     let panel_select = By.css(".campl-notifications-panel");
     let close_btn_select = By.css(".campl-close-panel");
 
-    component.toggleMessages(); // should now be set to true
+    component.toggleMessages('alert'); // should now be set to true
     fixture.detectChanges(); // this can timeout if no changes occur?
 
     // The panel is displayed

@@ -1,0 +1,11 @@
+
+
+
+<div *ngIf="show" class="campl-notifications-panel campl-{{msgin.type}}-panel campl-notifications-container clearfix">
+  <div class="campl-column4">
+    <p class="campl-notifications-icon campl-{{msgin.type}}-icon">{{msgin.type | titlecase}}</p>
+  </div>
+  <div class="campl-column8">{{msgin.value}}</div>
+
+  <a [routerLink]="" class='ir campl-close-panel' (click)='hide()'>Close panel</a>
+</div>
