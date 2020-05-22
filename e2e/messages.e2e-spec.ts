@@ -10,6 +10,6 @@ describe('Messages', () => {
   it('Appear when button clicked', async () => {
     await page.navigateTo();
     await page.pressRaiseAlterButton();
-    expect( page.getAlertIcon()).toEqual('Errors!');
+    expect( page.getAlertIcon()).toEqual('Alert');
   });
 });
