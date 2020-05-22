@@ -9,9 +9,12 @@ import {
 import { CamplNgxMessagesComponent } from "./campl-ngx-messages.component";
 
 import { By } from "@angular/platform-browser";
-import { DebugElement } from "@angular/core";
+import { DebugElement, NO_ERRORS_SCHEMA } from "@angular/core";
 
 import { RouterTestingModule } from "@angular/router/testing"; //spy
+
+//import { CamplNgxMessageComponent } from "../campl-ngx-message/campl-ngx-message.component";
+
 
 describe("CamplNgxMessagesComponent", () => {
   let component: CamplNgxMessagesComponent;
@@ -21,8 +24,9 @@ describe("CamplNgxMessagesComponent", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [CamplNgxMessagesComponent]
+      imports: [RouterTestingModule], //, CamplNgxMessageComponent],
+      declarations: [CamplNgxMessagesComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
 
     fixture = TestBed.createComponent(CamplNgxMessagesComponent);
@@ -30,8 +34,8 @@ describe("CamplNgxMessagesComponent", () => {
       By.css(".campl-notifications-panel")
     );
     component = fixture.componentInstance;
-    component.message_log = [{value:"Test Message 1",type:'alert'}];
-    component.show = {'alert':false};
+    component.message_log = [{ value: "Test Message 1", type: 'alert' }];
+    component.show = { 'alert': false };
     fixture.detectChanges();
   });
 
@@ -39,7 +43,14 @@ describe("CamplNgxMessagesComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  it("messages hidden when close clicked", fakeAsync(() => {
+  xit('should display the list of messages', () => {
+    // TODO
+    // set the message log and count the number of messages created
+  })
+
+  xit("messages hidden when close clicked", fakeAsync(() => {
+    // THis needs moving to the campl-ngx-message component
+
     //spyOn(component, "hideMessages"); //if you spy the function will not be called!
 
     //find our panel
