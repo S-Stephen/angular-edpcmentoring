@@ -9,9 +9,10 @@ import {
 import { CamplNgxMessagesComponent } from "./campl-ngx-messages.component";
 
 import { By } from "@angular/platform-browser";
-import { DebugElement, NO_ERRORS_SCHEMA } from "@angular/core";
+import { DebugElement, NO_ERRORS_SCHEMA, Component, Input, OnInit } from "@angular/core";
 
 import { RouterTestingModule } from "@angular/router/testing"; //spy
+import { Message } from '../models/message';
 
 //import { CamplNgxMessageComponent } from "../campl-ngx-message/campl-ngx-message.component";
 
@@ -22,11 +23,32 @@ describe("CamplNgxMessagesComponent", () => {
   let notification_panel: DebugElement;
   let close_button: DebugElement;
 
+  @Component({
+    selector: 'campl-ngx-message',
+    template: '<div>moke child Message</div>'
+  })
+  class CamplNgxMessageComponent implements OnInit {
+    @Input() msgin: Message;
+    show: boolean;
+    constructor() {
+      this.show = true;
+    }
+
+    ngOnInit() {
+    }
+    public hide() {
+      this.show = false;
+    }
+
+  }
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule], //, CamplNgxMessageComponent],
-      declarations: [CamplNgxMessagesComponent],
-      schemas: [NO_ERRORS_SCHEMA]
+      declarations: [
+        CamplNgxMessagesComponent,
+        CamplNgxMessageComponent],
+      // schemas: [NO_ERRORS_SCHEMA] // this could hide other errors
     }).compileComponents();
 
     fixture = TestBed.createComponent(CamplNgxMessagesComponent);
