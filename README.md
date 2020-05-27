@@ -83,9 +83,20 @@ And to watch the browser interaction:
 npm run e2e --
 ```
 
+### With an older version of Chrome, or without a network connection:
+
 The tests require that webdriver is updated, and to do this requires a network connection.  If you find yourself without a network connection and you are happy that the version of webdriver installed in the node_modules/protractor/... directory is recent enough you can skip this by providing the ** --webdriverUpdate=false** option to either of the commands above:
 
-ie:
+`webdriver-manager update` will update to the latest version of chrome,  and this may not be what you want.  In which case you can download the version of webdriver-manager for the version of Chrome you have installed on your system by:
+
+```
+node node_modules/protractor/bin/webdriver-manager clea
+export CHROME_BIN=/usr/bin/chromium-browser // location of your chrome
+node node_modules/protractor/bin/webdriver-manager update --versions.chrome=$($CHROME_BIN --version | cut -d ' ' -f 2)
+
+```
+
+Then run without updating the webdriver-manager ie:
 
 ``` 
 npm run e2e -- --protractorConfig=./protractor-ci.conf.js --webdriverUpdate=false
