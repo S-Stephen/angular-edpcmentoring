@@ -16,7 +16,7 @@ export class MessagesComponent implements OnInit {
   ngOnInit() {
   }
 
-  clickalert(){
-    this.messageService.sendMessage("Alert pressed"+(new Date()))
+  raise(type){
+    this.messageService.sendMessage("("+type+") Button pressed"+(new Date()),type)
   }
 }

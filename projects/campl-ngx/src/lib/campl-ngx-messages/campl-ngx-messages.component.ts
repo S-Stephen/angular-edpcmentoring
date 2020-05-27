@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { CamplNgxMessageBufferService } from "../services/campl-ngx-message-buffer.service";
 
+import { Message } from "../models/message";
+
 import { ChangeDetectorRef } from "@angular/core"; // [1]
 //constructor(private ref: ChangeDetectorRef){}
 
@@ -12,30 +14,46 @@ import { ChangeDetectorRef } from "@angular/core"; // [1]
 export class CamplNgxMessagesComponent implements OnInit {
   //message$: Subject<string> = this.messageBufferService.message$;
 
-  public message_log: string[];
-  public show_messages: boolean;
+  public message_log: Message[];
+  //public show_information: boolean;
+  public show: {};
+
 
   constructor(
     private messageBufferService: CamplNgxMessageBufferService,
     private ref: ChangeDetectorRef
   ) {
     this.message_log = [];
-    this.show_messages = false;
+    //this.show_information = true;
+    this.show = {
+      'information': true,
+      'alert': true,
+      'success': true,
+      'warning': true,
+    };
   }
 
-  toggleMessages() {
-    this.show_messages = !this.show_messages;
+  messages(type: string) {
+    // type: 'information', 'success', 'alert', 'warning'
+    // return messages of give type (wrapper around filter)
+    return this.message_log.filter(function (msg) { return msg.type == type })
+  }
+
+  toggleMessages(type: string) {
+    this.show[type] = !this.show[type];
     this.ref.detectChanges(); // [1] /?
   }
 
   ngOnInit() {
     this.messageBufferService.message$.subscribe(msg => {
       this.message_log.push(msg);
+      this.showMessage(msg.type)
       this.ref.detectChanges(); // [1]
     });
   }
 
-  public hideMessages() {
+
+  public hideMessages(type: string) {
     /**
      * replaces:
      * $(".campl-notifications-panel").each(function(){
@@ -49,7 +67,12 @@ export class CamplNgxMessagesComponent implements OnInit {
      * from DOM ready custom.js
      */
 
-    this.show_messages = false;
+    this.show[type] = false;
+    this.ref.detectChanges(); // [1]
+  }
+
+  public showMessage(type: string){
+    this.show[type] = true;
     this.ref.detectChanges(); // [1]
   }
 }

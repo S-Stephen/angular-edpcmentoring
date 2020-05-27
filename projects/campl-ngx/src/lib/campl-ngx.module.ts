@@ -32,6 +32,7 @@ import { CamplNgxQuicklinksComponent } from "./campl-ngx-quicklinks/campl-ngx-qu
 import { CamplNgxTableComponent } from "./campl-ngx-table/campl-ngx-table.component";
 import { CamplNgxWrapDirective } from "./components/campl-ngx-wrap.directive";
 import { CamplNgxLocalnavMenuComponent } from "./campl-ngx-localnav-menu/campl-ngx-localnav-menu.component";
+import { CamplNgxMessageComponent } from './campl-ngx-message/campl-ngx-message.component';
 
 // Service to load the jQuery IIFE
 //import { DynamicScriptLoaderService } from "./services/dynamic-script-loader.service";
@@ -51,7 +52,8 @@ import { CamplNgxLocalnavMenuComponent } from "./campl-ngx-localnav-menu/campl-n
     CamplNgxQuicklinksComponent,
     CamplNgxTableComponent,
     CamplNgxWrapDirective,
-    CamplNgxLocalnavMenuComponent
+    CamplNgxLocalnavMenuComponent,
+    CamplNgxMessageComponent
   ],
   // todo: these should be peer dependancies?
   imports: [RouterModule, BrowserModule],
@@ -65,6 +67,7 @@ import { CamplNgxLocalnavMenuComponent } from "./campl-ngx-localnav-menu/campl-n
     CamplNgxNavComponent,
     CamplNgxTitlenavComponent,
     CamplNgxMessagesComponent,
+    CamplNgxMessageComponent,
     CamplNgxTableComponent
   ]
 })

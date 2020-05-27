@@ -1,6 +1,10 @@
 
 
 
-<button id="raisealert" (click)="clickalert()">Raise alert</button>
+<button id="raisealert" (click)="raise('alert')">Raise alert</button>
+<button id="raisewarning" (click)="raise('warning')">Raise warning</button>
+<button id="raisesuccess" (click)="raise('success')">Raise success</button>
+<button id="raiseinformation" (click)="raise('information')">Raise information</button>
+
 
 <campl-ngx-messages></campl-ngx-messages>
