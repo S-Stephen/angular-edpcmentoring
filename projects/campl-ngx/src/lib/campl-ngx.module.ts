@@ -97,7 +97,7 @@ import { CamplNgxAutocompleteComponent } from './campl-ngx-input/autocomplete/au
 })
 export class CamplNgxModule {
   // TODO lookup ModuleWithProviders
-  static setConfig(camplConfig: any): ModuleWithProviders {
+  static setConfig(camplConfig: any): ModuleWithProviders<CamplNgxModule> {
     //TODO
     // if camplConfig not set
     // search for a config json file in a standard location perhaps app root
