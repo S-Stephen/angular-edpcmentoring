@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, OnInit, forwardRef } from '@angular/core';
 import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
 
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 
 // ?? https://medium.com/@amandeepkochhar/angular-material-datepicker-set-custom-date-in-dd-mm-yyyy-format-5c0f4340e57 ? ? ?
 import { AppDateAdapter, APP_DATE_FORMATS } from '../shared/format-datepicker';

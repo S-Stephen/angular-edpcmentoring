@@ -37,7 +37,10 @@ import { CamplNgxRegSelectComponent } from './campl-ngx-input/reg-select/reg-sel
 
 
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule, MatSelectModule, MatDatepickerModule, MatAutocompleteModule } from '@angular/material';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CamplNgxEmailInputComponent } from './campl-ngx-input/email-input/email-input.component';
 import { CamplNgxDateSelectComponent } from './campl-ngx-input/date-select/date-select.component';

@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CamplNgxEmailInputComponent } from './email-input.component';
-import { MatFormField, MatLabel, MatError, MatInputModule, MatInput } from '@angular/material';
+import { MatFormField, MatLabel, MatError } from '@angular/material/form-field';
+import { MatInputModule, MatInput } from '@angular/material/input';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 

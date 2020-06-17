@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MatAutocomplete } from '@angular/material';
+import { MatAutocomplete } from '@angular/material/autocomplete';
 import { CamplNgxAutocompleteComponent } from './autocomplete.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
