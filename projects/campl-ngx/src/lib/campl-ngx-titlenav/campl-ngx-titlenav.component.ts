@@ -33,7 +33,7 @@ export class CamplNgxTitlenavComponent implements OnInit {
   private currentMenu: NavMenu = { title: "blank", subMenus: [] };
 
   // Query for a VIEW child of type `ChildViewComponent`
-  @ViewChild(CamplNgxNavComponent, { static: false })
+  @ViewChild(CamplNgxNavComponent)
   childMenu: CamplNgxNavComponent;
   //@ViewChildren("navMenuID") things: QueryList<any>;
 

@@ -11,6 +11,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/myapp",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -39,6 +40,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -139,7 +146,12 @@
             "tsConfig": "projects/campl-ngx/tsconfig.lib.json",
             "project": "projects/campl-ngx/ng-package.json"
           }
-        },
+        ,          "configurations": {
+            "production": {
+              "tsConfig": "projects/campl-ngx/tsconfig.lib.prod.json"
+            }
+          }
+},
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
@@ -167,7 +179,7 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "cngx",
-      "styleext": "scss"
+      "style": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": "cngx"
