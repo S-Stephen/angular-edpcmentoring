@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy, Renderer2 } from "@angular/core";
+import { Component, OnInit, OnDestroy, Renderer2, ViewChild } from "@angular/core";
 import { CamplService } from "../services/campl.service";
 import { CamplNgxPrimaryMenuStateService } from "../services/campl-ngx-primary-menu-state.service";
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: "campl-ngx-header",
@@ -16,6 +17,19 @@ export class CamplNgxHeaderComponent implements OnInit, OnDestroy {
   public config: any;
   public quicklinks: any; // contains the list of quicklinks
   public global_nav: any; // contains the global nav links
+
+  // navigate externally
+  // https://stackoverflow.com/questions/48077840
+  @ViewChild('search1Form',{static:true}) search1FormElement;
+  @ViewChild('search2Form',{static:true}) search2FormElement;
+  public search1: FormGroup = new FormGroup({query: new FormControl('',[])});
+  public search2: FormGroup = new FormGroup({query: new FormControl('',[])});
+  public navigate1(){
+    this.search1FormElement.nativeElement.submit();
+  }
+  public navigate2(){
+    this.search2FormElement.nativeElement.submit();
+  }
 
   // there is opportunity here to create a new class/interface with this field as reflection and the injection of the MenuService
   //  BUT we would have to manage the search boxes as a separate component! - trouble is the responsive box appears in a different
