@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DateSelectComponent } from './date-select.component';
+import { CamplNgxDateSelectComponent } from './date-select.component';
 
-describe('DateSelectComponent', () => {
-  let component: DateSelectComponent;
-  let fixture: ComponentFixture<DateSelectComponent>;
+describe('CamplNgxDateSelectComponent', () => {
+  let component: CamplNgxDateSelectComponent;
+  let fixture: ComponentFixture<CamplNgxDateSelectComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DateSelectComponent ]
+      declarations: [ CamplNgxDateSelectComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DateSelectComponent);
+    fixture = TestBed.createComponent(CamplNgxDateSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

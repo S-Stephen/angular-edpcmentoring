@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CamplNgxRegSelectComponent } from './reg-select.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-describe('RegSelectComponent', () => {
+describe('CamplNgxRegSelectComponent', () => {
   let component: CamplNgxRegSelectComponent;
   let fixture: ComponentFixture<CamplNgxRegSelectComponent>;
 
