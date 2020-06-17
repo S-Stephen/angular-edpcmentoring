@@ -83,8 +83,7 @@ import { FormfieldsComponent } from './examples/formfields/formfields.component'
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
-    CamplNgxModule.setConfig(environment.config)
+    BrowserAnimationsModule
     //ProjectlightModule,
     // perhaps slurp this from a site.config file or elsewhere?
   ],
