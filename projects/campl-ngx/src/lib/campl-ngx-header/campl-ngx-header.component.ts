@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy, Renderer2, ViewChild } from "@angular/core";
 import { CamplService } from "../services/campl.service";
 import { CamplNgxPrimaryMenuStateService } from "../services/campl-ngx-primary-menu-state.service";
-import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: "campl-ngx-header",
@@ -22,7 +21,7 @@ export class CamplNgxHeaderComponent implements OnInit, OnDestroy {
   // https://stackoverflow.com/questions/48077840
   @ViewChild('search1Form',{static:true}) search1FormElement;
   @ViewChild('search2Form',{static:true}) search2FormElement;
-  
+
   public navigate1(){
     this.search1FormElement.nativeElement.submit();
   }

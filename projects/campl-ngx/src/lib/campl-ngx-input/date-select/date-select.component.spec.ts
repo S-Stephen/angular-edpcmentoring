@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CamplNgxDateSelectComponent } from './date-select.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('CamplNgxDateSelectComponent', () => {
   let component: CamplNgxDateSelectComponent;
@@ -8,7 +9,8 @@ describe('CamplNgxDateSelectComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CamplNgxDateSelectComponent ]
+      declarations: [ CamplNgxDateSelectComponent ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));
