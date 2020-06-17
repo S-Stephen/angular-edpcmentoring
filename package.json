@@ -27,7 +27,7 @@
     "@angular/router": "10.0.0-rc.6",
     "@types/modernizr": "*",
     "core-js": "2.6.9",
-    "rxjs": "6.5.3",
+    "rxjs": "6.5.5",
     "rxjs-compat": "6.5.3",
     "schematics-utilities": "^2.0.0",
     "tslib": "^1.10.0",
