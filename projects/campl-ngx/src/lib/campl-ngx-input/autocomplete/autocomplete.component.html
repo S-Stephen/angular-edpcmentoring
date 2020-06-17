@@ -1,0 +1,11 @@
+
+    <mat-form-field class="example-full-width" [formGroup]="autoForm">
+        <mat-label>{{label}}</mat-label>
+        <input type="text" placeholder={{placeholder}} matInput
+            [matAutocomplete]="auto" formControlName="myauto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>

@@ -130,26 +130,30 @@ export class YourComponent {
 
 #### Templates
 
-_campl-ngx-app_  a template with header and footer, and university of Cambridge links
+* _campl-ngx-app_ a template with header and footer, and university of Cambridge links
 
 #### Organisms
 
-_campl-ngx-footer_
-_campl-ngx-header_
-_campl-ngx-localfooter_
-_campl-ngx-titlenav_
+* _campl-ngx-footer_
+* _campl-ngx-header_
+* _campl-ngx-localfooter_
+* _campl-ngx-titlenav_
 
 #### Molecules
 
-_campl-ngx-localnav-menu_
-_campl-ngx-nav_
-_campl-ngx-quicklinks_
+* _campl-ngx-localnav-menu_
+* _campl-ngx-nav_
+* _campl-ngx-quicklinks_
 
 
 #### Atoms
 
-_campl-ngx-messages_
-_campl-ngx-table_
+* _campl-ngx-messages_
+* _campl-ngx-table_
+* _campl-ngx-input-autocomplete_
+* _campl-ngx-input-date-select_
+* _campl-ngx-input-email_
+* _campl-ngx-input-reg-select_
 
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.4.

@@ -6,7 +6,17 @@
     "types": [
       "jasmine",
       "node"
-    ]
+    ],
+    "paths": {
+      "campl-ngx": [
+        "./dist/campl-ngx",
+        "./dist/campl-ngx/*",
+        "../dist/campl-ngx",
+        "../dist/campl-ngx/*",
+        "../../dist/campl-ngx",
+        "../../dist/campl-ngx/*"
+      ]
+    }
   },
   "files": [
     "test.ts",

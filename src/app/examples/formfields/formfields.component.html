@@ -1,0 +1,30 @@
+<form [formGroup]="myFormGroup">
+
+<br/>
+<campl-ngx-input-email  [label]="'Enter a valid email'" [placeholder]="'foo@bar.cam.ac.uk'" formControlName="myemail"></campl-ngx-input-email>
+<mat-error *ngIf="myFormGroup.get('myemail').dirty && myFormGroup.get('myemail').invalid">Required</mat-error>
+<br/>
+<campl-ngx-input-reg-select formControlName="myselect" [label]="'Choose an option'" [options]="['one','two','three']"></campl-ngx-input-reg-select>
+<mat-error *ngIf="myFormGroup.get('myselect').dirty && myFormGroup.get('myselect').invalid">Required</mat-error>
+<br/>
+<!-- passing this removes all the other form controls-->
+
+<campl-ngx-input-autocomplete formControlName="myauto" [label]="'Auto complete - Choose or create'" [placeholder]="'Select or add new'" [options]="['eight','nine','ten']"></campl-ngx-input-autocomplete>
+<mat-error *ngIf="myFormGroup.get('myauto').dirty && myFormGroup.get('myauto').invalid">Not returning a value</mat-error>
+<br/>
+
+<campl-ngx-input-date-select formControlName="mydate"></campl-ngx-input-date-select>
+<mat-error *ngIf="myFormGroup.get('mydate').dirty && myFormGroup.get('mydate').invalid">Required</mat-error>
+
+<br>
+    <button mat-raised-button color="primary" (click)="save()">mat-raised-button Primary</button>
+
+    <button mat-raised-button color="accent">mat-raised-button accent</button>
+
+    <br>
+    <br>
+    <button mat-stroked-button color="primary">mat-stroked-button Primary</button>
+
+    <button mat-stroked-button color="accent">mat-stroked-button accent</button>
+
+</form>

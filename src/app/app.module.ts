@@ -13,6 +13,14 @@ import {
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatButtonModule } from "@angular/material/button";
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ContenteditableDirective } from "./components/directives/contenteditable.directive";
 
@@ -30,6 +38,9 @@ import { MessagesComponent } from "./messages/messages.component";
 
 import { CamplNgxModule } from "campl-ngx";
 import { HomeComponent } from './home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TableComponent } from './table/table.component';
+import { FormfieldsComponent } from './examples/formfields/formfields.component';
 
 /**
  * config object to setup the menus we would like to see
@@ -52,7 +63,7 @@ import { HomeComponent } from './home/home.component';
 }; */
 
 @NgModule({
-  declarations: [AppComponent, ContenteditableDirective, MessagesComponent, HomeComponent],
+  declarations: [AppComponent, ContenteditableDirective, MessagesComponent, HomeComponent, TableComponent, FormfieldsComponent],
   imports: [
     BrowserModule,
     RoutingModule,
@@ -64,6 +75,14 @@ import { HomeComponent } from './home/home.component';
     MatDialogModule,
     MatTooltipModule,
     MatButtonModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     CamplNgxModule.setConfig(environment.config)
     //ProjectlightModule,
@@ -81,4 +100,4 @@ import { HomeComponent } from './home/home.component';
   //bootstrap: [ProjectlightNgComponent],
   entryComponents: []
 })
-export class AppModule {}
+export class AppModule { }

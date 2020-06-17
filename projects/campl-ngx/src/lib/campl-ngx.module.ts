@@ -33,6 +33,16 @@ import { CamplNgxTableComponent } from "./campl-ngx-table/campl-ngx-table.compon
 import { CamplNgxWrapDirective } from "./components/campl-ngx-wrap.directive";
 import { CamplNgxLocalnavMenuComponent } from "./campl-ngx-localnav-menu/campl-ngx-localnav-menu.component";
 import { CamplNgxMessageComponent } from './campl-ngx-message/campl-ngx-message.component';
+import { CamplNgxRegSelectComponent } from './campl-ngx-input/reg-select/reg-select.component';
+
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule, MatSelectModule, MatDatepickerModule, MatAutocompleteModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CamplNgxEmailInputComponent } from './campl-ngx-input/email-input/email-input.component';
+import { CamplNgxDateSelectComponent } from './campl-ngx-input/date-select/date-select.component';
+import { CamplNgxAutocompleteComponent } from './campl-ngx-input/autocomplete/autocomplete.component';
+
 
 // Service to load the jQuery IIFE
 //import { DynamicScriptLoaderService } from "./services/dynamic-script-loader.service";
@@ -53,10 +63,20 @@ import { CamplNgxMessageComponent } from './campl-ngx-message/campl-ngx-message.
     CamplNgxTableComponent,
     CamplNgxWrapDirective,
     CamplNgxLocalnavMenuComponent,
-    CamplNgxMessageComponent
+    CamplNgxMessageComponent,
+    CamplNgxRegSelectComponent,
+    CamplNgxEmailInputComponent,
+    CamplNgxDateSelectComponent,
+    CamplNgxAutocompleteComponent
   ],
   // todo: these should be peer dependancies?
-  imports: [RouterModule, BrowserModule],
+  imports: [RouterModule, BrowserModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatAutocompleteModule],
   exports: [
     LibCamplNgxComponent,
     CamplNgxComponent,
@@ -68,7 +88,11 @@ import { CamplNgxMessageComponent } from './campl-ngx-message/campl-ngx-message.
     CamplNgxTitlenavComponent,
     CamplNgxMessagesComponent,
     CamplNgxMessageComponent,
-    CamplNgxTableComponent
+    CamplNgxTableComponent,
+    CamplNgxRegSelectComponent,
+    CamplNgxEmailInputComponent,
+    CamplNgxDateSelectComponent,
+    CamplNgxAutocompleteComponent
   ]
 })
 export class CamplNgxModule {
