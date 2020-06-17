@@ -22,8 +22,7 @@ export class CamplNgxHeaderComponent implements OnInit, OnDestroy {
   // https://stackoverflow.com/questions/48077840
   @ViewChild('search1Form',{static:true}) search1FormElement;
   @ViewChild('search2Form',{static:true}) search2FormElement;
-  public search1: FormGroup = new FormGroup({query: new FormControl('',[])});
-  public search2: FormGroup = new FormGroup({query: new FormControl('',[])});
+  
   public navigate1(){
     this.search1FormElement.nativeElement.submit();
   }
