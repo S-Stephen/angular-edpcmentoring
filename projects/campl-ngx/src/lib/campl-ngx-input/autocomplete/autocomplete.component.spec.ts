@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MatAutocomplete } from '@angular/material';
 import { CamplNgxAutocompleteComponent } from './autocomplete.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('CamplNgxAutocompleteComponent', () => {
   let component: CamplNgxAutocompleteComponent;
@@ -8,7 +10,8 @@ describe('CamplNgxAutocompleteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CamplNgxAutocompleteComponent ]
+      declarations: [ CamplNgxAutocompleteComponent, MatAutocomplete ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));
@@ -16,6 +19,7 @@ describe('CamplNgxAutocompleteComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CamplNgxAutocompleteComponent);
     component = fixture.componentInstance;
+    component.options=['one','two','three']
     fixture.detectChanges();
   });
 
