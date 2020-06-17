@@ -1147,10 +1147,13 @@ input::-moz-focus-inner {
 	border-color: #eee;
 }
 
-input:invalid,
+/* Override or remove:
+ * as we will use the material methods for these
+ */
+/*input:invalid,
 textarea:invalid {
 	background-color: #f0dddd;
-}
+}*/
 
 .campl-input-block-level {
 	display: block;
@@ -1216,8 +1219,8 @@ input[type="color"],
 .campl-uneditable-input {
 	display: inline-block;
 	height: 18px;
-	padding: 4px;
-	margin-bottom: 9px;
+	/*padding: 4px;
+	margin-bottom: 9px;*/
 	-webkit-border-radius: 0;
 }
 
@@ -1245,7 +1248,7 @@ input[type="tel"],
 input[type="color"],
 .campl-uneditable-input {
 	background-color: #ffffff;
-	border: 1px solid #cccccc;
+	/*border: 1px solid #cccccc;*/
 }
 
 textarea:focus,
