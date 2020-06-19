@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CamplNgxTextInputComponent } from './text.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-fdescribe('CamplNgxTextInputComponent', () => {
+describe('CamplNgxTextInputComponent', () => {
   let component: CamplNgxTextInputComponent;
   let fixture: ComponentFixture<CamplNgxTextInputComponent>;
 

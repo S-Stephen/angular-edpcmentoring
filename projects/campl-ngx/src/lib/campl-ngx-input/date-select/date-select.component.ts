@@ -5,28 +5,29 @@ import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 
 
 // ?? https://medium.com/@amandeepkochhar/angular-material-datepicker-set-custom-date-in-dd-mm-yyyy-format-5c0f4340e57 ? ? ?
-import { AppDateAdapter, APP_DATE_FORMATS } from '../shared/format-datepicker';
+import { CamplNgxDateAdapter, APP_DATE_FORMATS } from '../shared/format-datepicker';
 import {
   ControlValueAccessor,
-  FormGroup, FormControl, 
-  NG_VALUE_ACCESSOR, 
-  NG_VALIDATORS, 
+  FormGroup, FormControl,
+  NG_VALUE_ACCESSOR,
+  NG_VALIDATORS,
   ValidatorFn
 } from '@angular/forms';
 
 // See the Moment.js docs for the meaning of these formats:
 // https://momentjs.com/docs/#/displaying/format/
-export const MY_FORMATS = {
-  parse: {
-    dateInput: 'LL',
-  },
-  display: {
-    dateInput: 'YYYY-MM-DD',
-    monthYearLabel: 'YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'YYYY',
-  },
-};
+// replaced with the custom parse and format from CamplNgxDateAdapter
+// export const MY_FORMATS = {
+//   parse: {
+//     dateInput: 'DD-MM-YYYY',
+//   },
+//   display: {
+//     dateInput: 'DD-MM-YYYY',
+//     monthYearLabel: 'YYYY',
+//     dateA11yLabel: 'LL',
+//     monthYearA11yLabel: 'YYYY',
+//   },
+// };
 
 
 @Component({
@@ -35,8 +36,8 @@ export const MY_FORMATS = {
   styleUrls: ['./date-select.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [
-    { provide: DateAdapter, useClass: AppDateAdapter },
-    { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS },
+    { provide: DateAdapter, useClass: CamplNgxDateAdapter },
+    //{ provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => CamplNgxDateSelectComponent),
@@ -52,8 +53,8 @@ export class CamplNgxDateSelectComponent implements OnInit, ControlValueAccessor
 
   // @Input() formControlName: string;
   @Input() validator: ValidatorFn;
-  @Input() label: string;
-  @Input() placeholder: string;
+  @Input() label: string = "Select or enter as dd/mm/yyyy";
+  @Input() placeholder: string = "dd/mm/yyyy";
 
   value;
   onChange;

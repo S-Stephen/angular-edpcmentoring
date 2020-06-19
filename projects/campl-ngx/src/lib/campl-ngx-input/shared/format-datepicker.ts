@@ -2,7 +2,7 @@ import { NativeDateAdapter } from '@angular/material/core';
 import { MatDateFormats } from '@angular/material/core';
 import { Injectable } from "@angular/core";
 @Injectable()
-export class AppDateAdapter extends NativeDateAdapter {
+export class CamplNgxDateAdapter extends NativeDateAdapter {
   format(date: Date, displayFormat: Object): string {
     if (displayFormat === 'input') {
       let day: string = date.getDate().toString();
@@ -14,7 +14,19 @@ export class AppDateAdapter extends NativeDateAdapter {
     }
     return date.toDateString();
   }
+  parse(value: any): Date | null {
+    if ((typeof value === 'string') && (value.indexOf('/') > -1)) {
+      const str = value.split('/');
+      const date = Number(str[0]);
+      const month = Number(str[1]) - 1;
+      const year = Number(str[2]);
+      return new Date(year, month, date);
+    }
+    const timestamp = typeof value === 'number' ? value : Date.parse(value);
+    return isNaN(timestamp) ? null : new Date(timestamp);
+  }
 }
+
 export const APP_DATE_FORMATS: MatDateFormats = {
   parse: {
     dateInput: { month: 'short', year: 'numeric', day: 'numeric' },
