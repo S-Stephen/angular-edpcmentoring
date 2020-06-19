@@ -11,10 +11,12 @@ export class FormfieldsComponent implements OnInit {
   //myFormGroup: FormGroup;
   
   public myFormGroup: FormGroup = new FormGroup({
+    mytext: new FormControl("",[Validators.required,Validators.minLength(6),Validators.maxLength(20)]),
+    mytext1: new FormControl("",[]),
     myselect: new FormControl("",[Validators.required]),
-    myemail: new FormControl("",[]),
+    myemail: new FormControl("",[Validators.required, Validators.pattern('.*@eng\.*')]),
     mydate: new FormControl("",[Validators.required]),
-    myauto: new FormControl("",[Validators.required])
+    auto: new FormControl("",[Validators.required])
     //this.fb.group({
     //myrequired: ['', Validators.required], 
     //myselect: ['', Validators.required]
@@ -25,9 +27,10 @@ export class FormfieldsComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   save(){
-    alert("saved & valid: "+JSON.stringify(this.myFormGroup.value)+" : "+this.myFormGroup.valid)
+    alert("saved & valid: "+JSON.stringify(this.myFormGroup.value)+" - "+JSON.stringify(this.myFormGroup.get('myemail').valid)+" : "+this.myFormGroup.valid)
   }
 }

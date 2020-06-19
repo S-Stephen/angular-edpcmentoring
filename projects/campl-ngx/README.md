@@ -150,10 +150,18 @@ export class YourComponent {
 
 * _campl-ngx-messages_
 * _campl-ngx-table_
-* _campl-ngx-input-autocomplete_
+
+The Following accept the input bindings [validator], [placeholder], [label]
+
+* _campl-ngx-input-text
 * _campl-ngx-input-date-select_
 * _campl-ngx-input-email_
+
+These also accept the input binding [options]
+
+* _campl-ngx-input-autocomplete_
 * _campl-ngx-input-reg-select_
+
 
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.4.

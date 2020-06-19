@@ -27,3 +27,4 @@ export * from "./lib/campl-ngx-input/autocomplete/autocomplete.component";
 export * from "./lib/campl-ngx-input/email-input/email-input.component";
 export * from "./lib/campl-ngx-localnav-menu/campl-ngx-localnav-menu.component";
 export * from "./lib/campl-ngx.component";
+export * from "./lib/campl-ngx-input/text/text.component";

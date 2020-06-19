@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, forwardRef } from '@angular/core';
-import { FormGroup, FormControl, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { FormGroup, FormControl, NG_VALUE_ACCESSOR, ControlValueAccessor, NG_VALIDATORS, ValidatorFn } from '@angular/forms';
 
 @Component({
   selector: 'campl-ngx-input-reg-select',
@@ -8,6 +8,10 @@ import { FormGroup, FormControl, NG_VALUE_ACCESSOR, ControlValueAccessor } from 
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef( () => CamplNgxRegSelectComponent ),
+    multi: true
+  }, {
+    provide: NG_VALIDATORS,
+    useExisting: forwardRef(() => CamplNgxRegSelectComponent),
     multi: true
   }]
 })
@@ -18,10 +22,9 @@ export class CamplNgxRegSelectComponent implements OnInit, ControlValueAccessor 
     */ 
   @Input() options: [] // todo should be class Option or similar?
   @Input() label: string 
-  
-  public selectForm: FormGroup = new FormGroup({
-    selected: new FormControl('', [])
-  })
+  @Input() placeholder: string
+  @Input() validator: ValidatorFn
+  public selectForm: FormGroup
 
   value;
   onChange;
@@ -29,9 +32,16 @@ export class CamplNgxRegSelectComponent implements OnInit, ControlValueAccessor 
   constructor() { }
 
   ngOnInit() {
+    this.selectForm = new FormGroup({
+      selected: new FormControl('', this.validator )
+    })
     //this.selectForm = this.fb.group();
   }
-  
+  //NG_VALIDATORS
+  validate({value}: FormControl) {
+    // returns errors or null if valid
+    return this.selectForm.get('selected').valid ? null : {invalid:true}
+   }
   writeValue(val: any) {
     val && this.selectForm.setValue(val, { emitEvent: false })
   }

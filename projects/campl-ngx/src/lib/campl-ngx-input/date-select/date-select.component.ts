@@ -1,11 +1,18 @@
-import { Component, ViewEncapsulation, OnInit, forwardRef } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, forwardRef, Input } from '@angular/core';
 import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
 
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+
 
 // ?? https://medium.com/@amandeepkochhar/angular-material-datepicker-set-custom-date-in-dd-mm-yyyy-format-5c0f4340e57 ? ? ?
 import { AppDateAdapter, APP_DATE_FORMATS } from '../shared/format-datepicker';
-import { ControlValueAccessor, FormGroup, FormControl, Validators, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  ControlValueAccessor,
+  FormGroup, FormControl, 
+  NG_VALUE_ACCESSOR, 
+  NG_VALIDATORS, 
+  ValidatorFn
+} from '@angular/forms';
 
 // See the Moment.js docs for the meaning of these formats:
 // https://momentjs.com/docs/#/displaying/format/
@@ -31,38 +38,52 @@ export const MY_FORMATS = {
     { provide: DateAdapter, useClass: AppDateAdapter },
     { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS },
     {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef( () => CamplNgxDateSelectComponent ),
-    multi: true
-  }]
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => CamplNgxDateSelectComponent),
+      multi: true
+    }, {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => CamplNgxDateSelectComponent),
+      multi: true
+    }]
 })
 export class CamplNgxDateSelectComponent implements OnInit, ControlValueAccessor {
 
 
   // @Input() formControlName: string;
+  @Input() validator: ValidatorFn;
+  @Input() label: string;
+  @Input() placeholder: string;
+
   value;
   onChange;
   onTouched;
+  public dateForm: FormGroup
 
-  public dateForm: FormGroup = new FormGroup({
-    date: new FormControl('', [Validators.required])
-  })
+  // Example highlighting particular dates in the calendar
+  // eng start - end of periods
+  //dateClass = (d: Date): MatCalendarCellCssClasses => {
+  //  const date = d.getDate();
+  // 
+  //  // Highlight the 1st and 20th day of each month.
+  //  let custom_class = (date === 1 || date === 20) ? 'start-custom-date-class' : '';
+  //  custom_class = (date === 8 || date === 28) ? 'end-custom-date-class' : custom_class;
+  //  return custom_class
+  //}
+  // Then add: [dateClass]="dateClass" to <mat-datepicker>
 
-  dateClass = (d: Date): MatCalendarCellCssClasses => {
-    const date = d.getDate();
-
-    // Highlight the 1st and 20th day of each month.
-    let custom_class = (date === 1 || date === 20) ? 'start-custom-date-class' : '';
-    custom_class = (date === 8 || date === 28) ? 'end-custom-date-class' : custom_class;
-    return custom_class
-
-  }
-  
   constructor() { }
 
   ngOnInit() {
+    this.dateForm = new FormGroup({
+      date: new FormControl('', this.validator)
+    })
   }
-
+  //NG_VALIDATORS
+  validate({ value }: FormControl) {
+    // returns errors or null if valid
+    return this.dateForm.valid ? null : { invalid: true }
+  }
   // ControlValueAccessor implementation
   writeValue(val: any) {
     val && this.dateForm.setValue(val, { emitEvent: false })
