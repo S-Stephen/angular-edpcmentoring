@@ -61,6 +61,13 @@ cd ../
 ng build campl-ngx --watch
 ```
 
+Then to start the 'showcase':
+
+```
+ng serve
+```
+
+
 To attach and run a debugger take a look at: https://medium.com/@MarkPieszak/debugging-angular-cli-inside-vscode-with-browser-preview-8dcc4b18ed64
 
 ## Run test in Development:
@@ -108,6 +115,12 @@ Then run without updating the webdriver-manager ie:
 npm run e2e -- --protractorConfig=./protractor-ci.conf.js --webdriverUpdate=false
 npm run e2e -- --webdriverUpdate=false
 ```
+
+# Creating new components for our library
+
+use
+
+`ng g c <the path to component here> --prefix=campl-ngx-input --project=campl-ngx [--dry-run]`
 
 # The usual advice whilst developing the prototype application:
 
