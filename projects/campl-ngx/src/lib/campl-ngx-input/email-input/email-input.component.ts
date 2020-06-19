@@ -34,7 +34,7 @@ export class CamplNgxEmailInputComponent implements OnInit, ControlValueAccessor
 
   @Input() label: string;
   @Input() placeholder: string;
-  @Input() validator: ValidatorFn;
+  @Input() validator: ValidatorFn = Validators.email;;
   public emailForm: FormGroup;
 
   ngOnInit() {
@@ -53,7 +53,6 @@ export class CamplNgxEmailInputComponent implements OnInit, ControlValueAccessor
   // NG_VALIDATORS
   validate({ value }: FormControl) {
     // returns errors or null if valid
-    console.log("email valid: "+this.emailForm.get('email').valid)
     return this.emailForm.get('email').valid ? null : { invalid: true }
   }
 
