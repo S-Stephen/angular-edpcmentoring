@@ -1,9 +1,8 @@
 <mat-form-field appearance="fill" [formGroup]="selectForm">
     <mat-label>{{label}}</mat-label>
     <mat-select formControlName="selected">
-        <mat-option *ngFor="let option of options" [value]="option">
-            {{option}}
+        <mat-option *ngFor="let option of options" [value]="option.id? option.id : option">
+            {{option.value? option.value : option}}
         </mat-option>
     </mat-select>
-    <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
 </mat-form-field>

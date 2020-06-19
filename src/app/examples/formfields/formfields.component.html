@@ -23,6 +23,12 @@
     <mat-error *ngIf="myFormGroup.get('myselect').dirty && myFormGroup.get('myselect').invalid">Required</mat-error>
     <br />
 
+    <campl-ngx-input-reg-select formControlName="myselectobjs" [label]="'Choose an object'"
+        [options]="[{value:'one',id:1},{value:'two',id:2},{value:'three',id:3}]" [validator]="myFormGroup.get('myselectobjs').validator">
+    </campl-ngx-input-reg-select>
+    <mat-error *ngIf="myFormGroup.get('myselectobjs').dirty && myFormGroup.get('myselectobjs').invalid">Required</mat-error>
+    <br />
+
     <campl-ngx-input-autocomplete formControlName="auto" [label]="'Auto complete - Choose or create'"
         [placeholder]="'Select or add new'" [options]="['eight','nine','ten']"
         [validator]="myFormGroup.get('auto').validator"></campl-ngx-input-autocomplete>

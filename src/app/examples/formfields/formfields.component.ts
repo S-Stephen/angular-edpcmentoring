@@ -14,6 +14,7 @@ export class FormfieldsComponent implements OnInit {
     mytext: new FormControl("",[Validators.required,Validators.minLength(6),Validators.maxLength(20)]),
     mytext1: new FormControl("",[]),
     myselect: new FormControl("",[Validators.required]),
+    myselectobjs: new FormControl("",[Validators.required]),
     myemail: new FormControl("",[Validators.required, Validators.pattern('.*@eng\.*')]),
     mydate: new FormControl("",[Validators.required]),
     auto: new FormControl("",[Validators.required])
