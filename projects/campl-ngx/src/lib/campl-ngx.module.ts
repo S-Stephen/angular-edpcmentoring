@@ -38,14 +38,14 @@ import { CamplNgxRegSelectComponent } from './campl-ngx-input/reg-select/reg-sel
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
+import { MatSelectModule  } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CamplNgxEmailInputComponent } from './campl-ngx-input/email-input/email-input.component';
 import { CamplNgxDateSelectComponent } from './campl-ngx-input/date-select/date-select.component';
 import { CamplNgxAutocompleteComponent } from './campl-ngx-input/autocomplete/autocomplete.component';
-
+import { CamplNgxTextInputComponent } from './campl-ngx-input/text/text.component';
 
 // Service to load the jQuery IIFE
 //import { DynamicScriptLoaderService } from "./services/dynamic-script-loader.service";
@@ -70,10 +70,12 @@ import { CamplNgxAutocompleteComponent } from './campl-ngx-input/autocomplete/au
     CamplNgxRegSelectComponent,
     CamplNgxEmailInputComponent,
     CamplNgxDateSelectComponent,
-    CamplNgxAutocompleteComponent
+    CamplNgxAutocompleteComponent,
+    CamplNgxTextInputComponent
   ],
   // todo: these should be peer dependancies?
-  imports: [RouterModule, BrowserModule,
+  imports: [BrowserModule,
+    RouterModule, 
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -95,7 +97,8 @@ import { CamplNgxAutocompleteComponent } from './campl-ngx-input/autocomplete/au
     CamplNgxRegSelectComponent,
     CamplNgxEmailInputComponent,
     CamplNgxDateSelectComponent,
-    CamplNgxAutocompleteComponent
+    CamplNgxAutocompleteComponent,
+    CamplNgxTextInputComponent
   ]
 })
 export class CamplNgxModule {

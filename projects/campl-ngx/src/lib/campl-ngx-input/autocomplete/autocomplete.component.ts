@@ -4,8 +4,8 @@ import {
   NG_VALUE_ACCESSOR,
   ControlValueAccessor,
   FormGroup,
-  Validators,
-  NG_VALIDATORS
+  NG_VALIDATORS,
+  ValidatorFn
 } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
@@ -18,8 +18,12 @@ import { startWith, map } from 'rxjs/operators';
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => CamplNgxAutocompleteComponent),
     multi: true
+  }, {
+    provide: NG_VALIDATORS,
+    useExisting: forwardRef(() => CamplNgxAutocompleteComponent),
+    multi: true
   }
-   ]
+  ]
 })
 export class CamplNgxAutocompleteComponent implements OnInit, ControlValueAccessor {
 
@@ -27,12 +31,12 @@ export class CamplNgxAutocompleteComponent implements OnInit, ControlValueAccess
   @Input() options: string[];
   @Input() label: string;
   @Input() placeholder: string;
+  @Input() validator: ValidatorFn;
 
   filteredOptions: Observable<string[]>;
 
-  public autoForm: FormGroup = new FormGroup({
-    myauto: new FormControl('', [Validators.required])
-  })
+  public autoForm: FormGroup 
+
   // @Input() formControlName: string;
   value;
   onChange;
@@ -40,6 +44,10 @@ export class CamplNgxAutocompleteComponent implements OnInit, ControlValueAccess
 
   ngOnInit() {
     // if there is a mis-match here then remove project node_modules dir!!
+
+    this.autoForm = new FormGroup({
+      myauto: new FormControl('', this.validator)
+    })
     this.filteredOptions = this.autoForm.get('myauto').valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
@@ -53,6 +61,11 @@ export class CamplNgxAutocompleteComponent implements OnInit, ControlValueAccess
     return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 
+  // NG_VALIDATORS
+  validate({value}: FormControl) {
+    // returns errors or null if valid
+    return this.autoForm.get('myauto').valid ? null : {invalid:true}
+   }
 
   writeValue(val: any) {
     val && this.autoForm.get('myauto').setValue(val, { emitEvent: false })

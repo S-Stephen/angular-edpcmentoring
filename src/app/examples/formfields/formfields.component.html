@@ -1,22 +1,39 @@
 <form [formGroup]="myFormGroup">
 
-<br/>
-<campl-ngx-input-email  [label]="'Enter a valid email'" [placeholder]="'foo@bar.cam.ac.uk'" formControlName="myemail"></campl-ngx-input-email>
-<mat-error *ngIf="myFormGroup.get('myemail').dirty && myFormGroup.get('myemail').invalid">Required</mat-error>
-<br/>
-<campl-ngx-input-reg-select formControlName="myselect" [label]="'Choose an option'" [options]="['one','two','three']"></campl-ngx-input-reg-select>
-<mat-error *ngIf="myFormGroup.get('myselect').dirty && myFormGroup.get('myselect').invalid">Required</mat-error>
-<br/>
-<!-- passing this removes all the other form controls-->
+    <br />
+    <campl-ngx-input-text [label]="'A text box'" [placeholder]="'Enter text min:5 max:20'" formControlName="mytext"
+        [validator]="myFormGroup.get('mytext').validator">
+    </campl-ngx-input-text>
+    <mat-error *ngIf="myFormGroup.get('mytext').invalid">Not valid! {{myFormGroup.get('mytext').value}}</mat-error>
 
-<campl-ngx-input-autocomplete formControlName="myauto" [label]="'Auto complete - Choose or create'" [placeholder]="'Select or add new'" [options]="['eight','nine','ten']"></campl-ngx-input-autocomplete>
-<mat-error *ngIf="myFormGroup.get('myauto').dirty && myFormGroup.get('myauto').invalid">Not returning a value</mat-error>
-<br/>
+    <br />
+    <campl-ngx-input-text [label]="'A text box'" [placeholder]="'no validators'" formControlName="mytext1">
+    </campl-ngx-input-text>
+    <mat-error *ngIf="myFormGroup.get('mytext1').invalid">Not valid! {{myFormGroup.get('mytext1').value}}</mat-error>
 
-<campl-ngx-input-date-select formControlName="mydate"></campl-ngx-input-date-select>
-<mat-error *ngIf="myFormGroup.get('mydate').dirty && myFormGroup.get('mydate').invalid">Required</mat-error>
+    <br />
+    <campl-ngx-input-email [label]="'Enter an Engineering email'" [placeholder]="'foo@eng.cam.ac.uk'" formControlName="myemail"
+        [validator]="myFormGroup.get('myemail').validator"></campl-ngx-input-email>
+    <mat-error *ngIf="myFormGroup.get('myemail').invalid">Required, Engineering email</mat-error>
+    <br />
 
-<br>
+    <campl-ngx-input-reg-select formControlName="myselect" [label]="'Choose an option'"
+        [options]="['one','two','three']" [validator]="myFormGroup.get('myselect').validator">
+    </campl-ngx-input-reg-select>
+    <mat-error *ngIf="myFormGroup.get('myselect').dirty && myFormGroup.get('myselect').invalid">Required</mat-error>
+    <br />
+
+    <campl-ngx-input-autocomplete formControlName="auto" [label]="'Auto complete - Choose or create'"
+        [placeholder]="'Select or add new'" [options]="['eight','nine','ten']"
+        [validator]="myFormGroup.get('auto').validator"></campl-ngx-input-autocomplete>
+    <mat-error *ngIf="myFormGroup.get('auto').invalid">Not returning a value</mat-error>
+    <br />
+
+    <campl-ngx-input-date-select formControlName="mydate" [label]="'Choose a date'"
+        [validator]="myFormGroup.get('mydate').validator"></campl-ngx-input-date-select>
+    <mat-error *ngIf="myFormGroup.get('mydate').dirty && myFormGroup.get('mydate').invalid">Required</mat-error>
+
+    <br>
     <button mat-raised-button color="primary" (click)="save()">mat-raised-button Primary</button>
 
     <button mat-raised-button color="accent">mat-raised-button accent</button>

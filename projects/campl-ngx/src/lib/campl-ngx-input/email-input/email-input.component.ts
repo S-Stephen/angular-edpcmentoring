@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import {
   FormControl,
   Validators,
@@ -6,8 +6,7 @@ import {
   FormGroup,
   ControlValueAccessor,
   NG_VALIDATORS,
-  NgForm,
-  FormGroupDirective
+  ValidatorFn
 } from '@angular/forms';
 
 @Component({
@@ -19,14 +18,14 @@ import {
     useExisting: forwardRef(() => CamplNgxEmailInputComponent),
     multi: true
   }
-  , {
-   provide: NG_VALIDATORS,
-   useExisting: forwardRef(() => CamplNgxEmailInputComponent),
-   multi: true
+    , {
+    provide: NG_VALIDATORS,
+    useExisting: forwardRef(() => CamplNgxEmailInputComponent),
+    multi: true
   }
   ]
 })
-export class CamplNgxEmailInputComponent implements ControlValueAccessor {
+export class CamplNgxEmailInputComponent implements OnInit, ControlValueAccessor {
   /*
     * This is a regular select
     * @param label - displayed in the field
@@ -35,9 +34,15 @@ export class CamplNgxEmailInputComponent implements ControlValueAccessor {
 
   @Input() label: string;
   @Input() placeholder: string;
-  public emailForm: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email])
-  })
+  @Input() validator: ValidatorFn;
+  public emailForm: FormGroup;
+
+  ngOnInit() {
+    this.emailForm = new FormGroup({
+      email: new FormControl('', [Validators.email, this.validator])
+    })
+  }
+
   value;
   onChange;
   onTouched;
@@ -46,17 +51,18 @@ export class CamplNgxEmailInputComponent implements ControlValueAccessor {
   }
 
   // NG_VALIDATORS
-  validate({value}: FormControl) {
+  validate({ value }: FormControl) {
     // returns errors or null if valid
-    return this.emailForm.get('email').valid ? null : {invalid:true}
-   }
+    console.log("email valid: "+this.emailForm.get('email').valid)
+    return this.emailForm.get('email').valid ? null : { invalid: true }
+  }
 
   // ControlValueAccessor
   writeValue(val: any) {
-    val && this.emailForm.setValue(val, { emitEvent: false })
+    val && this.emailForm.get('email').setValue(val, { emitEvent: false })
   }
   registerOnChange(fn: (val: any) => void) {
-    this.emailForm.valueChanges.subscribe(fn)
+    this.emailForm.get('email').valueChanges.subscribe(fn)
   }
   registerOnTouched(fn: () => void) {
     this.onTouched = fn;
