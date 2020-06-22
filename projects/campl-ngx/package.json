@@ -1,6 +1,6 @@
 {
   "name": "campl-ngx",
-  "version": "9.0.1",
+  "version": "9.0.2",
   "scripts": {
     "build": "tsc -p tsconfig.schematics.json",
     "copy:schemas": "cpx -v schematics/*/schema.json ../../dist/campl-ngx/ ",
