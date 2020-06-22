@@ -153,7 +153,8 @@ export class YourComponent {
 
 The Following accept the input bindings [validator], [placeholder], [label]
 
-* _campl-ngx-input-text
+* _campl-ngx-input-text_
+* _campl-ngx-input-textarea_
 * _campl-ngx-input-date-select_
 * _campl-ngx-input-email_
 

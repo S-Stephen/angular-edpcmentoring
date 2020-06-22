@@ -7,9 +7,14 @@
     <mat-error *ngIf="myFormGroup.get('mytext').invalid">Not valid! {{myFormGroup.get('mytext').value}}</mat-error>
 
     <br />
-    <campl-ngx-input-text [label]="'A text box'" [placeholder]="'no validators'" formControlName="mytext1">
+    <campl-ngx-input-text [label]="'A text box'" [placeholder]="'a text area with no validators'" formControlName="mytext1">
     </campl-ngx-input-text>
     <mat-error *ngIf="myFormGroup.get('mytext1').invalid">Not valid! {{myFormGroup.get('mytext1').value}}</mat-error>
+
+    <br />
+    <campl-ngx-input-textarea [label]="'A textarea box'" [placeholder]="'no validators'" formControlName="mytextarea">
+    </campl-ngx-input-textarea>
+    <mat-error *ngIf="myFormGroup.get('mytextarea').invalid">Not valid! {{myFormGroup.get('mytextarea').value}}</mat-error>
 
     <br />
     <campl-ngx-input-email [label]="'Enter an Engineering email'" [placeholder]="'foo@eng.cam.ac.uk'" formControlName="myemail"
