@@ -13,6 +13,7 @@ export class FormfieldsComponent implements OnInit {
   public myFormGroup: FormGroup = new FormGroup({
     mytext: new FormControl("",[Validators.required,Validators.minLength(6),Validators.maxLength(20)]),
     mytext1: new FormControl("",[]),
+    mytextarea: new FormControl("",[]),
     myselect: new FormControl("",[Validators.required]),
     myselectobjs: new FormControl("",[Validators.required]),
     myemail: new FormControl("",[Validators.required, Validators.pattern('.*@eng\.*')]),

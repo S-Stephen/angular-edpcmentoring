@@ -46,6 +46,7 @@ import { CamplNgxEmailInputComponent } from './campl-ngx-input/email-input/email
 import { CamplNgxDateSelectComponent } from './campl-ngx-input/date-select/date-select.component';
 import { CamplNgxAutocompleteComponent } from './campl-ngx-input/autocomplete/autocomplete.component';
 import { CamplNgxTextInputComponent } from './campl-ngx-input/text/text.component';
+import { CamplNgxTextareaComponent } from './campl-ngx-input/textarea/textarea.component';
 
 // Service to load the jQuery IIFE
 //import { DynamicScriptLoaderService } from "./services/dynamic-script-loader.service";
@@ -71,7 +72,8 @@ import { CamplNgxTextInputComponent } from './campl-ngx-input/text/text.componen
     CamplNgxEmailInputComponent,
     CamplNgxDateSelectComponent,
     CamplNgxAutocompleteComponent,
-    CamplNgxTextInputComponent
+    CamplNgxTextInputComponent,
+    CamplNgxTextareaComponent
   ],
   // todo: these should be peer dependancies?
   imports: [BrowserModule,
@@ -98,7 +100,8 @@ import { CamplNgxTextInputComponent } from './campl-ngx-input/text/text.componen
     CamplNgxEmailInputComponent,
     CamplNgxDateSelectComponent,
     CamplNgxAutocompleteComponent,
-    CamplNgxTextInputComponent
+    CamplNgxTextInputComponent,
+    CamplNgxTextareaComponent
   ]
 })
 export class CamplNgxModule {
