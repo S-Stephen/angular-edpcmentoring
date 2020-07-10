@@ -45,13 +45,13 @@
     <mat-error *ngIf="myFormGroup.get('mydate').dirty && myFormGroup.get('mydate').invalid">Required</mat-error>
 
     <br>
-    <button mat-raised-button color="primary" (click)="save()">mat-raised-button Primary</button>
+    <button mat-raised-button color="primary" (click)="save()">mat-raised-button Primary - formAlert</button>
 
-    <button mat-raised-button color="accent">mat-raised-button accent</button>
+    <button mat-raised-button color="accent" (click)="openSnackBar('alert snackbar','close')">mat-raised-button accent - open snackbar</button>
 
     <br>
     <br>
-    <button mat-stroked-button color="primary">mat-stroked-button Primary</button>
+    <button mat-stroked-button color="primary">mat-stroked-button Primary </button>
 
     <button mat-stroked-button color="accent">mat-stroked-button accent</button>
 
