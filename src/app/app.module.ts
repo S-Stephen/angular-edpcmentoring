@@ -20,6 +20,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ContenteditableDirective } from "./components/directives/contenteditable.directive";
@@ -82,6 +83,7 @@ import { FormfieldsComponent } from './examples/formfields/formfields.component'
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     CamplNgxModule.setConfig(environment.config)
