@@ -36,7 +36,7 @@ export class RouterLinkDirectiveStub {
 
 // Create a parent component, to hold quicklinks in
 @Component({
-  selector: 'test-ql',
+  selector: 'campl-test-ql',
   template: `
     <div>
       <div class='testele'>Some div to click on</div>

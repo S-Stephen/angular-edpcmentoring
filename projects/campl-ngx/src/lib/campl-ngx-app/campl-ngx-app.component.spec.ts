@@ -9,7 +9,7 @@ import { CamplNgxCapabilitiesService } from '../services/campl-ngx-capabilities.
 
 // Router outlet must be included in the parent app
 @Component({
-  selector: 'router-outlet',
+  selector: 'campl-router-outlet',
   template: ''
 })
 class MockRouterOutletComponent {}
