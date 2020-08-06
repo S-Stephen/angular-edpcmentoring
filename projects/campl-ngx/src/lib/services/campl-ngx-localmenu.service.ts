@@ -1,5 +1,5 @@
-import { Injectable } from "@angular/core";
-import { ReplaySubject } from "rxjs";
+import { Injectable } from '@angular/core';
+import { ReplaySubject } from 'rxjs';
 
 /**
  * A service to store and manage the state of the localnav menu
@@ -8,15 +8,17 @@ import { ReplaySubject } from "rxjs";
  */
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class CamplNgxLocalmenuService {
+
+  public localNavSource = new ReplaySubject<any>(1);
+  public current_pos = -99999;
+
   constructor() {
     this.localNavSource.next(this.current_pos);
   }
 
-  public localNavSource = new ReplaySubject<any>(1);
-  public current_pos: number = -99999;
 
   updatePosition(pos: number) {
     // share these with all our components!

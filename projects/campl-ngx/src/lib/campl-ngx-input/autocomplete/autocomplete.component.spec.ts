@@ -19,7 +19,7 @@ describe('CamplNgxAutocompleteComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CamplNgxAutocompleteComponent);
     component = fixture.componentInstance;
-    component.options=['one','two','three']
+    component.options = [ 'one', 'two', 'three']
     fixture.detectChanges();
   });
 

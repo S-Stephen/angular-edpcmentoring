@@ -29,13 +29,17 @@ export class CamplNgxEmailInputComponent implements OnInit, ControlValueAccessor
   /*
     * This is a regular select
     * @param label - displayed in the field
-    * @placeholder - example value displayed in the field 
+    * @placeholder - example value displayed in the field
     */
 
   @Input() label: string;
   @Input() placeholder: string;
-  @Input() validator: ValidatorFn = Validators.email;;
+  @Input() validator: ValidatorFn = Validators.email;
   public emailForm: FormGroup;
+
+  value;
+  onChange;
+  onTouched;
 
   ngOnInit() {
     this.emailForm = new FormGroup({
@@ -43,9 +47,6 @@ export class CamplNgxEmailInputComponent implements OnInit, ControlValueAccessor
     })
   }
 
-  value;
-  onChange;
-  onTouched;
   getErrorMessage() {
     return this.emailForm.get('email').hasError('email') ? 'Not a valid email' : '';
   }
@@ -58,7 +59,7 @@ export class CamplNgxEmailInputComponent implements OnInit, ControlValueAccessor
 
   // ControlValueAccessor
   writeValue(val: any) {
-    val && this.emailForm.get('email').setValue(val, { emitEvent: false })
+    return val && this.emailForm.get('email').setValue(val, { emitEvent: false })
   }
   registerOnChange(fn: (val: any) => void) {
     this.emailForm.get('email').valueChanges.subscribe(fn)

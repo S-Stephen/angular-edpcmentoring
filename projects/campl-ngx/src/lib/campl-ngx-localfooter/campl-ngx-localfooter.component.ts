@@ -1,10 +1,10 @@
-import { Component, OnInit } from "@angular/core";
-import { CamplService } from "../services/campl.service";
+import { Component, OnInit } from '@angular/core';
+import { CamplService } from '../services/campl.service';
 
 @Component({
-  selector: "campl-ngx-localfooter",
-  templateUrl: "./campl-ngx-localfooter.component.html",
-  styleUrls: ["./campl-ngx-localfooter.component.css"]
+  selector: 'campl-ngx-localfooter',
+  templateUrl: './campl-ngx-localfooter.component.html',
+  styleUrls: ['./campl-ngx-localfooter.component.css']
 })
 export class CamplNgxLocalfooterComponent implements OnInit {
   public config: any;

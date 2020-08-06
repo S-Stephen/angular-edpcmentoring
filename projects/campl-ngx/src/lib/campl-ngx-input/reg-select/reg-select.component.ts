@@ -18,10 +18,10 @@ import { FormGroup, FormControl, NG_VALUE_ACCESSOR, ControlValueAccessor, NG_VAL
 export class CamplNgxRegSelectComponent implements OnInit, ControlValueAccessor {
   /*
     * This is a regular select
-    * @param options an array of select option values to choose from 
-    */ 
+    * @param options an array of select option values to choose from
+    */
   @Input() options: [] // todo should be class Option or similar?
-  @Input() label: string 
+  @Input() label: string
   @Input() placeholder: string
   @Input() validator: ValidatorFn
   public selectForm: FormGroup
@@ -35,15 +35,17 @@ export class CamplNgxRegSelectComponent implements OnInit, ControlValueAccessor 
     this.selectForm = new FormGroup({
       selected: new FormControl('', this.validator )
     })
-    //this.selectForm = this.fb.group();
+    // this.selectForm = this.fb.group();
   }
-  //NG_VALIDATORS
+  // NG_VALIDATORS
   validate({value}: FormControl) {
     // returns errors or null if valid
-    return this.selectForm.get('selected').valid ? null : {invalid:true}
+    return this.selectForm.get('selected').valid ? null : {invalid: true}
    }
   writeValue(val: any) {
-    val && this.selectForm.setValue(val, { emitEvent: false })
+    if ( val ) {
+      return this.selectForm.setValue(val, { emitEvent: false })
+    }
   }
   registerOnChange(fn: (val: any) => void) {
     this.selectForm.valueChanges.subscribe(fn)

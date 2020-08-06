@@ -1,18 +1,18 @@
-import { Component, OnInit, Input, ViewEncapsulation } from "@angular/core";
-import { NavMenu } from "../models/nav-menu";
-import { Observable } from "rxjs/Observable";
-import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.service";
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { NavMenu } from '../models/nav-menu';
+import { Observable } from 'rxjs/Observable';
+import { CamplNgxCapabilitiesService } from '../services/campl-ngx-capabilities.service';
 
 // include the style as part of the library:
 // https://stackoverflow.com/questions/51065359/include-assets-in-your-angular-6-library
 @Component({
-  selector: "campl-ngx-app",
-  templateUrl: "./campl-ngx-app.component.html",
+  selector: 'campl-ngx-app',
+  templateUrl: './campl-ngx-app.component.html',
   styleUrls: [
     // The slightly modified full css include base64 images and a couple minor hierarchical changes
     // The original can be found in campl-ngx-app.component-full.css
-    "./full-stylesheet-base64.css",
-    "./campl-ngx-app.component-custom.css"
+    './full-stylesheet-base64.css',
+    './campl-ngx-app.component-custom.css'
   ],
   encapsulation: ViewEncapsulation.None // required to provide style to others (entire page)
 })

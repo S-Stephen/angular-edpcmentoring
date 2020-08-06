@@ -64,7 +64,7 @@
     <div class="campl-column12 campl-global-navigation-mobile-list campl-global-navigation-list">
 
       <div *ngFor="let menu of global_menus" class="campl-global-navigation-outer clearfix"
-        [ngClass]="{ 'campl-drawer-open' : (menu.anchor==mega_menu_target) }" id="{{menu.anchor}}">
+        [ngClass]="{'campl-drawer-open':(menu.anchor==mega_menu_target)}" id="{{menu.anchor}}">
         <ul class="campl-unstyled-list campl-global-navigation-header-container ">
           <li><a href="{{menu.link}}">{{menu.label}}</a></li>
           <!--study at Cambridge-->

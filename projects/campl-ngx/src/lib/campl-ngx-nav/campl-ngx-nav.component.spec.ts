@@ -1,26 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CamplNgxNavComponent } from "./campl-ngx-nav.component";
-import { CamplNgxLocalnavMenuComponent } from "../campl-ngx-localnav-menu/campl-ngx-localnav-menu.component";
+import { CamplNgxNavComponent } from './campl-ngx-nav.component';
+import { CamplNgxLocalnavMenuComponent } from '../campl-ngx-localnav-menu/campl-ngx-localnav-menu.component';
 
-import { of, ReplaySubject } from "rxjs";
-import { NavMenu } from "../models/nav-menu";
-import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.service";
-import { Component, Input } from "@angular/core";
+import { of, ReplaySubject } from 'rxjs';
+import { NavMenu } from '../models/nav-menu';
+import { CamplNgxCapabilitiesService } from '../services/campl-ngx-capabilities.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: "campl-ngx-localnav-menu",
-  template: "<p>Mock localnav</p>"
+  selector: 'campl-ngx-localnav-menu',
+  template: '<p>Mock localnav</p>'
 })
 class MocklocalNavComponent {
   @Input() menu: any;
 }
 
-describe("CamplNgxNavComponent", () => {
+describe('CamplNgxNavComponent', () => {
   let component: CamplNgxNavComponent;
   let fixture: ComponentFixture<CamplNgxNavComponent>;
   let fakeCapabilities;
-  let capSubject = new ReplaySubject(1);
+  const capSubject = new ReplaySubject(1);
 
   beforeEach(async(() => {}));
 
@@ -40,13 +40,13 @@ describe("CamplNgxNavComponent", () => {
 
     capSubject.next({ supported: true });
     // mock an input to the component
-    let navm = {} as NavMenu;
+    const navm = {} as NavMenu;
     component.nav_menu$ = of(navm);
 
     fixture.detectChanges();
   });
 
-  it("should be created", () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

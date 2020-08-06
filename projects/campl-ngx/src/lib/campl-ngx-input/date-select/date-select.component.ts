@@ -37,7 +37,7 @@ import {
   encapsulation: ViewEncapsulation.None,
   providers: [
     { provide: DateAdapter, useClass: CamplNgxDateAdapter },
-    //{ provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+    // { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => CamplNgxDateSelectComponent),
@@ -53,44 +53,44 @@ export class CamplNgxDateSelectComponent implements OnInit, ControlValueAccessor
 
   // @Input() formControlName: string;
   @Input() validator: ValidatorFn;
-  @Input() label: string = "Select or enter as dd/mm/yyyy";
-  @Input() placeholder: string = "dd/mm/yyyy";
+  @Input() label = 'Select or enter as dd/mm/yyyy';
+  @Input() placeholder = 'dd/mm/yyyy';
 
   value;
   onChange;
   onTouched;
-  public dateForm: FormGroup
+  public dateForm: FormGroup;
 
   // Example highlighting particular dates in the calendar
   // eng start - end of periods
-  //dateClass = (d: Date): MatCalendarCellCssClasses => {
+  // dateClass = (d: Date): MatCalendarCellCssClasses => {
   //  const date = d.getDate();
-  // 
+  //
   //  // Highlight the 1st and 20th day of each month.
   //  let custom_class = (date === 1 || date === 20) ? 'start-custom-date-class' : '';
   //  custom_class = (date === 8 || date === 28) ? 'end-custom-date-class' : custom_class;
   //  return custom_class
-  //}
-  // Then add: [dateClass]="dateClass" to <mat-datepicker>
+  // }
+  // Then add: [dateClass]='dateClass' to <mat-datepicker>
 
   constructor() { }
 
   ngOnInit() {
     this.dateForm = new FormGroup({
       date: new FormControl('', this.validator)
-    })
+    });
   }
-  //NG_VALIDATORS
+  // NG_VALIDATORS
   validate({ value }: FormControl) {
     // returns errors or null if valid
-    return this.dateForm.valid ? null : { invalid: true }
+    return this.dateForm.valid ? null : { invalid: true };
   }
   // ControlValueAccessor implementation
   writeValue(val: any) {
-    val && this.dateForm.setValue(val, { emitEvent: false })
+    return val && this.dateForm.setValue(val, { emitEvent: false });
   }
   registerOnChange(fn: (val: any) => void) {
-    this.dateForm.valueChanges.subscribe(fn)
+    this.dateForm.valueChanges.subscribe(fn);
   }
   registerOnTouched(fn: () => void) {
     this.onTouched = fn;

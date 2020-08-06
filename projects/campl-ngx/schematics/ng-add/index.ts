@@ -11,9 +11,9 @@ import {
   template,
   chain,
   noop
-} from "@angular-devkit/schematics";
-import { NodePackageInstallTask } from "@angular-devkit/schematics/tasks";
-//import { buildDefaultPath } from "@schematics/angular/utility/project";
+} from '@angular-devkit/schematics';
+import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
+// import { buildDefaultPath } from '@schematics/angular/utility/project';
 import {
   addModuleImportToModule,
   buildDefaultPath,
@@ -23,7 +23,7 @@ import {
   appendHtmlElementToHead
   /*parseName*/
   // addSymbolToNgModuleMetadata no available - not exported
-} from "schematics-utilities";
+} from 'schematics-utilities';
 
 // Just return the tree
 export function ngAdd(options: any): Rule {
@@ -43,22 +43,23 @@ export function ngAdd(options: any): Rule {
 function insertTypeKitScript(): Rule {
   // This needs inserting into the head of our document
 
-  //Test that a src/index.html file exists
-  //and assume this is used to load the boilerplate
+  // Test that a src/index.html file exists
+  // and assume this is used to load the boilerplate
 
-  //TODO check angular.json to make sure 'index' value in build has not been modified
-  //eg by https://stackoverflow.com/questions/50113794/angular-how-to-dynamically-change-the-content-in-the-index-html-file-when-runn/57274333#57274333
+  // TODO check angular.json to make sure 'index' value in build has not been modified
+  // eg by https://stackoverflow.com/questions/50113794/
+  // angular-how-to-dynamically-change-the-content-in-the-index-html-file-when-runn/57274333#57274333
 
   return (host: Tree, context: SchematicContext) => {
-    let indexfile = "src/index.html";
+    const indexfile = 'src/index.html';
 
     const foundIndexFile = host.read(indexfile);
     if (foundIndexFile) {
-      appendHtmlElementToHead(host, "./src/index.html", typeKitInclude());
-      context.logger.log("info", `✅️ Added typeKit`);
+      appendHtmlElementToHead(host, './src/index.html', typeKitInclude());
+      context.logger.log('info', `✅️ Added typeKit`);
     } else {
       context.logger.log(
-        "error",
+        'error',
         `🚫 - typeKit not added UI might not be rendering correctly!`
       );
     }
@@ -68,14 +69,14 @@ function insertTypeKitScript(): Rule {
 function typeKitInclude() {
   // returns the HTML element to include for typeKit
   return `
-  <script type="text/javascript" src="//use.typekit.com/hyb5bko.js"></script>
-  <script type="text/javascript">
+  <script type='text/javascript' src='//use.typekit.com/hyb5bko.js'></script>
+  <script type='text/javascript'>
     try {
       Typekit.load();
     } catch (e) {}
   </script>
-  <script type="text/javascript">
-    document.documentElement.className += " js";
+  <script type='text/javascript'>
+    document.documentElement.className += ' js';
   </script>
   `;
 }
@@ -83,7 +84,7 @@ function typeKitInclude() {
 function createRouterModule(): Rule {
   return (host: Tree, context: SchematicContext) => {
     // Only if it doesn't already exist
-    let routeFile = "./src/app/routes/routing.module.ts";
+    const routeFile = './src/app/routes/routing.module.ts';
     if (!host.exists(routeFile)) {
       // we need to create the ./routes/routing.module file
       host.create(routeFile, routerModuleFile());
@@ -91,31 +92,31 @@ function createRouterModule(): Rule {
     // and add this to the AppModule
     addModuleImportToModule(
       host,
-      "./src/app/app.module.ts",
-      "RoutingModule",
-      "./routes/routing.module"
+      './src/app/app.module.ts',
+      'RoutingModule',
+      './routes/routing.module'
     );
 
-    context.logger.log("info", `✅️ Added RouterModule`);
+    context.logger.log('info', `✅️ Added RouterModule`);
   };
 }
 
 function addModernizrFile(options: any): Rule {
   return (host: Tree, context: SchematicContext) => {
-    const modernizrName = "modernizr";
+    const modernizrName = 'modernizr';
     const modernizrPath =
-      "node_modules/campl-ngx/assets/javascripts/libs/modernizr.js";
+      'node_modules/campl-ngx/assets/javascripts/libs/modernizr.js';
 
     try {
-      const angularJsonFile = host.read("angular.json");
+      const angularJsonFile = host.read('angular.json');
 
       if (angularJsonFile) {
         const angularJsonFileObject = JSON.parse(
-          angularJsonFile.toString("utf-8")
+          angularJsonFile.toString('utf-8')
         );
         const project = options.project
           ? options.project
-          : Object.keys(angularJsonFileObject["projects"])[0];
+          : Object.keys(angularJsonFileObject['projects'])[0];
         const projectObject = angularJsonFileObject.projects[project];
         const scripts = projectObject.architect.build.options.scripts;
 
@@ -123,14 +124,14 @@ function addModernizrFile(options: any): Rule {
           input: modernizrPath
         });
         host.overwrite(
-          "angular.json",
+          'angular.json',
           JSON.stringify(angularJsonFileObject, null, 2)
         );
       }
     } catch (e) {
       context.logger.log(
-        "error",
-        `🚫 Failed to add the modernizr file "${modernizrName}" to scripts ${e}`
+        'error',
+        `🚫 Failed to add the modernizr file '${modernizrName}' to scripts ${e}`
       );
 
       throw new SchematicsException(
@@ -138,7 +139,7 @@ function addModernizrFile(options: any): Rule {
       );
     }
 
-    context.logger.log("info", `✅️ Added "${modernizrName}" to scripts`);
+    context.logger.log('info', `✅️ Added '${modernizrName}' to scripts`);
 
     return host;
   };
@@ -146,20 +147,20 @@ function addModernizrFile(options: any): Rule {
 
 function addIosOrientationFixFile(options: any): Rule {
   return (host: Tree, context: SchematicContext) => {
-    const name = "iosOrientationFix";
+    const name = 'iosOrientationFix';
     const path =
-      "node_modules/campl-ngx/assets/javascripts/libs/ios-orientation-fix.js";
+      'node_modules/campl-ngx/assets/javascripts/libs/ios-orientation-fix.js';
 
     try {
-      const angularJsonFile = host.read("angular.json");
+      const angularJsonFile = host.read('angular.json');
 
       if (angularJsonFile) {
         const angularJsonFileObject = JSON.parse(
-          angularJsonFile.toString("utf-8")
+          angularJsonFile.toString('utf-8')
         );
         const project = options.project
           ? options.project
-          : Object.keys(angularJsonFileObject["projects"])[0];
+          : Object.keys(angularJsonFileObject['projects'])[0];
         const projectObject = angularJsonFileObject.projects[project];
         const scripts = projectObject.architect.build.options.scripts;
 
@@ -167,20 +168,20 @@ function addIosOrientationFixFile(options: any): Rule {
           input: path
         });
         host.overwrite(
-          "angular.json",
+          'angular.json',
           JSON.stringify(angularJsonFileObject, null, 2)
         );
       }
     } catch (e) {
       context.logger.log(
-        "error",
-        `🚫 Failed to add the modernizr file "${name}" to scripts ${e}`
+        'error',
+        `🚫 Failed to add the modernizr file '${name}' to scripts ${e}`
       );
 
       throw new SchematicsException(`Unable to add ${name} to scripts:`);
     }
 
-    context.logger.log("info", `✅️ Added "${name}" to scripts`);
+    context.logger.log('info', `✅️ Added '${name}' to scripts`);
 
     return host;
   };
@@ -191,26 +192,26 @@ function addPackageJsonDependencies(): Rule {
       {
         type: NodeDependencyType.Default,
         version:
-          "https://github.com/S-Stephen/angular-edpcmentoring/releases/download/v0.0.1-alpha-1/campl-ngx-0.0.1.tgz",
-        name: "campl-ngx"
+          'https://github.com/S-Stephen/angular-edpcmentoring/releases/download/v0.0.1-alpha-1/campl-ngx-0.0.1.tgz',
+        name: 'campl-ngx'
       },
       {
         type: NodeDependencyType.Default,
-        version: "^6.5.3",
-        name: "rxjs"
+        version: '^6.5.3',
+        name: 'rxjs'
       },
       {
         type: NodeDependencyType.Default,
-        version: "^6.5.3",
-        name: "rxjs-compat"
+        version: '^6.5.3',
+        name: 'rxjs-compat'
       }
     ];
 
     dependencies.forEach(dependency => {
       addPackageJsonDependency(host, dependency);
       context.logger.log(
-        "info",
-        `Added "${dependency.name}" into ${dependency.type}`
+        'info',
+        `Added '${dependency.name}' into ${dependency.type}`
       );
     });
 
@@ -221,7 +222,7 @@ function addPackageJsonDependencies(): Rule {
 function installPackageJsonDependencies(): Rule {
   return (host: Tree, context: SchematicContext) => {
     context.addTask(new NodePackageInstallTask());
-    context.logger.log("info", `🔍 Installing packages...`);
+    context.logger.log('info', `🔍 Installing packages...`);
 
     return host;
   };
@@ -229,9 +230,9 @@ function installPackageJsonDependencies(): Rule {
 
 function configureAppModule(_options: any): Rule {
   return (tree: Tree, _context: SchematicContext) => {
-    const workspaceConfigBuffer = tree.read("angular.json");
+    const workspaceConfigBuffer = tree.read('angular.json');
     if (!workspaceConfigBuffer) {
-      throw new SchematicsException("Not an Angular CLI workspace");
+      throw new SchematicsException('Not an Angular CLI workspace');
     }
 
     // get the default project and its path -> this is where we will copy our file
@@ -241,50 +242,52 @@ function configureAppModule(_options: any): Rule {
 
     // addModuleImportToModule will remove a function call for the import statement
     // provided there are no new line characters in the function call!
-    const config = camplConfigDefaults().replace(/\r?\n|\r/g, " ");
+    const config = camplConfigDefaults().replace(/\r?\n|\r/g, ' ');
     // the alternatives are:
     // to set a variable in the module file using another schematics-utilities command?
     // to modify the library to search the app root for a particular file
 
     addModuleImportToModule(
       tree,
-      "./src/app/app.module.ts",
-      "CamplNgxModule.setConfig(" + config + ")",
-      "campl-ngx"
+      './src/app/app.module.ts',
+      'CamplNgxModule.setConfig(' + config + ')',
+      'campl-ngx'
     );
 
     addModuleImportToModule(
       tree,
-      "./src/app/app.module.ts",
-      "RoutingModule",
-      "./routes/routing.module"
+      './src/app/app.module.ts',
+      'RoutingModule',
+      './routes/routing.module'
     );
 
-    // however let's try to move some of our assets (namely javascripts/libs/modernizr.js into assets/javascripts/libs/modernizr.js) and add an entry in the angular,json file
+    // however let's try to move some of our assets
+    // (namely javascripts/libs/modernizr.js into assets/javascripts/libs/modernizr.js)
+    // and add an entry in the angular,json file
 
     const defaultProjectPath = buildDefaultPath(project);
     /*const parsedPath = parseName(defaultProjectPath, _options.name);
     const { name, path } = parsedPath;
     */
-    const sourceFiles = apply(url("./files"), [
+    const sourceFiles = apply(url('./files'), [
       template({}),
-      move("/src/test")
+      move('/src/test')
     ]);
-    //console.log(name);
-    //console.log(filesToMove);
-    //const rule = mergeWith(sourceFiles, MergeStrategy.Overwrite);
+    // console.log(name);
+    // console.log(filesToMove);
+    // const rule = mergeWith(sourceFiles, MergeStrategy.Overwrite);
     // move our files into the src/assets folder
     // if we wish to have them elsewhere we would need to also edit angular.json
 
-    tree.getDir("./src/assets_moved").visit(filepath => {
-      console.log("DEBUG filepath: " + filepath);
+    tree.getDir('./src/assets_moved').visit(filepath => {
+      console.log('DEBUG filepath: ' + filepath);
     });
 
-    //_context.addTask(new NodePackageInstallTask());
+    // _context.addTask(new NodePackageInstallTask());
     console.log(defaultProjectPath);
     console.log(sourceFiles);
-    //console.log(project);
-    //tree.create("hello1.js", `console.log("hello world:")`);
+    // console.log(project);
+    // tree.create('hello1.js', `console.log('hello world:')`);
     const myrule = mergeWith(sourceFiles, MergeStrategy.Overwrite);
     return myrule(tree, _context);
   };
@@ -295,22 +298,22 @@ function routerModuleFile(): string {
   // TODO why can we not translate with a blank template?
   // apply template and move/
   return `
-  import { NgModule } from "@angular/core";
-  import { RouterModule, Routes } from "@angular/router";
-  //import { HomeComponent } from "../home/home.component";
-  //import { MatchComponent } from "../match/match.component";
-  
+  import { NgModule } from '@angular/core';
+  import { RouterModule, Routes } from '@angular/router';
+  // import { HomeComponent } from '../home/home.component';
+  // import { MatchComponent } from '../match/match.component';
+
   const routes: Routes = [
-  //  { path: "home", component: HomeComponent },
-  //  { path: "match", component: MatchComponent }
+  //  { path: 'home', component: HomeComponent },
+  //  { path: 'match', component: MatchComponent }
   ];
-  
+
   @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
   })
   export class RoutingModule {}
-  
+
   `;
 }
 
@@ -321,202 +324,202 @@ function camplConfigDefaults(): string {
    */
 
   return `{
-    page_title: "Your title here",
+    page_title: 'Your title here',
     local_footer_col1: [
       {
-        label: "Local footer 1",
-        link: "https://somelink"
+        label: 'Local footer 1',
+        link: 'https://somelink'
       },
       {
-        label: "Local footer 1a",
-        link: "https://somelink1a"
+        label: 'Local footer 1a',
+        link: 'https://somelink1a'
       }
     ],
     local_footer_col2: [
-      { label: "local footer2", link: "https://edpc.eng.cam.ac.uk/aboutus" }
+      { label: 'local footer2', link: 'https://edpc.eng.cam.ac.uk/aboutus' }
     ],
     quicklinks: [
-      { link: "http://www.cam.ac.uk/for-staff", label: "For staff" },
+      { link: 'http://www.cam.ac.uk/for-staff', label: 'For staff' },
       {
-        link: "http://www.cam.ac.uk/current-students",
-        label: "For current students"
+        link: 'http://www.cam.ac.uk/current-students',
+        label: 'For current students'
       },
-      { link: "http://www.alumni.cam.ac.uk", label: "For alumni" },
-      { link: "http://www.cam.ac.uk/for-business", label: "For business" },
+      { link: 'http://www.alumni.cam.ac.uk', label: 'For alumni' },
+      { link: 'http://www.cam.ac.uk/for-business', label: 'For business' },
       {
-        link: "http://www.cam.ac.uk/colleges-and-departments",
-        label: "Colleges & departments"
-      },
-      {
-        link: "http://www.lib.cam.ac.uk/libraries/",
-        label: "Libraries & facilities"
+        link: 'http://www.cam.ac.uk/colleges-and-departments',
+        label: 'Colleges & departments'
       },
       {
-        link: "http://www.cam.ac.uk/museums-and-collections",
-        label: "Museums & collections"
+        link: 'http://www.lib.cam.ac.uk/libraries/',
+        label: 'Libraries & facilities'
       },
       {
-        link: "http://www.cam.ac.uk/email-and-phone-search",
-        label: "Email & phone search"
+        link: 'http://www.cam.ac.uk/museums-and-collections',
+        label: 'Museums & collections'
+      },
+      {
+        link: 'http://www.cam.ac.uk/email-and-phone-search',
+        label: 'Email & phone search'
       }
     ],
     global_nav: [
       {
-        label: "Study at Cambridge",
-        link: "http://www.cam.ac.uk/study-at-cambridge",
-        anchor: "studyatcambridge",
+        label: 'Study at Cambridge',
+        link: 'http://www.cam.ac.uk/study-at-cambridge',
+        anchor: 'studyatcambridge',
         sub: [
           {
-            label: "Undergraduate",
-            link: "http://www.study.cam.ac.uk/undergraduate/",
+            label: 'Undergraduate',
+            link: 'http://www.study.cam.ac.uk/undergraduate/',
             sub: [
               {
-                label: "Course",
-                link: "http://www.undergraduate.study.cam.ac.uk/courses"
+                label: 'Course',
+                link: 'http://www.undergraduate.study.cam.ac.uk/courses'
               },
               {
-                label: "Applying",
-                link: "http://www.undergraduate.study.cam.ac.uk/applying"
+                label: 'Applying',
+                link: 'http://www.undergraduate.study.cam.ac.uk/applying'
               },
               {
-                label: "Events and open days",
-                link: "http://www.undergraduate.study.cam.ac.uk/events"
+                label: 'Events and open days',
+                link: 'http://www.undergraduate.study.cam.ac.uk/events'
               },
               {
-                label: "Fees and Finances",
-                link: "http://www.undergraduate.study.cam.ac.uk/financess"
+                label: 'Fees and Finances',
+                link: 'http://www.undergraduate.study.cam.ac.uk/financess'
               },
               {
-                label: "Student blogs and videos",
-                link: "http://www.becambridge.com/"
+                label: 'Student blogs and videos',
+                link: 'http://www.becambridge.com/'
               }
             ]
           },
           {
-            label: "Graduate",
-            link: "http://www.graduate.study.cam.ac.uk",
+            label: 'Graduate',
+            link: 'http://www.graduate.study.cam.ac.uk',
             sub: [
               {
-                label: "Why Cambridge",
+                label: 'Why Cambridge',
                 link:
-                  "http://www.graduate.study.cam.ac.uk/why-cambridge/welcome-vice-chancellor"
+                  'http://www.graduate.study.cam.ac.uk/why-cambridge/welcome-vice-chancellor'
               },
               {
-                label: "How to apply",
-                link: "http://www.graduate.study.cam.ac.uk/how-do-i-apply"
+                label: 'How to apply',
+                link: 'http://www.graduate.study.cam.ac.uk/how-do-i-apply'
               },
               {
-                label: "Fees and funding",
+                label: 'Fees and funding',
                 link:
-                  "http://www.cambridgestudents.cam.ac.uk/fees-and-funding"
+                  'http://www.cambridgestudents.cam.ac.uk/fees-and-funding'
               },
               {
-                label: "Frequently asked questions",
-                link: "http://www.graduate.study.cam.ac.uk/faqs/applicant"
+                label: 'Frequently asked questions',
+                link: 'http://www.graduate.study.cam.ac.uk/faqs/applicant'
               }
             ]
           },
           {
-            label: "International students",
-            link: "http://www.internationalstudents.cam.ac.uk"
+            label: 'International students',
+            link: 'http://www.internationalstudents.cam.ac.uk'
           },
           {
-            label: "Continuing education",
-            link: "http://www.ice.cam.ac.uk"
+            label: 'Continuing education',
+            link: 'http://www.ice.cam.ac.uk'
           },
           {
-            label: "Executive and professional education",
-            link: "http://www.epe.admin.cam.ac.uk/"
+            label: 'Executive and professional education',
+            link: 'http://www.epe.admin.cam.ac.uk/'
           },
           {
-            label: "Courses in education",
-            link: "http://www.educ.cam.ac.uk"
+            label: 'Courses in education',
+            link: 'http://www.educ.cam.ac.uk'
           }
         ]
       },
       {
-        label: "About the University",
-        link: "http://www.cam.ac.uk/about-the-university",
-        anchor: "abouttheuniversity",
+        label: 'About the University',
+        link: 'http://www.cam.ac.uk/about-the-university',
+        anchor: 'abouttheuniversity',
         sub: [
           {
             sub: [
               {
-                label: "How the University and Colleges work",
+                label: 'How the University and Colleges work',
                 link:
-                  "http://www.cam.ac.uk/about-the-university/how-the-university-and-colleges-work",
+                  'http://www.cam.ac.uk/about-the-university/how-the-university-and-colleges-work',
                 sub: []
               },
               {
-                label: "History",
-                link: "http://www.cam.ac.uk/about-the-university/history"
+                label: 'History',
+                link: 'http://www.cam.ac.uk/about-the-university/history'
               },
               {
-                label: "Visiting the University",
+                label: 'Visiting the University',
                 link:
-                  "http://www.cam.ac.uk/about-the-university/visiting-the-university"
+                  'http://www.cam.ac.uk/about-the-university/visiting-the-university'
               },
               {
-                label: "Term dates and calendars",
+                label: 'Term dates and calendars',
                 link:
-                  "http://www.cam.ac.uk/about-the-university/term-dates-and-calendars"
+                  'http://www.cam.ac.uk/about-the-university/term-dates-and-calendars'
               },
               {
-                label: "Map",
-                link: "http://map.cam.ac.uk"
+                label: 'Map',
+                link: 'http://map.cam.ac.uk'
               }
             ]
           },
           {
             sub: [
               {
-                label: "For media",
-                link: "http://www.communications.cam.ac.uk/"
+                label: 'For media',
+                link: 'http://www.communications.cam.ac.uk/'
               },
               {
-                label: "Video and audio",
-                link: "http://www.cam.ac.uk/video-and-audio"
+                label: 'Video and audio',
+                link: 'http://www.cam.ac.uk/video-and-audio'
               },
               {
-                label: "Find an expert",
-                link: "http://webservices.admin.cam.ac.uk/fae/"
+                label: 'Find an expert',
+                link: 'http://webservices.admin.cam.ac.uk/fae/'
               },
               {
-                label: "Publications",
-                link: "http://www.cam.ac.uk/about-the-university/publications"
+                label: 'Publications',
+                link: 'http://www.cam.ac.uk/about-the-university/publications'
               },
               {
-                label: "Global Cambridge",
-                link: "http://www.cam.ac.uk/global-cambridge"
+                label: 'Global Cambridge',
+                link: 'http://www.cam.ac.uk/global-cambridge'
               }
             ]
           },
           {
             sub: [
-              { link: "http://www.cam.ac.uk/news", label: "News" },
+              { link: 'http://www.cam.ac.uk/news', label: 'News' },
               {
-                link: "http://www.admin.cam.ac.uk/whatson/",
-                label: "Events"
+                link: 'http://www.admin.cam.ac.uk/whatson/',
+                label: 'Events'
               },
               {
-                link: "http://www.cam.ac.uk/public-engagement",
-                label: "Public engagement"
+                link: 'http://www.cam.ac.uk/public-engagement',
+                label: 'Public engagement'
               },
               {
-                link: "http://www.jobs.cam.ac.uk",
-                label: "Jobs"
+                link: 'http://www.jobs.cam.ac.uk',
+                label: 'Jobs'
               },
               {
-                link: "https://philanthropy.cam.ac.uk",
-                label: "Give to Cambridge"
+                link: 'https://philanthropy.cam.ac.uk',
+                label: 'Give to Cambridge'
               }
             ]
           }
         ]
       },
       {
-        label: "Research at Cambridge",
-        link: "http://www.cam.ac.uk/research"
+        label: 'Research at Cambridge',
+        link: 'http://www.cam.ac.uk/research'
       }
     ]
   }`;

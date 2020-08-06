@@ -99,7 +99,7 @@ ol.campl-numbered li {
 }
 
 ol.campl-numbered li:before {
-  content: counter(item) " ";
+  content: counter(item) ' ';
   counter-increment: item;
   font-weight: bold;
   padding-right: 5px
@@ -172,7 +172,7 @@ q:before,
 q:after,
 blockquote:before,
 blockquote:after {
-  content: "";
+  content: '';
   content: none;
 }
 
@@ -265,7 +265,7 @@ kbd,
 samp,
 pre {
   padding: 0 3px 2px;
-  font-family: "Courier New", monospace;
+  font-family: 'Courier New', monospace;
   font-size: 12px;
   color: #333333;
   -webkit-border-radius: 3px;
@@ -398,7 +398,7 @@ figure {
 
 .clearfix:before,
 .clearfix:after {
-  content: "";
+  content: '';
   display: table;
 }
 
@@ -488,16 +488,16 @@ p {
 
 /* Font families */
 
-/* Bold		"myriad-pro"	700	normal */
+/* Bold		'myriad-pro'	700	normal */
 .campl-highlight-day,
 .campl-promo-teaser .campl-teaser-title,
 .campl-current-date {
-  font-family: "myriad-pro-n7", "myriad-pro", myriad, verdana, arial, sans-serif;
+  font-family: 'myriad-pro-n7', 'myriad-pro', myriad, verdana, arial, sans-serif;
   font-weight: 700;
   font-style: normal
 }
 
-/* Semibold	"myriad-pro"	600	normal */
+/* Semibold	'myriad-pro'	600	normal */
 h2,
 h3,
 h4,
@@ -512,31 +512,31 @@ h6,
 .campl-listing-title,
 .campl-vertical-breadcrumb,
 .campl-btn {
-  font-family: "myriad-pro-n6", "myriad-pro", myriad, verdana, arial, sans-serif;
+  font-family: 'myriad-pro-n6', 'myriad-pro', myriad, verdana, arial, sans-serif;
   font-weight: 600;
   font-style: normal
 }
 
-/* Regular 	"myriad-pro"  	400 normal*/
+/* Regular 	'myriad-pro'  	400 normal*/
 .campl-branding-title,
 .campl-topic,
 .campl-global-navigation-tertiary,
 .campl-local-navigation,
 .campl-vertical-breadcrumb-navigation {
-  font-family: "myriad-pro-n4", "myriad-pro", myriad, verdana, arial, sans-serif;
+  font-family: 'myriad-pro-n4', 'myriad-pro', myriad, verdana, arial, sans-serif;
   font-weight: 400;
   color: #888888
 }
 
-/* Regular italic "myriad-pro"  400 italic */
+/* Regular italic 'myriad-pro'  400 italic */
 .campl-title-search-term {
-  font-family: "myriad-pro-i4", "myriad-pro", myriad, verdana, arial, sans-serif;
+  font-family: 'myriad-pro-i4', 'myriad-pro', myriad, verdana, arial, sans-serif;
   font-style: italic;
   font-weight: 400;
 }
 
 
-/* Light	"myriad-pro"	300	normal */
+/* Light	'myriad-pro'	300	normal */
 h1,
 .campl-page-header h1,
 .campl-page-sub-title h2,
@@ -551,7 +551,7 @@ legend,
 .campl-homepage-content h2,
 .campl-highlight-date,
 .campl-light-heading {
-  font-family: "myriad-pro-n3", "myriad-pro", myriad, verdana, arial, sans-serif;
+  font-family: 'myriad-pro-n3', 'myriad-pro', myriad, verdana, arial, sans-serif;
   font-weight: 300;
 }
 
@@ -566,10 +566,10 @@ legend,
   font-weight: normal
 }
 
-/* Georgia "sans serif" normal */
+/* Georgia 'sans serif' normal */
 .campl-datestamp,
 blockquote {
-  font-family: Georgia, "sans serif"
+  font-family: Georgia, 'sans serif'
 }
 
 
@@ -941,7 +941,7 @@ a:active {
 }
 
 a.campl-external {
-  background: url("/projectlight/images/interface/icon-external-link.png") no-repeat 100% 4px;
+  background: url('/projectlight/images/interface/icon-external-link.png') no-repeat 100% 4px;
   padding-right: 15px;
 }
 
@@ -1046,16 +1046,16 @@ legend {
 }
 
 button,
-input[type="button"],
-input[type="image"],
-input[type="reset"],
-input[type="submit"] {
+input[type='button'],
+input[type='image'],
+input[type='reset'],
+input[type='submit'] {
   cursor: pointer;
   -webkit-appearance: button;
   margin-bottom: 5px;
 }
 
-input[type="image"] {
+input[type='image'] {
   -webkit-appearance: none;
 }
 
@@ -1154,20 +1154,20 @@ textarea,
 
 select,
 textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
+input[type='text'],
+input[type='password'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='month'],
+input[type='time'],
+input[type='week'],
+input[type='number'],
+input[type='email'],
+input[type='url'],
+input[type='search'],
+input[type='tel'],
+input[type='color'],
 .campl-uneditable-input {
   display: inline-block;
   height: 18px;
@@ -1184,60 +1184,60 @@ textarea {
 }
 
 textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
+input[type='text'],
+input[type='password'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='month'],
+input[type='time'],
+input[type='week'],
+input[type='number'],
+input[type='email'],
+input[type='url'],
+input[type='search'],
+input[type='tel'],
+input[type='color'],
 .campl-uneditable-input {
   background-color: #ffffff;
   border: 1px solid #cccccc;
 }
 
 textarea:focus,
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="time"]:focus,
-input[type="week"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="color"]:focus,
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='datetime']:focus,
+input[type='datetime-local']:focus,
+input[type='date']:focus,
+input[type='month']:focus,
+input[type='time']:focus,
+input[type='week']:focus,
+input[type='number']:focus,
+input[type='email']:focus,
+input[type='url']:focus,
+input[type='search']:focus,
+input[type='tel']:focus,
+input[type='color']:focus,
 .campl-uneditable-input:focus {
   border-color: rgba(82, 168, 236, 0.8);
   outline: 0;
 }
 
 .lt-ie8 textarea:focus,
-.lt-ie8 input[type="text"]:focus,
-.lt-ie8 input[type="password"]:focus,
-.lt-ie8 input[type="datetime"]:focus,
-.lt-ie8 input[type="datetime-local"]:focus,
-.lt-ie8 input[type="date"]:focus,
-.lt-ie8 input[type="month"]:focus,
-.lt-ie8 input[type="time"]:focus,
-.lt-ie8 input[type="week"]:focus,
-.lt-ie8 input[type="number"]:focus,
-.lt-ie8 input[type="email"]:focus,
-.lt-ie8 input[type="url"]:focus,
-.lt-ie8 input[type="search"]:focus,
-.lt-ie8 input[type="tel"]:focus,
-.lt-ie8 input[type="color"]:focus,
+.lt-ie8 input[type='text']:focus,
+.lt-ie8 input[type='password']:focus,
+.lt-ie8 input[type='datetime']:focus,
+.lt-ie8 input[type='datetime-local']:focus,
+.lt-ie8 input[type='date']:focus,
+.lt-ie8 input[type='month']:focus,
+.lt-ie8 input[type='time']:focus,
+.lt-ie8 input[type='week']:focus,
+.lt-ie8 input[type='number']:focus,
+.lt-ie8 input[type='email']:focus,
+.lt-ie8 input[type='url']:focus,
+.lt-ie8 input[type='search']:focus,
+.lt-ie8 input[type='tel']:focus,
+.lt-ie8 input[type='color']:focus,
 .lt-ie8 .campl-uneditable-input:focus {
   outline: dotted 1px;
 }
@@ -1254,23 +1254,23 @@ textarea[readonly] {
   border-color: #ddd;
 }
 
-input[type="radio"][disabled],
-input[type="checkbox"][disabled],
-input[type="radio"][readonly],
-input[type="checkbox"][readonly] {
+input[type='radio'][disabled],
+input[type='checkbox'][disabled],
+input[type='radio'][readonly],
+input[type='checkbox'][readonly] {
   background-color: transparent;
 }
 
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-input[type="image"],
-input[type="radio"],
-input[type="checkbox"] {
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+input[type='image'],
+input[type='radio'],
+input[type='checkbox'] {
   width: auto;
 }
 
-input[type="image"] {
+input[type='image'] {
   display: inline;
   vertical-align: middle;
   margin-bottom: 5px;
@@ -1278,14 +1278,14 @@ input[type="image"] {
 
 /* select menus */
 select,
-input[type="file"] {
+input[type='file'] {
   height: 28px;
   line-height: 28px;
 }
 
 /* In IE7, the height of the select element cannot be changed by height, only font-size */
 .lt-ie8 select,
-.lt-ie8 input[type="file"] {
+.lt-ie8 input[type='file'] {
   margin-top: 4px;
 }
 
@@ -1302,24 +1302,24 @@ select[size] {
 }
 
 select:focus,
-input[type="file"]:focus,
-input[type="radio"]:focus,
-input[type="checkbox"]:focus {
+input[type='file']:focus,
+input[type='radio']:focus,
+input[type='checkbox']:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
 
 /* radio buttons and checkboxes */
-input[type="radio"],
-input[type="checkbox"] {
+input[type='radio'],
+input[type='checkbox'] {
   margin: 3px 0;/line-height: normal;
   cursor: pointer;
   box-sizing: border-box;
   padding: 0;
 }
 
-.lt-ie8 input[type="checkbox"] {
+.lt-ie8 input[type='checkbox'] {
   vertical-align: baseline;
   margin-top: 0;
   width: 13px;
@@ -1332,8 +1332,8 @@ input[type="checkbox"] {
   padding-left: 18px;
 }
 
-.campl-radio input[type="radio"],
-.campl-checkbox input[type="checkbox"] {
+.campl-radio input[type='radio'],
+.campl-checkbox input[type='checkbox'] {
   float: left;
   margin-left: -18px;
 }
@@ -1446,7 +1446,7 @@ legend+.campl-control-group {
 .campl-form-actions:before,
 .campl-form-actions:after {
   display: table;
-  content: "";
+  content: '';
 }
 
 .campl-form-actions:after {
@@ -3202,7 +3202,7 @@ caption {
 .campl-nav-tabs:after,
 .campl-nav-pills:after {
   display: table;
-  content: "";
+  content: '';
   line-height: 0;
 }
 
@@ -3749,20 +3749,20 @@ caption {
   }
 
   textarea,
-  input[type="text"],
-  input[type="password"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="date"],
-  input[type="month"],
-  input[type="time"],
-  input[type="week"],
-  input[type="number"],
-  input[type="email"],
-  input[type="url"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="color"],
+  input[type='text'],
+  input[type='password'],
+  input[type='datetime'],
+  input[type='datetime-local'],
+  input[type='date'],
+  input[type='month'],
+  input[type='time'],
+  input[type='week'],
+  input[type='number'],
+  input[type='email'],
+  input[type='url'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='color'],
   .campl-uneditable-input,
   .campl-input-block-level {
     height: 22px;
@@ -3773,13 +3773,13 @@ caption {
   }
 
   select,
-  input[type="file"] {
+  input[type='file'] {
     height: 32px;
     line-height: 32px;
   }
 
   /*reset fixed width columns back to full width for mobile */
-  [class*="campl-column"],
+  [class*='campl-column'],
   .campl-column {
     float: none;
     display: block;
@@ -4337,7 +4337,7 @@ caption {
     border: 1px solid #ccc;
   }
 
-  /* Behave  like a "row" */
+  /* Behave  like a 'row' */
   .campl-vertical-stacking-table td {
     border: none;
     border-bottom: 1px solid #e4e4e4;
@@ -6440,7 +6440,7 @@ table th {
   }
 
   #content a[href]:after {
-    content: " ("attr(href) ")";
+    content: ' ('attr(href) ')';
   }
 
   .Zebra_DatePicker a[href]:after,
@@ -6449,13 +6449,13 @@ table th {
   }
 
   abbr[title]:after {
-    content: " ("attr(title) ")";
+    content: ' ('attr(title) ')';
   }
 
   #content .ir a:after,
-  #content a[href^="javascript:"]:after,
-  #content a[href^="#"]:after {
-    content: "";
+  #content a[href^='javascript:']:after,
+  #content a[href^='#']:after {
+    content: '';
   }
 
   /* Don't show links for images, or javascript/internal links */
@@ -6539,7 +6539,7 @@ table th {
   }
 
   /*stack all columns vertically to make it easier to read content*/
-  [class*="campl-column"],
+  [class*='campl-column'],
   .campl-column {
     float: none;
     display: block;

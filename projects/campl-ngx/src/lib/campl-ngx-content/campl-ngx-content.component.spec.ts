@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CamplNgxContentComponent } from "./campl-ngx-content.component";
+import { CamplNgxContentComponent } from './campl-ngx-content.component';
 
-describe("CamplNgxContentComponent", () => {
+describe('CamplNgxContentComponent', () => {
   let component: CamplNgxContentComponent;
   let fixture: ComponentFixture<CamplNgxContentComponent>;
 
@@ -18,7 +18,7 @@ describe("CamplNgxContentComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should be created", () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

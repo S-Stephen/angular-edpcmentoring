@@ -27,7 +27,7 @@ import { startWith, map } from 'rxjs/operators';
 })
 export class CamplNgxAutocompleteComponent implements OnInit, ControlValueAccessor {
 
-  //myAutoControl = new FormControl('');
+  // myAutoControl = new FormControl('');
   @Input() options: string[];
   @Input() label: string;
   @Input() placeholder: string;
@@ -35,7 +35,7 @@ export class CamplNgxAutocompleteComponent implements OnInit, ControlValueAccess
 
   filteredOptions: Observable<string[]>;
 
-  public autoForm: FormGroup 
+  public autoForm: FormGroup;
 
   // @Input() formControlName: string;
   value;
@@ -47,7 +47,7 @@ export class CamplNgxAutocompleteComponent implements OnInit, ControlValueAccess
 
     this.autoForm = new FormGroup({
       myauto: new FormControl('', this.validator)
-    })
+    });
     this.filteredOptions = this.autoForm.get('myauto').valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
@@ -64,14 +64,14 @@ export class CamplNgxAutocompleteComponent implements OnInit, ControlValueAccess
   // NG_VALIDATORS
   validate({value}: FormControl) {
     // returns errors or null if valid
-    return this.autoForm.get('myauto').valid ? null : {invalid:true}
+    return this.autoForm.get('myauto').valid ? null : {invalid: true};
    }
 
   writeValue(val: any) {
-    val && this.autoForm.get('myauto').setValue(val, { emitEvent: false })
+    return val && this.autoForm.get('myauto').setValue(val, { emitEvent: false });
   }
   registerOnChange(fn: (val: any) => void) {
-    this.autoForm.get('myauto').valueChanges.subscribe(fn)
+    this.autoForm.get('myauto').valueChanges.subscribe(fn);
   }
   registerOnTouched(fn: () => void) {
     this.onTouched = fn;

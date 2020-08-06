@@ -1,7 +1,7 @@
-import { Injectable, Inject } from "@angular/core";
-import { CamplConfigService } from "./campl-config.service";
-//import { NavMenu } from "../models/nav-menu";
-//import { NavMenuConfigService } from "./nav-menu-config.service";
+import { Injectable, Inject } from '@angular/core';
+import { CamplConfigService } from './campl-config.service';
+// import { NavMenu } from '../models/nav-menu';
+// import { NavMenuConfigService } from './nav-menu-config.service';
 
 @Injectable()
 export class CamplService {
@@ -16,22 +16,26 @@ export class CamplService {
     //       (these attributes do not have default values)
     // TODO write this to recurse a tree eg 'local_footer' => ['col1','col2','col3','col4']
     // strings
-    ["page_title"].forEach(key => {
-      if (!this.config[key]) this.config[key] = "Set config" + key + "!";
+    ['page_title'].forEach(key => {
+      if (!this.config[key]) {
+         this.config[key] = 'Set config' + key + '!';
+      }
     });
     // arrays:
     [
-      "local_footer_col1",
-      "local_footer_col2",
-      "local_footer_col3",
-      "local_footer_col4",
-      "quicklinks",
-      "global_nav"
+      'local_footer_col1',
+      'local_footer_col2',
+      'local_footer_col3',
+      'local_footer_col4',
+      'quicklinks',
+      'global_nav'
     ].forEach(key => {
-      if (!this.config[key]) this.config[key] = [];
+      if (!this.config[key]) {
+         this.config[key] = [];
+      }
     });
-    //if (!this.config.page_title)
-    //  this.config.page_title = "Set config.page_title !";
+    // if (!this.config.page_title)
+    //  this.config.page_title = 'Set config.page_title !';
   }
   public getConfig(): any {
     return this.config;

@@ -1,7 +1,7 @@
 // https://scotch.io/bar-talk/error-handling-with-angular-6-tips-and-best-practices192
 // This class will intercept http error across the application
 
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
   HttpEvent,
   HttpInterceptor,
@@ -9,11 +9,11 @@ import {
   HttpRequest,
   HttpResponse,
   HttpErrorResponse
-} from "@angular/common/http";
-import { Observable, throwError } from "rxjs";
-import { retry, catchError } from "rxjs/operators";
+} from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { retry, catchError } from 'rxjs/operators';
 
-import { CamplNgxMessageBufferService } from "./campl-ngx-message-buffer.service";
+import { CamplNgxMessageBufferService } from './campl-ngx-message-buffer.service';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
@@ -24,7 +24,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        let errorMessage = "";
+        let errorMessage = '';
         if (error.error instanceof ErrorEvent) {
           // client-side error
           errorMessage = `Error: ${error.error.message}`;
@@ -35,7 +35,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         // send our error message to the message service
         // to display / hide somewhere on the page/
         this.messageService.sendMessage(errorMessage);
-        //window.alert(errorMessage);
+        // window.alert(errorMessage);
         return throwError(errorMessage);
       })
     );

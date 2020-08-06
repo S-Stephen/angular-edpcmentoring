@@ -27,7 +27,7 @@ export class CamplNgxTextInputComponent implements OnInit, ControlValueAccessor 
   /*
     * This is a regular select
     * @param label - displayed in the field
-    * @placeholder - example value displayed in the field 
+    * @placeholder - example value displayed in the field
     */
 
   @Input() label: string;
@@ -50,11 +50,11 @@ export class CamplNgxTextInputComponent implements OnInit, ControlValueAccessor 
   // NG_VALIDATORS
   validate({value}: FormControl) {
     // returns errors or null if valid
-    return this.textForm.get('mytext').valid ? null : {invalid:true}
+    return this.textForm.get('mytext').valid ? null : {invalid: true}
    }
   // ControlValueAccessor
   writeValue(val: any) {
-    val && this.textForm.get('mytext').setValue(val, { emitEvent: false })
+    return val && this.textForm.get('mytext').setValue(val, { emitEvent: false })
   }
   registerOnChange(fn: (val: any) => void) {
     this.textForm.get('mytext').valueChanges.subscribe(fn)

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Message } from "../models/message";
+import { Message } from '../models/message';
 
 @Component({
   selector: 'campl-ngx-message',
@@ -10,13 +10,13 @@ import { Message } from "../models/message";
 export class CamplNgxMessageComponent implements OnInit {
   @Input() msgin: Message;
   show: boolean;
-  constructor() { 
-    this.show=true;
+  constructor() {
+    this.show = true;
   }
 
   ngOnInit() {
   }
-  public hide(){
+  public hide() {
     this.show = false;
   }
 
