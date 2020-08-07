@@ -28,7 +28,7 @@ export class CamplNgxTextareaComponent implements OnInit {
  /*
     * This is a regular textarea
     * @param label - displayed in the field
-    * @placeholder - example value displayed in the field 
+    * @placeholder - example value displayed in the field
     */
 
    @Input() label: string;
@@ -39,23 +39,25 @@ export class CamplNgxTextareaComponent implements OnInit {
    value;
    onChange;
    onTouched;
- 
+
    constructor() { }
- 
+
    ngOnInit() {
      this.textareaForm = new FormGroup({
        mytextarea: new FormControl('', this.validator)
      })
    }
- 
+
    // NG_VALIDATORS
    validate({value}: FormControl) {
      // returns errors or null if valid
-     return this.textareaForm.get('mytextarea').valid ? null : {invalid:true}
+     return this.textareaForm.get('mytextarea').valid ? null : {invalid: true}
     }
    // ControlValueAccessor
    writeValue(val: any) {
-     val && this.textareaForm.get('mytextarea').setValue(val, { emitEvent: false })
+     if ( val ) {
+      return this.textareaForm.get('mytextarea').setValue(val, { emitEvent: false })
+     }
    }
    registerOnChange(fn: (val: any) => void) {
      this.textareaForm.get('mytextarea').valueChanges.subscribe(fn)

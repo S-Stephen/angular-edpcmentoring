@@ -1,7 +1,7 @@
-import { Injectable, Inject } from "@angular/core";
-import { NavMenu } from "../models/nav-menu";
-import { NavMenuConfigService } from "./nav-menu-config.service";
-import { ReplaySubject } from "rxjs";
+import { Injectable, Inject } from '@angular/core';
+import { NavMenu } from '../models/nav-menu';
+import { NavMenuConfigService } from './nav-menu-config.service';
+import { ReplaySubject } from 'rxjs';
 
 @Injectable()
 export class NavMenuService {
@@ -16,7 +16,7 @@ export class NavMenuService {
     return this.menu;
   }
   public setSelected(menuid: string) {
-    //send the id of the next open control
+    // send the id of the next open control
     this.selected$.next(menuid);
   }
 }

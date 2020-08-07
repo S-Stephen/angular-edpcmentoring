@@ -1,19 +1,19 @@
-import { Directive, ElementRef, Renderer2 } from "@angular/core";
+import { Directive, ElementRef, Renderer2 } from '@angular/core';
 
-import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.service";
+import { CamplNgxCapabilitiesService } from '../services/campl-ngx-capabilities.service';
 /**
  * This directive is intended to replace:
- * 
-		//if media queries are not supported set a fixed width container to prevent fluid layout breaking in IE and other browsers which do no support MQ
+ *
+    // if media queries are not supported set a fixed width container to
+    // prevent fluid layout breaking in IE and other browsers which do no support MQ
 		if (!Modernizr.mq('only all')) {
-			projectlight.$wrap.addClass("campl-fixed-container");
+			projectlight.$wrap.addClass('campl-fixed-container');
     }
-    
- * queryCLient() needs running from some where - set to run in the root component 
+ * queryCLient() needs running from some where - set to run in the root component
  */
 
 @Directive({
-  selector: "[CamplNgxWrap]"
+  selector: '[CamplNgxWrap]'
 })
 export class CamplNgxWrapDirective {
   constructor(
@@ -22,18 +22,18 @@ export class CamplNgxWrapDirective {
     public browser_capabilities: CamplNgxCapabilitiesService
   ) {
     browser_capabilities.modernizrSource.subscribe(capabilities => {
-      if (capabilities["supported"]) {
+      if (capabilities['supported']) {
         this.renderer.removeClass(
           hostElement.nativeElement,
-          "campl-fixed-container"
+          'campl-fixed-container'
         );
       } else {
         this.renderer.addClass(
           hostElement.nativeElement,
-          "campl-fixed-container"
+          'campl-fixed-container'
         );
       }
     });
-    this.renderer.addClass(hostElement.nativeElement, "campl-wrap");
+    this.renderer.addClass(hostElement.nativeElement, 'campl-wrap');
   }
 }

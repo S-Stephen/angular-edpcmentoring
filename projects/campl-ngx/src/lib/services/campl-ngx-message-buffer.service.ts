@@ -1,12 +1,12 @@
 // This is the service used to pass our error messages
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
-import { Subject } from "rxjs";
+import { Subject } from 'rxjs';
 
-import { Message } from "../models/message";
+import { Message } from '../models/message';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class CamplNgxMessageBufferService {
   message$ = new Subject<Message>();

@@ -1,21 +1,21 @@
-import { Component, OnInit } from "@angular/core";
-import { CamplNgxMessageBufferService } from "../services/campl-ngx-message-buffer.service";
+import { Component, OnInit } from '@angular/core';
+import { CamplNgxMessageBufferService } from '../services/campl-ngx-message-buffer.service';
 
-import { Message } from "../models/message";
+import { Message } from '../models/message';
 
-import { ChangeDetectorRef } from "@angular/core"; // [1]
-//constructor(private ref: ChangeDetectorRef){}
+import { ChangeDetectorRef } from '@angular/core'; // [1]
+// constructor(private ref: ChangeDetectorRef){}
 
 @Component({
-  selector: "campl-ngx-messages",
-  templateUrl: "./campl-ngx-messages.component.html",
-  styleUrls: ["./campl-ngx-messages.component.css"]
+  selector: 'campl-ngx-messages',
+  templateUrl: './campl-ngx-messages.component.html',
+  styleUrls: ['./campl-ngx-messages.component.css']
 })
 export class CamplNgxMessagesComponent implements OnInit {
-  //message$: Subject<string> = this.messageBufferService.message$;
+  // message$: Subject<string> = this.messageBufferService.message$;
 
   public message_log: Message[];
-  //public show_information: boolean;
+  // public show_information: boolean;
   public show: {};
 
 
@@ -24,7 +24,7 @@ export class CamplNgxMessagesComponent implements OnInit {
     private ref: ChangeDetectorRef
   ) {
     this.message_log = [];
-    //this.show_information = true;
+    // this.show_information = true;
     this.show = {
       'information': true,
       'alert': true,
@@ -36,7 +36,7 @@ export class CamplNgxMessagesComponent implements OnInit {
   messages(type: string) {
     // type: 'information', 'success', 'alert', 'warning'
     // return messages of give type (wrapper around filter)
-    return this.message_log.filter(function (msg) { return msg.type == type })
+    return this.message_log.filter(function (msg) { return msg.type === type })
   }
 
   toggleMessages(type: string) {
@@ -56,10 +56,10 @@ export class CamplNgxMessagesComponent implements OnInit {
   public hideMessages(type: string) {
     /**
      * replaces:
-     * $(".campl-notifications-panel").each(function(){
+     * $('.campl-notifications-panel').each(function(){
      *   var $thisElem = $(this);
-     *   $thisElem.append("<a href='#' class='ir campl-close-panel'>Close panel</a>");
-     *   $thisElem.find('.campl-close-panel').bind("click", function(e){
+     *   $thisElem.append('<a href='#' class='ir campl-close-panel'>Close panel</a>');
+     *   $thisElem.find('.campl-close-panel').bind('click', function(e){
      *    $(e.target).parent().remove();
      *    e.preventDefault();
      *   })
@@ -71,7 +71,7 @@ export class CamplNgxMessagesComponent implements OnInit {
     this.ref.detectChanges(); // [1]
   }
 
-  public showMessage(type: string){
+  public showMessage(type: string) {
     this.show[type] = true;
     this.ref.detectChanges(); // [1]
   }

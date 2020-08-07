@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LibCamplNgxComponent } from "./campl-ngx.component";
+import { LibCamplNgxComponent } from './campl-ngx.component';
 
-describe("CamplComponent", () => {
+describe('CamplComponent', () => {
   let component: LibCamplNgxComponent;
   let fixture: ComponentFixture<LibCamplNgxComponent>;
 
@@ -18,7 +18,7 @@ describe("CamplComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

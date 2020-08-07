@@ -1,8 +1,8 @@
-import { Directive, ElementRef, HostListener, Renderer2 } from "@angular/core";
-import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.service";
+import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { CamplNgxCapabilitiesService } from '../services/campl-ngx-capabilities.service';
 
 @Directive({
-  selector: "[camplTopListHover]"
+  selector: '[camplTopListHover]'
 })
 export class TopListHoverDirective {
   capabilities: any;
@@ -11,23 +11,23 @@ export class TopListHoverDirective {
     private el: ElementRef,
     public browser_capabilities: CamplNgxCapabilitiesService
   ) {
-    el.nativeElement.style.backgroundColor = "yellow";
+    el.nativeElement.style.backgroundColor = 'yellow';
     browser_capabilities.modernizrSource.subscribe(capabilities => {
       this.capabilities = capabilities;
     });
   }
 
   // Todo: replace rending with beter angularsied idiom eg ngClass=campl-hover <some variable>
-  @HostListener("mouseover") onHover() {
-    if (!this.capabilities["mobile_layout"]) {
-      this.renderer.addClass(this.el.nativeElement, "campl-hover");
+  @HostListener('mouseover') onHover() {
+    if (!this.capabilities['mobile_layout']) {
+      this.renderer.addClass(this.el.nativeElement, 'campl-hover');
     }
-    //this.el.nativeElement.addClass("hovering");
+    // this.el.nativeElement.addClass('hovering');
   }
-  @HostListener("mouseleave") onLeave() {
-    if (!this.capabilities["mobile_layout"]) {
-      this.renderer.removeClass(this.el.nativeElement, "campl-hover");
+  @HostListener('mouseleave') onLeave() {
+    if (!this.capabilities['mobile_layout']) {
+      this.renderer.removeClass(this.el.nativeElement, 'campl-hover');
     }
-    //this.el.nativeElement.style.backgroundColor = "blue";
+    // this.el.nativeElement.style.backgroundColor = 'blue';
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Subject } from "rxjs";
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +12,13 @@ export class CamplNgxPrimaryMenuStateService {
     - if they become the control they will activate themselves
     - if they are not the control they will close / de-activate
    */
-  constructor() { }
 
   id$ = new Subject<string>();
+
+  constructor() { }
+
   sendId(id: string) {
-    //send the id of the next open control
+    // send the id of the next open control
     this.id$.next(id);
   }
 }

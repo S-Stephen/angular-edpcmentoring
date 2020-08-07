@@ -1,15 +1,15 @@
-import { TestBed } from "@angular/core/testing";
+import { TestBed } from '@angular/core/testing';
 
-import { DynamicScriptLoaderService } from "./dynamic-script-loader.service";
+import { DynamicScriptLoaderService } from './dynamic-script-loader.service';
 
-describe("DynamicScriptLoaderService", () => {
+describe('DynamicScriptLoaderService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       providers: [DynamicScriptLoaderService]
     })
   );
 
-  it("should be created", () => {
+  it('should be created', () => {
     const service: DynamicScriptLoaderService = TestBed.get(
       DynamicScriptLoaderService
     );

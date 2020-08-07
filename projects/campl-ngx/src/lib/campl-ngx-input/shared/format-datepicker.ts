@@ -1,6 +1,6 @@
 import { NativeDateAdapter } from '@angular/material/core';
 import { MatDateFormats } from '@angular/material/core';
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 @Injectable()
 export class CamplNgxDateAdapter extends NativeDateAdapter {
   format(date: Date, displayFormat: Object): string {
@@ -9,7 +9,7 @@ export class CamplNgxDateAdapter extends NativeDateAdapter {
       day = +day < 10 ? '0' + day : day;
       let month: string = (date.getMonth() + 1).toString();
       month = +month < 10 ? '0' + month : month;
-      let year = date.getFullYear();
+      const year = date.getFullYear();
       return `${day}-${month}-${year}`;
     }
     return date.toDateString();
@@ -38,4 +38,4 @@ export const APP_DATE_FORMATS: MatDateFormats = {
     },
     monthYearA11yLabel: { year: 'numeric', month: 'long' },
   }
-};
+}

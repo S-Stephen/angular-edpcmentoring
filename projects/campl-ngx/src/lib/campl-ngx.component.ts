@@ -1,7 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: "lib-campl-ngx",
+  selector: 'campl-ngx',
   template: `
     <p>
       campl works!

@@ -1,5 +1,5 @@
-import { InjectionToken } from "@angular/core";
-import { NavMenu } from "../models/nav-menu";
+import { InjectionToken } from '@angular/core';
+import { NavMenu } from '../models/nav-menu';
 
 /**
  * This is not a real service, but it looks like it from the outside.
@@ -9,4 +9,4 @@ import { NavMenu } from "../models/nav-menu";
  *  (https://www.inversionofcontrol.co.uk/injection-tokens-in-angular/)
  */
 
-export const NavMenuConfigService = new InjectionToken<NavMenu>("NavMenu");
+export const NavMenuConfigService = new InjectionToken<NavMenu>('NavMenu');

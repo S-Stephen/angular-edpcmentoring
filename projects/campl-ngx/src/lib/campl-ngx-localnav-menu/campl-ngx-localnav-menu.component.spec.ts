@@ -1,22 +1,22 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CamplNgxLocalnavMenuComponent } from "./campl-ngx-localnav-menu.component";
-import { CamplNgxCapabilitiesService } from "../services/campl-ngx-capabilities.service";
-import { ReplaySubject } from "rxjs";
-import { Component, DebugElement } from "@angular/core";
-import { By } from "@angular/platform-browser";
+import { CamplNgxLocalnavMenuComponent } from './campl-ngx-localnav-menu.component';
+import { CamplNgxCapabilitiesService } from '../services/campl-ngx-capabilities.service';
+import { ReplaySubject } from 'rxjs';
+import { Component, DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 @Component({
-  template: "<campl-ngx-localnav-menu></campl-ngx-localnav-menu>"
+  template: '<campl-ngx-localnav-menu></campl-ngx-localnav-menu>'
 })
 class TestContainerComponent {}
 
-describe("CamplNgxLocalnavMenuComponent", () => {
+describe('CamplNgxLocalnavMenuComponent', () => {
   let component: TestContainerComponent;
   let fixture: ComponentFixture<TestContainerComponent>;
   let mymenu: DebugElement;
   let fakeCapabilities;
-  let capSubject = new ReplaySubject(1);
+  const capSubject = new ReplaySubject(1);
 
   beforeEach(async(() => {}));
 
@@ -32,10 +32,10 @@ describe("CamplNgxLocalnavMenuComponent", () => {
     });
     fixture = TestBed.createComponent(TestContainerComponent);
     component = fixture.componentInstance;
-    mymenu = fixture.debugElement.query(By.css("campl-ngx-localnav-menu"));
+    mymenu = fixture.debugElement.query(By.css('campl-ngx-localnav-menu'));
   });
 
-  it("should create", () => {
+  it('should create', () => {
     capSubject.next({ supported: true });
     expect(component).toBeTruthy();
   });

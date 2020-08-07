@@ -4,24 +4,24 @@ import {
   TestBed,
   fakeAsync,
   tick
-} from "@angular/core/testing";
+} from '@angular/core/testing';
 
-import { CamplNgxMessagesComponent } from "./campl-ngx-messages.component";
+import { CamplNgxMessagesComponent } from './campl-ngx-messages.component';
 
-import { By } from "@angular/platform-browser";
-import { DebugElement, NO_ERRORS_SCHEMA, Component, Input, OnInit } from "@angular/core";
+import { By } from '@angular/platform-browser';
+import { DebugElement, NO_ERRORS_SCHEMA, Component, Input, OnInit } from '@angular/core';
 
-import { RouterTestingModule } from "@angular/router/testing"; //spy
+import { RouterTestingModule } from '@angular/router/testing'; // spy
 import { Message } from '../models/message';
 
-//import { CamplNgxMessageComponent } from "../campl-ngx-message/campl-ngx-message.component";
+// import { CamplNgxMessageComponent } from '../campl-ngx-message/campl-ngx-message.component';
 
 
-describe("CamplNgxMessagesComponent", () => {
+describe('CamplNgxMessagesComponent', () => {
   let component: CamplNgxMessagesComponent;
   let fixture: ComponentFixture<CamplNgxMessagesComponent>;
   let notification_panel: DebugElement;
-  let close_button: DebugElement;
+  // const close_button: new DebugElement();
 
   @Component({
     selector: 'campl-ngx-message',
@@ -44,7 +44,7 @@ describe("CamplNgxMessagesComponent", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule], //, CamplNgxMessageComponent],
+      imports: [RouterTestingModule], // CamplNgxMessageComponent],
       declarations: [
         CamplNgxMessagesComponent,
         CamplNgxMessageComponent],
@@ -53,15 +53,15 @@ describe("CamplNgxMessagesComponent", () => {
 
     fixture = TestBed.createComponent(CamplNgxMessagesComponent);
     notification_panel = fixture.debugElement.query(
-      By.css(".campl-notifications-panel")
+      By.css('.campl-notifications-panel')
     );
     component = fixture.componentInstance;
-    component.message_log = [{ value: "Test Message 1", type: 'alert' }];
+    component.message_log = [{ value: 'Test Message 1', type: 'alert' }];
     component.show = { 'alert': false };
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
@@ -70,14 +70,14 @@ describe("CamplNgxMessagesComponent", () => {
     // set the message log and count the number of messages created
   })
 
-  xit("messages hidden when close clicked", fakeAsync(() => {
+  xit('messages hidden when close clicked', fakeAsync(() => {
     // THis needs moving to the campl-ngx-message component
 
-    //spyOn(component, "hideMessages"); //if you spy the function will not be called!
+    // spyOn(component, 'hideMessages'); // if you spy the function will not be called!
 
-    //find our panel
-    let panel_select = By.css(".campl-notifications-panel");
-    let close_btn_select = By.css(".campl-close-panel");
+    // find our panel
+    const panel_select = By.css('.campl-notifications-panel');
+    const close_btn_select = By.css('.campl-close-panel');
 
     component.toggleMessages('alert'); // should now be set to true
     fixture.detectChanges(); // this can timeout if no changes occur?
@@ -87,16 +87,16 @@ describe("CamplNgxMessagesComponent", () => {
 
     expect(fixture.debugElement.query(close_btn_select)).not.toBeNull(); //
 
-    //calling the nativeElement.click() event causes the tets to re-run ?inside the tests?
-    //close_button.nativeElement.click();
+    // calling the nativeElement.click() event causes the tets to re-run ?inside the tests?
+    // close_button.nativeElement.click();
 
     fixture.debugElement
       .query(close_btn_select)
-      .triggerEventHandler("click", { button: 0 });
+      .triggerEventHandler('click', { button: 0 });
     tick();
-    //alternatives:
-    //component.hideMessages();
-    //component.show_messages = false;
+    // alternatives:
+    // component.hideMessages();
+    // component.show_messages = false;
 
     fixture.detectChanges(); // this can timeout if no changes occur?
 
