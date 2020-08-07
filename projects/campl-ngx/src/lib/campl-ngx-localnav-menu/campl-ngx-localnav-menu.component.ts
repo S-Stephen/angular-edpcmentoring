@@ -14,8 +14,7 @@ import { CamplNgxLocalmenuService } from '../services/campl-ngx-localmenu.servic
   styleUrls: ['./campl-ngx-localnav-menu.component.css']
 })
 export class CamplNgxLocalnavMenuComponent implements OnInit {
-  @Input('menu')
-  menu;
+  @Input() menu;
   active = false;
   capabilities: any;
   // active: boolean = false;

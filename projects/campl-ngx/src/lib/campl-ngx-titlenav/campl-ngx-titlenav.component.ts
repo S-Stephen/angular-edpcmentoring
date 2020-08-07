@@ -47,7 +47,7 @@ export class CamplNgxTitlenavComponent implements OnInit {
     // this.nav_menu$.subscribe(vals => alert('values received: ' + vals));
   }
 
-  ngAfterViewChecked() {
+  AfterViewChecked() {
     //    if (this.currentMenu !== this.childMenu.nav_menu) {
     // The issue here is that the IIFE is not idempotent and
     // there appears to be a grandual render of the menu resulting in multiple calls

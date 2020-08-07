@@ -24,7 +24,7 @@ import { CamplService } from '../services/campl.service';
 @Directive({
   selector: '[routerLink]'
 })
-export class RouterLinkDirectiveStub {
+export class RouterLinkStubDirective {
   @Input('routerLink') linkParams: any;
   navigatedTo: any = null;
 
@@ -44,7 +44,7 @@ export class RouterLinkDirectiveStub {
     </div>
   `
 })
-class TestQuicklinks {
+class TestQuicklinksComponent {
   someCode() {
     console.log('clicked container element');
   }
@@ -65,15 +65,15 @@ class MockCamplService {
 describe('CamplNgxQuicklinksComponent', () => {
   let component: CamplNgxQuicklinksComponent;
   let fixture: ComponentFixture<CamplNgxQuicklinksComponent>;
-  let fixture_outer: ComponentFixture<TestQuicklinks>;
+  let fixture_outer: ComponentFixture<TestQuicklinksComponent>;
   let linkToggle: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        TestQuicklinks,
+        TestQuicklinksComponent,
         CamplNgxQuicklinksComponent,
-        RouterLinkDirectiveStub
+        RouterLinkStubDirective
       ],
       providers: [{ provide: CamplService, useClass: MockCamplService }]
     }).compileComponents();
@@ -81,7 +81,7 @@ describe('CamplNgxQuicklinksComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CamplNgxQuicklinksComponent);
-    fixture_outer = TestBed.createComponent(TestQuicklinks);
+    fixture_outer = TestBed.createComponent(TestQuicklinksComponent);
     component = fixture.componentInstance;
     linkToggle = fixture.debugElement.query(By.css('.campl-quicklinks'));
     fixture.detectChanges();
