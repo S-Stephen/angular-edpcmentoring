@@ -67,6 +67,10 @@ Then to start the 'showcase':
 ng serve
 ```
 
+Run linter on the source code via:
+```
+ng lint campl-ngx
+```
 
 To attach and run a debugger take a look at: https://medium.com/@MarkPieszak/debugging-angular-cli-inside-vscode-with-browser-preview-8dcc4b18ed64
 
