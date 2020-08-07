@@ -3967,7 +3967,7 @@ caption {
 	.campl-quicklinks-list li {
 		margin: 0;
 		background: #323232;
-		bckgrdimg: linear-gradient(bottom, rgb(50, 50, 50) 17%, rgb(59, 59, 59) 59%);
+		bckgrdimg: linear-gradient(to bottom, rgb(50, 50, 50) 17%, rgb(59, 59, 59) 59%);
 		bckgrdimg: -o-linear-gradient(bottom, rgb(50, 50, 50) 17%, rgb(59, 59, 59) 59%);
 		bckgrdimg: -moz-linear-gradient(bottom, rgb(50, 50, 50) 17%, rgb(59, 59, 59) 59%);
 		bckgrdimg: -webkit-linear-gradient(bottom, rgb(50, 50, 50) 17%, rgb(59, 59, 59) 59%);
@@ -3985,7 +3985,7 @@ caption {
 	.campl-home-link-container:focus,
 	.campl-quicklinks-list li:focus {
 		background: #2a2a2a;
-		bckgrdimg: linear-gradient(bottom, rgb(36, 36, 36) 20%, rgb(42, 42, 42) 80%);
+		bckgrdimg: linear-gradient(to bottom, rgb(36, 36, 36) 20%, rgb(42, 42, 42) 80%);
 		bckgrdimg: -o-linear-gradient(bottom, rgb(36, 36, 36) 20%, rgb(42, 42, 42) 80%);
 		bckgrdimg: -moz-linear-gradient(bottom, rgb(36, 36, 36) 20%, rgb(42, 42, 42) 80%);
 		bckgrdimg: -webkit-linear-gradient(bottom, rgb(36, 36, 36) 20%, rgb(42, 42, 42) 80%);
@@ -4058,7 +4058,7 @@ caption {
 	.campl-global-navigation-container li a:focus,
 	.campl-global-navigation-container li a:hover {
 		background: #292929;
-		bckgrdimg: linear-gradient(bottom, rgb(40, 40, 40) 20%, rgb(41, 41, 41) 80%);
+		bckgrdimg: linear-gradient(to bottom, rgb(40, 40, 40) 20%, rgb(41, 41, 41) 80%);
 		bckgrdimg: -o-linear-gradient(bottom, rgb(40, 40, 40) 20%, rgb(41, 41, 41) 80%);
 		bckgrdimg: -moz-linear-gradient(bottom, rgb(40, 40, 40) 20%, rgb(41, 41, 41) 80%);
 		bckgrdimg: -webkit-linear-gradient(bottom, rgb(40, 40, 40) 20%, rgb(41, 41, 41) 80%);
