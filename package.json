@@ -1,6 +1,6 @@
 {
   "name": "projectlight-ngx",
-  "version": "9.0.6",
+  "version": "9.0.7",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
