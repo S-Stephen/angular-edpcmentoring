@@ -1,37 +1,62 @@
 <form [formGroup]="myFormGroup">
 
-    <br />
-    <campl-ngx-input-text [label]="'A text box'" [placeholder]="'Enter text min:5 max:20'" formControlName="mytext"
-        [validator]="myFormGroup.get('mytext').validator">
-    </campl-ngx-input-text>
-    <mat-error *ngIf="myFormGroup.get('mytext').invalid">Not valid! {{myFormGroup.get('mytext').value}}</mat-error>
+    <div class="flex-container">
 
-    <br />
-    <campl-ngx-input-text [label]="'A text box'" [placeholder]="'a text area with no validators'" formControlName="mytext1">
-    </campl-ngx-input-text>
-    <mat-error *ngIf="myFormGroup.get('mytext1').invalid">Not valid! {{myFormGroup.get('mytext1').value}}</mat-error>
-
+        <br />
+        <div class="half">
+            <br />
+            <campl-ngx-input-text [label]="'A text box'" [placeholder]="'Enter text min:5 max:20'"
+                formControlName="mytext" [validator]="myFormGroup.get('mytext').validator">
+            </campl-ngx-input-text>
+            <mat-error *ngIf="myFormGroup.get('mytext').invalid">Not valid! {{myFormGroup.get('mytext').value}}
+            </mat-error>
+        </div>
+        <div class="half">
+            <br />
+            <campl-ngx-input-text [label]="'A text box'" [placeholder]="'a text area with no validators'"
+                formControlName="mytext1">
+            </campl-ngx-input-text>
+            <mat-error *ngIf="myFormGroup.get('mytext1').invalid">Not valid! {{myFormGroup.get('mytext1').value}}
+            </mat-error>
+        </div>
+    </div>
     <br />
     <campl-ngx-input-textarea [label]="'A textarea box'" [placeholder]="'no validators'" formControlName="mytextarea">
     </campl-ngx-input-textarea>
-    <mat-error *ngIf="myFormGroup.get('mytextarea').invalid">Not valid! {{myFormGroup.get('mytextarea').value}}</mat-error>
+    <mat-error *ngIf="myFormGroup.get('mytextarea').invalid">Not valid! {{myFormGroup.get('mytextarea').value}}
+    </mat-error>
 
     <br />
-    <campl-ngx-input-email [label]="'Enter an Engineering email'" [placeholder]="'foo@eng.cam.ac.uk'" formControlName="myemail"
-        [validator]="myFormGroup.get('myemail').validator"></campl-ngx-input-email>
+    <campl-ngx-input-email [label]="'Enter an Engineering email'" [placeholder]="'foo@eng.cam.ac.uk'"
+        formControlName="myemail" [validator]="myFormGroup.get('myemail').validator"></campl-ngx-input-email>
     <mat-error *ngIf="myFormGroup.get('myemail').invalid">Required, Engineering email</mat-error>
     <br />
 
-    <campl-ngx-input-reg-select formControlName="myselect" [label]="'Choose an option'"
-        [options]="['one','two','three']" [validator]="myFormGroup.get('myselect').validator">
-    </campl-ngx-input-reg-select>
-    <mat-error *ngIf="myFormGroup.get('myselect').dirty && myFormGroup.get('myselect').invalid">Required</mat-error>
+    <div class="flex-container">
+
+        <div class="half">
+            <br/>
+            <campl-ngx-input-reg-select formControlName="myselect" [label]="'Choose an option'"
+                [options]="['one','two','three']" [validator]="myFormGroup.get('myselect').validator">
+            </campl-ngx-input-reg-select>
+            <mat-error *ngIf="myFormGroup.get('myselect').dirty && myFormGroup.get('myselect').invalid">Required
+            </mat-error>
+        </div>
+        <div class="half">
+            <br />
+
+            <campl-ngx-input-reg-select formControlName="myselectobjs" [label]="'Choose an object'"
+                [options]="[{value:'one',id:1},{value:'two',id:2},{value:'three',id:3}]"
+                [validator]="myFormGroup.get('myselectobjs').validator">
+            </campl-ngx-input-reg-select>
+            <mat-error *ngIf="myFormGroup.get('myselectobjs').dirty && myFormGroup.get('myselectobjs').invalid">Required
+            </mat-error>
+
+        </div>
+    </div>
+
     <br />
 
-    <campl-ngx-input-reg-select formControlName="myselectobjs" [label]="'Choose an object'"
-        [options]="[{value:'one',id:1},{value:'two',id:2},{value:'three',id:3}]" [validator]="myFormGroup.get('myselectobjs').validator">
-    </campl-ngx-input-reg-select>
-    <mat-error *ngIf="myFormGroup.get('myselectobjs').dirty && myFormGroup.get('myselectobjs').invalid">Required</mat-error>
     <br />
 
     <campl-ngx-input-autocomplete formControlName="auto" [label]="'Auto complete - Choose or create'"
@@ -47,7 +72,8 @@
     <br>
     <button mat-raised-button color="primary" (click)="save()">mat-raised-button Primary - formAlert</button>
 
-    <button mat-raised-button color="accent" (click)="openSnackBar('alert snackbar','close')">mat-raised-button accent - open snackbar</button>
+    <button mat-raised-button color="accent" (click)="openSnackBar('alert snackbar','close')">mat-raised-button accent -
+        open snackbar</button>
 
     <br>
     <br>
@@ -56,3 +82,29 @@
     <button mat-stroked-button color="accent">mat-stroked-button accent</button>
 
 </form>
+
+To provide a two column layout for input fields see see the style below:
+
+<pre>
+    .flex-container &#123;
+        display: flex;
+        flex-wrap: wrap;
+        //width: 50%;
+        &#125;
+      
+     .flex-container > div &#123;
+        margin: 5px;
+        text-align: center;
+        &#125;
+      .half &#123;
+          width: 48%;
+          min-width: 250px
+          &#125;
+    
+      ::ng-deep &#123;
+          .mat-form-field&#123;
+              width: 100%;
+              //min-width: 300px; 
+              &#125;
+          &#125;
+</pre>
