@@ -1,6 +1,6 @@
 <!-- input menu -->
-<a href="#" style="position: relative" class="campl-sub" [ngClass]="{'touch':capabilities['mobile_layout']}"
-  (click)="forward()">{{ menu.label }}
+<a [routerLink]="" style="position: relative" class="campl-sub" [ngClass]="{'touch':capabilities['mobile_layout']}"
+  (click)="forward();">{{ menu.label }}
   <span *ngIf="capabilities['supported']" class="campl-menu-indicator campl-fwd-btn"></span>
 </a>
 <ul class=" campl-unstyled-list local-dropdown-menu" [ngStyle]="list_style">
