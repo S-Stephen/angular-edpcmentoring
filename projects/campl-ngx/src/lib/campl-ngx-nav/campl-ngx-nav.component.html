@@ -20,7 +20,7 @@
       <!-- top UL-->
       <li #navMenuID *ngFor="let menu of (nav_menu$|async).subMenus" [ngClass]="{'campl-sub':menu.subItems.length>0}"
         camplTopListHover class="campl-top">
-        <a *ngIf="menu.subItems.length==0" href="{{menu.link}}" style="position: relative">{{ menu.label }}</a>
+        <a *ngIf="menu.subItems.length==0" [routerLink]="menu.link" style="position: relative">{{ menu.label }}</a>
         <campl-ngx-localnav-menu *ngIf="menu.subItems.length>0" [menu]="menu">
         </campl-ngx-localnav-menu>
       </li>

@@ -77,7 +77,7 @@ export class AppComponent {
           link: "/admin",
           subItems: [
             {
-              label: "admin1",
+              label: "admin1Parent",
               link: "/admin1",
               subItems: [
                 { label: "admin1a", link: "/admin1a", subItems: [] },
