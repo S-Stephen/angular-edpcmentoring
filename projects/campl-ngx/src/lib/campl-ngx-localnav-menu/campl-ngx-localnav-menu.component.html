@@ -8,12 +8,12 @@
   <!-- .campl-top items label link to 'Back to section home' -->
   <!-- other label link to  $(this).parent().children(".campl-title").children("a").html() -->
   <!--To do change text here when not campl-top to include section name-->
-  <li class="campl-title"><a href="' {{menu.link}} '">{{ menu.label }}</a></li>
+  <li class="campl-title"><a [routerLink]="" >{{ menu.label }}</a></li>
   <li class="campl-back-link" (click)="back()"><a href="#"><span
         class="campl-back-btn campl-menu-indicator"></span>Back</a></li>
   <li *ngFor="let subm of menu.subItems" [ngClass]="{'campl-sub':true}" camplTopListHover>
     <!--disply the item-->
-    <a *ngIf="subm.subItems.length==0" href=" {{subm.link}}">{{subm.label}}</a>
+    <a *ngIf="subm.subItems.length==0" [routerLink]="subm.link">{{subm.label}}</a>
     <!--include another tier-->
     <campl-ngx-localnav-menu *ngIf="subm.subItems.length>0" [menu]="subm">
     </campl-ngx-localnav-menu>
