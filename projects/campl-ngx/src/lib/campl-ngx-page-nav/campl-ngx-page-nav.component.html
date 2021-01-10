@@ -1,0 +1,9 @@
+<div class="Aligner">
+  <div class="mat-h3 Aligner-item">
+    <h3>
+      <span *ngIf="index>0" id="prevNav"  class="indexNav" (click)="navigatePrevious()"> Previous < </span>
+          <span id="enumHeading">{{ heading }}</span><span *ngIf="displayValue">{{ values[index].printOut() }}</span>
+      <span *ngIf="index<values.length-1" class="indexNav" id="nextNav" (click)="navigateNext()"> > Next</span>
+    </h3>
+  </div>
+</div>

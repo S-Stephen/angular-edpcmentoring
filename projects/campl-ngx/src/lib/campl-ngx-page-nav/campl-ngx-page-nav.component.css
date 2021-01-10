@@ -1,0 +1,15 @@
+/* https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/ */
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Aligner-item {
+  max-width: 50%;
+}
+
+.indexNav {
+  cursor: pointer;
+  font-weight: normal;
+}

@@ -1,0 +1,15 @@
+
+<h2>Navigate within objects:</h2>
+<!--{{objects}}-->
+<hr />
+<campl-ngx-page-nav [heading]="headingObjects" [initialIndex]="3" [values]="objects" (current)="myobject=$event">
+</campl-ngx-page-nav>
+
+<h3>Currently viewing: '{{myobject.printOut()}} ID: {{myobject.myobj.id}}'</h3>
+
+<div *ngFor="let obj of objects">
+{{obj.printOut()}}
+</div>
+
+
+<button mat-raised-button>do nothing</button>
