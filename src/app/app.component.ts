@@ -108,7 +108,8 @@ export class AppComponent {
           label: "Examples",
           link: "",
           subItems: [
-            { label: "Form fields", link: "/examples/formfields/", subItems: [] }
+            { label: "Form fields", link: "/examples/formfields/", subItems: [] },
+            { label: "Page Nav", link: "/examples/pagenav/", subItems: [] }
           ]
         };
         let nm: NavMenu = {

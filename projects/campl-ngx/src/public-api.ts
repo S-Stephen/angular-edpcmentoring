@@ -30,3 +30,4 @@ export * from './lib/campl-ngx.component';
 export * from './lib/campl-ngx-input/text/text.component';
 export * from './lib/campl-ngx-input/textarea/textarea.component';
 export * from './lib/campl-ngx-snackbar/campl-ngx-snackbar.component';
+export * from './lib/campl-ngx-page-nav/campl-ngx-page-nav.component';

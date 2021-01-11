@@ -42,6 +42,7 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TableComponent } from './table/table.component';
 import { FormfieldsComponent } from './examples/formfields/formfields.component';
+import { PagenavComponent } from './examples/pagenav/pagenav.component';
 
 /**
  * config object to setup the menus we would like to see
@@ -64,7 +65,7 @@ import { FormfieldsComponent } from './examples/formfields/formfields.component'
 }; */
 
 @NgModule({
-  declarations: [AppComponent, ContenteditableDirective, MessagesComponent, HomeComponent, TableComponent, FormfieldsComponent],
+  declarations: [AppComponent, ContenteditableDirective, MessagesComponent, HomeComponent, TableComponent, FormfieldsComponent, PagenavComponent],
   imports: [
     BrowserModule,
     RoutingModule,
