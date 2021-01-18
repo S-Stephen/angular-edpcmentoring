@@ -36,7 +36,7 @@
 
         <div class="half">
             <br/>
-            <campl-ngx-input-reg-select formControlName="myselect" [label]="'Choose an option'"
+            <campl-ngx-input-reg-select id="selectArr" formControlName="myselect" [label]="'Choose an option'"
                 [options]="['one','two','three']" [validator]="myFormGroup.get('myselect').validator">
             </campl-ngx-input-reg-select>
             <mat-error *ngIf="myFormGroup.get('myselect').dirty && myFormGroup.get('myselect').invalid">Required
@@ -45,7 +45,7 @@
         <div class="half">
             <br />
 
-            <campl-ngx-input-reg-select formControlName="myselectobjs" [label]="'Choose an object'"
+            <campl-ngx-input-reg-select id="selectObj" formControlName="myselectobjs" [label]="'Choose an object'"
                 [options]="[{value:'one',id:1},{value:'two',id:2},{value:'three',id:3}]"
                 [validator]="myFormGroup.get('myselectobjs').validator">
             </campl-ngx-input-reg-select>
