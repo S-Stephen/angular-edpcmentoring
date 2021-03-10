@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CamplNgxEmailInputComponent } from './email-input.component';
 import { MatFormField, MatLabel, MatError } from '@angular/material/form-field';
@@ -10,7 +10,7 @@ describe('CamplNgxEmailInputComponent', () => {
   let component: CamplNgxEmailInputComponent;
   let fixture: ComponentFixture<CamplNgxEmailInputComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CamplNgxEmailInputComponent, MatFormField, MatLabel, MatError, MatInput  ],
       imports: [ BrowserAnimationsModule ],

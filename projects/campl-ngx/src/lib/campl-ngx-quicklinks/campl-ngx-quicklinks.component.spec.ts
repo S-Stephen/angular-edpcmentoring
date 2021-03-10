@@ -1,10 +1,4 @@
-import {
-  async,
-  ComponentFixture,
-  TestBed,
-  fakeAsync,
-  tick
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick, waitForAsync } from '@angular/core/testing';
 
 import { By } from '@angular/platform-browser';
 import { CamplNgxQuicklinksComponent } from './campl-ngx-quicklinks.component';
@@ -68,7 +62,7 @@ describe('CamplNgxQuicklinksComponent', () => {
   let fixture_outer: ComponentFixture<TestQuicklinksComponent>;
   let linkToggle: DebugElement;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         TestQuicklinksComponent,

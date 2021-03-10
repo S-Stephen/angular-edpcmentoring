@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MatAutocomplete } from '@angular/material/autocomplete';
 import { CamplNgxAutocompleteComponent } from './autocomplete.component';
@@ -8,7 +8,7 @@ describe('CamplNgxAutocompleteComponent', () => {
   let component: CamplNgxAutocompleteComponent;
   let fixture: ComponentFixture<CamplNgxAutocompleteComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CamplNgxAutocompleteComponent, MatAutocomplete ],
       schemas: [NO_ERRORS_SCHEMA]

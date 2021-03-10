@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { By } from '@angular/platform-browser';
 import { CamplNgxLocalfooterComponent } from './campl-ngx-localfooter.component';
@@ -31,7 +31,7 @@ describe('CamplNgxLocalfooterComponent', () => {
   let component: CamplNgxLocalfooterComponent;
   let fixture: ComponentFixture<CamplNgxLocalfooterComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [CamplNgxLocalfooterComponent],
       providers: [{ provide: CamplService, useClass: MockCampl }]
