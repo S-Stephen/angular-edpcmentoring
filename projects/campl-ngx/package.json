@@ -12,8 +12,8 @@
     "@angular/common": "^11",
     "@angular/core": "^11",
     "@angular/material": "^11",
-    "rxjs": "^6.5.3",
-    "rxjs-compat": "^6.5.3"
+    "rxjs": "^6.6.6",
+    "rxjs-compat": "^6.6.6"
   },
   "schematics": "./schematics/collection.json",
   "devDependencies": {
