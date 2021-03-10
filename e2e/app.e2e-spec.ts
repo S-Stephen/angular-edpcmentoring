@@ -9,6 +9,7 @@ describe('projectlight-ngx App', () => {
 
   it('should display page title',async  () => {
     page.navigateTo();
-    expect(await page.getPageTitleText()).toEqual('Your title here');
+    // The configuration from environment common ha sbeen used:
+    expect(await page.getPageTitleText()).toEqual('Test app');
   });
 });
