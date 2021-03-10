@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Component, Input } from '@angular/core';
 import { CamplNgxTitlenavComponent } from './campl-ngx-titlenav.component';
 import { NavMenu } from '../models/nav-menu';
@@ -35,7 +35,7 @@ describe('CamplNgxTitlenavComponent', () => {
   let fakeCapabilities;
   const capSubject = new ReplaySubject(1);
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     fakeCapabilities = {
       modernizrSource: capSubject.asObservable()
     };

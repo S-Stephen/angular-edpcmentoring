@@ -7,8 +7,9 @@ describe('projectlight-ngx App', () => {
     page = new EdpcmentoringNg8Page();
   });
 
-  it('should display page title', () => {
+  it('should display page title',async  () => {
     page.navigateTo();
-    expect(page.getPageTitleText()).toEqual('Test app');
+    // The configuration from environment common ha sbeen used:
+    expect(await page.getPageTitleText()).toEqual('Test app');
   });
 });

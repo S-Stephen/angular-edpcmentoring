@@ -1,10 +1,4 @@
-import {
-  async,
-  ComponentFixture,
-  TestBed,
-  tick,
-  fakeAsync
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed, tick, fakeAsync, waitForAsync } from '@angular/core/testing';
 
 import { CamplNgxHeaderComponent } from './campl-ngx-header.component';
 
@@ -231,7 +225,7 @@ describe('CamplNgxHeaderComponent', () => {
   let component: CamplNgxHeaderComponent;
   let fixture: ComponentFixture<CamplNgxHeaderComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [CamplNgxHeaderComponent, CamplNgxQuicklinksComponent],

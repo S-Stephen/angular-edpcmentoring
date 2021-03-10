@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CamplNgxNavComponent } from './campl-ngx-nav.component';
 import { CamplNgxLocalnavMenuComponent } from '../campl-ngx-localnav-menu/campl-ngx-localnav-menu.component';
@@ -22,7 +22,7 @@ describe('CamplNgxNavComponent', () => {
   let fakeCapabilities;
   const capSubject = new ReplaySubject(1);
 
-  beforeEach(async(() => {}));
+  beforeEach(waitForAsync(() => {}));
 
   beforeEach(() => {
     fakeCapabilities = {

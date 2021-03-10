@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LibCamplNgxComponent } from './campl-ngx.component';
 
@@ -6,7 +6,7 @@ describe('CamplComponent', () => {
   let component: LibCamplNgxComponent;
   let fixture: ComponentFixture<LibCamplNgxComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [LibCamplNgxComponent]
     }).compileComponents();

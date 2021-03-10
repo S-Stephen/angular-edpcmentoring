@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CamplNgxTableComponent } from './campl-ngx-table.component';
 
@@ -9,7 +9,7 @@ describe('CamplNgxTableComponent', () => {
   let component: CamplNgxTableComponent;
   let fixture: ComponentFixture<CamplNgxTableComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [CamplNgxTableComponent]
     }).compileComponents();

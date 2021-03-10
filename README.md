@@ -19,13 +19,13 @@ If you are not loading from gitpod then to get the prototype application running
 ```
 npm install
 ng build campl-ngx
-cd .\projects\campl-ngx\
+cd ./projects/campl-ngx
 npm install
 npm run build
-cd ..\..\dist\campl-ngx\
+cd ../../dist/campl-ngx/
 npm pack
-cd ..\..\
-npm install .\dist\campl-ngx\campl-ngx*.tgz
+cd ../../
+npm install ./dist/campl-ngx/campl-ngx*.tgz
 ng add campl-ngx
 ```
 
