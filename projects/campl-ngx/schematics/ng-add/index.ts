@@ -273,20 +273,20 @@ function configureAppModule(_options: any): Rule {
       template({}),
       move('/src/test')
     ]);
-    // console.log(name);
-    // console.log(filesToMove);
+    // //;
+    // //;
     // const rule = mergeWith(sourceFiles, MergeStrategy.Overwrite);
     // move our files into the src/assets folder
     // if we wish to have them elsewhere we would need to also edit angular.json
 
-    tree.getDir('./src/assets_moved').visit(filepath => {
-      console.log('DEBUG filepath: ' + filepath);
+    tree.getDir('./src/assets_moved').visit(() => {
+      //;
     });
 
     // _context.addTask(new NodePackageInstallTask());
-    console.log(defaultProjectPath);
-    console.log(sourceFiles);
-    // console.log(project);
+    //;
+    //;
+    // //;
     // tree.create('hello1.js', `console.log('hello world:')`);
     const myrule = mergeWith(sourceFiles, MergeStrategy.Overwrite);
     return myrule(tree, _context);

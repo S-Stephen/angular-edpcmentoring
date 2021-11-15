@@ -30,7 +30,7 @@ export class CamplNgxTitlenavComponent implements OnInit {
   nav_menu: NavMenu;
 
   public message: string;
-  private currentMenu: NavMenu = { title: 'blank', subMenus: [] };
+  private currentMenu: NavMenu = new NavMenu().deserialize({ title: 'blank', subMenus: [] });
 
   // Query for a VIEW child of type `ChildViewComponent`
   @ViewChild(CamplNgxNavComponent)

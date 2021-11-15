@@ -60,23 +60,23 @@ export class AppComponent {
         //return { title: "some title", subMenu: [] };
 
         //user.first_name = "modified";
-        let mHome: NavMenuItem = {
+        let mHome: NavMenuItem = new NavMenuItem().deserialize( {
           label: "Home",
           link: "/home/",
           subItems: []
-        };
-        let mMatch: NavMenuItem = {
+        });
+        let mMatch: NavMenuItem =  new NavMenuItem().deserialize( {
           label: "Test",
           link: "/test/",
           subItems: [{ label: "messages", link: "/test/messages", subItems: [] },
                      { label: "autocomplete", link: "/test/autocomplete", subItems: [] },
                      { label: "table", link: "/test/table", subItems: [] }]
-        };
-        let mAdmin: NavMenuItem = {
+        });
+        let mAdmin: NavMenuItem =  new NavMenuItem().deserialize( {
           label: "Admin",
           link: "/admin",
           subItems: [
-            {
+            new NavMenuItem().deserialize({
               label: "admin1Parent",
               link: "/admin1",
               subItems: [
@@ -92,30 +92,30 @@ export class AppComponent {
                 //},
                 { label: "admin1d", link: "/admin1d", subItems: [] }
               ]
-            },
-            { label: "admin2", link: "/admin2", subItems: [] },
-            { label: "admin3", link: "/admin3", subItems: [] }
+            }),
+            new NavMenuItem().deserialize({ label: "admin2", link: "/admin2", subItems: [] }),
+            new NavMenuItem().deserialize({ label: "admin3", link: "/admin3", subItems: [] })
           ]
-        };
-        let mLogout: NavMenuItem = {
+        });
+        let mLogout: NavMenuItem =  new NavMenuItem().deserialize({
           label: user.last_name + " (" + user.username + ")",
           link: "",
           subItems: [
-            { label: "Log out", link: "/accounts/logout/", subItems: [] }
+            new NavMenuItem().deserialize({ label: "Log out", link: "/accounts/logout/", subItems: [] })
           ]
-        };
-        let mExamples: NavMenuItem = {
+        });
+        let mExamples: NavMenuItem =  new NavMenuItem().deserialize({
           label: "Examples",
           link: "",
           subItems: [
-            { label: "Form fields", link: "/examples/formfields/", subItems: [] },
-            { label: "Page Nav", link: "/examples/pagenav/", subItems: [] }
+            new NavMenuItem().deserialize({ label: "Form fields", link: "/examples/formfields/", subItems: [] }),
+            new NavMenuItem().deserialize({ label: "Page Nav", link: "/examples/pagenav/", subItems: [] })
           ]
-        };
-        let nm: NavMenu = {
+        });
+        let nm: NavMenu =  new NavMenu().deserialize({
           title: "Navigation Menu",
           subMenus: [mHome, mExamples, mMatch, mAdmin, mLogout]
-        };
+        });
         return nm;
       })
     );

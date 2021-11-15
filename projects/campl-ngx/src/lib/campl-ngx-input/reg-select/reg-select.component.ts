@@ -24,6 +24,7 @@ export class CamplNgxRegSelectComponent implements OnInit, ControlValueAccessor 
   @Input() label: string
   @Input() placeholder: string
   @Input() validator: ValidatorFn
+  @Input('aria-label') ariaLabel: string
   public selectForm: FormGroup
 
   value;

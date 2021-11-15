@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill" [formGroup]="selectForm">
     <mat-label>{{label}}</mat-label>
-    <mat-select formControlName="selected">
+    <mat-select formControlName="selected" aria-label={{ariaLabel}}>
         <mat-option *ngFor="let option of options" [value]="option.id? option.id : option">
             {{option.value? option.value : option}}
         </mat-option>

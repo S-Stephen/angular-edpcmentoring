@@ -164,10 +164,10 @@ Also required is to replace the index.html file with something like the followin
 Current values are:
 
 - page_title
-- local_footer_col1: MenuItem[]
-- local_footer_col2: MenuItem[]
-- local_footer_col3: MenuItem[]
-- local_footer_col4: MenuItem[]
+- local_footer_col1: NavMenuItem[]
+- local_footer_col2: NavMenuItem[]
+- local_footer_col3: NavMenuItem[]
+- local_footer_col4: NavMenuItem[]
 
 **To pass dynamic config** eg menus options which change based on user privilege:
 
